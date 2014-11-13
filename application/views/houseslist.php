@@ -90,5 +90,10 @@ foreach($results as $k){
          </a>
 ';
         }
+
+$this->load->library('pagination');
+$this->pagination->initialize($configs); 
+echo $this->pagination->create_links();
 ?>
+
 </div><div class="clear"></div>

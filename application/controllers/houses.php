@@ -24,7 +24,15 @@ class Houses extends CI_Controller {
         $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 
+        
+        $config['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
+		$config['total_rows'] = $this->Housesm->searchDB("sale",$searchvalue);
+		$config['per_page'] = 40;
+		$data['configs'] = $config;
+
         $this->load->view('houseslist', $data);
+
+
 		$this->load->view('footer');		
 
 	}

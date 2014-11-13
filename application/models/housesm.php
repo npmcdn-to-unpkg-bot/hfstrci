@@ -13,6 +13,15 @@ class Housesm extends CI_Model {
 	 	$query = $this->db->get('feed', $resultsnumber,$startnum);
 		return $query->result();
        }
+
+       function searchDBrows($saletype,$searchquery){
+	 	$this->db->select('full_address_feed');
+		$this->db->where('listing_type_feed =', $saletype);
+	 	$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
+	 	$query = $this->db->get('feed', 500);
+		return $query->num_rows();
+       }
+
         function getredirectUrl($key){
 	 	$this->db->select('url_feed');
 		$this->db->where('key_feed =', $key);
