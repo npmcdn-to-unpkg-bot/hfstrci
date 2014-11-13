@@ -37,11 +37,11 @@ header h1 {float:right;text-align: center;font-family: Calibri, Arial;font-size:
     -moz-box-shadow:    0 0 8px 0 rgba(50, 50, 50, 0.75);
     box-shadow:         0 0 8px 0 rgba(50, 50, 50, 0.75);
     background: #2F712A;
-    background-image: -webkit-linear-gradient(top, #A4C82E, #9AB73A);
-    background-image: -moz-linear-gradient(top, #A4C82E, #9AB73A);
-    background-image: -ms-linear-gradient(top, #A4C82E, #9AB73A);
-    background-image: -o-linear-gradient(top, #A4C82E, #9AB73A);
-    background-image: linear-gradient(to bottom, #A4C82E, #9AB73A);
+    background-image: -webkit-linear-gradient(top, #2F712A, #255B22);
+    background-image: -moz-linear-gradient(top, #2F712A, #255B22);
+    background-image: -ms-linear-gradient(top, #2F712A, #255B22);
+    background-image: -o-linear-gradient(top, #2F712A, #255B22);
+    background-image: linear-gradient(to bottom, #2F712A, #255B22);
     width: 242.5px;
     height: 42px;
     font-family: Calibri, Arial;
@@ -54,11 +54,11 @@ header h1 {float:right;text-align: center;font-family: Calibri, Arial;font-size:
 }
 .search fieldset input[type=submit]:hover {
     background: #255B22;
-    background-image: -webkit-linear-gradient(top, #9AB73A, #A4C82E);
-    background-image: -moz-linear-gradient(top, #9AB73A, #A4C82E);
-    background-image: -ms-linear-gradient(top, #9AB73A, #A4C82E);
-    background-image: -o-linear-gradient(top, #9AB73A, #A4C82E);
-    background-image: linear-gradient(to bottom, #9AB73A, #A4C82E);
+    background-image: -webkit-linear-gradient(top, #255B22, #2F712A);
+    background-image: -moz-linear-gradient(top, #255B22, #2F712A);
+    background-image: -ms-linear-gradient(top, #255B22, #2F712A);
+    background-image: -o-linear-gradient(top, #255B22, #2F712A);
+    background-image: linear-gradient(to bottom, #255B22, #2F712A);
     text-decoration: none;
 }
 .search fieldset h2 {font-family: Calibri, Arial; font-size: 16px; color: #222222;margin: 0 0 10px 0;text-align: center;}
