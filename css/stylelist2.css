@@ -74,7 +74,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 }
 .box-footer a {color:#999;text-decoration: none;text-align: center;display: inline;}
 .box-footer span {font-family: Tahoma, Calibri, Arial;font-size: 15px;line-height: 20px;}
-.box-footer span img {width:30px;}
+.box-footer a img {width:30px;}
 
 
 /* content min-width: 731px;*/
