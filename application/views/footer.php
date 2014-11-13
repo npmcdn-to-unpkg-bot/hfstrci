@@ -5,7 +5,7 @@
         </p>
 </div>
 
-    <div class="box">
+    <div class="box-footer">
         <span class="socialmedia">find us on:</span>
         <a href="#" title="Houses for sale to rent on Facebook.">
             <img src="<?php echo $this->config->base_url(); ?>images/fb.png" alt="Houses for sale to rent on Facebook." title="Houses for sale to rent on Facebook.">
