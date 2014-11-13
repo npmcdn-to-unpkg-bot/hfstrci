@@ -178,8 +178,8 @@ class Houses extends CI_Controller {
 		        	$datalists['searchvalue'] = ucwords(str_replace("-", " ", $queryseachlist));
 		        	$datalists['saletype'] ="For Sale";
 
-		        	$configs['base_url'] = $this->config->base_url().'to-rent/'.$searchvalue.'/';
-				$configs['total_rows'] = $this->Housesm->searchDBrows("rental",$searchvalue);
+		        	$configs['base_url'] = $this->config->base_url().'for-sale/'.str_replace(" ", "-", $queryseachlist).'/';
+				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$queryseachlist);
 				$configs['per_page'] = 30;
 				$this->load->library('pagination');
 				$this->pagination->initialize($configs); 
