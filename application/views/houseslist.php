@@ -90,7 +90,7 @@ foreach($results as $k){
          </a>
 ';
         }
-
+print_r($configs);
 $this->load->library('pagination');
 $this->pagination->initialize($configs); 
 echo $this->pagination->create_links();
