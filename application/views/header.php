@@ -4,7 +4,7 @@
 <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url()."css/".$css; ?>.css" />
 <title><?php echo $title; ?></title>
-<?php echo $js; ?>
+<?php echo $js; //tt ?>
 <script>
             jQuery(document).ready(function() {$("form input[type=submit]").click(function() {
                 $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
