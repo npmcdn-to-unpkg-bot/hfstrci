@@ -68,14 +68,12 @@ header h1 {float:right;text-align: center;font-family: Calibri, Arial;font-size:
 footer .box {text-align: center;}
 footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-align: 130%;padding-right: 15px;padding-bottom: 10px;}
 .box-footer {
-    max-width: 500px;
+   width: 100%;
     margin: 15px auto;
 
 }
-.box-footer p a {border:1px solid #ccc;background:#D7E8D5; padding: 5px 10px;font-family: Tahoma, Calibri, Arial;font-size: 12px; text-decoration: none;line-height:25px;color: #222;margin: 0px 5px 5px 0px;}
-.box-footer p a:hover {text-decoration: underline;}
-.box-footer a {color:#999;text-decoration: none;text-align: center;}
-.box-footer span {display:block;font-family: Tahoma, Calibri, Arial;font-size: 15px;line-height: 20px;}
+.box-footer a {color:#999;text-decoration: none;text-align: center;display: inline;}
+.box-footer span {font-family: Tahoma, Calibri, Arial;font-size: 15px;line-height: 20px;}
 .box-footer span img {width:30px;}
 
 
