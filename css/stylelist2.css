@@ -72,7 +72,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 .box h2 {font-family: Calibri, Arial; font-size: 20px; color: #222222;font-weight: bold; margin: 0;}
 .box h3 {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #222222; margin: 25px 0;}
 
-.box p a {border:1px solid #ccc;background:#E9F7BA; padding: 5px 10px;font-family: Tahoma, Calibri, Arial;font-size: 12px; text-decoration: none;line-height:25px;color: #222;display: inline-block; margin: 0px 5px 5px 0px;}
+.box p a {border:1px solid #ccc;background:#D7E8D5; padding: 5px 10px;font-family: Tahoma, Calibri, Arial;font-size: 12px; text-decoration: none;line-height:25px;color: #222;display: inline-block; margin: 0px 5px 5px 0px;}
 .box p a:hover {text-decoration: underline;}
 .box a {color:#999;text-decoration: none;text-align: center;}
 .box span {display:block;font-family: Tahoma, Calibri, Arial;font-size: 15px;line-height: 20px;}
@@ -85,7 +85,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 .box-list h3 {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #222222; margin: 30px 0 10px;}
 .box-list a h3  {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #333;margin: 10px 5px; text-decoration: none;}
 .box-list a  :hover h3  {color: #265E21; text-decoration: underline;}
-.box-list a :hover.houseslist {border:1px solid #B7DD3B;background: #E9F7BA;}
+.box-list a :hover.houseslist {border:1px solid #B7DD3B;background: #D7E8D5;}
 .box-list a .houseslist {color:#333;padding: 5px;margin: 5px 2px;max-width: 300px;float: left;display: inline;height:470px;border:1px solid #ccc;}
 .houselist-left .imgfloat {float: left;position: absolute;width: 280px;height:25px;opacity: 0.5;filter: alpha(opacity=50);background: #B7DD3B;margin-top: 150px;margin-left: 10px;}
 .houselist-left .imgfloat span {padding-top:5px;padding-left:30px;color: #FFF;font-size: 19px;font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;text-align: center;}
