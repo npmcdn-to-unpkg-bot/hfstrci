@@ -25,10 +25,9 @@ class Houses extends CI_Controller {
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 
         
-        $configs['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
-		$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$searchvalue);
-		$configs['per_page'] = 30;
-						
+		        $configs['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
+				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$searchvalue);
+				$configs['per_page'] = 30;
 				$this->load->library('pagination');
 				$this->pagination->initialize($configs); 
 				$data['pagination'] = $this->pagination->create_links();
@@ -51,6 +50,12 @@ class Houses extends CI_Controller {
         $data['results'] = $this->Housesm->searchDB("rental",$searchvalue,50,$page);
         $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+        		$configs['base_url'] = $this->config->base_url().'to-rent/'.$searchvalue.'/';
+				$configs['total_rows'] = $this->Housesm->searchDBrows("rental",$searchvalue);
+				$configs['per_page'] = 30;
+				$this->load->library('pagination');
+				$this->pagination->initialize($configs); 
+				$data['pagination'] = $this->pagination->create_links();
         $this->load->view('houseslist', $data);
 		$this->load->view('footer');		
 	}
@@ -172,6 +177,14 @@ class Houses extends CI_Controller {
 					$datalists['results'] = $this->Housesm->searchDB("sale",$queryseachlist,50);
 		        	$datalists['searchvalue'] = ucwords(str_replace("-", " ", $queryseachlist));
 		        	$datalists['saletype'] ="For Sale";
+
+		        	$configs['base_url'] = $this->config->base_url().'to-rent/'.$searchvalue.'/';
+				$configs['total_rows'] = $this->Housesm->searchDBrows("rental",$searchvalue);
+				$configs['per_page'] = 30;
+				$this->load->library('pagination');
+				$this->pagination->initialize($configs); 
+				$datalists['pagination'] = $this->pagination->create_links();
+
 					if($searchfirst==true){
 				   		$this->load->view('houseslist', $datalists);
 				   		$this->load->view($viewtogetname,$data);
