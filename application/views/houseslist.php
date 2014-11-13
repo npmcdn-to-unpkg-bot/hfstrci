@@ -91,4 +91,4 @@ foreach($results as $k){
 ';
         }
 ?>
-<div class="clear"></div>
+</div><div class="clear"></div>
