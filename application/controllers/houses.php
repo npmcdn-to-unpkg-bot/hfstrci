@@ -27,8 +27,12 @@ class Houses extends CI_Controller {
         
         $configs['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
 		$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$searchvalue);
-		$configs['per_page'] = 40;
-		$data['configs'] = $configs;
+		$configs['per_page'] = 30;
+						
+				$this->load->library('pagination');
+				$this->pagination->initialize($configs); 
+				$data['pagination'] = $this->pagination->create_links();
+		
 
         $this->load->view('houseslist', $data);
 
