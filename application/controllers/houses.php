@@ -24,7 +24,7 @@ class Houses extends CI_Controller {
         $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 
-        
+//pagination        
 		        $configs['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
 				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$searchvalue);
 				$configs['per_page'] = 30;
@@ -50,6 +50,7 @@ class Houses extends CI_Controller {
         $data['results'] = $this->Housesm->searchDB("rental",$searchvalue,50,$page);
         $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+//pagination
         		$configs['base_url'] = $this->config->base_url().'to-rent/'.$searchvalue.'/';
 				$configs['total_rows'] = $this->Housesm->searchDBrows("rental",$searchvalue);
 				$configs['per_page'] = 30;
@@ -177,7 +178,7 @@ class Houses extends CI_Controller {
 					$datalists['results'] = $this->Housesm->searchDB("sale",$queryseachlist,50);
 		        	$datalists['searchvalue'] = ucwords(str_replace("-", " ", $queryseachlist));
 		        	$datalists['saletype'] ="For Sale";
-
+//pagination
 		        	$configs['base_url'] = $this->config->base_url().'for-sale/'.str_replace(" ", "-", $queryseachlist).'/';
 				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$queryseachlist);
 				$configs['per_page'] = 30;
