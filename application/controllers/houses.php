@@ -210,12 +210,12 @@ class Houses extends CI_Controller {
 	}
 	function getcssname($basename){
 
-        		$this->load->library('user_agent');
-			 if($this->agent->is_mobile()){
-			 		$name = "mobile-$basename";
-			 }else{
+        		//$this->load->library('user_agent');
+			// if($this->agent->is_mobile()){
+			 	//	$name = "mobile-$basename";
+			// }else{
 			 	$name = $basename;
-			 }
+			// }
 			 return $name;
 	}
 	

@@ -69,10 +69,10 @@ footer .box {text-align: center;}
 footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-align: 130%;padding-right: 15px;padding-bottom: 10px;}
 
 /* content min-width: 731px;*/
-.box {width:100%;margin: 15px auto;}
+.box {width:94%;margin: 4%;}
 .box h2 {font-family: Calibri, Arial; font-size: 20px; color: #222222;font-weight: bold; margin: 0;}
 .box h3 {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #222222; margin: 25px 0;}
-
+/* D7E8D5 */
 .box p a {border:1px solid #ccc;background:#D7E8D5; padding: 5px 10px;font-family: Tahoma, Calibri, Arial;font-size: 12px; text-decoration: none;line-height:25px;color: #222;display: inline-block; margin: 0px 5px 5px 0px;}
 .box p a:hover {text-decoration: underline;}
 .box a {color:#999;text-decoration: none;text-align: center;}
@@ -80,7 +80,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 .price {color: #265E21;font-family: Arial;font-size: 17px;font-weight: bold;margin: 15px 0 10px;text-align: center;}
 
 
-.box-list {max-width:100%;margin: 15px 25px;}
+.box-list {max-width:98%;margin: 2% 0 2% 1%;}
 .clear {clear: both;}
 .box-list h2 {font-family: Calibri, Arial; font-size: 20px; color: #222222;font-weight: bold; margin: 0;}
 .box-list h3 {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #222222; margin: 30px 0 10px;}
@@ -139,7 +139,7 @@ a :hover .houseslist-info span  {color: #000; font-size: 14px;}
 .carousel2 li a {text-decoration: none; text-align: center;}
 .carousel2 li a:hover {text-decoration: underline;}
 
-@media (max-width: 738px) {
+@media (max-width: 800px) {
 header h1 {margin: 15px auto;}
 .box {}
 
