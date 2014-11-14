@@ -87,10 +87,10 @@ class Houses extends CI_Controller {
 			$data['country'] = $this->uri->segment(2);
 
 			$data['codespace'] = str_replace("-", " ",$data['code']);
-			$data['areaspace'] = ucwords(str_replace("-", " ",$data['area']));
-			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
-			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
+			$data['areaspace'] = $this->undoiturl($data['area']);
+			$data['townspace'] = $this->undoiturl($data['town']);
+			$data['districtname'] = $this->undoiturl($data['district']);
+			$data['countryspace'] = $this->undoiturl($data['country']);
 
 			
 
@@ -107,18 +107,17 @@ class Houses extends CI_Controller {
 
 		}elseif($this->uri->segment(5) != null){//area level
 
-			
+			$data['controller']=$this;
 			$data['area'] = $this->uri->segment(5);
 			$data['town'] = $this->uri->segment(4);
 			$data['district'] = $this->uri->segment(3);
 			$data['country'] = $this->uri->segment(2);
 
 
-			$data['areaspace'] = ucwords(str_replace("-", " ",$data['area']));
-			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
-			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
-
+			$data['areaspace'] = $this->undoiturl($data['area']);
+			$data['townspace'] = $this->undoiturl($data['town']);
+			$data['districtname'] = $this->undoiturl($data['district']);
+			$data['countryspace'] = $this->undoiturl($data['country']);
 
 
 			$this->load->model('Housesm');
@@ -131,14 +130,14 @@ class Houses extends CI_Controller {
 		}elseif($this->uri->segment(4) != null){//town level
 
 		
-
+$data['controller']=$this;
 			$data['town'] = $this->uri->segment(4);
 			$data['district'] = $this->uri->segment(3);
 			$data['country'] = $this->uri->segment(2);
 
-			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
-			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
+			$data['townspace'] = $this->undoiturl($data['town']);
+			$data['districtname'] = $this->undoiturl($data['district']);
+			$data['countryspace'] = $this->undoiturl($data['country']);
 
 			$this->load->model('Housesm');
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
@@ -149,12 +148,12 @@ class Houses extends CI_Controller {
 			$searchfirst=false;
 
 		}elseif($this->uri->segment(3) != null){//district level
-
+$data['controller']=$this;
 			$data['country'] = $this->uri->segment(2);
 			$data['district'] = $this->uri->segment(3);
 
-			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
-			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
+			$data['districtname'] = $this->undoiturl($data['district']);
+			$data['countryspace'] = $this->undoiturl($data['country']);
 
 			$this->load->model('Housesm');
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
@@ -165,9 +164,9 @@ class Houses extends CI_Controller {
 			$viewtogetname='district';
 
 		}elseif($this->uri->segment(2) != null){//country level
-
+$data['controller']=$this;
 			$data['country'] = $this->uri->segment(2);
-			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
+			$data['countryspace'] = $this->undoiturl($data['country']);
 			$this->load->model('Housesm');
 			$data['results'] = $this->Housesm->getcountrydist($data['country']);
 			$viewtogetname='country';
@@ -218,6 +217,23 @@ class Houses extends CI_Controller {
 			// }
 			 return $name;
 	}
+	function doiturl($i) {
+        $i = strtolower($i);
+        $i = str_replace("-","_",$i);
+      $i = str_replace(" ","-",$i);
+      //$i = str_replace("/","_",$i);
+        return $i;
+    }
+    function undoiturl($i) {
+       // $i = str_replace(" ","-",$i);
+
+        $i = str_replace("-"," ",$i);
+         $i = str_replace("_","-",$i);
+        
+        //$i = str_replace(",","/",$i);
+        $i = ucwords($i);
+        return $i;
+    }
 	
 
 

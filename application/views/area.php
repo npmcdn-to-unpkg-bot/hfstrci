@@ -12,7 +12,7 @@ foreach($results as $k){
            $d = $k->DISTRICT;
            $p = $k->POSTCODE;
            $s = ucwords(strtolower($k->STREET));
-           $href = $this->config->base_url()."houses/$country/$district/$town/$area/".str_replace(" ", "-",$p).".html";
+           $href = $this->config->base_url()."houses/$country/$district/$town/$area/".$controller->doiturl($p).".html";
 
             echo '<a href="'.$href.'" alt="Houses in '.$s.' - '.$p.'" title="Homes in '.$s.' - '.$p.'">Houses in '.$s.' - '.$p.'</a>
                 ';

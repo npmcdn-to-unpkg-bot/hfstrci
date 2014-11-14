@@ -10,7 +10,7 @@ foreach($results as $k){
             $ward = $k->ward;
             $town = ucwords(strtolower($k->town));
             
-            $href = $this->config->base_url()."houses/$country/$district/$town/".str_replace(" ", "-",$ward).".html";
+            $href = $this->config->base_url()."houses/$country/$district/$town/".$controller->doiturl($ward).".html";
 
             echo '<a href="'.$href.'" title="Homes in '.$ward.', '.$town.'">Houses in '.$ward.'</a>
                 ';

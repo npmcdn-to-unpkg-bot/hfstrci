@@ -90,7 +90,8 @@ foreach($results as $k){
          </a>
 ';
         }
-echo $pagination;
+
 ?>
 
 </div><div class="clear"></div>
+<?php echo $pagination; ?>
