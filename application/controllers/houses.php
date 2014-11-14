@@ -89,7 +89,7 @@ class Houses extends CI_Controller {
 			$data['codespace'] = str_replace("-", " ",$data['code']);
 			$data['areaspace'] = ucwords(str_replace("-", " ",$data['area']));
 			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			//$data['districtspace'] = ucwords(str_replace("-", " ",$data['district']));
+			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
 			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
 
 			
@@ -97,7 +97,7 @@ class Houses extends CI_Controller {
 
 
 			$this->load->model('Housesm');
-			$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
+			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->getcodeinfo($data['codespace']);
 
 			$viewtogetname='code';
@@ -116,13 +116,13 @@ class Houses extends CI_Controller {
 
 			$data['areaspace'] = ucwords(str_replace("-", " ",$data['area']));
 			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			//$data['districtspace'] = ucwords(str_replace("-", " ",$data['district']));
+			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
 			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
 
 
 
 			$this->load->model('Housesm');
-			$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
+			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
 
 			$viewtogetname='area';
@@ -137,11 +137,11 @@ class Houses extends CI_Controller {
 			$data['country'] = $this->uri->segment(2);
 
 			$data['townspace'] = ucwords(str_replace("-", " ",$data['town']));
-			//$data['districtspace'] = ucwords(str_replace("-", " ",$data['district']));
+			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
 			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
 
 			$this->load->model('Housesm');
-			$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
+			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->gettownareas($data['townspace'],$data['districtname']);
 			
 			$viewtogetname='town';
@@ -153,11 +153,11 @@ class Houses extends CI_Controller {
 			$data['country'] = $this->uri->segment(2);
 			$data['district'] = $this->uri->segment(3);
 
-			//$data['districtspace'] = ucwords(str_replace("-", " ",$data['district']));
+			$data['districtname'] = ucwords(str_replace("-", " ",$data['district']));
 			$data['countryspace'] = ucwords(str_replace("-", " ",$data['country']));
 
 			$this->load->model('Housesm');
-			$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
+			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			
 
 			$data['results'] = $this->Housesm->getdisttown($data['districtname']);

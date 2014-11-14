@@ -7,7 +7,7 @@
             $dist = $k->district;
             $iso = $k->iso;
 
-            $href = $this->config->base_url()."houses/$country/$iso.html";
+            $href = $this->config->base_url()."houses/$country/".strtolower(str_replace(" ", "-", $dist)).".html";
 
             echo '<a href="'.$href.'" title="Homes in '.$dist.'">Houses in '.$dist.'</a>
                 ';
