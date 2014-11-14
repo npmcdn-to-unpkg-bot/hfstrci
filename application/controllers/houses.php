@@ -25,12 +25,11 @@ class Houses extends CI_Controller {
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 
 //pagination        
-		        $configs['base_url'] = $this->config->base_url().'for-sale/'.$searchvalue.'/';
-				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$searchvalue);
-				$configs['per_page'] = 30;
-				$this->load->library('pagination');
-				$this->pagination->initialize($configs); 
-				$data['pagination'] = $this->pagination->create_links();
+
+
+								$cnum = $this->Housesm->searchDBrows("sale",$searchvalue);
+
+							$data['pagination'] = $this->getpaginator($cnum,50,"sale",$searchvalue,0);
 		
 
         $this->load->view('houseslist', $data);
@@ -51,12 +50,9 @@ class Houses extends CI_Controller {
         $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
         $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 //pagination
-        		$configs['base_url'] = $this->config->base_url().'to-rent/'.$searchvalue.'/';
-				$configs['total_rows'] = $this->Housesm->searchDBrows("rental",$searchvalue);
-				$configs['per_page'] = 30;
-				$this->load->library('pagination');
-				$this->pagination->initialize($configs); 
-				$data['pagination'] = $this->pagination->create_links();
+        						$cnum = $this->Housesm->searchDBrows("rental",$searchvalue);
+
+				$data['pagination'] = $this->getpaginator($cnum,50,"rental",$searchvalue,0);
         $this->load->view('houseslist', $data);
 		$this->load->view('footer');		
 	}
@@ -178,12 +174,10 @@ $data['controller']=$this;
 		        	$datalists['searchvalue'] = ucwords(str_replace("-", " ", $queryseachlist));
 		        	$datalists['saletype'] ="For Sale";
 //pagination
-		        	$configs['base_url'] = $this->config->base_url().'for-sale/'.str_replace(" ", "-", $queryseachlist).'/';
-				$configs['total_rows'] = $this->Housesm->searchDBrows("sale",$queryseachlist);
-				$configs['per_page'] = 30;
-				$this->load->library('pagination');
-				$this->pagination->initialize($configs); 
-				$datalists['pagination'] = $this->pagination->create_links();
+		        	//$cbase = $this->config->base_url().'for-sale/'.str_replace(" ", "-", $queryseachlist).'/';
+				$cnum = $this->Housesm->searchDBrows("sale",$queryseachlist);
+
+				$datalists['pagination'] = $this->getpaginator($cnum,50,"sale",$queryseachlist,0);
 
 					if($searchfirst==true){
 				   		$this->load->view('houseslist', $datalists);
@@ -234,6 +228,40 @@ $data['controller']=$this;
         $i = ucwords($i);
         return $i;
     }
+    function getpaginator($num,$perpage,$typesale,$query,$page=1){
+    $x = ceil($num/$perpage);
+     
+
+
+      if($typesale == 'sale'){
+        $type = 'for-sale';
+      }elseif($typesale == 'rental'){
+        $type = 'to-rent';
+      }
+
+      $ret = '<div class="box"><h4>'.$num.' Houses in '.$x.' pages</h4> <ul id="paginator">';
+      for($i = 0; $i < $x; $i++){
+        if($i == 0)
+          $trick = '';
+        $name = 'First Page';
+         
+        if($i>0){
+        	$d = $i+1;
+          $trick = "/$d";
+           $name = $d;
+        }
+        if($i ==$page){
+             $ret .= "<li>$name</li>";
+        }else{
+          $ret .= '<li><a href="'.$this->config->base_url().'houses/'.$type.'/'. $query . $trick .'.html" title="'."Houses $type in $query page $name".'">'.$name.'</a></li>';
+        }
+
+        
+      }
+      $ret .= "</ul>";
+        $ret .= "</div><div class='clear'></div>";
+        return $ret;
+   }
 	
 
 
