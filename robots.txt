@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /apllication/
+Disallow: /system/
+Disallow: /houses/for-sale/
+Disallow: /houses/to-rent/
