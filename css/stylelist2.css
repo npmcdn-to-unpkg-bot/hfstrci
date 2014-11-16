@@ -147,7 +147,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 .carousel2 li a {text-decoration: none; text-align: center;}
 .carousel2 li a:hover {text-decoration: underline;}
 
-@media screen (max-width: 740px) {
+@media (max-width: 740px) {
 header h1 {margin: 15px auto;}
 
 
