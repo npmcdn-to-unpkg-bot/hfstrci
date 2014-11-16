@@ -98,7 +98,7 @@ class Houses extends CI_Controller {
 
 
 			$this->load->model('Housesm');
-			$data['districtiso'] = $this->Housesm->getdistbyiso($data['districtname'])[0]->iso;
+			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->getcodeinfo($data['codespace']);
 
@@ -132,7 +132,7 @@ class Houses extends CI_Controller {
 
 
 			$this->load->model('Housesm');
-			$data['districtiso'] = $this->Housesm->getdistbyiso($data['districtname'])[0]->iso;
+			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
 
@@ -161,7 +161,7 @@ class Houses extends CI_Controller {
 			$data['countryspace'] = $this->undoiturl($data['country']);
 
 			$this->load->model('Housesm');
-			$data['districtiso'] = $this->Housesm->getdistbyiso($data['districtname'])[0]->iso;
+			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->gettownareas($data['townspace'],$data['districtname']);
 			
@@ -188,7 +188,7 @@ class Houses extends CI_Controller {
 			$data['countryspace'] = $this->undoiturl($data['country']);
 
 			$this->load->model('Housesm');
-			$data['districtiso'] = $this->Housesm->getdistbyiso($data['districtname'])[0]->iso;
+			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			
 
