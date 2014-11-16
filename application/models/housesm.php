@@ -68,4 +68,10 @@ class Housesm extends CI_Model {
 			$query = $this->db->get('landregs');
 			return $query->result();
        }
+        function getisobydist($dist){
+       		$this->db->select('iso');
+			$this->db->where('district =', $dist);
+			$query = $this->db->get('district', 1);
+			return $query->result();
+       }
 }
