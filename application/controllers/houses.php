@@ -324,14 +324,4 @@ class Houses extends CI_Controller {
 
 }
 
-
-<meta name="description" content="Houses for sale in xx, xx, Houses to rent in xx, Flats in xx, Houses for sale & to rent, Properties for sale in xx, Properties to rent in xx" />
-<meta name="keywords" content="Houses for sale in xx, xx, Houses to rent in xx, Flats in xx, Houses for sale & to rent, Properties for sale in xx, Properties to rent in xx" />
-<meta name="geo.placename" content="xx" />
-<meta name="robots" content="index, follow" />
-<meta name="geo.region" content="xx" />
-
-
-<meta name="geo.position" content="-23.641811, -46.741665" />
-<meta name="ICBM" content="-23.641811, -46.741665" />
 	
