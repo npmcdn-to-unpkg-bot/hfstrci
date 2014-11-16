@@ -87,7 +87,7 @@ footer .socialmedia {font-family: Arial;font-size: 15px;height:20px;vertical-ali
 .box-list a h3  {font-family: Calibri, Arial; font-size: 18px;font-weight: bold; color: #333;margin: 10px 5px; text-decoration: none;}
 .box-list a  :hover h3  {color: #265E21; text-decoration: underline;}
 .box-list a :hover.houseslist {border:1px solid #255B22;background: #D7E8D5;}
-.box-list a .houseslist {color:#333;padding: 5px;margin: 5px 2px;max-width: 300px;float: left;display: inline;height:480px;border:1px solid #ccc;}
+.box-list a .houseslist {color:#333;padding: 5px;margin: 5px 2px;max-width: 300px;float: left;display: inline;height:100%;border:1px solid #ccc;}
 .houselist-left .imgfloat {float: left;position: absolute;width: 280px;height:25px;opacity: 0.5;filter: alpha(opacity=50);background: #255B22;margin-top: 150px;margin-left: 10px;}
 .houselist-left .imgfloat span {padding-top:5px;padding-left:30px;color: #FFF;font-size: 19px;font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;text-align: center;}
 .box-list a img {margin: 0px 10px;width:280px;}
