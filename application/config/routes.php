@@ -38,7 +38,7 @@
 |
 */
 $route['default_controller'] = 'houses';
-$route['houses/(:any)'] = "houses/for_sale/query";
+//$route['houses/(:any)'] = "";
 $route['houses/england/(:any)'] = "houses/price";
 $route['houses/wales/(:any)'] = "houses/price";
 $route['houses/scotland/(:any)'] = "houses/price";
@@ -59,7 +59,7 @@ $route['houses/to-rent/(:any)'] = "houses/to_rent/query";
 
 
 
-$route['404_override'] = '';
+$route['404_override'] = 'houses/for_sale/query';
 
 
 /* End of file routes.php */
