@@ -38,7 +38,7 @@
 |
 */
 $route['default_controller'] = 'houses';
-
+$route['houses/(:any)'] = "houses/for_sale/query";
 $route['houses/england/(:any)'] = "houses/price";
 $route['houses/wales/(:any)'] = "houses/price";
 $route['houses/scotland/(:any)'] = "houses/price";
@@ -47,7 +47,7 @@ $route['houses/england'] = "houses/price";
 $route['houses/wales'] = "houses/price";
 $route['houses/scotland'] = "houses/price";
 $route['houses/northern-ireland'] = "houses/price";
-$route['houses/(:any)'] = "houses/for_sale/query";
+
 
 
 //$route['houses/for-sale'] = "houses/for_sale";
