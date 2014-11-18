@@ -47,6 +47,7 @@ $route['houses/england'] = "houses/price";
 $route['houses/wales'] = "houses/price";
 $route['houses/scotland'] = "houses/price";
 $route['houses/northern-ireland'] = "houses/price";
+$route['houses/(:any)'] = "houses/price";
 
 
 //$route['houses/for-sale'] = "houses/for_sale";
