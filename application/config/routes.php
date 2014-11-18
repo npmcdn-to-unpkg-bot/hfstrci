@@ -57,7 +57,6 @@ $route['houses/for-sale/(:any)'] = "houses/for_sale/query";
 //$route['houses/to-rent'] = "houses/to_rent";
 $route['houses/to-rent/(:any)'] = "houses/to_rent/query";
 
-if i need to write something quickly i can do it really easy, because write in english is not that hard, so keeping on with the history basic the guy went shopping, while it was happening
 
 
 $route['404_override'] = '';
