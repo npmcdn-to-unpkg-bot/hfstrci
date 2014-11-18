@@ -38,7 +38,7 @@
 |
 */
 $route['default_controller'] = 'houses';
-$route['houses/(:any)'] = "houses/for_sale/query";
+//$route['houses/(:any)'] = "houses/for_sale/query";
 $route['houses/england/(:any)'] = "houses/price";
 $route['houses/wales/(:any)'] = "houses/price";
 $route['houses/scotland/(:any)'] = "houses/price";
