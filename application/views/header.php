@@ -4,6 +4,7 @@
 <script src=" http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url()."css/".$css; ?>.css" />
 <title><?php echo $title; ?></title>
+<meta name=viewport content="width=device-width, initial-scale=1">
 <?php if(isset($meta)){echo $meta;} ?>
 <?php echo $js; //tt ?>
 <script>
