@@ -10,12 +10,13 @@
 |
 */
 
-$hook['display_override'][] = array(
-	'class' => '',
-	'function' => 'compress',
-	'filename' => 'compress.php',
-	'filepath' => 'hooks'
-	);
+$hook['display_override'] = array(
+    'class' => 'Minifyhtml',
+    'function' => 'output',
+    'filename' => 'Minifyhtml.php',
+    'filepath' => 'hooks',
+    'params' => array()
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
