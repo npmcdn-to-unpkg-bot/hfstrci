@@ -59,7 +59,7 @@ $route['houses/to-rent/(:any)'] = "houses/to_rent/query";
 
 
 
-$route['404_override'] = 'houses/for_sale/query';
+$route['404_override'] = 'houses/for_error/query';
 
 
 /* End of file routes.php */

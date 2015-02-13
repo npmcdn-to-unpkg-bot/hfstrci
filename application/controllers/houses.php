@@ -39,6 +39,28 @@ class Houses extends CI_Controller {
 		$this->load->view('footer');		
 
 	}
+	public function for_error(){
+
+			$searchvalue = $this->uri->segment(3);
+		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
+
+		$this->load->model('Housesm');
+        $data['results'] = $this->Housesm->searchDB("sale",$searchvalue,50,$page);
+        $data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
+        $data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+
+//pagination        
+	$cnum = $this->Housesm->searchDBrows("sale",$searchvalue);
+	$data['pagination'] = $this->getpaginator($cnum,50,"sale",$searchvalue,0);  
+    
+    $plus = array('meta'=>'<meta name="robots" content="noindex, nofollow">','css'=>$this->getcssname('stylelist2'),'title'=>'Houses for sale & to rent in '.$data['searchvalue'],'js'=>'');
+		
+		$this->load->view('header',$plus);
+		$this->load->view('shortform');
+        $this->load->view('houseslist', $data);
+		$this->load->view('footer');	
+
+	}
 	public function to_rent(){
 
 
@@ -106,8 +128,8 @@ class Houses extends CI_Controller {
 			$queryseachlist = $data['codespace']." ".$data['areaspace'];
 			$title = ' in '.$data['codespace'].", ".$data['areaspace'];
 			$meta = '
-				<meta name="description" content="Houses for sale in '.$data['codespace'].', '.$data['codespace'].', Houses to rent in '.$data['codespace'].', Flats in '.$data['codespace'].', Houses for sale & to rent, Properties for sale in '.$data['codespace'].', Properties to rent in '.$data['codespace'].'" />
-				<meta name="keywords" content="Houses for sale in '.$data['codespace'].', '.$data['codespace'].', Houses to rent in '.$data['codespace'].', Flats in '.$data['codespace'].', Houses for sale & to rent, Properties for sale in '.$data['codespace'].', Properties to rent in '.$data['codespace'].'" />
+				<meta name="description" content="Houses for sale in '.$data['codespace'].', '.$data['codespace'].', Houses to rent in '.$data['codespace'].', Flats in '.$data['codespace'].', Properties for sale in '.$data['codespace'].', Properties to rent in '.$data['codespace'].'" />
+				<meta name="keywords" content="Houses for sale in '.$data['codespace'].', '.$data['codespace'].', Houses to rent in '.$data['codespace'].', Flats in '.$data['codespace'].', Properties for sale in '.$data['codespace'].', Properties to rent in '.$data['codespace'].'" />
 				<meta name="geo.placename" content="'.$data['codespace'].', '.$data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'].'" />
 				<meta name="robots" content="index, follow" />
 				<meta name="geo.region" content="'.$data['districtiso'].'" />
@@ -140,7 +162,7 @@ class Houses extends CI_Controller {
 			$queryseachlist = $data['areaspace']." ".$data['townspace'];
 			$title = ' in '.$data['areaspace'].", ".$data['townspace'];
 			$meta = '
-				<meta name="description" content="Houses for sale in '.$data['areaspace'].', '.$data['areaspace'].', Houses to rent in '.$data['areaspace'].', Flats in '.$data['areaspace'].', Houses for sale & to rent, Properties for sale in '.$data['areaspace'].', Properties to rent in '.$data['areaspace'].'" />
+				<meta name="description" content="Houses for sale in '.$data['areaspace'].', '.$data['areaspace'].', Houses to rent in '.$data['areaspace'].', Flats in '.$data['areaspace'].', Properties for sale in '.$data['areaspace'].', Properties to rent in '.$data['areaspace'].'" />
 				<meta name="keywords" content="Houses for sale in '.$data['areaspace'].', '.$data['areaspace'].', Houses to rent in '.$data['areaspace'].', Flats in '.$data['areaspace'].', Houses for sale & to rent, Properties for sale in '.$data['areaspace'].', Properties to rent in '.$data['areaspace'].'" />
 				<meta name="geo.placename" content="'.$data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'].'" />
 				<meta name="robots" content="index, follow" />
@@ -169,8 +191,8 @@ class Houses extends CI_Controller {
 			$queryseachlist = $data['townspace']." ".$data['districtname'];
 			$title = ' in '.$data['townspace'].", ".$data['districtname'];
 			$meta = '
-				<meta name="description" content="Houses for sale in '.$data['townspace'].', '.$data['townspace'].', Houses to rent in '.$data['townspace'].', Flats in '.$data['townspace'].', Houses for sale & to rent, Properties for sale in '.$data['townspace'].', Properties to rent in '.$data['townspace'].'" />
-				<meta name="keywords" content="Houses for sale in '.$data['townspace'].', '.$data['townspace'].', Houses to rent in '.$data['townspace'].', Flats in '.$data['townspace'].', Houses for sale & to rent, Properties for sale in '.$data['townspace'].', Properties to rent in '.$data['townspace'].'" />
+				<meta name="description" content="Houses for sale in '.$data['townspace'].', '.$data['townspace'].', Houses to rent in '.$data['townspace'].', Flats in '.$data['townspace'].', Properties for sale in '.$data['townspace'].', Properties to rent in '.$data['townspace'].'" />
+				<meta name="keywords" content="Houses for sale in '.$data['townspace'].', '.$data['townspace'].', Houses to rent in '.$data['townspace'].', Flats in '.$data['townspace'].', Properties for sale in '.$data['townspace'].', Properties to rent in '.$data['townspace'].'" />
 				<meta name="geo.placename" content="'.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'].'" />
 				<meta name="robots" content="index, follow" />
 				<meta name="geo.region" content="'.$data['districtiso'].'" />
@@ -214,8 +236,8 @@ class Houses extends CI_Controller {
 			$viewtogetname='country';
 			$title = ' in '.$data['countryspace'];
 			$meta = '
-				<meta name="description" content="Houses for sale in '.$data['countryspace'].', '.$data['countryspace'].', Houses to rent in '.$data['countryspace'].', Flats in '.$data['countryspace'].', Houses for sale & to rent, Properties for sale in '.$data['countryspace'].', Properties to rent in '.$data['countryspace'].'" />
-				<meta name="keywords" content="Houses for sale in '.$data['countryspace'].', '.$data['countryspace'].', Houses to rent in '.$data['countryspace'].', Flats in '.$data['countryspace'].', Houses for sale & to rent, Properties for sale in '.$data['countryspace'].', Properties to rent in '.$data['countryspace'].'" />
+				<meta name="description" content="Houses for sale in '.$data['countryspace'].', '.$data['countryspace'].', Houses to rent in '.$data['countryspace'].', Flats in '.$data['countryspace'].', Properties for sale in '.$data['countryspace'].', Properties to rent in '.$data['countryspace'].'" />
+				<meta name="keywords" content="Houses for sale in '.$data['countryspace'].', '.$data['countryspace'].', Houses to rent in '.$data['countryspace'].', Flats in '.$data['countryspace'].', Properties for sale in '.$data['countryspace'].', Properties to rent in '.$data['countryspace'].'" />
 				<meta name="geo.placename" content="'.$data['countryspace'].'" />
 				<meta name="robots" content="index, follow" />
 				<meta name="geo.region" content="GB" />

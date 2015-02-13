@@ -10,6 +10,7 @@ class Housesm extends CI_Model {
 	 	$this->db->select('full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed');
 		$this->db->where('listing_type_feed =', $saletype);
 	 	$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
+	 	$this->db->or_where("MATCH (postalcode_feed) AGAINST ('$searchquery')", NULL, FALSE);
 	 	$query = $this->db->get('feed', $resultsnumber,$startnum);
 		return $query->result();
        }
@@ -18,6 +19,7 @@ class Housesm extends CI_Model {
 	 	$this->db->select('full_address_feed');
 		$this->db->where('listing_type_feed =', $saletype);
 	 	$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
+	 	$this->db->or_where("MATCH (postalcode_feed) AGAINST ('$searchquery')", NULL, FALSE);
 	 	$query = $this->db->get('feed', 500);
 		return $query->num_rows();
        }
