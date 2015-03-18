@@ -28,6 +28,13 @@ class Housesm extends CI_Model {
 	 	$this->db->select('url_feed');
 		$this->db->where('key_feed =', $key);
 		$query = $this->db->get('feed', 1);
+		
+		$data = array(
+		 'ip' => $_SERVER['REMOTE_ADDR'] ,
+		 'fkey' => $key,
+		);
+		$this->db->insert('sends', $data); 
+		
 		return $query->result();
        }
        function getcountrydist($country){
