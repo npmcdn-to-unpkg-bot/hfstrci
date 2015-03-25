@@ -36,7 +36,9 @@ class Houses extends CI_Controller {
         $this->load->view('houseslist', $data);
 
 
-		$this->load->view('footer');		
+		$this->load->view('footer');
+		
+		$this->Housesm->savesearch($data['searchvalue'], "sale");
 
 	}
 	public function for_error(){
@@ -80,7 +82,10 @@ class Houses extends CI_Controller {
 		$this->load->view('header',$plus);
 		$this->load->view('shortform');				
         $this->load->view('houseslist', $data);
-		$this->load->view('footer');		
+		$this->load->view('footer');	
+		
+		
+		$this->Housesm->savesearch($data['searchvalue'], "rent");
 	}
 	public function uk(){
 
