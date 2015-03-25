@@ -37,11 +37,12 @@ class Housesm extends CI_Model {
 		
 		return $query->result();
        }
-       function savesearch($search){
+       function savesearch($search,$style = "sale"){
        	
        		$data = array(
 		 'ipsearch' => $_SERVER['REMOTE_ADDR'] ,
 		 'search' => $search,
+		 'saleorrent' => $style,
 		);
 		$this->db->insert('search', $data); 
        	
