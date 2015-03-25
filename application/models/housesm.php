@@ -37,6 +37,15 @@ class Housesm extends CI_Model {
 		
 		return $query->result();
        }
+       function savesearch($search){
+       	
+       		$data = array(
+		 'ipsearch' => $_SERVER['REMOTE_ADDR'] ,
+		 'search' => $search,
+		);
+		$this->db->insert('search', $data); 
+       	
+       }
        function getcountrydist($country){
        		$this->db->select('district,iso');
 			$this->db->where('country =', $country);
