@@ -15,7 +15,7 @@ class Houses extends CI_Controller {
 	public function for_sale(){
 
 	
-
+		$this->load->model('Housesm');
 		$searchvalue = $this->uri->segment(3);
 		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
         $data['results'] = $this->Housesm->searchDB("sale",$searchvalue,50,$page);
@@ -25,7 +25,7 @@ class Houses extends CI_Controller {
 	$plus = array('css'=>$this->getcssname('stylelist2'),'title'=>'Houses for Sale to Rent - '.$data['searchvalue'],'js'=>'');
 		$this->load->view('header',$plus);
 		$this->load->view('shortform');
-		$this->load->model('Housesm');
+	
 //pagination        
 
 
