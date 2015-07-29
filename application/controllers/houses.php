@@ -55,7 +55,7 @@ class Houses extends CI_Controller {
 		$searchvalue = $this->uri->segment(3);
 		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
 
-		if($res = $this->Housesm->returngooglelatlong(str_replace("-", " ", $searchvalue))){
+		if($res = $this->returngooglelatlong(str_replace("-", " ", $searchvalue))){
 			list($lat,$lng) = $res;
 			
 		}else{
@@ -292,7 +292,7 @@ class Houses extends CI_Controller {
 	}
 	function getcssname($basename){
 
-        	//$this->load->library('user_agent');
+        //$this->load->library('user_agent');
 		// if($this->agent->is_mobile()){
 		//	$name = "mobile-$basename";
 		// }else{
@@ -318,7 +318,7 @@ class Houses extends CI_Controller {
         	return $i;
         }
         
-        // OLD function might be ended soon
+        //@note OLD function might be ended soon
         function getpaginator($num,$perpage,$typesale,$query,$page=1){
           $x = ceil($num/$perpage);
          
