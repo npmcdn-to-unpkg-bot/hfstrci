@@ -46,7 +46,7 @@ if (defined('ENVIRONMENT'))
 	}
 }
 
-
+ini_set('display_errors', 1);
 /*
  *---------------------------------------------------------------
  * SYSTEM FOLDER NAME
