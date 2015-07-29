@@ -2,7 +2,57 @@
 
 
 <h2>Houses <?php echo $saletype; ?> in <?php echo $searchvalue; ?></h2>
+<style>
 
+.filters{padding:1%;}
+
+.filters input {display:inline;}
+
+.slider {margin:8px 0px 5px 18px;}
+.price-filter {background:#efefef;padding:20px;width:340px;}
+#price2 {text-align:right;}
+</style>
+<div class="filters">
+<script>
+			 
+			$(function(){
+
+				$('.slider').noUiSlider({
+					start: [ <?php echo $prices[0]->min;?>, <?php  echo $prices[0]->max; ?> ],
+					step: 10,
+					
+					connect: true,
+					
+					range: {
+						'min': <?php  echo $prices[0]->min;?>,
+						'max': <?php  echo $prices[0]->max;?>
+					},
+					format: wNumb({
+						mark: ',',
+						decimals: 0
+					}),
+					
+				});
+
+				$('.slider').Link('lower').to($('#price1'));		
+				$('.slider').Link('upper').to($('#price2'));
+			});
+</script>
+<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
+<div class="price-filter">
+<h4>Price range:</h4>
+  
+  <input type="text" id="price1" name="price1">
+  
+  <input type="text" id="price2" name="price2">
+  <div class="slider" style="width:300px;"></div>
+  <br>
+  <center><input id="filter" name="filter" type="submit" value="Filter" class="button" style="width:100px;height:35px;" />
+  </center>
+</div>
+
+</div>
+</form>
 <?php 
 foreach($results as $k){
    // print_r($k);

@@ -4,24 +4,52 @@ class Housesm extends CI_Model {
     {
         $this->load->database();
     }
-	 function searchDB($saletype,$searchquery,$resultsnumber,$pag=1){
+	 function searchDB($saletype,$searchquery,$resultsnumber,$pag=1,$filters=false){
 	 	$pag--;
 	 	$startnum = $pag*$resultsnumber;
 	 	$this->db->select('full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed');
 		$this->db->where('listing_type_feed =', $saletype);
+		if($filters){
+			$this->db->where('price_feed >=', $filters["price1"]);
+			$this->db->where('price_feed <=', $filters["price2"]);
+			
+			//$this->db->where('num_bedrooms_feed >=', $filters["bedrooms1"]);
+			//$this->db->where('num_bedrooms_feed <=', $filters["bedrooms2"]);
+		}
+				
 	 	$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
 	 	$this->db->or_where("MATCH (postalcode_feed) AGAINST ('$searchquery')", NULL, FALSE);
 	 	$query = $this->db->get('feed', $resultsnumber,$startnum);
 		return $query->result();
        }
 
-       function searchDBrows($saletype,$searchquery){
+       function searchDBrows($saletype,$searchquery,$filters=false){
 	 	$this->db->select('full_address_feed');
 		$this->db->where('listing_type_feed =', $saletype);
+		if($filters){
+			$this->db->where('price_feed >=', $filters["price1"]);
+			$this->db->where('price_feed <=', $filters["price2"]);
+			
+			//$this->db->where('num_bedrooms_feed >=', $filters["bedrooms1"]);
+			//$this->db->where('num_bedrooms_feed <=', $filters["bedrooms2"]);
+		}
 	 	$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
 	 	$this->db->or_where("MATCH (postalcode_feed) AGAINST ('$searchquery')", NULL, FALSE);
 	 	$query = $this->db->get('feed', 500);
+	 	
 		return $query->num_rows();
+		
+       }
+       
+       function gettopandminprice($saletype,$searchquery){
+       
+       		$this->db->select('MAX(price_feed) as max, MIN(price_feed) as min');
+		$this->db->where('listing_type_feed =', $saletype);
+		$this->db->where("MATCH (full_address_feed) AGAINST (REPLACE(REPLACE('$searchquery','-',','),' ',','))", NULL, FALSE);
+	 	$this->db->or_where("MATCH (postalcode_feed) AGAINST ('$searchquery')", NULL, FALSE);
+	 	$query = $this->db->get('feed', 500);
+       
+       		return $query->result();
        }
 
         function getredirectUrl($key){
