@@ -7,6 +7,7 @@ class Houses extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->lang->load("titles","english");
+		$this->load->model('Housesm');
 	}
 
 	public function index(){
@@ -21,12 +22,27 @@ class Houses extends CI_Controller {
 		$this->load->view('footer');
 		
 	}
-	public function for_sale(){
+	public function returngooglelatlong($query){
 
+		$search_code = urlencode($query);
+		if( $res = $this->Housesm->verifysearch($search_code))
+			return $res;
+		else{
+			$url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $search_code . '&sensor=false';
+			$json = json_decode(file_get_contents($url));
+			$lat = $json->results[0]->geometry->location->lat;
+			$lng = $json->results[0]->geometry->location->lng;
+			if($lat && $lng){
+				$this->Housesm->insertlatlong($search_code, $lat, $lng);
+				return array($lat, $long);
+			}else
+				return false;
+		}
+
+	}
+	public function for_sale(){
 	
-		$this->load->model('Housesm');
-		$filters = false;
-		
+		$filters = false;		
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('price1', 'price1', 'required');
 		
@@ -38,10 +54,21 @@ class Houses extends CI_Controller {
 		
 		$searchvalue = $this->uri->segment(3);
 		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
-       		$data['results'] = $this->Housesm->searchDB("sale",$searchvalue,$this->propertiesperpage,$page,$filters);
-      		$data['prices'] = $this->Housesm->gettopandminprice("sale",$searchvalue);
-     		$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
-       		$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+
+		if($res = $this->Housesm->returngooglelatlong(str_replace("-", " ", $searchvalue))){
+			list($lat,$lng) = $res;
+			
+		}else{
+	   		$data['results'] = $this->Housesm->searchDB("sale",$searchvalue,$this->propertiesperpage,$page,$filters);
+	   		//pagination        
+			$cnum = $this->Housesm->searchDBrows("sale",$searchvalue,$filters);
+			$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
+   		}
+
+  		//@note: not used in new layout
+  		$data['prices'] = $this->Housesm->gettopandminprice("sale",$searchvalue);
+ 		$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
+   		$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 
 		$plus = array(
 			'css'=>$this->getcssname('stylelist2'),
@@ -50,13 +77,8 @@ class Houses extends CI_Controller {
 			);
 		
 		$this->load->view('header',$plus);
-		$this->load->view('shortform');
-	
-		//pagination        
-		$cnum = $this->Housesm->searchDBrows("sale",$searchvalue,$filters);
-		$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-		
-        	$this->load->view('houseslist', $data);
+		$this->load->view('shortform');		
+        $this->load->view('houseslist', $data);
 		$this->load->view('footer');
 		$this->Housesm->savesearch($data['searchvalue'], "sale");
 
@@ -118,7 +140,7 @@ class Houses extends CI_Controller {
 		
 		$this->load->view('new/head',$plus);
 		$this->load->view('new/header');				
-       		$this->load->view('new/list', $data);
+       	$this->load->view('new/list', $data);
 		$this->load->view('new/footer');	
 		
 		$this->Housesm->savesearch($data['searchvalue'], "rent");
