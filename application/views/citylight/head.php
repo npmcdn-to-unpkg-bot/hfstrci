@@ -16,16 +16,16 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
 
   <!-- STYLESHEETS -->
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/jquery.nouislider.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/jquery.nouislider.min.css">
 
   <!-- THEME STYLESHEETS -->
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/style.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/citilights-shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/color/color1.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/style.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/shortcode.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/citilights-shortcode.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/color/color1.css">
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
