@@ -7,28 +7,68 @@ class Housesm extends CI_Model {
 
     	function verifysearch($value){
     		$this->db->select('*');
-			$this->db->where('`search` =', $value);
-			$query = $this->db->get('latlng', 1);
-
-			if($res = $query->result())
-				return array($res['0']["lat"], $res['0']["lng"]);
-			else
-				return false;
+		$this->db->where('`search` =', $value);
+		$query = $this->db->get('latlng', 1);
+		if($res = $query->result())
+			return array($res['0']->lat, $res['0']->lng);
+		else
+			return false;
     	}
-    	function insertlatlong($search, $lat, $lng){
-    		$this->db->insert('latlng', array('search'=>$search,"lat"=>$lat,"lng"=>$lng)); 
+    	function insertlatlong($search, $lat, $lng){    		
+    		$this->db->insert('latlng', array('search'=>$search,"lat"=>"$lat","lng"=>"$lng")); 
     	}
-    	function searchpropertylatlong($saletype,$lat,$long,$resultnumber,$pag=1,$filters=false){
-    		
+    	function searchpropertylatlong($saletype,$lat,$lng,$resultnumber,$sort = "distance",$range = 1,$pag=1,$filters=false){    	    	
+    	    	
+    	    	$pag--;
+		$startnum = $pag*$resultnumber;   
+		if($startnum == 0)
+			$startnum = 1;	    	
+    	    	$where = "WHERE listing_type_feed = '".$saletype."'";	
+    	    	if($filters){
+    	    		if(isset($filters["price1"]))
+    	    			$where .= " and price_feed >= ".(int)$filters["price1"];
+    	    		if(isset($filters["price2"]))
+    	    			$where .= " and price_feed <= ".(int)$filters["price2"]; 
+    	    			
+    	    		if(isset($filters["bedroom1"]))
+    	    			$where .= " and num_bedrooms_feed >= ".(int)$filters["bedroom1"];
+    	    		if(isset($filters["bedroom2"]))
+    	    			$where .= " and num_bedrooms_feed <= ".(int)$filters["bedroom2"];	    	
+    	    	
+    	    	}  		
     		$query = $this->db->query("
-				SELECT latitude_feed as latitude, longitude_feed as longitude, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed SQRT(
-			    POW(69.1 * (latitude - $lat), 2) +
-			    POW(69.1 * ($lng - longitude) * COS(latitude / 57.3), 2)) AS distance
-				FROM feed HAVING distance < 25 ORDER BY distance;
-			");
+				SELECT latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed, SQRT(
+			    POW(69.1 * (latitude_feed - ".$lat."), 2) +
+			    POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
+				FROM feed $where HAVING distance < ".(float)$range." ORDER BY ".$sort." LIMIT ".$startnum.", ".$resultnumber);
+			
     		return $query->result();
     	}
-		function searchDB($saletype,$searchquery,$resultsnumber,$pag=1,$filters=false){
+    	function searchpropertylatlongrows($saletype,$lat,$lng,$range = 1,$filters=false){
+    	    	
+    	    		    	
+    	    	$where = "WHERE listing_type_feed = '".$saletype."'";	
+    	    	if($filters){
+    	    		if(isset($filters["price1"]))
+    	    			$where .= " and price_feed >= ".(float)$filters["price1"];
+    	    		if(isset($filters["price2"]))
+    	    			$where .= " and price_feed <= ".(float)$filters["price2"]; 
+    	    			
+    	    		if(isset($filters["bedroom1"]))
+    	    			$where .= " and num_bedrooms_feed >= ".(float)$filters["bedroom1"];
+    	    		if(isset($filters["bedroom2"]))
+    	    			$where .= " and num_bedrooms_feed <= ".(float)$filters["bedroom2"];
+    	    	}   	    	
+    	    		
+    		$query = $this->db->query("
+				SELECT key_feed, SQRT(
+			    POW(69.1 * (latitude_feed - ".$lat."), 2) +
+			    POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
+				FROM feed $where HAVING distance < ".(float)$range." ");
+			
+    		return $query->num_rows();
+    	}
+	function searchDB($saletype,$searchquery,$resultsnumber,$pag=1,$filters=false){
 		 	$pag--;
 		 	$startnum = $pag*$resultsnumber;
 		 	$this->db->select('full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed');
