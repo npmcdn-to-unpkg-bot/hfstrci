@@ -112,10 +112,16 @@ class Houses extends CI_Controller {
 			'js'=>'',
 			);
 		
-		$this->load->view('header',$plus);
-		$this->load->view('shortform');		
-        $this->load->view('houseslist', $data);
-		$this->load->view('footer');
+			/*$this->load->view('header',$plus);
+		$this->load->view('shortform');				
+       		$this->load->view('houseslist', $data);
+		$this->load->view('footer');*/
+		
+		$this->load->view('citylight/head',$plus);
+		$this->load->view('citylight/header');				
+       	$this->load->view('citylight/list', $data);
+		$this->load->view('citylight/footer');
+		
 		$this->Housesm->savesearch($data['searchvalue'], "sale");
 
 	}
@@ -143,15 +149,15 @@ class Houses extends CI_Controller {
 			list($lat,$lng) = $res;
 			$data['results'] = $this->Housesm->searchpropertylatlong("rental",$lat,$lng,$this->propertiesperpage,"distance",$page,$filters);
 			$cnum = $this->Housesm->searchpropertylatlongrows("rental",$lat,$lng, 1 ,$filters);
-			$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
-			//$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
+			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
 						
 		}else{
 	   		$data['results'] = $this->Housesm->searchDB("rental",$searchvalue,$this->propertiesperpage,$page,$filters);
 	   		//pagination
 	   		$cnum = $this->Housesm->searchDBrows("rental",$searchvalue,$filters);    
-			$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
-			//$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
+			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
    		}		
        		
         	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
@@ -166,15 +172,15 @@ class Houses extends CI_Controller {
 		);
 
 		
-		$this->load->view('header',$plus);
+		/*$this->load->view('header',$plus);
 		$this->load->view('shortform');				
        		$this->load->view('houseslist', $data);
-		$this->load->view('footer');
+		$this->load->view('footer');*/
 		
-		/*$this->load->view('new/head',$plus);
-		$this->load->view('new/header');				
-       	$this->load->view('new/list', $data);
-		$this->load->view('new/footer');*/	
+		$this->load->view('citylight/head',$plus);
+		$this->load->view('citylight/header');				
+       	$this->load->view('citylight/list', $data);
+		$this->load->view('citylight/footer');
 		
 		$this->Housesm->savesearch($data['searchvalue'], "rent");
 	}
