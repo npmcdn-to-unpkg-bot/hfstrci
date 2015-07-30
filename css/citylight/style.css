@@ -451,7 +451,7 @@ ul.social-top > li a i {
 	height: 70px;
 	width: 163px;
 	display: block;
-	background: url("../../images/logo/logo.png") no-repeat left center;
+	background: url("http://housesforsaletorent.co.uk/images/logo/logo.png") no-repeat left center;
 	-webkit-background-size: contain;
 	-moz-background-size: contain;
 	-o-background-size: contain;
@@ -917,7 +917,7 @@ ul.social-top > li a i {
 /* === 4.1. FOOTER NAVIGATION === */
 .footer .footer-nav {
 	position: relative;
-	background: url("../images/background/footer-nav-bg.png") no-repeat scroll 0 center transparent;
+	background: url("http://housesforsaletorent.co.uk/images/background/footer-nav-bg.png") no-repeat scroll 0 center transparent;
 	padding: 7% 0 3%;
 }
 
@@ -1142,7 +1142,7 @@ ul.social-top > li a i {
 /* 6. BOXED LAYOUT
 /* --------------------------------------------------------------------- */
 .boxed-layout {
-	background: url("../images/patterns/random_grey_variations.png") repeat fixed left top #fff;
+	background: url("http://housesforsaletorent.co.uk/images/patterns/random_grey_variations.png") repeat fixed left top #fff;
 }
 
 .boxed-layout .site {
@@ -1198,7 +1198,7 @@ ul.social-top > li a i {
 }
 
 .dark-style .navbar-header .logo .logo-image a {
-	background-image: url("../images/logo/logo-dark-style.png");
+	background-image: url("http://housesforsaletorent.co.uk/images/logo/logo-dark-style.png");
 }
 
 .dark-style .noo-wrapper,
@@ -1276,7 +1276,7 @@ ul.social-top > li a i {
 }
 
 .dark-style .our-agents {
-	background-image: url("../images/background/our-agents-bg-dark.png");
+	background-image: url("http://housesforsaletorent.co.uk/images/background/our-agents-bg-dark.png");
 }
 
 .dark-style .footer,
@@ -3367,7 +3367,7 @@ label {
 	}
 
 	.my-properties.list .property-detail>div.size span {
-		background: url("../images/icon/size-icon.png") no-repeat scroll 0 center transparent;
+		background: url("http://housesforsaletorent.co.uk/images/icon/size-icon.png") no-repeat scroll 0 center transparent;
 	}
 
 	.my-properties.list .property-detail > div span {
