@@ -75,12 +75,12 @@
 
   <!-- JQUERY PLUGIN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/jquery.parallax-1.1.3.js"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/SmoothScroll.js"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/jquery.nouislider.all.min.js"></script>  
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/jquery.parallax-1.1.3.js"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/SmoothScroll.js"></script>
+
   <!-- THEME SCRIPT -->
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script.js"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/script.js"></script>
 
 </body>
 

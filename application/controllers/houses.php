@@ -91,14 +91,14 @@ class Houses extends CI_Controller {
 			list($lat,$lng) = $res;
 			$data['results'] = $this->Housesm->searchpropertylatlong("sale",$lat,$lng,$this->propertiesperpage,$range,$page,$filters);
 			$cnum = $this->Housesm->searchpropertylatlongrows("sale",$lat,$lng, 1 ,$filters);
-			$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-			//$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
+			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
 						
 		}else{
 	   		$data['results'] = $this->Housesm->searchDB("sale",$searchvalue,$this->propertiesperpage,$page,$filters);
 	   		//pagination        
 			$cnum = $this->Housesm->searchDBrows("sale",$searchvalue,$filters);
-			$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
    		}
 
   		//@note: not used in new layout
@@ -149,14 +149,12 @@ class Houses extends CI_Controller {
 			list($lat,$lng) = $res;
 			$data['results'] = $this->Housesm->searchpropertylatlong("rental",$lat,$lng,$this->propertiesperpage,"distance",$page,$filters);
 			$cnum = $this->Housesm->searchpropertylatlongrows("rental",$lat,$lng, 1 ,$filters);
-			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
 						
 		}else{
 	   		$data['results'] = $this->Housesm->searchDB("rental",$searchvalue,$this->propertiesperpage,$page,$filters);
 	   		//pagination
 	   		$cnum = $this->Housesm->searchDBrows("rental",$searchvalue,$filters);    
-			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
    		}		
        		
@@ -357,40 +355,7 @@ class Houses extends CI_Controller {
         	return $i;
         }
         
-        //@note OLD function might be ended soon
-        function getpaginator($num,$perpage,$typesale,$query,$page=1){
-          $x = ceil($num/$perpage);
-         
-          if($typesale == 'sale'){
-            $type = 'for-sale';
-          }elseif($typesale == 'rental'){
-            $type = 'to-rent';
-          }
-    
-          $ret = '<div class="box"><h4>'.$num.' Houses in '.$x.' pages</h4> <ul id="paginator">';
-          for($i = 1; $i < $x; $i++){
-            if($i == 1)
-              $trick = '';
-            $name = 'First Page';
-             
-            if($i>1){
-                
-              $trick = "/$i";
-              $name = $i;
-            }
-            if($i == $page){
-                 $ret .= "<li>$name</li>";
-            }else{
-              $ret .= '<li><a href="'.$this->config->base_url().'houses/'.$type.'/'. $query . $trick .'.html" title="'."Houses $type in $query page $name".'">'.$name.'</a></li>';
-            }
-    
-            
-          }
-          $ret .= "</ul>";
-            $ret .= "</div><div class='clear'></div>";
-            return $ret;
-       }
-        
+               
         function getnewpaginator($num,$perpage,$typesale,$query,$page=1){
         
             $x = ceil($num/$perpage);
