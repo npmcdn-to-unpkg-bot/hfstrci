@@ -17,15 +17,15 @@
 
   <!-- STYLESHEETS -->
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/bootstrap.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/jquery.nouislider.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/font-awesome.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/jquery.nouislider.min.css">
 
   <!-- THEME STYLESHEETS -->
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/style.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/citilights-shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/css/color/color1.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/style.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/shortcode.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/citilights-shortcode.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/color/color1.css">
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
