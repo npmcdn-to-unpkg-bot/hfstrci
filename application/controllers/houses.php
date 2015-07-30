@@ -119,9 +119,9 @@ class Houses extends CI_Controller {
 		
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
-       	$this->load->view('citylight/list', $data);
+       	$this->load->view('citylight/lists', $data);
 		$this->load->view('citylight/footer');
-		
+
 		$this->Housesm->savesearch($data['searchvalue'], "sale");
 
 	}
@@ -179,7 +179,7 @@ class Houses extends CI_Controller {
 		
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
-       	$this->load->view('citylight/list', $data);
+       	$this->load->view('citylight/lists', $data);
 		$this->load->view('citylight/footer');
 		
 		$this->Housesm->savesearch($data['searchvalue'], "rent");
