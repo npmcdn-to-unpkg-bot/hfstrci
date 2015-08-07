@@ -19,8 +19,11 @@
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/jquery.nouislider.min.css">
+  <!-- <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/jquery.nouislider.min.css"> -->
 
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	      type="text/css" rel="stylesheet" />
+	       
   <!-- THEME STYLESHEETS -->
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/style.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/shortcode.css">

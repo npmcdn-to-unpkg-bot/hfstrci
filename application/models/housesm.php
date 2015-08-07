@@ -14,10 +14,13 @@ class Housesm extends CI_Model {
 		else
 			return false;
     	}
+    	
     	function insertlatlong($search, $lat, $lng){    		
     		$this->db->insert('latlng', array('search'=>$search,"lat"=>"$lat","lng"=>"$lng")); 
     	}
-    	function searchpropertylatlong($saletype,$lat,$lng,$resultnumber,$sort = "distance",$range = 1,$pag=1,$filters=false){    	    	
+    	
+    	function searchpropertylatlong($saletype,$lat,$lng,$resultnumber,$pag = 1,$filters=false){    	    	
+
     	    	
     	    	$pag--;
 		$startnum = $pag*$resultnumber;   
@@ -35,6 +38,17 @@ class Housesm extends CI_Model {
     	    		if(isset($filters["bedroom2"]))
     	    			$where .= " and num_bedrooms_feed <= ".(int)$filters["bedroom2"];	    	
     	    	
+    	    		if(isset($filters["sort"]))
+    	    			$sort = "distance";
+    	    		else
+    	 			$sort = "distance";
+    	 			
+    	 		if(isset($filters["range"]))
+    	    			$range = $filters["range"];
+    	    		else
+    	 			$range = (int)1;
+    	    			
+    	    			
     	    	}  		
     		$query = $this->db->query("
 				SELECT latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed, SQRT(
@@ -44,7 +58,7 @@ class Housesm extends CI_Model {
 			
     		return $query->result();
     	}
-    	function searchpropertylatlongrows($saletype,$lat,$lng,$range = 1,$filters=false){
+    	function searchpropertylatlongrows($saletype,$lat,$lng,$filters=false){
     	    	
     	    		    	
     	    	$where = "WHERE listing_type_feed = '".$saletype."'";	
@@ -58,6 +72,11 @@ class Housesm extends CI_Model {
     	    			$where .= " and num_bedrooms_feed >= ".(float)$filters["bedroom1"];
     	    		if(isset($filters["bedroom2"]))
     	    			$where .= " and num_bedrooms_feed <= ".(float)$filters["bedroom2"];
+    	    		
+    	    		if(isset($filters["range"]))
+    	    			$range = $filters["range"];
+    	    		else
+    	 			$range = (int)1;
     	    	}   	    	
     	    		
     		$query = $this->db->query("

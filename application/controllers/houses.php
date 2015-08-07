@@ -28,11 +28,14 @@ class Houses extends CI_Controller {
 		if($res = $this->Housesm->verifysearch($search_code))
 			return $res;
 		else{
-			$url = 'http://maps.googleapis.com/maps/api/geocode/json?address=' . $search_code . '&sensor=false';
+			$url = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$search_code.'+GB&sensor=false';
 			$json = json_decode(file_get_contents($url));
+			
+			//foreach($json->results as $location)
 			
 			$lat = $json->results[0]->geometry->location->lat;
 			$lng = $json->results[0]->geometry->location->lng;
+			
 			if($lat && $lng){
 				$this->Housesm->insertlatlong($search_code, $lat, $lng);
 				return array($lat, $lng);
@@ -41,8 +44,100 @@ class Houses extends CI_Controller {
 		}
 
 	}
-		public function for_error(){
 
+	public function general_search($type = "sale"){
+
+		$filters = false;	
+		//$this->load->library('form_validation');
+		//$this->form_validation->set_rules('action', 'action', 'required');					
+		$filters = array();
+		if($this->input->get('price1') &&(int)$this->input->get('price1') > 0 && $this->input->get('price1') != "")
+			$filters['price1'] = $this->input->get('price1');
+		if($this->input->get('price2') &&(int)$this->input->get('price2') > 0 && $this->input->get('price2') != "")
+			$filters['price2'] = $this->input->get('price2');
+		if($this->input->get('bedroom1') &&(int)$this->input->get('bedroom1') > 0 && $this->input->get('bedroom1') != "")
+			$filters['bedroom1'] = (int)$this->input->get('bedroom1');
+		if($this->input->get('bedroom2') && (int)$this->input->get('bedroom2') >= 0 && $this->input->get('bedroom2') != "" )
+			$filters['bedroom2'] = (int)$this->input->get('bedroom2');
+		if($this->input->get('range') && (int)$this->input->get('range') >= 0 && $this->input->get('range') != ""){
+			if($this->input->get('range') == "1/4")
+				$filters["range"] = (float)0.25;
+			elseif($this->input->get('range') == "3/4")
+				$filters["range"] = (float)0.75;
+			elseif($this->input->get('range') == "1")
+				$filters["range"] = (int)1;
+			elseif($this->input->get('range') == "2")
+				$filters["range"] = (int)2;
+			elseif($this->input->get('range') == "3")
+				$filters["range"] = (int)3;
+			elseif($this->input->get('range') == "5")
+				$filters["range"] = (int)5;
+			elseif($this->input->get('range') == "10")
+				$filters["range"] = (int)10;
+			elseif($this->input->get('range') == "15")
+				$filters["range"] = (int)15;
+			elseif($this->input->get('range') == "20")
+				$filters["range"] = (int)20;
+			elseif($this->input->get('range') == "25")
+				$filters["range"] = (int)25;
+			elseif($this->input->get('range') == "30")
+				$filters["range"] = (int)30;
+			elseif($this->input->get('range') == "35")
+				$filters["range"] = (int)35;
+			elseif($this->input->get('range') == "40")
+				$filters["range"] = (int)40;
+			else
+				$filters["range"] = (int)1;				
+		}else
+			$filters["range"] = (int)1;
+			
+		if((int)$this->input->get('sortby') >= 0 && $this->input->get('sortyby') != "")
+			$filters["sortby"] = $this->input->get('sortby');
+			
+		if($this->input->get('search') && (int)$this->input->get('search') >= 0 && $this->input->get('search') != "")
+			$searchvalue = $this->input->get('search');
+		else
+			$searchvalue = $this->uri->segment(3);	
+				
+		if(empty($filters))
+			$filters = false;				
+		if($this->input->get('page') && (int)$this->input->get('page') != 0){$page = (int)$this->input->get('page');}else{$page = 1;}
+		
+		
+		if($res = $this->returngooglelatlong(str_replace("-", " ", $searchvalue))){
+			list($lat,$lng) = $res;
+			$data['results'] = $this->Housesm->searchpropertylatlong($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
+			$cnum = $this->Housesm->searchpropertylatlongrows($type,$lat,$lng,$filters);
+			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);
+			
+		
+						
+		}else{
+			$data['results'] = $this->Housesm->searchDB($type,$searchvalue,$this->propertiesperpage,$page,$filters);
+			//pagination        
+			$cnum = $this->Housesm->searchDBrows($type,$searchvalue,$filters);
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);
+	   	}
+	  	//@note: not used in new layout
+	  	//$data['prices'] = $this->Housesm->gettopandminprice($type,$searchvalue);
+	 	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
+	   	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+	   	$data["filters"] = $filters;
+		$plus = array(
+			'css'=>$this->getcssname('stylelist2'),
+			'title'=> strtr($this->lang->line($type."-title"), array('{$searchvalue}' => $data['searchvalue'])),			
+			'js'=>'',
+			);
+		$this->load->view('citylight/head',$plus);
+		$this->load->view('citylight/header');				
+	      	$this->load->view('citylight/lists', $data);
+		$this->load->view('citylight/footer');
+		$this->Housesm->savesearch($data['searchvalue'], $type);
+
+	}	
+	public function for_error(){
+	
 		$searchvalue = $this->uri->segment(3);
 		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
 		$this->load->model('Housesm');
@@ -66,121 +161,13 @@ class Houses extends CI_Controller {
 	}
 	public function for_sale(){
 	
-		$filters = false;		
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('price1', 'price1', 'required');
-		//@get from filter
-		$range = 1;
-		
-		if ($this->form_validation->run()){
-			$filters = array();
-			if((int)$this->input->post('price1') > 0)
-				$filters['price1'] = $this->input->post('price1');
-			if((int)$this->input->post('price2') > 0)
-				$filters['price2'] = $this->input->post('price2');
-			if((int)$this->input->post('bedroom1') > 0)
-				$filters['price2'] = $this->input->post('bedroom1');
-			if((int)$this->input->post('bedroom2') >= 0)
-				$filters['price2'] = $this->input->post('bedroom2');
-		}
-		
-		$searchvalue = $this->uri->segment(3);
-		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
-
-		if($res = $this->returngooglelatlong(str_replace("-", " ", $searchvalue))){
-			list($lat,$lng) = $res;
-			$data['results'] = $this->Housesm->searchpropertylatlong("sale",$lat,$lng,$this->propertiesperpage,$range,$page,$filters);
-			$cnum = $this->Housesm->searchpropertylatlongrows("sale",$lat,$lng, 1 ,$filters);
-			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-						
-		}else{
-	   		$data['results'] = $this->Housesm->searchDB("sale",$searchvalue,$this->propertiesperpage,$page,$filters);
-	   		//pagination        
-			$cnum = $this->Housesm->searchDBrows("sale",$searchvalue,$filters);
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-   		}
-
-  		//@note: not used in new layout
-  		$data['prices'] = $this->Housesm->gettopandminprice("sale",$searchvalue);
- 		$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
-   		$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
-
-		$plus = array(
-			'css'=>$this->getcssname('stylelist2'),
-			'title'=> strtr($this->lang->line("forsale-title"), array('{$searchvalue}' => $data['searchvalue'])),			
-			'js'=>'',
-			);
-		
-			/*$this->load->view('header',$plus);
-		$this->load->view('shortform');				
-       		$this->load->view('houseslist', $data);
-		$this->load->view('footer');*/
-		
-		$this->load->view('citylight/head',$plus);
-		$this->load->view('citylight/header');				
-       	$this->load->view('citylight/lists', $data);
-		$this->load->view('citylight/footer');
-
-		$this->Housesm->savesearch($data['searchvalue'], "sale");
+		$this->general_search("sale");
 
 	}
-
 	public function to_rent(){
-		$filters = false;
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('price1', 'price1', 'required');
-		if ($this->form_validation->run()){
-			$filters = array();
-			if((int)$this->input->post('price1') > 0)
-				$filters['price1'] = $this->input->post('price1');
-			if((int)$this->input->post('price2') > 0)
-				$filters['price2'] = $this->input->post('price2');
-			if((int)$this->input->post('bedroom1') > 0)
-				$filters['price2'] = $this->input->post('bedroom1');
-			if((int)$this->input->post('bedroom2') >= 0)
-				$filters['price2'] = $this->input->post('bedroom2');
-		}
-		$this->load->model('Housesm');
-		$searchvalue = $this->uri->segment(3);
-		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
 		
-		if($res = $this->returngooglelatlong(str_replace("-", " ", $searchvalue))){
-			list($lat,$lng) = $res;
-			$data['results'] = $this->Housesm->searchpropertylatlong("rental",$lat,$lng,$this->propertiesperpage,"distance",$page,$filters);
-			$cnum = $this->Housesm->searchpropertylatlongrows("rental",$lat,$lng, 1 ,$filters);
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
-						
-		}else{
-	   		$data['results'] = $this->Housesm->searchDB("rental",$searchvalue,$this->propertiesperpage,$page,$filters);
-	   		//pagination
-	   		$cnum = $this->Housesm->searchDBrows("rental",$searchvalue,$filters);    
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,"rental",$searchvalue,$page);
-   		}		
-       		
-        	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
-        	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
-          	$data['prices'] = $this->Housesm->gettopandminprice("rental",$searchvalue);
-		
-		// header info
-		$plus = array(
-			'css'=>$this->getcssname('stylelist2'),
-			'title'=>strtr($this->lang->line("torent-title"), array('{$searchvalue}' => $data['searchvalue'])),
-			'js'=>''
-		);
+		$this->general_search("rental");
 
-		
-		/*$this->load->view('header',$plus);
-		$this->load->view('shortform');				
-       		$this->load->view('houseslist', $data);
-		$this->load->view('footer');*/
-		
-		$this->load->view('citylight/head',$plus);
-		$this->load->view('citylight/header');				
-       	$this->load->view('citylight/lists', $data);
-		$this->load->view('citylight/footer');
-		
-		$this->Housesm->savesearch($data['searchvalue'], "rent");
 	}
 	public function uk(){
 		$plus = array('css'=>$this->getcssname('stylelist2'),'title'=>$this->lang->line("uk-title"),'js'=>'');
@@ -237,7 +224,6 @@ class Houses extends CI_Controller {
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 
-
 		}elseif($this->uri->segment(4) != null){//town level
 	
 			$data['controller']=$this;
@@ -274,7 +260,6 @@ class Houses extends CI_Controller {
 			$placename = $data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 
-
 		}elseif($this->uri->segment(2) != null){//country level
 			
 			$data['controller']=$this;
@@ -285,10 +270,8 @@ class Houses extends CI_Controller {
 			$viewtogetname='country';
 			$title = $data['countryspace'];		
 			$placename = $data['countryspace'];
-			$region = 'GB';
-			
+			$region = 'GB';			
 		}
-
 		$plus = array(
 			'css'=>$this->getcssname('stylelist2'),
 			'title'=>strtr($this->lang->line("price-title"), array('{$searchvalue}' => $title)),
@@ -305,13 +288,13 @@ class Houses extends CI_Controller {
 		       	//$cbase = $this->config->base_url().'for-sale/'.str_replace(" ", "-", $queryseachlist).'/';
 			$cnum = $this->Housesm->searchDBrows("sale",$queryseachlist);
 			$datalists['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$this->doiturl($queryseachlist),1);
-				if($searchfirst==true){
-			   		$this->load->view('houseslist', $datalists);
-			   		$this->load->view($viewtogetname,$data);
-			   	}else{
-					$this->load->view($viewtogetname,$data);
-					$this->load->view('houseslist', $datalists);				   		
-				}
+			if($searchfirst==true){
+				$this->load->view('houseslist', $datalists);
+				$this->load->view($viewtogetname,$data);
+			}else{
+				$this->load->view($viewtogetname,$data);
+				$this->load->view('houseslist', $datalists);				   		
+			}
 		}else{
 			$this->load->view($viewtogetname,$data);
 		}
@@ -329,13 +312,13 @@ class Houses extends CI_Controller {
 	}
 	function getcssname($basename){
 
-        //$this->load->library('user_agent');
+       		//$this->load->library('user_agent');
 		// if($this->agent->is_mobile()){
 		//	$name = "mobile-$basename";
 		// }else{
 		$name = $basename;
 		// }
-		 return $name;
+		return $name;
 	}
 	function doiturl($i) {
 	
@@ -347,7 +330,7 @@ class Houses extends CI_Controller {
         	
     	}
 	function undoiturl($i) {
-        	// $i = str_replace(" ","-",$i);    
+        	//$i = str_replace(" ","-",$i);    
         	$i = str_replace("-"," ",$i);
         	$i = str_replace("_","-",$i);            
         	//$i = str_replace(",","/",$i);
@@ -356,32 +339,62 @@ class Houses extends CI_Controller {
         }
         
                
-        function getnewpaginator($num,$perpage,$typesale,$query,$page=1){
-        
+        function getnewpaginator($num,$perpage,$typesale,$query,$page=1,$filters = false){
+        	
+       	     	
+       	    $urlparam = $this->createurlparameters($query, $filters);
             $x = ceil($num/$perpage);
             if($typesale == 'sale'){
-            	$type = 'for-sale';
+        	$type = 'for-sale';
             }elseif($typesale == 'rental'){
-                $type = 'to-rent';
+        	$type = 'to-rent';
             }    
             $links = array();
             $links["info"] = array("totalresults" => $num, "pages"=> $x, "perpage" => $perpage);
             $links["links"] = array();
+            
             for($i = 1; $i <= $x; $i++){
-	            if($i == 1){
-	            	$trick = '';
+	            if($i == 1){	            	
 	            	$name = $this->lang->line("paginator-firstpage");    
-	            }elseif($i>1){           
-	            	$trick = "/$i";
+	            }elseif($i>1){
+	            	
 	            	$name = $i;
 	            } 
 	            if($i == $page){
 	            	$links["links"][] = array("link"=>false,"title"=>false,"name"=>$name);
 	            }else{
-	            	$links["links"][] = array("link"=>$this->config->base_url().'houses/'.$type.'/'. $query . $trick .'.html',"title"=>strtr($this->lang->line("paginator-pagetitle"), array('{$type}' => $type, '{$query}' => $query, '{$name}' => $name)), "name"=>$name);
+	            	$links["links"][] = array("link"=>$this->config->base_url()."houses/$type/index.html{$urlparam}&page=$i","title"=>strtr($this->lang->line("paginator-pagetitle"), array('{$type}' => $type, '{$query}' => $query, '{$name}' => $name)), "name"=>$name);
 	            }     
             }        
             return $links;
-        }
+	}
+	
+	function createurlparameters($searchvalue, $filters){
+		$url = "?";
+		
+		$url .= "search=".$this->getUrlEncode($searchvalue);
+				
+			if(isset($filters['price1']))
+				$url .= "&price1=".(int)$filters["price1"];
+			if(isset($filters['price2']))
+				$url .= "&price2=".(int)$filters["price2"];
+			if(isset($filters['bedroom1']))
+				$url .= "&bedroom1=".(int)$filters["bedroom1"];
+			if(isset($filters['bedroom2']))
+				$url .= "&bedroom2=".(int)$filters["bedroom2"];
+			if(isset($filters["range"]))
+				$url .= "&range=".$filters["range"];
+			if(isset($filters["sortby"]))
+				$url .= "&sortby=".$this->getUrlEncode($filters["sortby"]);			
+			
+	
+		return $url;
+	}
+	
+	function getUrlEncode($string) {
+    		$entities = array('%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
+    		$replacements = array('!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
+  		return str_replace($entities, $replacements, urlencode($string));
+	}
 	
 }

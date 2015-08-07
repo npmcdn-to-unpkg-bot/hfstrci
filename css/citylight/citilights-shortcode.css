@@ -254,15 +254,24 @@
 }
 
 .properties .hentry .property-title {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: bold;
 	margin: 0;
-	padding: 15px 15px;
+	padding: 10px 8px;
+	line-height:23px;
 	background: #f9f9f9;
+	max-height:62px;
+	overflow:hidden;
 }
 
 .properties .hentry .property-excerpt {
-	display: none;
+	display: block;
+	font-size:12px;
+	padding:10px 8px;
+}
+.properties .hentry .property-excerpt p {
+	max-height:121px;
+	overflow:hidden;
 }
 
 .properties .hentry .property-detail {
@@ -271,6 +280,14 @@
 	display: table;
 	width: 100%;
 	border-bottom: 1px solid #e5e5e5;
+}
+
+.properties .hentry .property-detail p span{
+	width: 50%;
+	float: left;
+	padding: 3px;
+	text-align: center;
+	font-size: 12px;
 }
 
 .properties .hentry .property-detail > div {
@@ -2233,4 +2250,3 @@
 		transform: translate(-100%, 0);
 	}
 }
-

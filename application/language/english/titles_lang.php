@@ -1,7 +1,7 @@
 <?php 
 $lang["index-title"] = "Houses for Sale & to Rent, Find houses and properties for sale or to rent in the United Kingdom.";
-$lang["forsale-title"] = 'Houses for Sale in {$searchvalue}';
-$lang["torent-title"] = 'Houses to Rent in {$searchvalue}';
+$lang["sale-title"] = 'Houses for Sale in {$searchvalue}';
+$lang["rental-title"] = 'Houses to Rent in {$searchvalue}';
 $lang["forerror-title"] = 'Houses for sale & to rent in {$searchvalue}';
 $lang["uk-title"] = 'Houses for Sale & to Rent, Houses in the United Kingdom';
 $lang["price-title"] = 'House for Sale & to Rent in {$searchvalue}';
