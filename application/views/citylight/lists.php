@@ -103,7 +103,7 @@
                             
                           <div class="gsearch-action">
                             <div class="gsubmit">
-                             	<button class="btn btn-deault" type="submit" value="Search Property" name="action">
+                             	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search Property</button>
                               </div>
                             </div>
 
@@ -115,7 +115,7 @@
               
                 <!-- END FIND PROPERTY -->
 
-                <!-- START RECENT PROPERTY -->
+                <!-- START RECENT PROPERTY 
                 <div class="block-sidebar recent-property">
                   <h3 class="title-block-sidebar">Recent Property</h3>
                   <div class="featured-property">
@@ -132,7 +132,9 @@
                     </ul>
                   </div>
                 </div>
-                <!-- END RECENT PROPERTY -->
+                END RECENT PROPERTY -->
+                
+                
               </div>
             </div>
             <!-- END SIDEBAR -->

@@ -39,7 +39,16 @@ class Housesm extends CI_Model {
     	    			$where .= " and num_bedrooms_feed <= ".(int)$filters["bedroom2"];	    	
     	    	
     	    		if(isset($filters["sort"]))
-    	    			$sort = "distance";
+    	    			if($filters["sort"] == "distance")
+    	    				$sort = "distance";
+    	    			elseif($filters["sort"] == "recent")
+    	    				$sort = "timestamp_feed ASC";
+    	    			elseif($filters["sort"] == "pricelow")
+    	    				$sort = "price_feed ASC";
+    	    			elseif($filters["sort"] == "pricehigh")
+    	    				$sort = "price_feed DESC";
+    	    			else
+    	    				$sort = "distance";
     	    		else
     	 			$sort = "distance";
     	 			
@@ -77,7 +86,7 @@ class Housesm extends CI_Model {
     	    			$range = $filters["range"];
     	    		else
     	 			$range = (int)1;
-    	    	}   	    	
+    	    	}   	
     	    		
     		$query = $this->db->query("
 				SELECT key_feed, SQRT(
@@ -198,10 +207,15 @@ class Housesm extends CI_Model {
 			$query = $this->db->get('landregs');
 			return $query->result();
        }
-        function getisobydist($dist){
+       function getisobydist($dist){
        		$this->db->select('iso');
 			$this->db->where('district =', $dist);
 			$query = $this->db->get('district', 1);
+			return $query->result();
+       }
+       function footerlinks(){
+       			$this->db->select('*');			
+			$query = $this->db->get('footerlinks');
 			return $query->result();
        }
 }

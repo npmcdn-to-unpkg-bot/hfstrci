@@ -109,9 +109,7 @@ class Houses extends CI_Controller {
 			$data['results'] = $this->Housesm->searchpropertylatlong($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
 			$cnum = $this->Housesm->searchpropertylatlongrows($type,$lat,$lng,$filters);
 			//$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);
-			
-		
+			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);		
 						
 		}else{
 			$data['results'] = $this->Housesm->searchDB($type,$searchvalue,$this->propertiesperpage,$page,$filters);
@@ -131,8 +129,8 @@ class Houses extends CI_Controller {
 			);
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
-	      	$this->load->view('citylight/lists', $data);
-		$this->load->view('citylight/footer');
+	      	$this->load->view('citylight/lists', $data);		
+		$this->getFooter();
 		$this->Housesm->savesearch($data['searchvalue'], $type);
 
 	}	
@@ -156,6 +154,7 @@ class Houses extends CI_Controller {
 		$this->load->view('header',$plus);
 		$this->load->view('shortform');
         	$this->load->view('houseslist', $data);
+        	
 		$this->load->view('footer');	
 
 	}
@@ -395,6 +394,12 @@ class Houses extends CI_Controller {
     		$entities = array('%21', '%2A', '%27', '%28', '%29', '%3B', '%3A', '%40', '%26', '%3D', '%2B', '%24', '%2C', '%2F', '%3F', '%25', '%23', '%5B', '%5D');
     		$replacements = array('!', '*', "'", "(", ")", ";", ":", "@", "&", "=", "+", "$", ",", "/", "?", "%", "#", "[", "]");
   		return str_replace($entities, $replacements, urlencode($string));
+	}
+	
+	function getFooter(){
+		$data = array();
+		$data["links"] = $this->Housesm->footerlinks();
+		$this->load->view('citylight/footer',$data);
 	}
 	
 }
