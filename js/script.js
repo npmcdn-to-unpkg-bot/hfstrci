@@ -32,6 +32,41 @@
   $(document).ready(function() {
     // Cache the Window object
     $window = $(window);
+    
+    
+	$('#flat').click(function(event) {
+	  if(this.checked) {
+	      
+	      $('.flat').each(function() {
+	          this.checked = true;
+	      });
+	  }
+	  else {
+	    $('.flat').each(function() {
+	          this.checked = false;
+	      });
+	  }
+	});
+
+	$('#house').click(function(event) {
+		
+	  if(this.checked) {
+	      
+	      $('.house').each(function() {
+	          this.checked = true;
+	      });
+	  }
+	  else {
+	    $('.house').each(function() {
+	          this.checked = false;
+	      });
+	  }
+	});
+	
+	$('#orderby').change(function() {
+        	$('#search-form').submit();        	
+  	});
+
 
     /* --------------------------------------------------------------------- */
     /* 1. PARALLAX
@@ -620,4 +655,3 @@
 
   });
 }(jQuery);
-

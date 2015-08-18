@@ -10,7 +10,7 @@
               <div class="noo-sidebar-inner">
                 <!-- START FIND PROPERTY -->
                 <div class="block-sidebar find-property">
-                  <h3 class="title-block-sidebar">Find Property</h3>
+                  <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
                       <form class="gsearchform" method="get" role="search" action="
@@ -24,7 +24,7 @@
                       	echo "/index.html";
                       
                        ?>
-                      ">
+                      " id="search-form">
                         <div class="gsearch-content">                        
                                                           
                               <input type="text" class="form-control" name="search" value="<?php echo $searchvalue; ?>" placeholder="Search for address, town or area"/>
@@ -68,11 +68,35 @@
                              <div class="form-group glocation">
                               <div class="label-select">
 
-                                <select class="form-control">
-                                  <option>Property types</option>
-                                  <option>House</option>
-                                  <option>Flat</option>
-                                </select>
+                               <ul>
+					<li>
+						<input type="checkbox" name="property-type[]" value="Flat" id="flat"/>Flat
+						<ul>
+							<li><input type="checkbox" name="property-type[]" value="Penthouse" class="flat"/>Penthouse</li>
+							<li><input type="checkbox" name="property-type[]" value="Studio" class="flat"/>Studio</li>
+						</ul>
+					</li>
+					<li>
+						<input type="checkbox" name="property-type[]" value="House" id="house"/>House
+						<ul>
+							<li><input type="checkbox" name="property-type[]" value="Detached house" class="house"/>Detached house</li>
+							<li><input type="checkbox" name="property-type[]" value="Semi Detached" class="house"/>Semi Detached</li>
+							<li><input type="checkbox" name="property-type[]" value="Maisonette" class="house"/>Maisonette</li>
+							<li><input type="checkbox" name="property-type[]" value="Terraced house" class="house"/>Terraced house</li>
+							<li><input type="checkbox" name="property-type[]" value="Town house" class="house"/>Town house</li>
+							<li><input type="checkbox" name="property-type[]" value="Cottage" class="house"/>Cottage</li>
+						</ul>
+					</li>
+					<li><input type="checkbox" name="property-type[]" value="House share" />House share</li>
+					<li><input type="checkbox" name="property-type[]" value="Flat Share" />Flat Share</li>
+					<li><input type="checkbox" name="property-type[]" value="Commercial" />Commercial</li>
+					<li><input type="checkbox" name="property-type[]" value="Barn conversion" />Barn conversion</li>
+					<li><input type="checkbox" name="property-type[]" value="Bungalow" />Bungalow</li>
+					<li><input type="checkbox" name="property-type[]" value="Mill" />Mill</li>
+					<li><input type="checkbox" name="property-type[]" value="Plot of Land" />Land</li>
+					<li><input type="checkbox" name="property-type[]" value="New build" />New build</li>
+					<li><input type="checkbox" name="property-type[]" value="Retirement property" />Retirement property</li>
+				</ul>
                                 
                               </div>
                             </div>
@@ -103,7 +127,7 @@
                             
                           <div class="gsearch-action">
                             <div class="gsubmit">
-                             	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search Property</button>
+                             	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
                               </div>
                             </div>
 
@@ -114,7 +138,7 @@
                   </div>
               
                 <!-- END FIND PROPERTY -->
-
+<?php /*
                 <!-- START RECENT PROPERTY 
                 <div class="block-sidebar recent-property">
                   <h3 class="title-block-sidebar">Recent Property</h3>
@@ -134,7 +158,7 @@
                 </div>
                 END RECENT PROPERTY -->
                 
-                
+   */ ?>            
               </div>
             </div>
             <!-- END SIDEBAR -->
@@ -149,16 +173,17 @@
 										<h1 class="page-title">Properties <?php echo $saletype; ?> in <?php echo $searchvalue; ?></h1>
 
 										<div class="properties-toolbar">
-                      <form class="properties-ordering" method="get">
+                      <form class="properties-ordering">
                         <div class="properties-ordering-label">Sorted by</div>
                         <div class="form-group properties-ordering-select">
                           <div class="label-select">
-                            <select class="form-control" name="orderby">
-                              <option value="distance">Distance</option>
-                              <option value="recent">Most Recent</option>
-                              <option value="pricelow">Lowest Price</option>
-                              <option value="pricehigh">Highest Price</option>
+                            <select class="form-control" form="search-form" name="orderby" id="orderby">
+                              <option value="distance" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "distance") echo " selected"; ?>>Distance</option>
+                              <option value="recent" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "recent") echo " selected"; ?>>Most Recent</option>
+                              <option value="pricelow" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "pricelow") echo " selected"; ?>>Lowest Price</option>
+                              <option value="pricehigh" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "pricehigh") echo " selected"; ?>>Highest Price</option>
                             </select>
+                           
                           </div>
                         </div>
                       </form>
@@ -240,11 +265,13 @@ foreach($results as $k){
 
                   <article class="hentry">
                       <div class="property-featured">
-                        <span class="featured"><i class="fa fa-star"></i></span>
+                        <?php //<span class="featured"><i class="fa fa-star"></i></span>
+                        ?>
                         <a class="content-thumb" href="<?php echo $href; ?>">
                           <img src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
                         </a>
-                        <span class="property-label">Hot</span>
+                        <?php //<span class="property-label">Hot</span>  
+                        ?>
                         <span class="property-category"><a href="#"><?php echo $proptype; ?></a></span>
                       </div>
                       <div class="property-wrap">

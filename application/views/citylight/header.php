@@ -14,7 +14,7 @@
 
             <div class="top-header-content">
               <div class="emailto content-item">
-                <a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>
+                <?php /*<a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>*/ ?>
               </div>
             </div>
           </div>
@@ -51,10 +51,10 @@
                 <a href="#">Properties&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-submenu">
-                    <a href="#">For Sale</a>                            
+                    <a href="<?php echo $this->config->base_url(); ?>/houses/for-sale/index.html">For Sale</a>                            
                   </li>
                   <li class="dropdown-submenu">
-                    <a href="#">To Rent</a>                  
+                    <a href="<?php echo $this->config->base_url(); ?>/houses/to-rent/index.html">To Rent</a>                  
                                 
                   </li>                 
                 </ul>

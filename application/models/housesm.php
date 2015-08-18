@@ -38,14 +38,14 @@ class Housesm extends CI_Model {
     	    		if(isset($filters["bedroom2"]))
     	    			$where .= " and num_bedrooms_feed <= ".(int)$filters["bedroom2"];	    	
     	    	
-    	    		if(isset($filters["sort"]))
-    	    			if($filters["sort"] == "distance")
+    	    		if(isset($filters["sortby"]))
+    	    			if($filters["sortby"] == "distance")
     	    				$sort = "distance";
-    	    			elseif($filters["sort"] == "recent")
+    	    			elseif($filters["sortby"] == "recent")
     	    				$sort = "timestamp_feed ASC";
-    	    			elseif($filters["sort"] == "pricelow")
+    	    			elseif($filters["sortby"] == "pricelow")
     	    				$sort = "price_feed ASC";
-    	    			elseif($filters["sort"] == "pricehigh")
+    	    			elseif($filters["sortby"] == "pricehigh")
     	    				$sort = "price_feed DESC";
     	    			else
     	    				$sort = "distance";

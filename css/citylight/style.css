@@ -917,7 +917,7 @@ ul.social-top > li a i {
 /* === 4.1. FOOTER NAVIGATION === */
 .footer .footer-nav {
 	position: relative;
-	background: url("http://housesforsaletorent.co.uk/images/background/footer-nav-bg.png") no-repeat scroll 0 center transparent;
+	background: #79b18d;
 	padding: 7% 0 3%;
 }
 
@@ -3871,13 +3871,13 @@ ul.wysihtml5-toolbar a:hover {
 
 .noo-sidebar ul {
 	list-style: none;
-	padding-left: 0;
+	padding-left: 15px;
 	margin-bottom: 0;
 }
 
 .block-sidebar ul li {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 5px 0;
+  /*border-bottom: 1px solid #e5e5e5;
+  padding: 5px 0;*/
   line-height: 1.5;
   color: #8E8E8E;
   font-weight: 300;

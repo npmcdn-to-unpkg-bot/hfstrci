@@ -91,8 +91,8 @@ class Houses extends CI_Controller {
 		}else
 			$filters["range"] = (int)1;
 			
-		if((int)$this->input->get('sortby') >= 0 && $this->input->get('sortyby') != "")
-			$filters["sortby"] = $this->input->get('sortby');
+		if((int)$this->input->get('orderby') >= 0 && $this->input->get('orderby') != "")
+			$filters["sortby"] = $this->input->get('orderby');
 			
 		if($this->input->get('search') && (int)$this->input->get('search') >= 0 && $this->input->get('search') != "")
 			$searchvalue = $this->input->get('search');
