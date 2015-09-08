@@ -1,4 +1,4 @@
-<body class="page-right-sidebar">
+<body itemscope itemtype="http://schema.org/WebPage" class="page-right-sidebar">
   <!-- START SITE -->
   <div class="site">
     <!-- START HEADER -->
@@ -9,7 +9,7 @@
           <div class="top-header-inner">
             <ul class="social-top">
               <li><a href="https://www.facebook.com/housesforsaletorent" title="Facebook Houses for Sale & to Rent" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <!--<li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>-->
+              <?php /*<li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>*/ ?>
             </ul>
 
             <div class="top-header-content">
@@ -33,8 +33,8 @@
             <span class="icon-bar"></span>
           </button>
           <div class="logo">
-            <div class="logo-image">
-              <a href="<?php echo $this->config->base_url(); ?>" title="Houses for Sale & to Rent"></a>
+            <div itemscope itemtype="http://schema.org/Organization" class="logo-image">
+              <a itemprop="url" href="<?php echo $this->config->base_url(); ?>" title="Houses for Sale & to Rent"></a>
             </div>
           </div>
         </div>
@@ -48,21 +48,30 @@
                 <a href="index.html">Home&nbsp;<span class="caret"></span></a>               
               </li>
               <li class="dropdown active">
-                <a href="#">Properties&nbsp;<span class="caret"></span></a>
+                <a href="#">Houses&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>/houses/for-sale/index.html">For Sale</a>                            
+                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Houses for Sale">For Sale</a>                            
                   </li>
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>/houses/to-rent/index.html">To Rent</a>                  
+                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Houses to Rent">To Rent</a>                  
                                 
                   </li>                 
                 </ul>
-              </li>
-             
-              <li class="dropdown">
-                <a href="#">Submit&nbsp;<span class="caret"></span></a>               
-              </li>
+              </li>   
+              <li class="dropdown active">
+                <a href="#">Flats&nbsp;<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li class="dropdown-submenu">
+                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Flats for Sale">For Sale</a>                            
+                  </li>
+                  <li class="dropdown-submenu">
+                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Flats to Rent">To Rent</a>                  
+                                
+                  </li>                 
+                </ul>
+              </li>          
+              
             </ul>
           </nav>
         </div>

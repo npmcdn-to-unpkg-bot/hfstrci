@@ -37,28 +37,26 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['default_controller'] = 'houses';
+$route['default_controller'] = 'singles';
 //$route['houses/(:any)'] = "";
-$route['houses/england/(:any)'] = "houses/price";
-$route['houses/wales/(:any)'] = "houses/price";
-$route['houses/scotland/(:any)'] = "houses/price";
-$route['houses/northern-ireland/(:any)'] = "houses/price";
-$route['houses/england'] = "houses/price";
-$route['houses/wales'] = "houses/price";
-$route['houses/scotland'] = "houses/price";
-$route['houses/northern-ireland'] = "houses/price";
-$route['houses/uk'] = "houses/uk";
 
+$route['houses/england/(:any)'] = "houseprice/price";
+$route['houses/wales/(:any)'] = "houseprice/price";
+$route['houses/scotland/(:any)'] = "houseprice/price";
+$route['houses/northern-ireland/(:any)'] = "houseprice/price";
+$route['houses/england'] = "houseprice/price";
+$route['houses/wales'] = "houseprice/price";
+$route['houses/scotland'] = "houseprice/price";
+$route['houses/northern-ireland'] = "houseprice/price";
+$route['houses/uk'] = "houseprice/uk";
 
+$route['termsandconditions'] = "single/privacy";
 
 
 //$route['houses/for-sale'] = "houses/for_sale";
 $route['houses/for-sale/(:any)'] = "houses/for_sale/query";
 //$route['houses/to-rent'] = "houses/to_rent";
 $route['houses/to-rent/(:any)'] = "houses/to_rent/query";
-
-
-
 $route['404_override'] = 'houses/for_error/query';
 
 

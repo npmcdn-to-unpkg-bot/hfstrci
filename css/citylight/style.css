@@ -1,3 +1,15 @@
+
+@media screen and (max-width: 991px) {
+
+.block-sidebar {display: none;}
+.mobile-show {display: block !important;}
+#find-property {display: none;}
+.page-title {float:none !important;display: inline-block !important;width: 100% !important;}
+.property-toolbar {float:none !important;display: inline-block !important;width: 100% !important;}
+}
+.mobile-show {display: none;}
+
+
 /*
 
 1. GLOBAL STYLING
@@ -206,9 +218,9 @@ iframe {
 /* 2. TOP HEADER
 /* --------------------------------------------------------------------- */
 .top-header {
-	height: 30px;
+	/*height: 30px;
 	background: #f8f8f8;
-	border-bottom: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;*/
 }
 
 @media screen and (max-width: 991px) {
@@ -347,7 +359,7 @@ ul.social-top > li a i {
 		-o-box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
 		-ms-box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
 		box-shadow: 0px 1px 2px rgba(0,0,0,0.15);
-		padding: 0;
+		padding: 55px 0 5px;
 	}
 }
 

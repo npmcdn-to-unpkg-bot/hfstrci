@@ -9,7 +9,9 @@
             <div class="noo-sidebar noo-sidebar-right col-xs-12 col-md-3">
               <div class="noo-sidebar-inner">
                 <!-- START FIND PROPERTY -->
-                <div class="block-sidebar find-property">
+                <div class="mobile-show"><a href="#" id="showfilter" style="text-align:center;"><h3 class="title-block-sidebar"><strong>+</strong> Show Filters</h3></a></div>
+                
+                <div class="block-sidebar find-property" id="find-property">
                   <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
@@ -25,12 +27,14 @@
                       
                        ?>
                       " id="search-form">
-                        <div class="gsearch-content">                        
-                                                          
+                        <div class="gsearch-content">
+                          <div class="gsearch-field">
+                       
+                            <div class="form-group gtype">                           
                               <input type="text" class="form-control" name="search" value="<?php echo $searchvalue; ?>" placeholder="Search for address, town or area"/>
-                               <br>                
+                            </div>              
 
-                              <div class="form-group glocation" style="width:49%;float:left;">
+                            <div class="form-group glocation" style="width:49%;float:left;">
                                  <input type="text" class="form-control" name="price1" value="<?php if(isset($filters["price1"])) echo $filters["price1"]; ?>"  placeholder="Min. Price" />
                             </div>
 
@@ -39,6 +43,7 @@
                             </div>
 
                              <div class="form-group glocation"  style="width:49%;float:left;">
+                              <div class="label-select">
                                 <select class="form-control" name="bedroom1">
                                   <option value="">Min Bedroom</option>
                                   <option value="0"<?php if(isset($filters["bedroom1"]) && $filters["bedroom1"] === 0) echo " selected"; ?>>Studio</option>
@@ -48,11 +53,12 @@
                                   <option value="4"<?php if(isset($filters["bedroom1"]) && $filters["bedroom1"] === 4) echo " selected"; ?>>4</option>
                                   <option value="5"<?php if(isset($filters["bedroom1"]) && $filters["bedroom1"] === 5) echo " selected"; ?>>5</option>
                                 </select>
+                              </div>
                              </div>
                            
 
                              <div class="form-group glocation"  style="width:49%;float:right;">
-                               <div class="label-select">
+                               <div class="label-select">                                
                                 <select class="form-control" name="bedroom2">
                                   <option value="">Max Bedroom</option>
                                   <option value="0"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 0) echo " selected"; ?>>Studio</option>
@@ -64,42 +70,7 @@
                                 </select>
                               </div>
                             </div>
-
-                             <div class="form-group glocation">
-                              <div class="label-select">
-
-                               <ul>
-					<li>
-						<input type="checkbox" name="property-type[]" value="Flat" id="flat"/>Flat
-						<ul>
-							<li><input type="checkbox" name="property-type[]" value="Penthouse" class="flat"/>Penthouse</li>
-							<li><input type="checkbox" name="property-type[]" value="Studio" class="flat"/>Studio</li>
-						</ul>
-					</li>
-					<li>
-						<input type="checkbox" name="property-type[]" value="House" id="house"/>House
-						<ul>
-							<li><input type="checkbox" name="property-type[]" value="Detached house" class="house"/>Detached house</li>
-							<li><input type="checkbox" name="property-type[]" value="Semi Detached" class="house"/>Semi Detached</li>
-							<li><input type="checkbox" name="property-type[]" value="Maisonette" class="house"/>Maisonette</li>
-							<li><input type="checkbox" name="property-type[]" value="Terraced house" class="house"/>Terraced house</li>
-							<li><input type="checkbox" name="property-type[]" value="Town house" class="house"/>Town house</li>
-							<li><input type="checkbox" name="property-type[]" value="Cottage" class="house"/>Cottage</li>
-						</ul>
-					</li>
-					<li><input type="checkbox" name="property-type[]" value="House share" />House share</li>
-					<li><input type="checkbox" name="property-type[]" value="Flat Share" />Flat Share</li>
-					<li><input type="checkbox" name="property-type[]" value="Commercial" />Commercial</li>
-					<li><input type="checkbox" name="property-type[]" value="Barn conversion" />Barn conversion</li>
-					<li><input type="checkbox" name="property-type[]" value="Bungalow" />Bungalow</li>
-					<li><input type="checkbox" name="property-type[]" value="Mill" />Mill</li>
-					<li><input type="checkbox" name="property-type[]" value="Plot of Land" />Land</li>
-					<li><input type="checkbox" name="property-type[]" value="New build" />New build</li>
-					<li><input type="checkbox" name="property-type[]" value="Retirement property" />Retirement property</li>
-				</ul>
-                                
-                              </div>
-                            </div>
+                            <div class="clear"></div>
                             
                             <div class="form-group glocation">
                               <div class="label-select">
@@ -123,12 +94,43 @@
                               </div>
                             </div>
 
-                                                                   
+                             <div class="form-group glocation">
+                               <ul>
+                      					<li>
+                      						<input type="checkbox" name="property-type[]" value="Flat" id="flat" <?php if(isset($filters['propertytype']) && in_array("Flat",$filters['propertytype'])) echo "checked"; ?>/>Flat <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Flat"]))echo $proptypeinfo["Flat"]["popularity"]; else echo "0"; ?> Flats]</span>
+                      						<ul>
+                      							<li><input type="checkbox" name="property-type[]" value="Penthouse" class="flat" <?php if(isset($filters['propertytype']) && in_array("Penthouse",$filters['propertytype'])) echo "checked"; ?>/>Penthouse <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Penthouse"]))echo $proptypeinfo["Penthouse"]["popularity"]; else echo "0"; ?> Penthouses]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Studio" class="flat" <?php if(isset($filters['propertytype']) && in_array("Studio",$filters['propertytype'])) echo "checked"; ?>/>Studio <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Studio"]))echo $proptypeinfo["Studio"]["popularity"]; else echo "0"; ?> Studios]</span></li>
+                      						</ul>
+                      					</li>
+                      					<li>
+                      						<input type="checkbox" name="property-type[]" value="House" id="house" <?php if(isset($filters['propertytype']) && in_array("House",$filters['propertytype'])) echo "checked"; ?>/>House <span style="font-size:10px;">[<?php if(isset($proptypeinfo["House"]))echo $proptypeinfo["House"]["popularity"]; else echo "0"; ?> Houses]</span>
+                      						<ul>
+                      							<li><input type="checkbox" name="property-type[]" value="Detached house" class="house" <?php if(isset($filters['propertytype']) && in_array("Detached house",$filters['propertytype'])) echo "checked"; ?>/>Detached house <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Detached house"]))echo $proptypeinfo["Detached house"]["popularity"]; else echo "0"; ?> Detached houses]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Semi Detached" class="house" <?php if(isset($filters['propertytype']) && in_array("Semi Detached",$filters['propertytype'])) echo "checked"; ?>/>Semi Detached <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Semi Detached"]))echo $proptypeinfo["Semi Detached"]["popularity"]; else echo "0"; ?> Semi Detached]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Maisonette" class="house" <?php if(isset($filters['propertytype']) && in_array("Maisonette",$filters['propertytype'])) echo "checked"; ?>/>Maisonette <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Maisonette"]))echo $proptypeinfo["Maisonette"]["popularity"]; else echo "0"; ?> Maisonettes]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Terraced house" class="house" <?php if(isset($filters['propertytype']) && in_array("Terraced house",$filters['propertytype'])) echo "checked"; ?>/>Terraced house <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Terraced house"]))echo $proptypeinfo["Terraced house"]["popularity"]; else echo "0"; ?> Terraced houses]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Town house" class="house" <?php if(isset($filters['propertytype']) && in_array("Town house",$filters['propertytype'])) echo "checked"; ?>/>Town house <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Town house"]))echo $proptypeinfo["Town house"]["popularity"]; else echo "0"; ?> Town house]</span></li>
+                      							<li><input type="checkbox" name="property-type[]" value="Cottage" class="house" <?php if(isset($filters['propertytype']) && in_array("Cottage",$filters['propertytype'])) echo "checked"; ?>/>Cottage <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Cottage"]))echo $proptypeinfo["Cottage"]["popularity"]; else echo "0"; ?> Cottages]</span></li>
+                      						</ul>
+                      					</li>
+                      					<li><input type="checkbox" name="property-type[]" value="House share" <?php if(isset($filters['propertytype']) && in_array("House share",$filters['propertytype'])) echo "checked"; ?>/>House/Flat share</li>
+                      					
+                      					<li><input type="checkbox" name="property-type[]" value="Commercial" <?php if(isset($filters['propertytype']) && in_array("Commercial",$filters['propertytype'])) echo "checked"; ?>/>Commercial <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Commercial"]))echo $proptypeinfo["Commercial"]["popularity"]; else echo "0"; ?> Commercial]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="Barn conversion" <?php if(isset($filters['propertytype']) && in_array("Barn conversion",$filters['propertytype'])) echo "checked"; ?>/>Barn conversion <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Barn conversion"]))echo $proptypeinfo["Barn conversion"]["popularity"]; else echo "0"; ?> Barn conversion]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="Bungalow" <?php if(isset($filters['propertytype']) && in_array("Bungalow",$filters['propertytype'])) echo "checked"; ?>/>Bungalow <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Bungalow"]))echo $proptypeinfo["Bungalow"]["popularity"]; else echo "0"; ?> Bungalow]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="Mill" <?php if(isset($filters['propertytype']) && in_array("Mill",$filters['propertytype'])) echo "checked"; ?>/>Mill <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Mill"]))echo $proptypeinfo["Mill"]["popularity"]; else echo "0"; ?> Mill]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="Plot of Land" <?php if(isset($filters['propertytype']) && in_array("Plot of Land",$filters['propertytype'])) echo "checked"; ?>/>Land <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Plot of Land"]))echo $proptypeinfo["Plot of Land"]["popularity"]; else echo "0"; ?> Plots of Land]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="New build" <?php if(isset($filters['propertytype']) && in_array("New build",$filters['propertytype'])) echo "checked"; ?>/>New build <span style="font-size:10px;">[<?php if(isset($proptypeinfo["New build"]))echo $proptypeinfo["New build"]["popularity"]; else echo "0"; ?> New build]</span></li>
+                      					<li><input type="checkbox" name="property-type[]" value="Retirement property" <?php if(isset($filters['propertytype']) && in_array("Retirement property",$filters['propertytype'])) echo "checked"; ?>/>Retirement property <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Retirement properties"]))echo $proptypeinfo["Retirement property"]["popularity"]; else echo "0"; ?> Retirement property]</span></li>
+                      				</ul>                               
+                            </div>
+                          </div>      
                             
-                          <div class="gsearch-action">
-                            <div class="gsubmit">
-                             	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
-                              </div>
+                            <div class="gsearch-action">
+                              <div class="gsubmit">
+                               	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
+                                </div>
                             </div>
 
                           </div>
@@ -138,6 +140,71 @@
                   </div>
               
                 <!-- END FIND PROPERTY -->
+                <?php if($lat && $lng){ 
+	                echo '<div class="block-sidebar">
+	                  <h3 class="title-block-sidebar">Map</h3>
+	                  <div id="map" style="width:100%;height:250px;background:gray;"></div>
+	                  <span>'.$formatted_address.'</span>
+	                  <script type="text/javascript">var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
+	                </div>';
+	               }              
+                ?>
+                
+                <div class="block-sidebar">
+	                  <h3 class="title-block-sidebar">Related Search</h3>
+	                  <ul>
+	                  	<li><a href="<?php echo $related["housesale"]; ?>" title="Houses for sale in <?php echo $searchvalue; ?>">Houses for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Flat for sale in <?php echo $searchvalue; ?>">Flat for Sale in <?php echo $searchvalue; ?></a></li>                  	
+	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Houses to rent in <?php echo $searchvalue; ?>">Houses to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["flatrent"]; ?>" title="Flat to rent in <?php echo $searchvalue; ?>">Flat to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><hr /></li>
+	                  	<li><a href="<?php echo $related["0bedsale"]; ?>" title="Studio for sale in <?php echo $searchvalue; ?>">Studio for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["1bedsale"]; ?>" title="1 bedroom for sale in <?php echo $searchvalue; ?>">1 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["2bedsale"]; ?>" title="2 bedroom for sale in <?php echo $searchvalue; ?>">2 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["3bedsale"]; ?>" title="3 bedroom for sale in <?php echo $searchvalue; ?>">3 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["4bedsale"]; ?>" title="4 bedroom for sale in <?php echo $searchvalue; ?>">4 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["5bedsale"]; ?>" title="5+ bedroom for sale in <?php echo $searchvalue; ?>">5+ bedroom for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><hr/></li>
+	                  	<li><a href="<?php echo $related["0bedrent"]; ?>" title="Studio to rent in <?php echo $searchvalue; ?>">Studio to rent in <?php echo $searchvalue; ?></a></li>	 
+	                  	<li><a href="<?php echo $related["1bedrent"]; ?>" title="1 bedroom to rent in <?php echo $searchvalue; ?>">1 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["2bedrent"]; ?>" title="2 bedroom to rent in <?php echo $searchvalue; ?>">2 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["3bedrent"]; ?>" title="3 bedroom to rent in <?php echo $searchvalue; ?>">3 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["4bedrent"]; ?>" title="4 bedroom to rent in <?php echo $searchvalue; ?>">4 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["5bedrent"]; ?>" title="5+ bedroom to rent in <?php echo $searchvalue; ?>">5+ bedroom to rent in <?php echo $searchvalue; ?></a></li>
+	                  </ul>
+	        </div>
+	        
+	        <div class="block-sidebar">
+	                  <h3 class="title-block-sidebar">Useful property information about <?php echo $searchvalue; ?></h3>
+	                 
+	                 
+	                  <p style="text-align: justify;">
+	                  Your search returned <?php if($rows == 500) echo "500+"; else echo $rows; ?> homes <?php echo strtolower($saletype); ?> in <?php echo $searchvalue; ?>.
+	                  The average asking price for a <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?> in <?php echo $searchvalue; ?> is £<?php echo number_format($relatedproptype[0]["avgprice"],2); ?>.</p>
+			
+			<?php if(isset($relatedproptype[0])){ ?>
+			<p style="text-align: justify;">The most common property type available <?php echo strtolower ($saletype); ?> in <?php echo $searchvalue; ?> are <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?><?php if(isset($relatedproptype[1])){ ?> and <?php echo round($relatedproptype[1]["avgbed"])." bedroom "; echo $relatedproptype[1]["proptype"]; ?><?php } ?><br />
+To help you refine your search in <?php echo $searchvalue; ?> please feel free to try the following popular links:</p>
+
+			<?php } ?>
+			<ul>
+			<?php
+			
+			for($i = 0;$i < count($relatedproptype);$i++){
+			$tit = "";
+			if($relatedproptype[$i]["avgbed"] != 0)
+				$tit .= $relatedproptype[$i]["avgbed"].' bedroom ';
+			$tit .= $relatedproptype[$i]["proptype"].' '.strtolower($saletype).' in '.$searchvalue.'';
+			echo '<li><a href="'.$relatedproptype[$i]["link"].'" title="'.$tit.'">'.$tit.'</a></li>';
+			
+			} ?>
+			
+			
+			</ul>
+	        </div>
+                
+                
+                
 <?php /*
                 <!-- START RECENT PROPERTY 
                 <div class="block-sidebar recent-property">
@@ -166,11 +233,36 @@
 
 				  	<!-- START MAIN CONTENT -->
 				  	<div class="noo-content col-xs-12 col-md-9">
+				  		<?php if(isset($bread)){
+				  				
+				  				echo '<div class="bread">';
+				  				$first = true;
+				  				
+				  				echo '<a href="'.$breadbase.'" title="Houses '.$bread[0]["type"].'"> Houses '.$bread[0]["type"].'</a>';
+				  					foreach($bread as $brea){
+				  						if($brea["active"] === true){
+				  						
+				  						echo ' > <a href="'.$brea["link"].'" title="Houses '.$brea["type"].' in '.$brea["name"].'"> '.$brea["name"].'</a>';
+				  						}else{
+				  						echo ' > '.$brea["name"];
+				  						}
+				  					
+				  					}
+				  						
+				  				echo '</div><div style="clear:both"></div>';
+				  				}
+				  				?>
+				  				
 							<div class="recent-properties">
 								<div class="properties grid">
+	                
 	                <!-- START PROPERTIES HEADER -->
 				  				<div class="properties-header">
-										<h1 class="page-title">Properties <?php echo $saletype; ?> in <?php echo $searchvalue; ?></h1>
+				  				
+				  				
+				  				
+										<h1 class="page-title">Properties <?php echo $saletype; ?> in <?php echo $searchvalue; if(isset($postcode)) echo " $postcode";?></h1>
+										
 
 										<div class="properties-toolbar">
                       <form class="properties-ordering">
@@ -187,18 +279,19 @@
                           </div>
                         </div>
                       </form>
-										</div>
+										</div>									
+									
+									
 									</div>
 	                <!-- END PROPERTIES HEADER -->
-
+			<div><p><span style="display:inline-block"><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p><p><span><?php echo $formatted_address; ?></span></p></div>
                   <!-- START PROPERTIES CONTENT -->
                   <div class="properties-content">
 
 
 
 
-<?php 
-                   
+<?php                
 foreach($results as $k){
    
             $key = $k->key_feed;
@@ -232,7 +325,7 @@ foreach($results as $k){
                 $addss[$i] = preg_replace('/6/', '', $addss[$i] ); // remove numbers
                 $addss[$i] = preg_replace('/7/', '', $addss[$i] ); // remove numbers
                 $addss[$i] = preg_replace('/8/', '', $addss[$i] ); // remove numbers
-                $addss[$i]  = preg_replace('/9/', '', $addss[$i] ); // remove numbers
+                $addss[$i] = preg_replace('/9/', '', $addss[$i] ); // remove numbers
                 $strings .= ' '.$addss[$i];
                }
               }else{

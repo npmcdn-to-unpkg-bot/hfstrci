@@ -260,12 +260,13 @@
 }
 
 .noo-counter-holder > span.noo-counter {
-	font-size: 72px;
+	font-size: 50px;
 	font-weight: 400;
 }
 
 .noo-counter-holder .counter-text h3 {
 	margin-top: 0;
+	font-size: 20px;
 }
 
 

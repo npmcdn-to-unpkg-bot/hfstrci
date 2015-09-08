@@ -30,6 +30,12 @@
 
 ! function($) {
   $(document).ready(function() {
+  
+  	$("#showfilter").click(function(){
+  		
+	    $("#find-property").toggle();
+	});
+  
     // Cache the Window object
     $window = $(window);
     
@@ -67,6 +73,63 @@
         	$('#search-form').submit();        	
   	});
 
+	var mapcenter = new google.maps.LatLng( lat, lng);
+	var marker;
+	var map;
+	var zoom;
+	
+	if (srange <= 1){
+		zoom = 13;
+	} else if (srange <= 2){
+		zoom = 12;
+	} else if (srange <= 4){
+		zoom = 11;
+	} else if (srange <= 5){
+		zoom = 10;
+	} else if (srange <= 15){
+		zoom = 9;
+	} else if (srange <= 30){
+		zoom = 8;
+	} else if (srange <= 40){
+		zoom = 7;
+	} else {
+		zoom = 13;
+	}  
+	
+	var myOptions = {
+		center: mapcenter,  
+		disableDefaultUI: true,
+		zoom: zoom,
+		scrollwheel: true,
+		navigationControl: true,
+		mapTypeControl: false,
+		scaleControl: false, 
+		draggable: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+        
+        var map = new google.maps.Map(document.getElementById("map"),
+            myOptions);
+            
+    	var marker = new google.maps.Marker({
+	  map: map,
+	  position: new google.maps.LatLng(lat , lng),
+	  title: loctitle
+	});
+	
+	
+	
+	 var cityCircle = new google.maps.Circle({
+	      strokeColor: '#79b18d',
+	      strokeOpacity: 0.8,
+	      strokeWeight: 2,
+	      fillColor: '#79b18d',
+	      fillOpacity: 0.35,
+	      map: map,
+	      center: mapcenter,
+	      radius: srange / 0.00062137
+	    });
+	
 
     /* --------------------------------------------------------------------- */
     /* 1. PARALLAX
