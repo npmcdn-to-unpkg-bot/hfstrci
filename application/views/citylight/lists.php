@@ -361,11 +361,11 @@ foreach($results as $k){
                         <?php //<span class="featured"><i class="fa fa-star"></i></span>
                         ?>
                         <a class="content-thumb" href="<?php echo $href; ?>">
-                          <img src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
+                          <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
                         </a>
                         <?php //<span class="property-label">Hot</span>  
                         ?>
-                        <span class="property-category"><a href="#"><?php echo $proptype; ?></a></span>
+                        <span class="property-category"><a href="<?php echo $href; ?>"><?php echo $proptype; ?></a></span>
                       </div>
                       <div class="property-wrap">
                         <h2 class="property-title">
