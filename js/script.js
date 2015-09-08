@@ -30,9 +30,10 @@
 
 ! function($) {
   $(document).ready(function() {
+  	
+  	$("img").unveil();
   
   	$("#showfilter").click(function(){
-  		
 	    $("#find-property").toggle();
 	});
   
