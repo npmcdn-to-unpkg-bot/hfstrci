@@ -291,9 +291,10 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 
 
 
-<?php                
+<?php    
+$counti = 0;
 foreach($results as $k){
-   
+   $counti++;
             $key = $k->key_feed;
             $proptype = $k->property_type_feed;
             if(! $proptype){$proptype = "";}
@@ -361,7 +362,11 @@ foreach($results as $k){
                         <?php //<span class="featured"><i class="fa fa-star"></i></span>
                         ?>
                         <a class="content-thumb" href="<?php echo $href; ?>">
+                        	<?php if($counti > 8){ ?>
                           <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
+                       		<?php }else{ ?>
+                       	  <img src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
+                       		<?php } ?>
                         </a>
                         <?php //<span class="property-label">Hot</span>  
                         ?>
