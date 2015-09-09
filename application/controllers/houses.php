@@ -46,7 +46,7 @@ class Houses extends CI_Controller {
 
 	public function general_search($type = "sale"){
 		
-		//$this->output->enable_profiler(TRUE);		
+		$this->output->enable_profiler(TRUE);		
 		if($this->input->get('search') && (int)$this->input->get('search') >= 0 && $this->input->get('search') != ""){
 			$searchvalue = $this->input->get('search');
 			$cleanurl = false;
@@ -114,8 +114,10 @@ class Houses extends CI_Controller {
 				else
 					$filters["range"] = 1;	
 			}
-			
+			$this->benchmark->mark('search_start');
 			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
+			$this->benchmark->mark('search_end');
+			
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);	
 					
 		}else{
@@ -153,11 +155,12 @@ class Houses extends CI_Controller {
 				$plus["prev"] = $canonical."?prev=".$page-1;
 			}
 		}
-			
+		$this->benchmark->mark('start_view');	
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
 	      	$this->load->view('citylight/lists', $data);		
 		$this->getFooter();
+		$this->benchmark->mark('end_view');
 		$this->Housesm->savesearch($data['searchvalue'], $type);
 
 	}
