@@ -32,7 +32,6 @@
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap-theme.min.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/jquery.nouislider.min.css"> -->
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	      type="text/css" rel="stylesheet" />
@@ -42,7 +41,7 @@
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/shortcode.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/citilights-shortcode.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/color/color1.css">
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30&v=3.5"></script>
+  
 
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
