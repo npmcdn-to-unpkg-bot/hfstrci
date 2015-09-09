@@ -117,6 +117,7 @@ class Houses extends CI_Controller {
 			$this->benchmark->mark('search_start');
 			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
 			$this->benchmark->mark('search_end');
+			$this->benchmark->mark('prepare_start');
 			
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);	
 					
@@ -155,12 +156,13 @@ class Houses extends CI_Controller {
 				$plus["prev"] = $canonical."?prev=".$page-1;
 			}
 		}
-		$this->benchmark->mark('start_view');	
+		$this->benchmark->mark('prepare_end');
+		$this->benchmark->mark('view_start');
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
 	      	$this->load->view('citylight/lists', $data);		
 		$this->getFooter();
-		$this->benchmark->mark('end_view');
+		$this->benchmark->mark('view_end');
 		$this->Housesm->savesearch($data['searchvalue'], $type);
 
 	}
