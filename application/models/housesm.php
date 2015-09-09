@@ -61,7 +61,9 @@ class Housesm extends CI_Model {
                 SELECT id_feed, SQRT(
                 POW(69.1 * (latitude_feed - ".$lat."), 2) +
                 POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
-                FROM feed $where HAVING distance < ".(float)$range." ORDER BY distance");
+                FROM feed $where AND 
+                longitude_feed between (".$lng." - ".(float)$range."/69.1) and (".$lng." + ".(float)$range."/69.1) and latitude_feed between (".$lat." - ".(float)$range."/69.1) and (".$lat." + ".(float)$range."/69.1)
+                HAVING distance < ".(float)$range." ORDER BY distance");
 		
 	$rowcount = $query1->num_rows();
 	$allrows = $query1->result();
