@@ -98,7 +98,7 @@
   <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/lock.min.js"></script>
   <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/unveil.js"></script>
   <!-- THEME SCRIPT -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30&v=3.5"></script>
   <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>js/script.js"></script>
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
