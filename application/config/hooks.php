@@ -9,7 +9,7 @@
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
-
+/*
 $hook['display_override'] = array(
     'class' => 'Minifyhtml',
     'function' => 'output',
@@ -17,6 +17,6 @@ $hook['display_override'] = array(
     'filepath' => 'hooks',
     'params' => array()
 );
-
+*/
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
