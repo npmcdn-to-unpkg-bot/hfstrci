@@ -11,7 +11,7 @@ class Houses extends CI_Controller {
 	}
 	
 	public function returngooglelatlong($query){
-
+		$this->benchmark->mark('googlelatlong_start');
 		$search_code = urlencode($query);
 		if($res = $this->Housesm->verifysearch($search_code)){
 			
@@ -35,18 +35,19 @@ class Houses extends CI_Controller {
 				$this->Housesm->insertlatlong($search_code, $lat, $lng, $formatted_address, $type, $components);
 				
 				$res2 = $this->Housesm->verifysearch($search_code);
-				
+				$this->benchmark->mark('search_end');
 				return $res2;
 				
 			}else
 				return false;
 		}
-
+			
 	}
 
 	public function general_search($type = "sale"){
 		
-		$this->output->enable_profiler(TRUE);		
+		$this->output->enable_profiler(TRUE);
+		$this->benchmark->mark('generarsearch_start');
 		if($this->input->get('search') && (int)$this->input->get('search') >= 0 && $this->input->get('search') != ""){
 			$searchvalue = $this->input->get('search');
 			$cleanurl = false;
@@ -63,13 +64,13 @@ class Houses extends CI_Controller {
 		}else{
 			$this->makesearch($cleanurl, $searchvalue, $type);
 		}
-
+		$this->benchmark->mark('generalsearch_end');
 				
 	}
 
 
 	public function makesearch($cleanurl = false, $searchvalue,$type){
-
+		$this->benchmark->mark('search_start');
 		$filters = $this->getfilters();
 		if($this->input->get('page') && (int)$this->input->get('page') != 0){$page = (int)$this->input->get('page');}else{$page = 1;}
 		
@@ -114,10 +115,8 @@ class Houses extends CI_Controller {
 				else
 					$filters["range"] = 1;	
 			}
-			$this->benchmark->mark('search_start');
+			
 			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
-			$this->benchmark->mark('search_end');
-			$this->benchmark->mark('prepare_start');
 			
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);	
 					
@@ -156,15 +155,13 @@ class Houses extends CI_Controller {
 				$plus["prev"] = $canonical."?prev=".$page-1;
 			}
 		}
-		$this->benchmark->mark('prepare_end');
-		$this->benchmark->mark('view_start');
+	
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
 	      	$this->load->view('citylight/lists', $data);		
 		$this->getFooter();
-		$this->benchmark->mark('view_end');
 		$this->Housesm->savesearch($data['searchvalue'], $type);
-
+		$this->benchmark->mark('search_end');
 	}
 	public function getBread($details,$typesale,$actual){
 		if($typesale == 'sale'){
@@ -287,9 +284,9 @@ class Houses extends CI_Controller {
 
 	}
 	public function for_sale(){
-	
+		$this->benchmark->mark('forsale_start');
 		$this->general_search("sale");
-
+		$this->benchmark->mark('forsale_end');
 	}
 	public function to_rent(){
 		
