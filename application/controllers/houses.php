@@ -161,7 +161,7 @@ class Houses extends CI_Controller {
 	      	$this->load->view('citylight/lists', $data);		
 		$this->getFooter();
 		$this->Housesm->savesearch($data['searchvalue'], $type);
-		exit;
+
 
 	}
 	public function getBread($details,$typesale,$actual){
@@ -280,7 +280,6 @@ class Houses extends CI_Controller {
 		$this->load->view('header',$plus);
 		$this->load->view('shortform');
         	$this->load->view('houseslist', $data);
-        	
 		$this->load->view('footer');	
 
 	}
