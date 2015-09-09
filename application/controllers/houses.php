@@ -46,7 +46,7 @@ class Houses extends CI_Controller {
 
 	public function general_search($type = "sale"){
 		
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		
 		if($this->input->get('search') && (int)$this->input->get('search') >= 0 && $this->input->get('search') != ""){
 			$searchvalue = $this->input->get('search');
