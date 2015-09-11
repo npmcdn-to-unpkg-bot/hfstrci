@@ -22,6 +22,7 @@ class Houseprice extends CI_Controller {
 		$queryseachlist=null;
 		$searchfirst=true;
 		$meta = "";
+		$differentview= false;
 		if($this->uri->segment(6) != null){//code level
 
 			$data['code'] = $this->uri->segment(6);
@@ -43,6 +44,8 @@ class Houseprice extends CI_Controller {
 			$title = $data['codespace'].", ".$data['areaspace'];
 			$placename = $data['codespace'].', '.$data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
+			
+			$differentview=true;
 
 		}elseif($this->uri->segment(5) != null){//area level
 
@@ -64,6 +67,9 @@ class Houseprice extends CI_Controller {
 			$title = $data['areaspace'].", ".$data['townspace'];
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
+			
+			$data['verb'] = "Postcodes";
+			$data['areaname'] = $title;
 
 		}elseif($this->uri->segment(4) != null){//town level
 	
@@ -83,7 +89,9 @@ class Houseprice extends CI_Controller {
 			$queryseachlist = $data['townspace']." ".$data['districtname'];
 			$title = $data['townspace'].", ".$data['districtname'];
 			$placename = $data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
-			$region = $data['districtiso'];			
+			$region = $data['districtiso'];
+			$data['verb'] = "Areas";
+			$data['areaname'] = $title;
 			$searchfirst=false;
 
 		}elseif($this->uri->segment(3) != null){//district level
@@ -97,10 +105,14 @@ class Houseprice extends CI_Controller {
 			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;			
 			$data['results'] = $this->Housesm->getdisttown($data['districtname']);	
+			
+			$data['resultslinks'] =	$this->preparelinksdistrict($this->Housesm->getdisttown($data['districtname']), $data['district'], $data['country'])
 			$viewtogetname ='district';
 			$title = $data['districtname'].", ".$data['countryspace'];
 			$placename = $data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
+			$data['verb'] = "Towns";
+			$data['areaname'] = $title;
 
 		}elseif($this->uri->segment(2) != null){//country level
 			
@@ -109,10 +121,13 @@ class Houseprice extends CI_Controller {
 			
 			$data['countryspace'] = $this->undoiturl($data['country']);
 			
+			$data['verb'] = "Districts";
+			$data['areaname'] = $data['countryspace'];
+			
 			$queryseachlist = $data['countryspace'];
 			
 			$this->load->model('Housesm');
-			$data['resultslinks'] = $this->preparelinks($this->Housesm->getcountrydist($data['country']), $data["country"]);
+			$data['resultslinks'] = $this->preparelinkscountry($this->Housesm->getcountrydist($data['country']), $data["country"]);
 			$viewtogetname='country';
 			$title = $data['countryspace'];		
 			$placename = $data['countryspace'];
@@ -146,7 +161,7 @@ class Houseprice extends CI_Controller {
 		
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
-	      	$this->load->view('citylight/'.$viewtogetname ,$data);		
+	      	$this->load->view('citylight/country' ,$data);		
 		$this->getFooter();
 		
 	}
@@ -212,7 +227,7 @@ class Houseprice extends CI_Controller {
 	}
 	
 		
-	function preparelinks($arrays, $country){
+	function preparelinkscountry($arrays, $country){
 		$results = array();
 		
 		foreach($arrays as $array){
@@ -224,9 +239,19 @@ class Houseprice extends CI_Controller {
 		}
 	
 		return $results;
+	}
+	function preparelinksdistrict($arrays, $district ,$country){
+		$results = array();
+		
+		foreach($arrays as $array){
+			$result = array();
+			$result["title"] = $array->town;
+			$result["link"] = $this->config->base_url()."houses/$country/$district/".$this->doiturl($array->town).".html";			
+		//	$result["iso"] = $array->iso;
+			$results[] = $result;		
+		}
 	
-	
-	
+		return $results;
 	}
 	function doiturl($i) {
 	
