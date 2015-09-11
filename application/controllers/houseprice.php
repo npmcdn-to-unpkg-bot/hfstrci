@@ -84,7 +84,7 @@ class Houseprice extends CI_Controller {
 			$this->load->model('Housesm');
 			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
-			$data['results'] = $this->Housesm->gettownareas($data['townspace'],$data['districtname']);			
+			//$data['results'] = $this->Housesm->gettownareas($data['townspace'],$data['districtname']);			
 			$viewtogetname='town';
 			$queryseachlist = $data['townspace']." ".$data['districtname'];
 			$title = $data['townspace'].", ".$data['districtname'];
@@ -105,8 +105,7 @@ class Houseprice extends CI_Controller {
 			$this->load->model('Housesm');
 			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;			
-			$data['results'] = $this->Housesm->getdisttown($data['districtname']);	
-			
+			//$data['results'] = $this->Housesm->getdisttown($data['districtname']);
 			$data['resultslinks'] =	$this->preparelinksdistrict($this->Housesm->getdisttown($data['districtname']), $data['district'], $data['country']);
 			$viewtogetname ='district';
 			$title = $data['districtname'].", ".$data['countryspace'];
@@ -255,7 +254,7 @@ class Houseprice extends CI_Controller {
 	
 		return $results;
 	}
-	function preparelinksdistrict($arrays, $town, $district ,$country){
+	function preparelinkstowns($arrays, $town, $district ,$country){
 		$results = array();
 		
 		foreach($arrays as $array){
