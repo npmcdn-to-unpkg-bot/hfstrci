@@ -92,7 +92,7 @@ class Houseprice extends CI_Controller {
 			$region = $data['districtiso'];
 			$data['verb'] = "Areas";
 			$data['areaname'] = $title;
-			$data['resultslinks'] =	$this->preparelinkstowns($this->Housesm->gettownareas($data['districtname']),$data['town'], $data['district'], $data['country']);
+			$data['resultslinks'] =	$this->preparelinkstowns($this->Housesm->gettownareas($data['townspace'],$data['districtname']),$data['town'], $data['district'], $data['country']);
 			$searchfirst=false;
 
 		}elseif($this->uri->segment(3) != null){//district level
