@@ -17,7 +17,9 @@ class Singles extends CI_Controller {
 		);
 		$this->load->view('header',$plus);
 		$this->load->view('longform');
-		$this->load->view('footer');
+		$data = array();
+		$data["links"] = $this->Housesm->footerlinks();
+		$this->load->view('footer',$data);
 		
 	}
 	public function privacy(){
