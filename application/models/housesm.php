@@ -65,7 +65,7 @@ class Housesm extends CI_Model {
                 longitude_feed between (".$lng." - ".(float)$range."/69.1) and (".$lng." + ".(float)$range."/69.1) and latitude_feed between (".$lat." - ".(float)$range."/69.1) and (".$lat." + ".(float)$range."/69.1)
                 HAVING distance < ".(float)$range." ORDER BY distance");
 		
-	$rowcount = $query1->num_rows();
+	//$rowcount = $query1->num_rows();
 	$allrows = $query1->result();
 	if(!$allrows){
 		return false;
@@ -84,6 +84,11 @@ class Housesm extends CI_Model {
 		$srt = "";
 	else 
 		$srt = " ORDER BY ".$sort;
+		
+	$queryforrows = $this->db->query("
+				SELECT id_feed
+				FROM feed WHERE id_feed IN($rows) $wherefilters");
+	$rowcount = $queryforrows->num_rows();
 
 	$query3 = $this->db->query("
 				SELECT latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed
