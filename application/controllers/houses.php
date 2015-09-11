@@ -47,7 +47,7 @@ class Houses extends CI_Controller {
 			}else{
 				return false;	
 			}
-			}
+			
 		}
 			
 	}
