@@ -346,7 +346,7 @@ foreach($results as $k){
             	$add = "f";
             	$rand = rand(1,28);
             }
-            $img = "https://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
+            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
