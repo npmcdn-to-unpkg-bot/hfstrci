@@ -231,7 +231,7 @@
 		                        <span class="noo-counter">£<?php echo number_format($prices["0"]->minp,2); ?></span>
 		                        <div class="counter-text">
 		                          <h3>MINIMUM</h3>
-		                          <p>The minimum price for a <strong>house for sale in <?php echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->avgp,2); ?></strong>.</p>
+		                          <p>The minimum price for a <strong>house for sale in <?php echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->minp,2); ?></strong>.</p>
 		                        </div>
 		                      </div>
 		                    </div>
