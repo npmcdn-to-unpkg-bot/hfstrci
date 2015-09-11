@@ -217,8 +217,8 @@ class Houseprice extends CI_Controller {
 		
 		foreach($arrays as $array){
 			$result = array();
-			$result["district"] = $array->district;
-			$result["districtlink"] = $this->config->base_url()."houses/$country/".$this->doiturl($array->district).".html";			
+			$result["title"] = $array->district;
+			$result["link"] = $this->config->base_url()."houses/$country/".$this->doiturl($array->district).".html";			
 			$result["iso"] = $array->iso;
 			$results[] = $result;		
 		}
