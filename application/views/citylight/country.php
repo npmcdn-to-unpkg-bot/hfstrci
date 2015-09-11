@@ -343,17 +343,18 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 								continue;		
         			                   	}
         			                   			$pctcalc = round(100 * $proptype["popularity"] / $cnum);
-        			                   			echo "100 * ".$proptype["popularity"]." / $cnum = ".$pctcalc;
+        			                   			if($pctcalc == 0)
+        			                   				$pctcalc = 1;
         			                   			
         			                   	?>
         			                       
         			                       	<div class="progress animatedParent">
-        			                          <div class="progress-bar-wrap" style="width: 80%;">
+        			                          <div class="progress-bar-wrap" style="width: <?php echo $pctcalc; ?>%;">
         			                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="<?php echo $pctcalc; ?>" aria-valuenow="<?php echo $pctcalc; ?>" aria-valuemin="0" aria-valuemax="100" >
         			                            </div>
         			                          </div>
         			                          <div class="progress_title"><?php echo $propkey; ?></div>
-        			                          <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
+        			                          <div class="progress_label"><span class="noo-counter">(<?php echo $proptype["popularity"]; ?> <?php echo $propkey; ?>) <?php echo $pctcalc; ?></span>&#37;</div>
         			                        </div>
 
         			                   <?php } ?>                                     
