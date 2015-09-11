@@ -339,7 +339,7 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 			                      <div class="noo-progress-bar lean-bars rounded-bars">
 			                       
 			                   <?php foreach ($proptypeinfo as $propkey => $proptype) { 
-			                   			$pctcalc = 100 * $proptype["popularity"] / $cnum;
+			                   			$pctcalc = round(100 * $proptype["popularity"] / $cnum);
 			                   	?>
 			                       
 			                       	<div class="progress animatedParent">
