@@ -1,7 +1,7 @@
 <footer>
 <div class="box">
     <br><br><br>
-    <h3>Look for houses in:</h3>
+    <h3>Popular locations with houses for sale in the United Kingdom:</h3>
     <p>
         <a href="<?php echo $this->config->base_url(); ?>houses/uk.html" alt="More than 200,000 houses for sale in the United Kingdom" title="Houses for sale in the United Kingdom"><strong>More than 200,000 houses for sale in the United Kingdom</strong></a>
         <?php foreach($links as $link){
