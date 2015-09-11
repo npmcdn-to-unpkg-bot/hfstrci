@@ -200,7 +200,7 @@
                         </li>
                         <li><a role="tab" data-toggle="tab" href="#tab-1412645519594-2-5">Relevant Information</a>
                         </li>
-                        <li><a role="tab" data-toggle="tab" href="#tab-1412645623737-3-1">Hover Tab</a>
+                        <li><a role="tab" data-toggle="tab" href="#tab-1412645623737-3-1">Property distribution</a>
                         </li>
                       </ul>
 
@@ -324,25 +324,43 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
                           </div>
                         </div>
                         
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <div class="tab-pane" id="tab-1412645519594-2-5">
-                          <hr class="noo-gap" style=" margin: 5px 0 0 0;">
-                          <div class="noo-text-block">
-                            <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                          </div>
-                        </div>
                         <div class="tab-pane" id="tab-1412645623737-3-1">
                           <div class="noo-text-block">
-                            <p>I am text block. Click edit button to change this text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                         <!-- START PROGRESS BAR SHORTCODE -->
+			              <div class="row noo-row progress-bar-shortcode clearfix">
+			                <div class="col-xs-12 noo-col">
+			                  <div class="noo-text-block">
+			                    <h3 class="text-primary">Property distribution</h3>
+			                    <p>Houses for Sale & to Rent offers you different types of properties in different areas. Follow the list of property types in <? echo $formatted_address; ?>.</p>
+			                  </div>
+			                  <hr class="noo-gap" style=" margin: 50px 0 0 0;">
+			                  <div class="row noo-row clearfix">
+			                    <div class="noo-col col-xs-12 col-md-12">
+			                      <div class="noo-progress-bar lean-bars rounded-bars">
+			                       
+			                   <?php foreach ($proptypeinfo as $propkey => $proptype) { 
+			                   			$pctcalc = 100 * $proptype["popularity"] / $cnum;
+			                   	?>
+			                       
+			                       	<div class="progress animatedParent">
+			                          <div class="progress-bar-wrap" style="width: 80%;">
+			                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="<?php echo $$pctcalc; ?>" aria-valuenow="<?php echo $$pctcalc; ?>" aria-valuemin="0" aria-valuemax="100" >
+			                            </div>
+			                          </div>
+			                          <div class="progress_title"><?php echo $propkey; ?></div>
+			                          <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
+			                        </div>
 
+			                   <?php } ?>                                     
+			                      </div>
+			                    </div>            
+			                  </div>
+			                </div>
+			              </div>
+			              <!-- END PROGRESS BAR SHORTCODE -->
                           </div>
                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -563,122 +581,9 @@ foreach($resultsproperties as $k){
               <hr class="noo-gap" style="margin: 0 0 50px 0;">
               <!-- END ICON LIST ITEM SHORTCODE -->
               
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
+       
               
 
-              <!-- START PROGRESS BAR SHORTCODE -->
-              <div class="row noo-row progress-bar-shortcode clearfix">
-                <div class="col-xs-12 noo-col">
-                  <div class="noo-text-block">
-                    <h3 class="text-primary">PROGRESS BAR</h3>
-                    <p>Counter can give your site a more visual look for showing your achievement, your work, your target or any interesting number to your visitors. Below we made an example.</p>
-                  </div>
-                  <hr class="noo-gap" style=" margin: 50px 0 0 0;">
-                  <div class="row noo-row clearfix">
-                    <div class="noo-col col-xs-12 col-md-6">
-                      <div class="noo-progress-bar lean-bars rounded-bars">
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 80%;">
-                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" >
-                            </div>
-                          </div>
-                          <div class="progress_title">Basic Bar</div>
-                          <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 40%;">
-                            <div class="progress-bar progress-bar-success animated" role="progressbar" data-valuenow="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" >
-                            </div>
-                          </div>
-                          <div class="progress_title">Color</div>
-                          <div class="progress_label"><span class="noo-counter">40</span>&#37;</div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 90%;">
-                            <div class="progress-bar progress-bar-info animated" role="progressbar" data-valuenow="90" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" >
-                            </div>
-                          </div>
-                          <div class="progress_title">Stripped</div>
-                          <div class="progress_label"><span class="noo-counter">90</span>&#37;</div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 50%;">
-                            <div class="progress-bar progress-bar-warning animated" role="progressbar" data-valuenow="50" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" >
-                            </div>
-                          </div>
-                          <div class="progress_title">Animated Stripped Progress Bar</div>
-                          <div class="progress_label"><span class="noo-counter">50</span>&#37;</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="noo-col col-xs-12 col-md-6">
-                      <div class="noo-progress-bar thick-bars rounded-bars">
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 80%;">
-                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="80" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" >
-                              <div class="progress_title">Basic Bar</div>
-                              <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 40%;">
-                            <div class="progress-bar progress-bar-success animated" role="progressbar" data-valuenow="40" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" >
-                              <div class="progress_title">Another Color Bar</div>
-                              <div class="progress_label"><span class="noo-counter">40</span>&#37;</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 66%;">
-                            <div class="progress-bar progress-bar-info animated" role="progressbar" data-valuenow="66" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100" >
-                              <div class="progress_title">Stripped Bar</div>
-                              <div class="progress_label"><span class="noo-counter">66</span>&#37;</div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="progress animatedParent">
-                          <div class="progress-bar-wrap" style="width: 58%;">
-                            <div class="progress-bar progress-bar-warning animated" role="progressbar" data-valuenow="58" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100" >
-                              <div class="progress_title">Stripped Bar</div>
-                              <div class="progress_label"><span class="noo-counter">58</span>&#37;</div>
-                            </div>
-                          </div>
-                        </div>                      
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <hr class="noo-gap" style="margin: 0 0 50px 0;">
-              <!-- END PROGRESS BAR SHORTCODE -->
 
                
               <!-- START BUY THIS ITEM -->
