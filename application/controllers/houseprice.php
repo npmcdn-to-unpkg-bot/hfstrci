@@ -111,6 +111,7 @@ class Houseprice extends CI_Controller {
 			$title = $data['districtname'].", ".$data['countryspace'];
 			$placename = $data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
+			$queryseachlist = $title;
 			$data['verb'] = "Towns";
 			$data['areaname'] = $title;
 
