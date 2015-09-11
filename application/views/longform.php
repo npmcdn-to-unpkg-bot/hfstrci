@@ -1,6 +1,11 @@
 <header>
         <h1><a href="<?php echo $this->config->base_url(); ?>" title="HOUSES for SALE & to RENT"><img src="<?php echo $this->config->base_url(); ?>images/houses-for-sale-to-rent.png" alt="HOUSES for SALE & to RENT" title="HOUSES for SALE & to RENT"/></a></h1>
     </header>
+    <?php if(isset($message))
+                echo '<div class="warning">'.$message.'</div>';
+    
+    ?>
+    
    <form name="searchHouses" action="<?php echo $this->config->base_url();?>houses/for-sale/index.html" method="get" id="sale" class="search">
            
      
