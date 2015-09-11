@@ -13,7 +13,7 @@
               	<div class="mobile-show"><a href="#" id="showfilter" style="text-align:center;"><h3 class="title-block-sidebar"><strong>+</strong> Show Search</h3></a></div>
               
                 <div class="block-sidebar find-property" id="find-property">
-                  <h3 class="title-block-sidebar">Find a Property<?php echo $formatted_address; ?></h3>
+                  <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
                       <form class="gsearchform" method="get" role="search" action="
@@ -190,11 +190,11 @@
                 <div class="col-xs-12 noo-col">
                   <div class="horizontal-tab-shortcode">
                     <div class="noo-text-block">
-                      <h3 class="text-primary">House price <? echo $formatted_address; ?></h3>
+                      <h3 class="text-primary">House price <?php echo $formatted_address; ?></h3>
                     </div>
                     <div class="noo-tabs">
                       <ul class="nav nav-tabs" role="tablist" id="noo-tabs-1">
-                        <li class="active"><a role="tab" data-toggle="tab" href="#tab-1412644835-1-13">House price in <? echo $formatted_address; ?></a>
+                        <li class="active"><a role="tab" data-toggle="tab" href="#tab-1412644835-1-13">House price in <?php echo $formatted_address; ?></a>
                         </li>
                         <li><a role="tab" data-toggle="tab" href="#tab-1412644835-2-69">Related Search</a>
                         </li>
@@ -223,7 +223,7 @@
 		                        <span class="noo-counter"><?php echo $cnum ?>+</span>
 		                        <div class="counter-text">
 		                          <h3>PROPERTIES</h3>
-		                          <p>We offer you more than <?php echo $cnum ?> <strong>houses for sale in <? echo $formatted_address; ?></strong>.</p>
+		                          <p>We offer you more than <?php echo $cnum ?> <strong>houses for sale in <?php echo $formatted_address; ?></strong>.</p>
 		                        </div>
 		                      </div>
 		                    </div>
@@ -232,7 +232,7 @@
 		                        <span class="noo-counter">£<?php echo number_format($prices["0"]->avgp,2) ; ?></span>
 		                        <div class="counter-text">
 		                          <h3>AVERAGE</h3>
-		                          <p>The Average price for a <strong>house in <? echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->avgp,2); ?></strong>.</p>
+		                          <p>The Average price for a <strong>house in <?php echo $formatted_address; ?>></strong> is <strong>£<?php echo number_format($prices["0"]->avgp,2); ?></strong>.</p>
 		                        </div>
 		                      </div>
 		                    </div>
@@ -241,7 +241,7 @@
 		                        <span class="noo-counter">£<?php echo number_format($prices["0"]->minp,2); ?></span>
 		                        <div class="counter-text">
 		                          <h3>MINIMUM</h3>
-		                          <p>The minimum price for a <strong>house for sale in <? echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->avgp,2); ?></strong>.</p>
+		                          <p>The minimum price for a <strong>house for sale in <?php echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->avgp,2); ?></strong>.</p>
 		                        </div>
 		                      </div>
 		                    </div>
@@ -250,7 +250,7 @@
 		                        <span class="noo-counter">£<?php echo number_format($prices["0"]->maxp,2); ?></span>
 		                        <div class="counter-text">
 		                          <h3>MAXIMUM</h3>
-		                          <p>The maximum price for a <strong>house for sale in <? echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->maxp,2); ?></strong>.</p>
+		                          <p>The maximum price for a <strong>house for sale in <?php echo $formatted_address; ?></strong> is <strong>£<?php echo number_format($prices["0"]->maxp,2); ?></strong>.</p>
 		                        </div>
 		                      </div>
 		                    </div>
@@ -331,7 +331,7 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
         			                <div class="col-xs-12 noo-col">
         			                  <div class="noo-text-block">
         			                    <h3 class="text-primary">Property distribution</h3>
-        			                    <p>Houses for Sale & to Rent offers you different types of properties in different areas. Follow the list of property types in <? echo $formatted_address; ?>.</p>
+        			                    <p>Houses for Sale & to Rent offers you different types of properties in different areas. Follow the list of property types in <?php echo $formatted_address; ?>.</p>
         			                  </div>
         			                  <hr class="noo-gap" style=" margin: 50px 0 0 0;">
         			                  <div class="row noo-row clearfix">
@@ -395,7 +395,7 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 									<div class="recent-properties recent-properties-slider">
 								  	<div class="recent-properties-inner">
 								  		<div class="section-title">
-								        <h3>Houses for Sale in <? echo $formatted_address; ?></h3>
+								        <h3>Houses for Sale in <?php echo $formatted_address; ?></h3>
 								      </div>
 								      <div class="recent-properties-content">
 								        <div class="caroufredsel-wrap">
@@ -541,8 +541,8 @@ foreach($resultsproperties as $k){
               <div class="row noo-row icon-list-item-shortcode clearfix">
                 <div class="col-xs-12 noo-col">
                   <div class="noo-text-block">
-                    <h3 class="text-primary">Districts of <? echo $countryspace; ?></h3>
-                    <p>Navigate through our locations to find the location of your next house in <? echo $countryspace; ?> for sale or to rent.</p>
+                    <h3 class="text-primary">Districts of <?php echo $countryspace; ?></h3>
+                    <p>Navigate through our locations to find the location of your next house in <?php echo $countryspace; ?> for sale or to rent.</p>
                   </div>
                   <hr class="noo-gap" style=" margin: 50px 0 0 0;">
                   <div class="row noo-row clearfix">
@@ -594,7 +594,7 @@ foreach($resultsproperties as $k){
                     <div class="col-sm-12 col-md-8">
                     <hr class="hr_cta_buy_theme">
                       <div class="text-block">
-                        <p>Is <? echo $countryspace; ?> the area you are looking for, look some houses in <? echo $formatted_address; ?>: </p>
+                        <p>Is <?php echo $countryspace; ?> the area you are looking for, look some houses in <?php echo $formatted_address; ?>: </p>
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-2">
