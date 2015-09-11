@@ -6,7 +6,7 @@
         <a href="<?php echo $this->config->base_url(); ?>houses/uk.html" alt="More than 200,000 houses for sale in the United Kingdom" title="Houses for sale in the United Kingdom"><strong>More than 200,000 houses for sale in the United Kingdom</strong></a>
         <?php foreach($links as $link){
             
-              echo ' <a href="'.$link->link.'">'.$link->title.'</a>';
+              echo ' <a href="'.$link->link.'" alt="'.$link->title.'">'.$link->title.'</a>';
 
         }    ?>
         </p>
