@@ -61,8 +61,16 @@ class Houses extends CI_Controller {
 		}
 
 		if($searchvalue == "index"){
-			echo "<h1>Search page</h1>";
-
+			$plus = array(
+				'css'=>'style2',
+				'title'=> $this->lang->line("index-title"),
+				'js'=>'',
+			);
+			$this->load->view('header',$plus);
+			$this->load->view('longform');
+			$data = array();
+			$data["links"] = $this->Housesm->footerlinks();
+			$this->load->view('footer',$data);
 		}else{
 			$this->makesearch($cleanurl, $searchvalue, $type);
 		}
