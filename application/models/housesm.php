@@ -67,7 +67,9 @@ class Housesm extends CI_Model {
 		
 	$rowcount = $query1->num_rows();
 	$allrows = $query1->result();
-
+	if(!$allrows){
+		return false;
+	}
 	$rows = "";
 	$first = true;
 	foreach ($allrows as $key => $value) {
