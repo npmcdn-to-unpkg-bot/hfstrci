@@ -11,6 +11,6 @@
           <input type="submit" value="To Rent" name="action" id="torent" class="button-submit" form="rent" />
       </fieldset>
        </form>
-    <form name="searchrentHouses" action="<?php echo $this->config->base_url();?>houses/to-rent/index.html" method="get" id="rent" class="search">
+    <form name="searchrentHouses" style="display:none;" action="<?php echo $this->config->base_url();?>houses/to-rent/index.html" method="get" id="rent" class="search">
         <input type="hidden" name="search" form="rent" id="rentsearch" />
     </form>
