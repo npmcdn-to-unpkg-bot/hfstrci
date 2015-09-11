@@ -78,7 +78,6 @@ class Houses extends CI_Controller {
 				
 	}
 
-
 	public function makesearch($cleanurl = false, $searchvalue,$type){
 
 		$filters = $this->getfilters();
@@ -126,53 +125,77 @@ class Houses extends CI_Controller {
 					$filters["range"] = 1;	
 			}
 			
-			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
+
+			$svar = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
+			if($svar){
+				list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $svar;
+				$data["resultsfound"] = true;				
+			}else{
+				$data["resultsfound"] = false;
+				for($ict = 1;$ict < 3;$ict++){
+					$filters["range"] = $filters["range"] + $ict;
+					$svar = $this->Housesm->makelatlongsearch($type,$lat,$lng,$this->propertiesperpage,$page,$filters);
+					if($svar){
+						list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $svar;
+						$data["resultsfound"] = true;	
+						break;
+					}
+				}	
+			}
 			
 			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);	
+			$data['rows'] = $cnum;
+		  	$data["related"] = $this->prepareRelatedSearch($searchvalue,$filters);
+		  	list($data["relatedproptype"],$data["proptypeinfo"]) = $this->prepareRelatedPropTypeSearch($searchvalue,$filters,$avgproptype,$type);
+		  	$data["lat"] = $lat;
+		  	$data["lng"] = $lng;
+		 	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
+		   	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
+		   	$data["filters"] = $filters;
+			$plus = array(
+				'title'=> strtr($this->lang->line($type."-title"), array('{$searchvalue}' => $data['searchvalue'])),			
+				'js'=>'',
+				'canonical' => $canonical,
+				);
+				
+			if($cleanurl === true){
+				if($page == 1){
+					$plus["next"] = $canonical."?page=2";
+				}elseif($page == 2){
+					$plus["next"] = $canonical."?page=3";
+					$plus["prev"] = $canonical;
+				
+				}elseif($page > 2 && $page < ceil($cnum / $this->propertiesperpage)){
+					$plus["next"] = $canonical."?page=".$page+1;
+					$plus["prev"] = $canonical."?prev=".$page-1;
+				}elseif($page == ceil($cnum / $this->propertiesperpage)){
+					$plus["prev"] = $canonical."?prev=".$page-1;
+				}
+			}
+		
+			$this->load->view('citylight/head',$plus);
+			$this->load->view('citylight/header');				
+		    $this->load->view('citylight/lists', $data);		
+			$this->getFooter();
+			$this->Housesm->savesearch($data['searchvalue'], $type);
+
+
+
 					
 		}else{
-			$data['results'] = $this->Housesm->searchDB($type,$searchvalue,$this->propertiesperpage,$page,$filters);  
-			$cnum = $this->Housesm->searchDBrows($type,$searchvalue,$filters);
-			$data['pagination'] = $this->getnewpaginator($cnum,$this->propertiesperpage,$type,$searchvalue,$page,$filters);
-	   	}
-	   		   	
-	  	//@note: not used in new layout	  	
-	  	$data['rows'] = $cnum;
-	  	$data["related"] = $this->prepareRelatedSearch($searchvalue,$filters);
-	  	list($data["relatedproptype"],$data["proptypeinfo"]) = $this->prepareRelatedPropTypeSearch($searchvalue,$filters,$avgproptype,$type);
-	  	$data["lat"] = $lat;
-	  	$data["lng"] = $lng;
-	 	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
-	   	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
-	   	$data["filters"] = $filters;
-		$plus = array(
-			'title'=> strtr($this->lang->line($type."-title"), array('{$searchvalue}' => $data['searchvalue'])),			
-			'js'=>'',
-			'canonical' => $canonical,
+			//show home saying location not found
+			$plus = array(
+				'css'=>'style2',
+				'title'=> $this->lang->line("index-title"),
+				'js'=>'',
+				'index'=>'noindex,nofollow',
 			);
-			
-		if($cleanurl === true){
-			if($page == 1){
-				$plus["next"] = $canonical."?page=2";
-			}elseif($page == 2){
-				$plus["next"] = $canonical."?page=3";
-				$plus["prev"] = $canonical;
-			
-			}elseif($page > 2 && $page < ceil($cnum / $this->propertiesperpage)){
-				$plus["next"] = $canonical."?page=".$page+1;
-				$plus["prev"] = $canonical."?prev=".$page-1;
-			}elseif($page == ceil($cnum / $this->propertiesperpage)){
-				$plus["prev"] = $canonical."?prev=".$page-1;
-			}
-		}
-	
-		$this->load->view('citylight/head',$plus);
-		$this->load->view('citylight/header');				
-	      	$this->load->view('citylight/lists', $data);		
-		$this->getFooter();
-		$this->Housesm->savesearch($data['searchvalue'], $type);
-
-
+			$this->load->view('header',$plus);
+			$this->load->view('longform',array("message"=>"We could not find the location: ".$searchvalue.". Please try a different search."));
+			$data = array();
+			$data["links"] = $this->Housesm->footerlinks();
+			$this->load->view('footer',$data);
+		}	 	
 	}
 	public function getBread($details,$typesale,$actual){
 		if($typesale == 'sale'){
