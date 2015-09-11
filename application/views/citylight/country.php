@@ -151,13 +151,9 @@
 	                </div>';
 	               }              
                 ?>
-                
-        
               </div>
             </div>
             <!-- END SIDEBAR -->
-          
-
             <!-- START MAIN CONTENT -->
             <div class="noo-content col-xs-12 col-md-9">
             
@@ -180,11 +176,6 @@
 				  				echo '</div><div style="clear:both"></div>';
 				  				}
 				  				?>
-				  				
-            
-            
-              
-
               <!-- START TAB SHORTCODE -->
               <div class="row noo-row tab-shortcode clearfix">
                 <div class="col-xs-12 noo-col">
@@ -205,8 +196,7 @@
                       </ul>
 
                       <div class="tab-content">
-                      
-                      
+           
                         <div class="tab-pane active" id="tab-1412644835-1-13">
                           <div class="noo-text-block">
 		                            <!-- START COUNTER SHORTCODE -->
@@ -262,7 +252,6 @@
                           </div>
                         </div>
                         
-                        
                         <div class="tab-pane" id="tab-1412644835-2-69">
                           <div class="noo-text-block">
                            <ul class="noo-content col-xs-12 col-md-4">
@@ -291,10 +280,7 @@
 	                  <div style="clear:both"></div>
                           </div>
                         </div>
-                        
-                        
-                        
-                        
+
                         <div class="tab-pane" id="tab-1412645519594-2-5">
                           <hr class="noo-gap" style=" margin: 5px 0 0 0;">
                           <div class="noo-text-block">
@@ -318,12 +304,11 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 			echo '<li><a href="'.$relatedproptype[$i]["link"].'" title="'.$tit.'">'.$tit.'</a></li>';
 			
 			} ?>
-			
-			
+	
 			</ul>
                           </div>
                         </div>
-                        
+                   
                         <div class="tab-pane" id="tab-1412645623737-3-1">
                           <div class="noo-text-block">
                          <!-- START PROGRESS BAR SHORTCODE -->
@@ -371,23 +356,10 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
                     </div>
                   </div>
 
-              
-              
-              
-              
                 </div>
               </div>
               <hr class="noo-gap" style="margin: 0 0 0 0;">
               <!-- END TAB SHORTCODE -->
-              
-              
-              
-              
-              
-              
-              
-              
-              
               <!-- START RECENT PROPERTIES SLIDER - SHORTCODE -->
               
 							<div class="row noo-row clearfix">
@@ -414,8 +386,7 @@ foreach($resultsproperties as $k){
    echo '</div> <div class="property-row">';
    
    }
-  
-   
+
             $key = $k->key_feed;
             $proptype = $k->property_type_feed;
             if(! $proptype){$proptype = "";}
@@ -465,8 +436,7 @@ foreach($resultsproperties as $k){
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
             $desc = $proptype.' in '.$strings.' '.$searchvalue;
-            
-            
+ 
             if($bed > 1)
             	$title = $bed.' Bedroom ';
             elseif($bed == 1)
@@ -510,11 +480,7 @@ foreach($resultsproperties as $k){
 			                
 			         <?php } // end for each
 ?>
-								              
-								              
-								               
-								               
-								               
+	               
 								              </div>
 								            </li>								            
 								          </ul>
@@ -526,23 +492,15 @@ foreach($resultsproperties as $k){
 								</div>
 							</div>
 							<!-- END RECENT PROPERTIES SLIDER - SHORTCODE -->
-              
-              
-              
-              
-              
-              
-              
-              
-              
+
               <hr class="noo-gap" style="margin: 0 0 5px 0;">
               
               <!-- START ICON LIST ITEM SHORTCODE -->
               <div class="row noo-row icon-list-item-shortcode clearfix">
                 <div class="col-xs-12 noo-col">
                   <div class="noo-text-block">
-                    <h3 class="text-primary">Districts of <?php echo $countryspace; ?></h3>
-                    <p>Navigate through our locations to find the location of your next house in <?php echo $countryspace; ?> for sale or to rent.</p>
+                    <h3 class="text-primary"><?php echo $verb; ?> of <?php echo $areaname; ?></h3>
+                    <p>Navigate through our locations to find the location of your next house in <?php echo $areaname; ?> for sale or to rent.</p>
                   </div>
                   <hr class="noo-gap" style=" margin: 50px 0 0 0;">
                   <div class="row noo-row clearfix">
@@ -557,18 +515,13 @@ foreach($resultsproperties as $k){
                   $i = 0;
                   foreach($resultslinks as $res){
                   	if($i % $cl == 0 && $i > 0  ){
-                  	
-                  	
                   		echo '</ul></div><div class="col-xs-6 col-md-4 noo-col">
-                    
                     			<ul class="noo-ul-icon fa-ul">';
                   	}
                   	$i++;
-                  
-                  
                   	echo '<li class="noo-li-icon" style=" font-size: 14px; color: #40d1af;">
                         
-                        <p><a href="'.$res["districtlink"].'" title="Properties in '.$res["district"].'" />Houses in '.$res["district"].'</a></p>
+                        <p><a href="'.$res["link"].'" title="Properties in '.$res["title"].'" />Houses in '.$res["title"].'</a></p>
                       </li>';
                   
                   
@@ -576,17 +529,13 @@ foreach($resultsproperties as $k){
                   } ?>
                   
                   </ul>
-
                     </div>                  
-                   
-                    
-                    
+
                   </div>
                 </div>
               </div>
               <hr class="noo-gap" style="margin: 0 0 50px 0;">
               <!-- END ICON LIST ITEM SHORTCODE -->
-
               <!-- START BUY THIS ITEM -->
               <div class="buy_this_item">
                 <div class="cta_buy_theme">
