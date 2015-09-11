@@ -18,6 +18,7 @@
             <img src="<?php echo $this->config->base_url(); ?>images/fb.png" alt="Houses for sale to rent on Facebook." title="Houses for sale to rent on Facebook.">
         </a>
     </div>
+    <div><a href="<?php echo $this->config->base_url(); ?>termsandconditions">Terms of Use & Privacy Policy </a></div>
 </footer>
 </body>
 </html>
