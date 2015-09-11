@@ -98,7 +98,7 @@ class Housesm extends CI_Model {
 	$query4 = $this->db->query("
                 SELECT MAX(price_feed) as maxp, MIN(price_feed) as minp, AVG(price_feed) as avgp FROM (
                 SELECT price_feed
-                FROM feed where id_feed IN($rows) $wherefilters) as tt");
+                FROM feed where id_feed IN($rows) $wherefilters and price_feed > 0) as tt");
 
 	$prices = $query4->result();
                 
