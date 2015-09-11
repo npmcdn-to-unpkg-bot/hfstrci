@@ -13,7 +13,7 @@ class Singles extends CI_Controller {
 		$plus = array(
 			'css'=>'style2',
 			'title'=> $this->lang->line("index-title"),
-			'js'=>'<script type="text/javascript">jQuery(document).ready(function() {$(".search").delegate("input", "focus", function() {if (this.value === "Search for address, town or area.") {this.value = "";}});});</script>',
+			'js'=>'',
 		);
 		$this->load->view('header',$plus);
 		$this->load->view('longform');
