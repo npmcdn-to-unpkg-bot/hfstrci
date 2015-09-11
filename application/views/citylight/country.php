@@ -327,36 +327,36 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
                         <div class="tab-pane" id="tab-1412645623737-3-1">
                           <div class="noo-text-block">
                          <!-- START PROGRESS BAR SHORTCODE -->
-			              <div class="row noo-row progress-bar-shortcode clearfix">
-			                <div class="col-xs-12 noo-col">
-			                  <div class="noo-text-block">
-			                    <h3 class="text-primary">Property distribution</h3>
-			                    <p>Houses for Sale & to Rent offers you different types of properties in different areas. Follow the list of property types in <? echo $formatted_address; ?>.</p>
-			                  </div>
-			                  <hr class="noo-gap" style=" margin: 50px 0 0 0;">
-			                  <div class="row noo-row clearfix">
-			                    <div class="noo-col col-xs-12 col-md-12">
-			                      <div class="noo-progress-bar lean-bars rounded-bars">
-			                       
-			                   <?php foreach ($proptypeinfo as $propkey => $proptype) { 
-			                   			$pctcalc = round(100 * $proptype["popularity"] / $cnum);
-			                   	?>
-			                       
-			                       	<div class="progress animatedParent">
-			                          <div class="progress-bar-wrap" style="width: 80%;">
-			                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="<?php echo $$pctcalc; ?>" aria-valuenow="<?php echo $$pctcalc; ?>" aria-valuemin="0" aria-valuemax="100" >
-			                            </div>
-			                          </div>
-			                          <div class="progress_title"><?php echo $propkey; ?></div>
-			                          <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
-			                        </div>
+        			              <div class="row noo-row progress-bar-shortcode clearfix">
+        			                <div class="col-xs-12 noo-col">
+        			                  <div class="noo-text-block">
+        			                    <h3 class="text-primary">Property distribution</h3>
+        			                    <p>Houses for Sale & to Rent offers you different types of properties in different areas. Follow the list of property types in <? echo $formatted_address; ?>.</p>
+        			                  </div>
+        			                  <hr class="noo-gap" style=" margin: 50px 0 0 0;">
+        			                  <div class="row noo-row clearfix">
+        			                    <div class="noo-col col-xs-12 col-md-12">
+        			                      <div class="noo-progress-bar lean-bars rounded-bars">
+        			                       
+        			                   <?php foreach ($proptypeinfo as $propkey => $proptype) { 
+        			                   			$pctcalc = round(100 * $proptype["popularity"] / $cnum);
+        			                   	?>
+        			                       
+        			                       	<div class="progress animatedParent">
+        			                          <div class="progress-bar-wrap" style="width: 80%;">
+        			                            <div class="progress-bar progress-bar-primary animated" role="progressbar" data-valuenow="<?php echo $pctcalc; ?>" aria-valuenow="<?php echo $pctcalc; ?>" aria-valuemin="0" aria-valuemax="100" >
+        			                            </div>
+        			                          </div>
+        			                          <div class="progress_title"><?php echo $propkey; ?></div>
+        			                          <div class="progress_label"><span class="noo-counter">80</span>&#37;</div>
+        			                        </div>
 
-			                   <?php } ?>                                     
-			                      </div>
-			                    </div>            
-			                  </div>
-			                </div>
-			              </div>
+        			                   <?php } ?>                                     
+        			                      </div>
+        			                    </div>            
+        			                  </div>
+        			                </div>
+        			              </div>
 			              <!-- END PROGRESS BAR SHORTCODE -->
                           </div>
                         </div>
