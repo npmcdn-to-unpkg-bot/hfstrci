@@ -23,25 +23,31 @@ class Houses extends CI_Controller {
 			$url = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$search_code.'+United+Kingdom&sensor=false';
 			$json = json_decode(file_get_contents($url));
 			
-			$components = array();
-			foreach($json->results[0]->address_components as $loc)
-				$components[] = array("lname" => $loc->long_name, "sname" =>$loc->short_name ,"loctype" =>$loc->types[0]);
-				
+			if(isset($json->results[0])){
 			
-			$lat = $json->results[0]->geometry->location->lat;
-			$lng = $json->results[0]->geometry->location->lng;
-			$type = $json->results[0]->types[0];
-			$formatted_address = $json->results[0]->formatted_address;
-
-			if($lat && $lng){
-				$this->Housesm->insertlatlong($search_code, $lat, $lng, $formatted_address, $type, $components);
+				$components = array();
+				foreach($json->results[0]->address_components as $loc)
+					$components[] = array("lname" => $loc->long_name, "sname" =>$loc->short_name ,"loctype" =>$loc->types[0]);
+					
 				
-				$res2 = $this->Housesm->verifysearch($search_code);
-
-				return $res2;
-				
-			}else
-				return false;
+				$lat = $json->results[0]->geometry->location->lat;
+				$lng = $json->results[0]->geometry->location->lng;
+				$type = $json->results[0]->types[0];
+				$formatted_address = $json->results[0]->formatted_address;
+	
+				if($lat && $lng){
+					$this->Housesm->insertlatlong($search_code, $lat, $lng, $formatted_address, $type, $components);
+					
+					$res2 = $this->Housesm->verifysearch($search_code);
+	
+					return $res2;
+					
+				}else
+					return false;
+			}else{
+				return false;	
+			}
+			}
 		}
 			
 	}
