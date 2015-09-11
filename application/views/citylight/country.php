@@ -586,12 +586,7 @@ foreach($resultsproperties as $k){
               </div>
               <hr class="noo-gap" style="margin: 0 0 50px 0;">
               <!-- END ICON LIST ITEM SHORTCODE -->
-              
-       
-              
 
-
-               
               <!-- START BUY THIS ITEM -->
               <div class="buy_this_item">
                 <div class="cta_buy_theme">
