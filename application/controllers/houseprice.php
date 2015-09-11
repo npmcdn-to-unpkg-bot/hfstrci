@@ -92,6 +92,7 @@ class Houseprice extends CI_Controller {
 			$region = $data['districtiso'];
 			$data['verb'] = "Areas";
 			$data['areaname'] = $title;
+			$data['resultslinks'] =	$this->preparelinkstowns($this->Housesm->getdisttown($data['districtname']),$data['town'], $data['district'], $data['country']);
 			$searchfirst=false;
 
 		}elseif($this->uri->segment(3) != null){//district level
@@ -248,6 +249,19 @@ class Houseprice extends CI_Controller {
 			$result = array();
 			$result["title"] = $array->town;
 			$result["link"] = $this->config->base_url()."houses/$country/$district/".$this->doiturl($array->town).".html";			
+		//	$result["iso"] = $array->iso;
+			$results[] = $result;		
+		}
+	
+		return $results;
+	}
+	function preparelinksdistrict($arrays, $town, $district ,$country){
+		$results = array();
+		
+		foreach($arrays as $array){
+			$result = array();
+			$result["title"] = $array->ward;
+			$result["link"] = $this->config->base_url()."houses/$country/$district/$town/".$this->doiturl($array->ward).".html";			
 		//	$result["iso"] = $array->iso;
 			$results[] = $result;		
 		}
