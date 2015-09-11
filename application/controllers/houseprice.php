@@ -106,7 +106,7 @@ class Houseprice extends CI_Controller {
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;			
 			$data['results'] = $this->Housesm->getdisttown($data['districtname']);	
 			
-			$data['resultslinks'] =	$this->preparelinksdistrict($this->Housesm->getdisttown($data['districtname']), $data['district'], $data['country'])
+			$data['resultslinks'] =	$this->preparelinksdistrict($this->Housesm->getdisttown($data['districtname']), $data['district'], $data['country']);
 			$viewtogetname ='district';
 			$title = $data['districtname'].", ".$data['countryspace'];
 			$placename = $data['districtname'].', '.$data['countryspace'];
