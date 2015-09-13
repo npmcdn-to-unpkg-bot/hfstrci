@@ -93,12 +93,12 @@
   <!-- JQUERY PLUGIN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
   <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/lock.min.js.gz"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/unveil.js.gz"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30&v=3.5"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/script.js.gz"></script>
+  <script type="text/javascript" async  src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script>
+  <script type="text/javascript" async src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
+<!--  <script type="text/javascript" async  src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/lock.min.js.gz"></script> -->
+  <script async type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/unveil.js.gz"></script>
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30&v=3.5"></script>
+  <script async type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/script.js.gz"></script>
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
 </body>
