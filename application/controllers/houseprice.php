@@ -40,9 +40,10 @@ class Houseprice extends CI_Controller {
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
 			$data['results'] = $this->Housesm->getcodeinfo($data['codespace']);
 			$viewtogetname='code';
-			$queryseachlist = $data['codespace']." ".$data['areaspace'];
+			$queryseachlist = $data['codespace'];// ." ".$data['areaspace'];
 			$title = $data['codespace'].", ".$data['areaspace'];
 			$placename = $data['codespace'].', '.$data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
+			
 			$region = $data['districtiso'];
 			$data['verb'] = "Postcodes";
 			$data['areaname'] = $title;
@@ -191,7 +192,6 @@ class Houseprice extends CI_Controller {
 			print_r($lldet);
 			
 			if(isset($lldet["administrative_area_level_2"]) && ($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix")){
-				//if($data['loctype'] == postal_code_prefix)
 				$data["locality"] = $lldet[$data["loctype"]];	
 				$data['area'] = $lldet["administrative_area_level_2"];
 			}else{
