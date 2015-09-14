@@ -560,7 +560,7 @@ foreach($resultsproperties as $k){
                     </div>
                     <div class="col-sm-6 col-md-2">
                       <div class="text-block">
-                        <a href="<?php str_replace("for-sale","to-rent",$canonical); ?>" alt="Houses For Sale in <?php echo $countryspace; ?>" class="btn btn-lg rounded pressable btn-secondary">To Rent</a>
+                        <a href="<?php echo str_replace("for-sale","to-rent",$canonical); ?>" alt="Houses For Sale in <?php echo $countryspace; ?>" class="btn btn-lg rounded pressable btn-secondary">To Rent</a>
                       </div>
                     </div>
                   </div>
