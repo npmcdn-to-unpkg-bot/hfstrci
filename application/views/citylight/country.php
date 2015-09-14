@@ -521,6 +521,7 @@ foreach($resultsproperties as $k){
                     <ul class="noo-ul-icon fa-ul">
                     
                   <?php 
+                  print_r($results);
                   if(isset($resultslinks)){
 	                  $count = count($resultslinks);
 	                  $cl = ceil($count / 3);
@@ -541,6 +542,7 @@ foreach($resultsproperties as $k){
 	                  
 	                  }
                   }elseif(isset($results)){
+                  	
 	                  echo "<table>";
 	                  $co = 1;
 			foreach($results as $k){
