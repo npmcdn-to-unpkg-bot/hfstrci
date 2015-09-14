@@ -521,7 +521,6 @@ foreach($resultsproperties as $k){
                     <ul class="noo-ul-icon fa-ul">
                     
                   <?php 
-                  print_r($results);
                   if(isset($resultslinks)){
 	                  $count = count($resultslinks);
 	                  $cl = ceil($count / 3);
@@ -549,7 +548,7 @@ foreach($resultsproperties as $k){
 			           //$tw = ucwords(strtolower($k["TOWN"]));
 			            //$ward = ucwords(strtolower($k["WARD"]));
 			            $p = $k->price;
-			            $d = str_replace('"',"",$k->date);
+			            $d = $k->date;
 			            //$type = $k->proptype"];
 			            $paon = $k->PAON;
 			            $s = ucwords(strtolower($k->street));
@@ -559,8 +558,8 @@ foreach($resultsproperties as $k){
 			            if($co === 1){
 			                echo 'Road: '.$s.', '.$areaspace.', '.$town.', '.$county.' - '.$codespace.'</h2></p><table>';$co++;
 			            }
-			            $datef = new DateTime($d);
-			            $datef = $datef->format('d/m/Y');
+			            $datef = $d;
+			            //$datef = $datef->format('d/m/Y');
 			            echo '<tr><td>'.$paon.', '.$s.', '.$areaspace.', '.$town.', '.$districtname.'</td><td>'.$codespace;
 			            echo '</td><td>sold in '.$datef.'</td><td>  £'.$p.'</td></tr>';
 			 }
