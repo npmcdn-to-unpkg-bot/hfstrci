@@ -63,14 +63,17 @@ class Houseprice extends CI_Controller {
 			$this->load->model('Housesm');
 			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
-			//$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
+			
+			$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
+			print_r($data['results']);
+			exit;
 			$viewtogetname='area';
 			$queryseachlist = $data['areaspace']." ".$data['townspace'];
 			$title = $data['areaspace'].", ".$data['townspace'];
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			
-			$data['resultslinks'] =	$this->preparelinksarea($this->Housesm->getareacode($data['townspace'],$data['areaspace']),$data['area'],$data['town'], $data['district'], $data['country']);
+			//$data['resultslinks'] =	$this->preparelinksarea($this->Housesm->getareacode($data['townspace'],$data['areaspace']),$data['area'],$data['town'], $data['district'], $data['country']);
 			$data['verb'] = "Postcodes";
 			$data['areaname'] = $title;
 
