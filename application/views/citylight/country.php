@@ -542,7 +542,7 @@ foreach($resultsproperties as $k){
 	                  }
                   }elseif(isset($results)){
                   	
-	                  echo "<table>";
+	                 
 	                  $co = 1;
 			foreach($results as $k){
 			           //$tw = ucwords(strtolower($k["TOWN"]));
@@ -560,12 +560,12 @@ foreach($resultsproperties as $k){
 			            }
 			            $datef = $d;
 			            //$datef = $datef->format('d/m/Y');
-			            echo '<tr><td>'.$paon.', '.$s.', '.$areaspace.', '.$town.', '.$districtname.'</td><td>'.$codespace;
-			            echo '</td><td>sold in '.$datef.'</td><td>  £'.$p.'</td></tr>';
+			            echo '<li>'.$paon.', '.$s.', '.$areaspace.', '.$town.', '.$districtname.' '.$codespace;
+			            echo ': <strong>sold in </strong>'.$datef.' for  £'.$p.'</li>';
 			 }
 	                  
 	                  
-	                  echo "</table>";
+	                 
                   }?>
                   
                   </ul>
