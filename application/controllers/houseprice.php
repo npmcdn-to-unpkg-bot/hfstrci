@@ -198,6 +198,9 @@ class Houseprice extends CI_Controller {
 					$data['area'] = $lldet["administrative_area_level_2"];
 					if(isset($lldet["point_of_interest"])){
 						$data["locality"] = $lldet["point_of_interest"];
+					}elseif(isset($lldet["locality"])){
+						$data["locality"] = $lldet["locality"];
+						
 					}
 				}
 			}else{
