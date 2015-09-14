@@ -54,20 +54,23 @@ class Houseprice extends CI_Controller {
 			$data['town'] = $this->uri->segment(4);
 			$data['district'] = $this->uri->segment(3);
 			$data['country'] = $this->uri->segment(2);
+			
 			$data['areaspace'] = $this->undoiturl($data['area']);
 			$data['townspace'] = $this->undoiturl($data['town']);
 			$data['districtname'] = $this->undoiturl($data['district']);
 			$data['countryspace'] = $this->undoiturl($data['country']);
+			
 			$this->load->model('Housesm');
 			$data['districtiso'] = $this->Housesm->getisobydist($data['districtname'])[0]->iso;
 			//$data['districtname'] = $this->Housesm->getdistbyiso($data['district'])[0]->district;
-			$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
+			//$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
 			$viewtogetname='area';
 			$queryseachlist = $data['areaspace']." ".$data['townspace'];
 			$title = $data['areaspace'].", ".$data['townspace'];
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			
+			$data['resultslinks'] =	$this->preparelinksarea($this->Housesm->getareacode($data['townspace'],$data['areaspace']),$data['area'],$data['town'], $data['district'], $data['country']);
 			$data['verb'] = "Postcodes";
 			$data['areaname'] = $title;
 
@@ -261,6 +264,19 @@ class Houseprice extends CI_Controller {
 			$result = array();
 			$result["title"] = $array->ward;
 			$result["link"] = $this->config->base_url()."houses/$country/$district/$town/".$this->doiturl($array->ward).".html";			
+		//	$result["iso"] = $array->iso;
+			$results[] = $result;		
+		}
+	
+		return $results;
+	}
+	function preparelinksarea($arrays, $area ,$town, $district ,$country){
+		$results = array();
+		
+		foreach($arrays as $array){
+			$result = array();
+			$result["title"] = $array->STREET . " " . $array->POSTCODE;
+			$result["link"] = $this->config->base_url()."houses/$country/$district/$town/$area/".$this->doiturl($array->POSTCODE).".html";			
 		//	$result["iso"] = $array->iso;
 			$results[] = $result;		
 		}
