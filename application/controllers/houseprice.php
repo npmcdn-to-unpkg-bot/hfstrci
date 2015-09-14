@@ -72,7 +72,7 @@ class Houseprice extends CI_Controller {
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			
-			//$data['resultslinks'] =	$this->preparelinksarea($this->Housesm->getareacode($data['townspace'],$data['areaspace']),$data['area'],$data['town'], $data['district'], $data['country']);
+			$data['resultslinks'] =	$this->preparelinksarea($this->Housesm->getareacode($data['townspace'],$data['areaspace']),$data['area'],$data['town'], $data['district'], $data['country']);
 			$data['verb'] = "Postcodes";
 			$data['areaname'] = $title;
 
