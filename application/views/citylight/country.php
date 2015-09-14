@@ -435,6 +435,13 @@ foreach($resultsproperties as $k){
             $your_string_without_tags = strip_tags($description);
             $charscount = substr($your_string_without_tags, 0, 150);
             $img = $k->photo_feed;
+            $add = "";
+            $rand = rand(1,1440);
+            if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
+            	$add = "f";
+            	$rand = rand(1,28);
+            }
+            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
