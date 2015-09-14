@@ -377,8 +377,11 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 								               
 								               
 								               
-								               <?php    
+								               <?php   
+								               
+								        
 $ic = 0;            
+
 foreach($resultsproperties as $k){
    $ic++;
    if($ic == 3){
@@ -495,6 +498,7 @@ foreach($resultsproperties as $k){
 
               <hr class="noo-gap" style="margin: 0 0 5px 0;">
               
+              
               <!-- START ICON LIST ITEM SHORTCODE -->
               <div class="row noo-row icon-list-item-shortcode clearfix">
                 <div class="col-xs-12 noo-col">
@@ -510,22 +514,25 @@ foreach($resultsproperties as $k){
                     <ul class="noo-ul-icon fa-ul">
                     
                   <?php 
-                  $count = count($resultslinks);
-                  $cl = ceil($count / 3);
-                  $i = 0;
-                  foreach($resultslinks as $res){
-                  	if($i % $cl == 0 && $i > 0  ){
-                  		echo '</ul></div><div class="col-xs-6 col-md-4 noo-col">
-                    			<ul class="noo-ul-icon fa-ul">';
-                  	}
-                  	$i++;
-                  	echo '<li class="noo-li-icon" style=" font-size: 14px; color: #40d1af;">
-                        
-                        <p><a href="'.$res["link"].'" title="Properties in '.$res["title"].'" />Houses in '.$res["title"].'</a></p>
-                      </li>';
-                  
-                  
-                  
+                  if(isset($resultslinks)){
+	                  $count = count($resultslinks);
+	                  $cl = ceil($count / 3);
+	                  $i = 0;
+	                  
+	                  foreach($resultslinks as $res){
+	                  	if($i % $cl == 0 && $i > 0  ){
+	                  		echo '</ul></div><div class="col-xs-6 col-md-4 noo-col">
+	                    			<ul class="noo-ul-icon fa-ul">';
+	                  	}
+	                  	$i++;
+	                  	echo '<li class="noo-li-icon" style=" font-size: 14px; color: #40d1af;">
+	                        
+	                        <p><a href="'.$res["link"].'" title="Properties in '.$res["title"].'" />Houses in '.$res["title"].'</a></p>
+	                      </li>';
+	                  
+	                  
+	                  
+	                  }
                   } ?>
                   
                   </ul>
