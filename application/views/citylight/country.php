@@ -549,13 +549,13 @@ foreach($resultsproperties as $k){
 			            //$ward = ucwords(strtolower($k["WARD"]));
 			            
 			            $p = str_replace('"',"", $k->price);
-			            $d = str_replace('"',"", $k->date);;
+			            $d = str_replace('"',"", $k->date);
 			            //$type = $k->proptype"];
-			            $paon = str_replace('"',"", $k->PAON);;
-			            $s = ucwords(strtolower(str_replace('"',"", $k->street);));
-			            $l = ucwords(strtolower(str_replace('"',"", $k->locality);));
-			            $town = ucwords(strtolower(str_replace('"',"", $k->town);));
-			            $county = ucwords(strtolower(str_replace('"',"", $k->county);));
+			            $paon = str_replace('"',"", $k->PAON);
+			            $s = ucwords(strtolower(str_replace('"',"", $k->street)));
+			            $l = ucwords(strtolower(str_replace('"',"", $k->locality)));
+			            $town = ucwords(strtolower(str_replace('"',"", $k->town)));
+			            $county = ucwords(strtolower(str_replace('"',"", $k->county)));
 			            if($co === 1){
 			                echo 'Road: '.$s.', '.$areaspace.', '.$town.', '.$county.' - '.$codespace.'</h2></p><table>';$co++;
 			            }
