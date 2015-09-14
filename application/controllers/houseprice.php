@@ -194,6 +194,7 @@ class Houseprice extends CI_Controller {
 				
 				
 				//if($data['loctype'] == postal_code_prefix)
+				echo $data["loctype"];
 				$data["locality"] = $lldet[$data["loctype"]];	
 				
 				
