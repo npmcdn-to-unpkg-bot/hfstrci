@@ -377,6 +377,7 @@ class Housesm extends CI_Model {
        function getdisttown($district){
        		$this->db->select('town,district');
 			$this->db->where('district =', $district);
+			$this->db->order_by("town", "asc");
 			$query = $this->db->get('town');
 			return $query->result();
        }
@@ -384,6 +385,7 @@ class Housesm extends CI_Model {
        		$this->db->select('ward,town,district');
 			$this->db->where('town =', $town);
 			$this->db->where('district =', $district);
+			$this->db->order_by("ward", "asc");
 			$query = $this->db->get('ward');
 			return $query->result();
        }
@@ -391,13 +393,14 @@ class Housesm extends CI_Model {
        		$this->db->select('TOWN,WARD,DISTRICT,POSTCODE,STREET');
 			$this->db->where('TOWN =', $town);
 			$this->db->where('WARD =', $ward);
+			$this->db->order_by("POSTCODE", "asc");
 			$query = $this->db->get('postcodes');
 			return $query->result();
        }
 
        function getcodeinfo($postcode){
        		$this->db->select('price,date,proptype,PAON,street,locality,town,county');
-			$this->db->where('postcod =', $postcode);
+			$this->db->where('postcod =', '"'.$postcode.'"');
 			$this->db->order_by("PAON", "asc");
 			$query = $this->db->get('landregs');
 			return $query->result();
