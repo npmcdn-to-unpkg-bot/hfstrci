@@ -201,7 +201,16 @@ class Houseprice extends CI_Controller {
 					}elseif(isset($lldet["locality"])){
 						$data["locality"] = $lldet["locality"];
 						
+					}elseif(isset($lldet["route"])){
+						$data["locality"] = $lldet["route"];
+						
+					}else{
+						$data['locality'] = $date['area'];
+						$data['area'] = false;
+					
 					}
+					
+					
 				}
 			}else{
 				if(isset($lldet[$data["loctype"]]))
