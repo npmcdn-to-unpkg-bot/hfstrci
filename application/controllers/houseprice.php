@@ -45,7 +45,7 @@ class Houseprice extends CI_Controller {
 			$placename = $data['codespace'].', '.$data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			
 			$region = $data['districtiso'];
-			$data['verb'] = "Postcodes";
+			$data['verb'] = "Sold houses";
 			$data['areaname'] = $title;
 
 		}elseif($this->uri->segment(5) != null){//area level
