@@ -191,7 +191,7 @@ class Houseprice extends CI_Controller {
 			print_r($lldet);
 			
 			if(isset($lldet["administrative_area_level_2"])){
-				if(($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix")($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix")){
+				if($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix")($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix"){
 					$data["locality"] = $lldet[$data["loctype"]];	
 					$data['area'] = $lldet["administrative_area_level_2"];
 				}else{
