@@ -516,16 +516,16 @@ foreach($resultsproperties as $k){
                   <hr class="noo-gap" style=" margin: 50px 0 0 0;">
                   <div class="row noo-row clearfix">
                   
-                  <div class="col-xs-6 col-md-4 noo-col">
-                    
-                    <ul class="noo-ul-icon fa-ul">
+                  
                     
                   <?php 
                   if(isset($resultslinks)){
 	                  $count = count($resultslinks);
 	                  $cl = ceil($count / 3);
 	                  $i = 0;
-	                  
+	                  echo '<div class="col-xs-6 col-md-4 noo-col">
+                    
+                    <ul class="noo-ul-icon fa-ul">';
 	                  foreach($resultslinks as $res){
 	                  	if($i % $cl == 0 && $i > 0  ){
 	                  		echo '</ul></div><div class="col-xs-6 col-md-4 noo-col">
@@ -544,6 +544,9 @@ foreach($resultsproperties as $k){
                   	
 	                 
 	                  $co = 1;
+	                  echo '<div class="col-xs-12 col-md-12 noo-col">
+                    
+                    <ul class="noo-ul-icon fa-ul">';
 			foreach($results as $k){
 			           //$tw = ucwords(strtolower($k["TOWN"]));
 			            //$ward = ucwords(strtolower($k["WARD"]));
@@ -557,7 +560,7 @@ foreach($resultsproperties as $k){
 			            $town = ucwords(strtolower(str_replace('"',"", $k->town)));
 			            $county = ucwords(strtolower(str_replace('"',"", $k->county)));
 			            if($co === 1){
-			                echo 'Road: '.$s.', '.$areaspace.', '.$town.', '.$county.' - '.$codespace.'</h2></p><table>';$co++;
+			                echo '<li><h3>Road: '.$s.', '.$areaspace.', '.$town.', '.$county.' - '.$codespace.'</h3></li>';$co++;
 			            }
 			            $datef = $d;
 			            //$datef = $datef->format('d/m/Y');
