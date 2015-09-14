@@ -341,7 +341,7 @@ foreach($results as $k){
             $charscount = substr($your_string_without_tags, 0, 250);
             $img = $k->photo_feed;
             $add = "";
-            $rand = rand(1,77);
+            $rand = rand(1,1440);
             if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
             	$add = "f";
             	$rand = rand(1,28);
