@@ -549,7 +549,7 @@ foreach($resultsproperties as $k){
 			           //$tw = ucwords(strtolower($k["TOWN"]));
 			            //$ward = ucwords(strtolower($k["WARD"]));
 			            $p = $k->price;
-			            $d = $k->date;
+			            $d = str_replace('"',"",$k->date);
 			            //$type = $k->proptype"];
 			            $paon = $k->PAON;
 			            $s = ucwords(strtolower($k->street));
