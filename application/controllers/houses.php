@@ -12,6 +12,42 @@ class Houses extends CI_Controller {
 		$this->load->model('Housesm');
 	}
 	
+	public function for_error(){
+		$searchvalue = $this->uri->segment(3);
+	        $searchvalue = ucwords(str_replace("-", " ", $searchvalue));
+	        if($searchvalue)
+        		$this->makesearch(false, $searchvalue, "Sale");
+         	else{
+         		$plus = array(
+				'css'=>'style2',
+				'title'=> $this->lang->line("index-title"),
+				'js'=>'',
+				'index'=>'noindex,nofollow',
+			);
+			$this->load->view('header',$plus);
+			$this->load->view('longform',array("message"=>"We could not find the page you are looking for: Please try using the search."));
+			$data = array();
+			$data["links"] = $this->Housesm->footerlinks();
+			$this->load->view('footer',$data);	
+         		
+         	}
+	}
+	public function for_sale(){
+		$this->general_search("sale");
+	}
+	public function to_rent(){
+		$this->general_search("rental");
+	}
+	function redirect(){
+
+		$key = $this->uri->segment(3);
+		$this->load->model('Housesm');
+		$urlts = $this->Housesm->getredirectUrl($key)[0]->url_feed;
+		header("Location: $urlts ");
+		die();
+
+	}
+	
 	public function returngooglelatlong($query){
 
 		$search_code = urlencode($query);
@@ -325,52 +361,7 @@ class Houses extends CI_Controller {
 			
 		return $filters;
 	}
-	public function for_error(){
-	
-		$searchvalue = $this->uri->segment(3);
-		if($this->uri->segment(4) == null){$page = 1;}else{$page = $this->uri->segment(4);}
-		$this->load->model('Housesm');
-        	$data['results'] = $this->Housesm->searchDB("sale",$searchvalue,$this->propertiesperpage,$page);
-        	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
-        	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
-		//pagination        
-		$cnum = $this->Housesm->searchDBrows("sale",$searchvalue);
-		$data['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$searchvalue,$page);  
-   		$plus = array(
-    			'meta'=>'<meta name="robots" content="noindex, nofollow">',
-    			'css'=>$this->getcssname('stylelist2'),
-    			'title'=>strtr($this->lang->line("forerror-title"), array('{$searchvalue}' => $data['searchvalue'])),
-    			'js'=>''
-    		);
-		$this->load->view('header',$plus);
-		$this->load->view('shortform');
-        	$this->load->view('houseslist', $data);
-		$this->load->view('footer');	
 
-	}
-	public function for_sale(){
-
-		$this->general_search("sale");
-
-	}
-	public function to_rent(){
-		
-		$this->general_search("rental");
-
-	}
-	
-
-	function redirect(){
-
-		$key = $this->uri->segment(3);
-		$this->load->model('Housesm');
-		$urlts = $this->Housesm->getredirectUrl($key)[0]->url_feed;
-		header("Location: $urlts ");
-		die();
-
-	}
-       
-               
         function getnewpaginator($num,$perpage,$typesale,$query,$page=1,$filters = false){
         	
        	     	
