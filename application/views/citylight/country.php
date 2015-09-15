@@ -16,6 +16,7 @@
                   <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
+                    <?php	echo $saletype; ?>
                       <form class="gsearchform" method="get" role="search" action="
                       <?php
                       
