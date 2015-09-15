@@ -12,10 +12,11 @@ class Houseprice extends CI_Controller {
 	
 	public function uk(){
 		$plus = array('css'=>'stylelist2','title'=>$this->lang->line("uk-title"),'js'=>'');
+		$data["links"] = $this->Housesm->footerlinks();
 		$this->load->view('header',$plus);
 		$this->load->view('shortform');
 		$this->load->view('uk');
-		$this->load->view('footer');	
+		$this->load->view('footer',$data);	
 	}
 	public function price(){	
 		$viewtogetname = "";
