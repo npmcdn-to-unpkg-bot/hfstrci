@@ -16,17 +16,12 @@
                   <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
-                    <?php	echo $saletype; ?>
+
                       <form class="gsearchform" method="get" role="search" action="
                       <?php
-                      
                       	echo $this->config->base_url()."houses/";
-                      	if($saletype == "For Sale")
-                      		echo "for-sale";
-                      	elseif($saletype == "To Rent")
-                      		echo "to-rent";
+                   	echo $saletype;
                       	echo "/index.html";
-                      
                        ?>
                       " id="search-form">
                         <div class="gsearch-content">
