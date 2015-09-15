@@ -148,7 +148,7 @@ class Houseprice extends CI_Controller {
 		
 		$plus = array(
 			'title'=>strtr($this->lang->line("price-title"), array('{$searchvalue}' => $title)),
-			'meta'=>strtr($this->lang->line("price-meta"), array('{$lat}'=>$data["lat"], '{$lng}'=>$data["lng"], '{$location}' => $title, '{$placename}' => $placename, '{$region}' => $region))
+			'meta'=>strtr($this->lang->line("price-meta"), array('{$cnum}'=>$data["cnum"], '{$postcode}'=>$data["postcode"], '{$lat}'=>$data["lat"], '{$lng}'=>$data["lng"], '{$location}' => $title, '{$placename}' => $placename, '{$region}' => $region))
 		);
 		$data["breadbase"] = $this->config->base_url()."houses/for-sale/index.html";
 		$data["searchvalue"] = $queryseachlist;
