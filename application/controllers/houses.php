@@ -102,7 +102,7 @@ class Houses extends CI_Controller {
 			$cleanurl = true;
 		}
 
-		if($searchvalue == "index"){
+		if($searchvalue == "index" or $searchvalue == ""){
 			$plus = array(
 				'css'=>'style2',
 				'title'=> $this->lang->line("index-title"),
