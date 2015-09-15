@@ -99,25 +99,50 @@ class Houses extends CI_Controller {
 			$data['loctype'] = $latlngarray["type"];
 			$lldet = $this->getlocalities($latlngdetails);
 			
-			if(isset($lldet["administrative_area_level_2"]) && ($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix")){
-				$data["locality"] = $lldet[$data["loctype"]];	
-				$data['area'] = $lldet["administrative_area_level_2"];
+			if(isset($lldet["administrative_area_level_2"])){
+				if($data['loctype'] == "neighborhood" || $data['loctype'] == "postal_town" || $data['loctype'] == "locality" || $data['loctype'] == "postal_code_prefix"){
+					$data["locality"] = $lldet[$data["loctype"]];	
+					$data['area'] = $lldet["administrative_area_level_2"];
+				}else{
+					$data['area'] = $lldet["administrative_area_level_2"];
+					if(isset($lldet["point_of_interest"])){
+						$data["locality"] = $lldet["point_of_interest"];
+					}elseif(isset($lldet["locality"])){
+						$data["locality"] = $lldet["locality"];
+						
+					}elseif(isset($lldet["route"])){
+						$data["locality"] = $lldet["route"];
+						
+					}else{
+						$data['locality'] = $data['area'];
+						$data['area'] = false;
+					
+					}
+					
+					
+				}
 			}else{
 				if(isset($lldet[$data["loctype"]]))
-				$data["locality"] = $lldet[$data["loctype"]];
+					$data["locality"] = $lldet[$data["loctype"]];
 				else
-				$data["locality"] = $data["loctype"];
+					$data["locality"] = $data["loctype"];
 				$data['area'] = false;				
 			}
-			if(isset($lldet["postal_code_prefix"]))
+			if(isset($lldet["postal_code_prefix"])){
 				$data['postcode'] = $lldet["postal_code_prefix"];
+				$printpostcode = " ".$lldet["postal_code_prefix"];
+			}else{
+				$printpostcode = "";	
+			}
 			$canonical = $this->getcanonical($type, $data["locality"], $data['area']);
 			$data["bread"] = $this->getBread($lldet,$type,$data['loctype']);
 			
 			if($type == 'sale'){
-	        		$type2 = 'for-sale';        		
+	        		$type2 = 'for-sale';
+	        		$metatype = "sale-meta";
 	            	}elseif($type == 'rental'){
 	        		$type2 = 'to-rent';
+	        		$metatype = "rent-meta";
 	            	}
 			$data["breadbase"] = $this->config->base_url()."houses/{$type2}/index.html";
 			if(!$this->input->get('range')){
@@ -158,10 +183,11 @@ class Houses extends CI_Controller {
 		 	$data['searchvalue'] = ucwords(str_replace("-", " ", $searchvalue));
 		   	$data['saletype'] = ucwords(str_replace("-", " ", $this->uri->segment(2)));
 		   	$data["filters"] = $filters;
+		   	
 			$plus = array(
 				'title'=> strtr($this->lang->line($type."-title"), array('{$searchvalue}' => $data['searchvalue'])),			
-				'js'=>'',
 				'canonical' => $canonical,
+				'meta'=>strtr($this->lang->line($metatype), array('{$cnum}'=>$cnum, '{$postcode}'=>$printpostcode, '{$lat}'=>$data["lat"], '{$lng}'=>$data["lng"], '{$location}' => $data["formatted_address"], '{$placename}' => $data["formatted_address"]))
 				);
 				
 			if($cleanurl === true){
