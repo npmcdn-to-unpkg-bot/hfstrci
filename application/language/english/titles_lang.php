@@ -16,6 +16,8 @@ $lang["price-meta"] = '
 <meta property=”og:title” content=”House for Sale & to Rent in {$location}”/>
 <meta property=”og:type” content=”website”/>
 <meta property=”og:description” content=”{$cnum} Houses for sale in {$location}{$postcode}, Houses to rent in {$location}. The est Properties in {$location} you find here.”/>
+<meta itemprop="name" content="House for Sale & to Rent in {$location}">
+<meta itemprop="description" content="{$cnum} Houses for sale in {$location}{$postcode}, Houses to rent in {$location}. The est Properties in {$location} you find here.">
 ';
 
 $lang["sale-meta"] = '
@@ -27,6 +29,8 @@ $lang["sale-meta"] = '
 <meta property=”og:title” content=”House for Sale in {$location}”/>
 <meta property=”og:type” content=”website”/>
 <meta property=”og:description” content=”{$cnum} Houses for sale in {$location}{$postcode}. The best properties and homes in {$location} you find here.”/>
+<meta itemprop="name" content="House for Sale in {$location}">
+<meta itemprop="description" content="{$cnum} Houses for sale in {$location}{$postcode}. The best properties and homes in {$location} you find here.">
 ';
 
 $lang["rent-meta"] = '
@@ -38,6 +42,8 @@ $lang["rent-meta"] = '
 <meta property=”og:title” content=”House for Sale & to Rent in {$location}”/>
 <meta property=”og:type” content=”website”/>
 <meta property=”og:description” content=”{$cnum} Houses for sale in {$location}{$postcode}, Houses to rent in {$location}. Best Properties in {$location} you find here.”/>
+<meta itemprop="name" content="House to rent in {$location}">
+<meta itemprop="description" content="{$cnum} Houses for sale in {$location}{$postcode}, Houses to rent in {$location}. Best Properties in {$location} you find here.">
 ';
 
 
