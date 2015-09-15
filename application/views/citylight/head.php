@@ -7,7 +7,7 @@
   <meta name="author" content="Houses for Sale & to Rent">
   <?php
   if(isset($canonical))
-  	echo '<link rel="canonical" href="'.$canonical.'" />';  	
+  	echo '<link rel="canonical" href="'.$canonical.'" />  <meta property=”og:url” content=”'.$canonical.'”/>';  	
   ?>
   <?php
   if(isset($prev))
