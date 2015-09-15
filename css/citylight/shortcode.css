@@ -172,7 +172,7 @@
 .tab-content > .tab-pane {
 	border: 1px solid #e5e5e5;
 	padding: 40px 30px;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .tabs-left > .nav-tabs {
@@ -260,13 +260,13 @@
 }
 
 .noo-counter-holder > span.noo-counter {
-	font-size: 50px;
+	font-size: 37px;
 	font-weight: 400;
 }
 
 .noo-counter-holder .counter-text h3 {
 	margin-top: 0;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 
