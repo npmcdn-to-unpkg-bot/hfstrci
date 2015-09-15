@@ -181,11 +181,11 @@
                 <div class="col-xs-12 noo-col">
                   <div class="horizontal-tab-shortcode">
                     <div class="noo-text-block">
-                      <h3 class="text-primary">House price <?php echo $formatted_address; ?></h3>
+                      <h3 class="text-primary">House price in <?php echo $formatted_address; ?></h3>
                     </div>
                     <div class="noo-tabs">
                       <ul class="nav nav-tabs" role="tablist" id="noo-tabs-1">
-                        <li class="active"><a role="tab" data-toggle="tab" href="#tab-1412644835-1-13">House price in <?php echo $formatted_address; ?></a>
+                        <li class="active"><a role="tab" data-toggle="tab" href="#tab-1412644835-1-13">House price</a>
                         </li>
                         <li><a role="tab" data-toggle="tab" href="#tab-1412644835-2-69">Related Search</a>
                         </li>
