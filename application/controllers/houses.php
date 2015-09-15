@@ -2,12 +2,12 @@
 
 class Houses extends CI_Controller {
 
-	public $propertiesperpage = 50;
+	public $propertiesperpage = 52;
 	
 	function __construct() {
 		parent::__construct();
 		header( 'Cache-Control: max-age=604800' );
-		$this->output->enable_profiler(TRUE);
+		//$this->output->enable_profiler(TRUE);
 		$this->lang->load("titles","english");
 		$this->load->model('Housesm');
 	}
