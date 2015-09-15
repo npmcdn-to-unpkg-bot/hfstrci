@@ -10,7 +10,7 @@ $lang["price-meta"] = '
 <meta name="description" content="Houses for sale in {$location}, Houses to rent in {$location}, Flats in {$location}, Properties for sale in {$location}, Properties to rent in {$location}" />
 <meta name="keywords" content="Houses for sale in {$location}, {$location}, Houses to rent in {$location}, Flats in {$location}, Houses for sale & to rent, Properties for sale in {$location}, Properties to rent in {$location}" />
 <meta name="geo.placename" content="{$placename}" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="noindex, follow" />
 <meta name="geo.region" content="{$region}" /> ';
 
 $lang["paginator-firstpage"] = "First Page";
