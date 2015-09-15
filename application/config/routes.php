@@ -53,10 +53,12 @@ $route['houses/uk'] = "houseprice/uk";
 $route['termsandconditions'] = "single/privacy";
 
 
-//$route['houses/for-sale'] = "houses/for_sale";
+
 $route['houses/for-sale/(:any)'] = "houses/for_sale/query";
-//$route['houses/to-rent'] = "houses/to_rent";
+$route['houses/for-sale'] = "houses/for_sale";
+
 $route['houses/to-rent/(:any)'] = "houses/to_rent/query";
+$route['houses/to-rent'] = "houses/to_rent";
 $route['404_override'] = 'houses/for_error/query';
 
 
