@@ -68,7 +68,7 @@ class Houseprice extends CI_Controller {
 			$data['results'] = $this->Housesm->getareacode($data['townspace'],$data['areaspace']);
 			$viewtogetname='area';
 			$queryseachlist = $data['areaspace']." ".$data['townspace'];
-			$title = $data['areaspace']." ".$data['townspace'];
+			$title = $data['areaspace'].", ".$data['townspace'];
 			$placename = $data['areaspace'].', '.$data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			
@@ -92,7 +92,7 @@ class Houseprice extends CI_Controller {
 			//$data['results'] = $this->Housesm->gettownareas($data['townspace'],$data['districtname']);			
 			$viewtogetname='town';
 			$queryseachlist = $data['townspace']." ".$data['districtname'];
-			$title = $data['townspace']." ".$data['districtname'];
+			$title = $data['townspace'].", ".$data['districtname'];
 			$placename = $data['townspace'].', '.$data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			$data['verb'] = "Areas";
@@ -113,7 +113,7 @@ class Houseprice extends CI_Controller {
 			//$data['results'] = $this->Housesm->getdisttown($data['districtname']);
 			$data['resultslinks'] =	$this->preparelinksdistrict($this->Housesm->getdisttown($data['districtname']), $data['district'], $data['country']);
 			$viewtogetname ='district';
-			$title = $data['districtname']." ".$data['countryspace'];
+			$title = $data['districtname'].", ".$data['countryspace'];
 			$placename = $data['districtname'].', '.$data['countryspace'];
 			$region = $data['districtiso'];
 			$queryseachlist = $title;
