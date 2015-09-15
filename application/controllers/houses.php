@@ -101,7 +101,7 @@ class Houses extends CI_Controller {
 				$searchvalue = $this->uri->segment(4).", ".$searchvalue;
 			$cleanurl = true;
 		}
-
+		echo "serch: $searchvalue ;";
 		if($searchvalue == "index" or $searchvalue == ""){
 			$plus = array(
 				'css'=>'style2',
