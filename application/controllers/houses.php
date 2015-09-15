@@ -25,7 +25,7 @@ class Houses extends CI_Controller {
 				'index'=>'noindex,nofollow',
 			);
 			$this->load->view('header',$plus);
-			$this->load->view('longform',array("message"=>"We could not find the page you are looking for: Please try using the search."));
+			$this->load->view('longform',array("message"=>"We could not find the locality you are looking for, please use the search to find a property for sale or to rent."));
 			$data = array();
 			$data["links"] = $this->Housesm->footerlinks();
 			$this->load->view('footer',$data);	
