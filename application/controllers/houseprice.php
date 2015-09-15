@@ -144,10 +144,9 @@ class Houseprice extends CI_Controller {
 
 		
 		
-		list($data["lat"], $data["lng"], $data["formatted_address"], $data["loctype"], $data["locality"], $data["area"], $data["canonical"], $data["bread"], $data["cnum"], $data["resultsproperties"], $data["prices"], $data["avgproptype"], $data["related"], $data["relatedproptype"], $data["proptypeinfo"], $data["saletype"], $data["filters"] ) = $this->searchproperty($queryseachlist);
+		list($data["lat"], $data["lng"], $data["formatted_address"], $data["loctype"], $data["locality"], $data["area"], $data["canonical"], $data["bread"], $data["cnum"], $data["resultsproperties"], $data["prices"], $data["avgproptype"], $data["related"], $data["relatedproptype"], $data["proptypeinfo"], $data["saletype"], $data["filters"], $data["postcode"] ) = $this->searchproperty($queryseachlist);
 		
 		$plus = array(
-			
 			'title'=>strtr($this->lang->line("price-title"), array('{$searchvalue}' => $title)),
 			'meta'=>strtr($this->lang->line("price-meta"), array('{$lat}'=>$data["lat"], '{$lng}'=>$data["lng"], '{$location}' => $title, '{$placename}' => $placename, '{$region}' => $region))
 		);
@@ -219,9 +218,9 @@ class Houseprice extends CI_Controller {
 				$data['area'] = false;				
 			}
 			if(isset($lldet["postal_code_prefix"]))
-				$data['postcode'] = $lldet["postal_code_prefix"];
+				$data['postcode'] = " " . $lldet["postal_code_prefix"];
 			else
-				$data['postcode'] = false;
+				$data['postcode'] = "";
 			$canonical = $this->houses->getcanonical($type, $data["locality"], $data['area']);
 			$data["bread"] = $this->houses->getBread($lldet,$type,$data['loctype']);
 			
@@ -250,7 +249,7 @@ class Houseprice extends CI_Controller {
 			
 			
 		// lat, lng, formatted_address, loctype, $locality, $area, $canonical, $breadcrumb, $cnum, $results, $prices, $avgproptype
-		return array($lat,$lng,$data['formatted_address'], $data['loctype'], $data["locality"], $data['area'], $canonical, $data["bread"], $cnum, $data['results'], $data['prices'], $avgproptype, $data["related"], $data["relatedproptype"], $data["proptypeinfo"] ,$type2,$filters    );
+		return array($lat,$lng,$data['formatted_address'], $data['loctype'], $data["locality"], $data['area'], $canonical, $data["bread"], $cnum, $data['results'], $data['prices'], $avgproptype, $data["related"], $data["relatedproptype"], $data["proptypeinfo"] ,$type2,$filters,$data["postcode"]    );
 	}
 	
 		
