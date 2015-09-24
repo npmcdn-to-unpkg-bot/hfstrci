@@ -165,7 +165,7 @@ class Houseprice extends CI_Controller {
 		}*/
 		
 		echo $_SERVER['REQUEST_URI'];
-		echo $_SERVER['QUERY_STRING'];
+	
 		
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
