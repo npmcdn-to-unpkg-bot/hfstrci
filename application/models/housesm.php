@@ -361,6 +361,17 @@ class Housesm extends CI_Model {
 			$this->db->insert('search', $data); 
        	
        }
+       function savecanonical($url,$canonical){
+       			$this->db->select('id');
+			$this->db->where('url =', $url);
+			$query = $this->db->get('canonicallinks');
+			if(!$query->result()){
+				$this->db->insert('canonicallinks', array("url"=>$url,"canonical"=>$canonical)); 	
+				
+			}
+       	
+       	
+       }
        function getcountrydist($country){
        		$this->db->select('district,iso');
 			$this->db->where('country =', $country);
