@@ -365,7 +365,10 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 								  		<div class="section-title">
 								        <h3>Houses for Sale in <?php echo $formatted_address; ?></h3>
 								      </div>
-								      <div class="recent-properties-content">
+
+                      <a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a>
+								      
+                      <div class="recent-properties-content">
 								        <div class="caroufredsel-wrap">
 								          <ul>
 								            <li>
@@ -497,6 +500,8 @@ foreach($resultsproperties as $k){
 								  </div>																
 								</div>
 							</div>
+
+              <a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a>
 							<!-- END RECENT PROPERTIES SLIDER - SHORTCODE -->
 
               <hr class="noo-gap" style="margin: 0 0 5px 0;">
