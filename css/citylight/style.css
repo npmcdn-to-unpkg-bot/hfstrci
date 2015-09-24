@@ -213,7 +213,32 @@ iframe {
 }
 
 
+.morepropertiesbox {
 
+    width: 100%;
+    background: #75b08a;
+    height: 40px;
+    padding: 7px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.moreproperties {
+	
+    /* width: 300px !important; */
+    /* height: 25px; */
+    padding: 0px 70px;
+    margin: 25px 0;
+    background-color: #75b08a;
+    color: white;
+
+}
+
+.moreproperties:hover {
+	color:black;
+	text-decoration:underline;
+
+}
 /* --------------------------------------------------------------------- */
 /* 2. TOP HEADER
 /* --------------------------------------------------------------------- */
