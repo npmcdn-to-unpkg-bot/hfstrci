@@ -164,6 +164,9 @@ class Houseprice extends CI_Controller {
 			$datalists['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$this->doiturl($queryseachlist),1);
 		}*/
 		
+		echo $_SERVER['REQUEST_URI'];
+		echo $_SERVER['QUERY_STRING'];
+		
 		$this->load->view('citylight/head',$plus);
 		$this->load->view('citylight/header');				
 	      	$this->load->view('citylight/country' ,$data);		
