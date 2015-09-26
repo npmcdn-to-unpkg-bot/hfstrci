@@ -56,7 +56,7 @@ class Houses extends CI_Controller {
 			return $res;
 			
 		}else{
-			$url = 'http://maps.googleapis.com/maps/api/geocode/json?address='.$search_code.'+United+Kingdom&sensor=false&key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30';
+			$url = 'https://maps.googleapis.com/maps/api/geocode/json?address='.$search_code.'+United+Kingdom&sensor=false&key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30';
 			$json = json_decode(file_get_contents($url));
 			
 			if(isset($json->results[0])){
