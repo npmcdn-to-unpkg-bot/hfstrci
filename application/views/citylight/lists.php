@@ -340,13 +340,23 @@ foreach($results as $k){
             $your_string_without_tags = strip_tags($description);
             $charscount = substr($your_string_without_tags, 0, 250);
             $img = $k->photo_feed;
+            
+            
             $add = "";
-            $rand = rand(1,1440);
+            $rangeimg = array(1,1440);
+           
             if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
             	$add = "f";
-            	$rand = rand(1,28);
+            	$rangeimg = array(1,28);
             }
-            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
+            for($i=10;$i > 0;$i--){
+	            $rand = rand($rangeimg[0],$rangeimg[1]);
+	            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
+	            if (file_exists($img))
+	            	break;
+	            
+            }
+            
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
