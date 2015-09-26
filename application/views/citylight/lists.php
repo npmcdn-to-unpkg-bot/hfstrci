@@ -353,6 +353,7 @@ foreach($results as $k){
 	            $rand = rand($rangeimg[0],$rangeimg[1]);
 	            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
 	            if(@getimagesize($img))
+	            break;
 	   }
             
      
