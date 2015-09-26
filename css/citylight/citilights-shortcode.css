@@ -173,6 +173,7 @@
 
 .properties .hentry .property-featured {
 	margin: 0;
+	height:230px;
 	position: relative;
 	overflow: hidden;
 	-webkit-border-radius: 4px 4px 0 0;
