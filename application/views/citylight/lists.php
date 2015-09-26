@@ -352,10 +352,21 @@ foreach($results as $k){
             for($i=10;$i > 0;$i--){
 	            $rand = rand($rangeimg[0],$rangeimg[1]);
 	            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
-	            if (file_exists($img))
-	            	break;
+	            
+	            $url=getimagesize($img);
+		    if(!is_array($url))
+		    {
+			break;
+		    }
+	           
 	            
             }
+            
+            $url=getimagesize(“http://www.flickr.com/photos/27505599@N07/2564389539/&#8221;);
+	    if(!is_array($url))
+	    {
+	    $default_image =”…/directoryFolder/junal.jpg”;
+	    }
             
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
