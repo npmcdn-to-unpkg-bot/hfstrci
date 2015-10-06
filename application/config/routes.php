@@ -50,7 +50,7 @@ $route['houses/scotland'] = "houseprice/price";
 $route['houses/northern-ireland'] = "houseprice/price";
 $route['houses/uk'] = "houseprice/uk";
 
-$route['termsandconditions'] = "single/privacy";
+$route['termsandconditions'] = "singles/privacy";
 
 
 
