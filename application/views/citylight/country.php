@@ -538,7 +538,7 @@ foreach($resultsproperties as $k){
 ?>
 
 
-    <div class="clearfix"></div></div>
+    <div class="clearfix"></div>
 
      <!-- END PROPERTIES CONTENT -->
               <div class="morepropertiesbox"> <a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a></div>
