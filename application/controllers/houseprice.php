@@ -246,7 +246,7 @@ class Houseprice extends CI_Controller {
 				
 			
 				
-			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,4,1,$filters);
+			list($cnum, $data['results'], $data['prices'], $avgproptype  ) = $this->Housesm->makelatlongsearch($type,$lat,$lng,35,1,$filters);
 			
 			$data["related"] = $this->houses->prepareRelatedSearch($searchvalue,$filters);
 	  		list($data["relatedproptype"],$data["proptypeinfo"]) = $this->houses->prepareRelatedPropTypeSearch($searchvalue,$filters,$avgproptype,$type);
