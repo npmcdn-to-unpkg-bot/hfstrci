@@ -295,7 +295,7 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 $counti = 0;
 foreach($results as $k){
    $counti++;
-            $key = $k->key_feed;
+            $key = $k->id_feed;
             $proptype = $k->property_type_feed;
             if(! $proptype){$proptype = "";}
             $address = $k->display_address_feed;
