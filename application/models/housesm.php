@@ -91,7 +91,7 @@ class Housesm extends CI_Model {
 	$rowcount = $queryforrows->num_rows();
 
 	$query3 = $this->db->query("
-				SELECT latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed
+				SELECT id_feed, latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed
 				FROM feed WHERE id_feed IN($rows) $wherefilters ".$srt." LIMIT ".$startnum.", ".$resultnumber);
 	$pageresult = $query3->result();
 
@@ -196,7 +196,7 @@ class Housesm extends CI_Model {
     	    			
     	    	}  		
     		$query = $this->db->query("
-				SELECT latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed, SQRT(
+				SELECT id_feed, latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed, SQRT(
 			    POW(69.1 * (latitude_feed - ".$lat."), 2) +
 			    POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
 				FROM feed $where HAVING distance < ".(float)$range." ORDER BY ".$sort." LIMIT ".$startnum.", ".$resultnumber);
