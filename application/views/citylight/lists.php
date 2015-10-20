@@ -343,7 +343,7 @@ foreach($results as $k){
             
             
             $add = "";
-            $rangeimg = array(1,1440);
+            /*$rangeimg = array(1,1440);
            
             if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
             	$add = "f";
@@ -354,7 +354,7 @@ foreach($results as $k){
 	            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
 	            if(@getimagesize($img))
 	            break;
-	   }
+	   }*/
             
      
             $bed = $k->num_bedrooms_feed;
