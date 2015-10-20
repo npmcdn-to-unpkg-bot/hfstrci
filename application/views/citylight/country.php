@@ -368,28 +368,17 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
 
                       <div class="morepropertiesbox"><a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a></div>
 								      
-                      <div class="recent-properties-content">
-								        <div class="caroufredsel-wrap">
-								          <ul>
-								            <li>
-								              <div class="property-row">
-								               
-								               
-								               
-								               <?php   
-								               
-								        
-$ic = 0;            
+                       <!-- START PROPERTIES CONTENT -->
+                  <div class="properties-content">
 
+
+
+
+<?php    
+$counti = 0;
 foreach($resultsproperties as $k){
-   $ic++;
-   if($ic == 3){
-   
-   echo '</div> <div class="property-row">';
-   
-   }
-
-            $key = $k->key_feed;
+   $counti++;
+            $key = $k->id_feed;
             $proptype = $k->property_type_feed;
             if(! $proptype){$proptype = "";}
             $address = $k->display_address_feed;
@@ -432,11 +421,12 @@ foreach($resultsproperties as $k){
 
             $description = $k->full_description_feed;
             $your_string_without_tags = strip_tags($description);
-            $charscount = substr($your_string_without_tags, 0, 150);
+            $charscount = substr($your_string_without_tags, 0, 250);
             $img = $k->photo_feed;
             
-           /* $add = "";
-            $rangeimg = array(1,1440);
+            
+            $add = "";
+            /*$rangeimg = array(1,1440);
            
             if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
             	$add = "f";
@@ -448,11 +438,14 @@ foreach($resultsproperties as $k){
 	            if(@getimagesize($img))
 	            break;
 	   }*/
+            
+     
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
             $desc = $proptype.' in '.$strings.' '.$searchvalue;
- 
+            
+            
             if($bed > 1)
             	$title = $bed.' Bedroom ';
             elseif($bed == 1)
@@ -463,51 +456,91 @@ foreach($resultsproperties as $k){
             $title .= $proptype.' '.$saletype.' in '.$strings;
             
                    ?>
-                   
-								                <article class="hentry has-featured">
-								                  <div class="property-featured">
-								                    <a class="content-thumb" href="<?php echo $href; ?>">
-								                      <img src="<?php echo $img; ?>" class="attachment-property-thumb" alt="<?php echo $desc; ?>" />
-								                    </a>
-								                    <span class="property-category">
-						                        	<a href="#" ><?php echo $proptype; ?></a>
-						                        </span>
-								                   
-								                  </div>
-								                  <div class="property-wrap">
-								                    <h2 class="property-title">
-                                     <a href="<?php echo $href; ?>" title="<?php echo $title; ?>"><?php echo $title; ?></a>
-                                    </h2>
-								                    <div class="property-excerpt">
-								                      <p><?php echo $charscount; ?></p>
-								                    </div>
-								                  </div>
-								                  <div class="property-summary">
-								                    <div class="property-info">
-								                      <div class="property-price">
-								                        <span><span class="amount">£ <?php echo $price; ?></span></span>
-								                      </div>
-								                      <div class="property-action">
-								                        <a href="<?php echo $href; ?>">More Details</a>
-								                      </div>
-								                    </div>
-								                  </div>
-								                </article>
-			                
-			         <?php } // end for each
-?>
-	               
-								              </div>
-								            </li>								            
-								          </ul>
-								        </div>
-								        
-								      </div>
-								  	</div>
-								  </div>																
-								</div>
-							</div>
 
+                  <article class="hentry">
+                      <div class="property-featured">
+                        <?php //<span class="featured"><i class="fa fa-star"></i></span>
+                        ?>
+                        <a class="content-thumb" href="<?php echo $href; ?>">
+                        	<?php if($counti > 8){ ?>
+                          <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
+                       		<?php }else{ ?>
+                       	  <img src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
+                       		<?php } ?>
+                        </a>
+                        <?php //<span class="property-label">Hot</span>  
+                        ?>
+                        <span class="property-category"><a href="<?php echo $href; ?>"><?php echo $proptype; ?></a></span>
+                      </div>
+                      <div class="property-wrap">
+                        <h2 class="property-title">
+                          <a href="<?php echo $href; ?>" title="<?php echo $title; ?>"><?php echo $title; ?></a>
+                        </h2>
+                        <div class="property-excerpt">
+                          <p><strong><?php echo $desc; ?></strong><br><?php echo $charscount; ?></p>                          
+                        </div>
+                        <div class="property-summary">
+                          <div class="property-detail">
+                            <p>
+                            	<span><Strong>
+	                            	<?php 
+	                            	if($bed > 1)
+						 echo $bed.' Bedroom ';
+					elseif($bed == 1)
+						  echo $bed.' Bedrooms';
+					 else
+						  echo "Studio "; ?>
+				</strong></span>
+                            	
+                            </p>
+                            
+                            <!--<div class="size">
+                              <span>0 sqft</span>
+                            </div>
+                            <div class="bathrooms">
+                              <span>0</span>
+                            </div>
+                            <div class="bedrooms">
+                              <span><?php echo $bed; ?></span>
+                            </div> -->
+                            
+                          </div>
+                          <div class="property-info">
+                            <div class="property-price">
+                              <span>
+                                <span class="amount">£ <?php echo $price; ?></span>
+                              </span>
+                            </div>
+                            <div class="property-action">
+                              <a href="<?php echo $href; ?>">More Details</a>
+                            </div>
+                          </div>
+                         
+                          <!-- <div class="property-info property-fullwidth-info">
+	                            <div class="property-price">
+	                              <span><span class="amount">£ <?php echo $price; ?></span> </span>
+	                            </div>
+                            
+                            
+	                            
+	                            <div class="size"><span>0 sqft</span></div>
+	                            <div class="bathrooms"><span>0</span></div>
+	                            <div class="bedrooms"><span><?php echo $bed; ?></span></div> 
+                          </div>-->
+                          
+                        </div>
+                      </div>
+                      <div class="property-action property-fullwidth-action">
+                        <a href="<?php echo $href; ?>">More Details</a>
+                      </div>
+                    </article>
+<?php } // end for each
+?>
+
+
+    <div class="clearfix"></div>
+
+     <!-- END PROPERTIES CONTENT -->
               <div class="morepropertiesbox"> <a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a></div>
 							<!-- END RECENT PROPERTIES SLIDER - SHORTCODE -->
 
