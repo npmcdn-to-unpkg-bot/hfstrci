@@ -340,7 +340,7 @@ class Housesm extends CI_Model {
 
         function getredirectUrl($key){
 		 	$this->db->select('url_feed');
-			$this->db->where('key_feed =', $key);
+			$this->db->where('id_feed =', (int)$key);
 			$query = $this->db->get('feed', 1);
 			
 			$data = array(
