@@ -537,7 +537,7 @@ foreach($resultsproperties as $k){
 <?php } // end for each
 ?>
 
-</div>
+
     <div class="clearfix"></div>
 
      <!-- END PROPERTIES CONTENT -->
