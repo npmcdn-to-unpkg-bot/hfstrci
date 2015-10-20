@@ -360,11 +360,11 @@ To help you find your next house in <?php echo $searchvalue; ?> please feel free
               
 							<div class="row noo-row clearfix">
 								<div class="col-xs-12 noo-col">
-									<div class="recent-properties recent-properties-slider">
-								  	<div class="recent-properties-inner">
+									<div class="recent-properties">
+								  	<div class="properties grid">
 								  		<div class="section-title">
-								        <h3>Houses for Sale in <?php echo $formatted_address; ?></h3>
-								      </div>
+											 <h3>Houses for Sale in <?php echo $formatted_address; ?></h3>
+										 </div>
 
                       <div class="morepropertiesbox"><a href="<?php echo $canonical; ?>" class="moreproperties">More Properties for sale in <?php echo $formatted_address; ?></a></div>
 								      
