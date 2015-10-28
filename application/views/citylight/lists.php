@@ -378,7 +378,7 @@ foreach($results as $k){
                       <div class="property-featured">
                         <?php //<span class="featured"><i class="fa fa-star"></i></span>
                         ?>
-                        <a class="content-thumb" href="<?php echo $href; ?>">
+                        <a class="content-thumb" rel="nofollow" target="_blank"  href="<?php echo $href; ?>">
                         	<?php if($counti > 8){ ?>
                           <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
                        		<?php }else{ ?>
@@ -387,11 +387,11 @@ foreach($results as $k){
                         </a>
                         <?php //<span class="property-label">Hot</span>  
                         ?>
-                        <span class="property-category"><a href="<?php echo $href; ?>"><?php echo $proptype; ?></a></span>
+                        <span class="property-category"><a href="<?php echo $href; ?>" rel="nofollow" target="_blank"><?php echo $proptype; ?></a></span>
                       </div>
                       <div class="property-wrap">
                         <h2 class="property-title">
-                          <a href="<?php echo $href; ?>" title="<?php echo $title; ?>"><?php echo $title; ?></a>
+                          <a href="<?php echo $href; ?>" title="<?php echo $title; ?>" rel="nofollow" target="_blank"><?php echo $title; ?></a>
                         </h2>
                         <div class="property-excerpt">
                           <p><strong><?php echo $desc; ?></strong><br><?php echo $charscount; ?></p>                          
@@ -429,7 +429,7 @@ foreach($results as $k){
                               </span>
                             </div>
                             <div class="property-action">
-                              <a href="<?php echo $href; ?>">More Details</a>
+                              <a href="<?php echo $href; ?>" rel="nofollow" target="_blank">More Details</a>
                             </div>
                           </div>
                          
@@ -448,7 +448,7 @@ foreach($results as $k){
                         </div>
                       </div>
                       <div class="property-action property-fullwidth-action">
-                        <a href="<?php echo $href; ?>">More Details</a>
+                        <a href="<?php echo $href; ?>" rel="nofollow" target="_blank">More Details</a>
                       </div>
                     </article>
 <?php } // end for each
