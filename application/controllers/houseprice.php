@@ -153,7 +153,7 @@ class Houseprice extends CI_Controller {
 		);
 		$data["breadbase"] = $this->config->base_url()."houses/for-sale/index.html";
 		$data["searchvalue"] = $queryseachlist;
-		$plus["canonical"] = $data["canonical"];
+		//$plus["canonical"] = $data["canonical"];
 		
 		/*if($queryseachlist != null){
 			$datalists['results'] = $this->Housesm->searchDB("sale",$queryseachlist,$this->propertiesperpage);
@@ -164,7 +164,7 @@ class Houseprice extends CI_Controller {
 			$datalists['pagination'] = $this->getpaginator($cnum,$this->propertiesperpage,"sale",$this->doiturl($queryseachlist),1);
 		}*/
 		
-		$this->Housesm->savecanonical($_SERVER['REQUEST_URI'],$plus["canonical"]);
+		$this->Housesm->savecanonical($_SERVER['REQUEST_URI'],$data["canonical"]);
 	
 		
 		$this->load->view('citylight/head',$plus);
