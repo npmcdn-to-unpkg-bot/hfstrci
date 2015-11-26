@@ -41,4 +41,10 @@ class Singles extends CI_Controller {
 		$data["links"] = $this->Housesm->footerlinks();
 		$this->load->view('citylight/footer',$data);
 	}
+	
+	function hollandpark(){
+		
+		$this->load->view('citylight/hollandpark');	
+	}
+	
 }
