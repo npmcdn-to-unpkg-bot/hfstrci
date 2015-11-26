@@ -44,7 +44,7 @@ class Singles extends CI_Controller {
 	
 	function hollandpark(){
 		
-		$this->load->view('citylight/hollandpark');	
+		$this->load->view('citylight/hp');	
 	}
 	
 }
