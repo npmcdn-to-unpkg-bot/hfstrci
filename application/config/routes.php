@@ -52,7 +52,7 @@ $route['houses/uk'] = "houseprice/uk";
 
 $route['termsandconditions'] = "singles/privacy";
 
-
+$route['new-build/holland-park'] = "singles/hollandpark";
 
 $route['houses/for-sale/(:any)'] = "houses/for_sale/query";
 $route['houses/for-sale'] = "houses/for_sale";
