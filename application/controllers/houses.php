@@ -118,6 +118,29 @@ class Houses extends CI_Controller {
 
 				
 	}
+	
+	/**
+	* Hendar
+	*/
+	public function saveSub(){
+		$field['email'] 		= $_POST['email'];
+		$field['minprice'] 		= $_POST['minprice'];
+		$field['maxprice'] 		= $_POST['maxprice'];
+		$field['proptype'] 		= $_POST['proptype'];
+		$field['geo1'] 			= $_POST['geo1'];
+		$field['geo2'] 			= $_POST['geo2'];
+		$field['geo3'] 			= $_POST['geo3'];
+		$field['minbed'] 		= $_POST['minbed'];
+		$field['maxbed'] 		= $_POST['maxbed'];
+		$field['enquirytype'] 	= $_POST['enquirytype'];
+		$email = $_POST["email"];
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		  echo "Invalid email Format"; 
+		}else{
+			$this->Housesm->saveAlert($field);
+			echo "<h4>Thank you! Your search was saved.</h4>";
+		}
+	}
 
 	public function makesearch($cleanurl = false, $searchvalue,$type){
 
