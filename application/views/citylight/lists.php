@@ -131,6 +131,46 @@
                               <div class="gsubmit">
                                	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
+                               
+                                <!-- hendar -->
+                                &nbsp;
+                                <div class="gsubmit">
+                                  <button type="button" class="btn btn-success" id="savesearch"
+                                          data-toggle="modal" data-target="#formSubcribe" 
+                                          data-type="<?php echo $type; ?>"
+                                          data-geo1="<?php echo isset($bread[0]['name'])?$bread[0]['name']:''; ?>" 
+                                          data-geo2="<?php echo isset($bread[1]['name'])?$bread[1]['name']:''; ?>"
+                                  >Save Search</button>
+                                </div>  
+                                <!-- Modal Form -->
+                                <div class="modal fade" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="exampleModalLabel">Sign in or register to save home</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div id="email_error" class="alert alert-danger">
+                                          Invalid Email
+                                        </div>
+                                        <form class="contact">
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                          </div>
+                                        </form>
+                                        
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" id="submit" class="btn btn-success">Submit</button>
+                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> 
+                                <!-- Modal Form -->   
+                              <!-- hendar -->  
+                                
                             </div>
 
                           </div>
