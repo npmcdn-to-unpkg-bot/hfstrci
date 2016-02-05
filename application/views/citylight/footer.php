@@ -101,5 +101,62 @@
   <script async type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/script.js.gz"></script>
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
+  
+  <script type="text/javascript">
+  jQuery(document).ready(function(){
+      $("#email_error").hide();
+      $('button#submit').click(function(){
+        var email = $('#email').val();
+        var enquirytype = $('button#savesearch').attr('data-type');
+        var minprice = $('input[name=price1]').val();
+        var maxprice = $('input[name=price2]').val();
+        var geo1 = $('button#savesearch').attr('data-geo1');
+        var geo2 = $('button#savesearch').attr('data-geo2');
+        var geo3 = $('input[name=search]').val();
+        var minbed = $('select[name=bedroom1] option:selected').val();
+        var maxbed = $('select[name=bedroom2] option:selected').val();
+        var proptype = $("input[type='checkbox']:checked").map(function() {return this.value;}).get().join(',');
+        var error = false;
+        if(email.length == 0 || email.indexOf("@") == "-1" || email.indexOf(".") == "-1"){
+          var error = true;
+          $("#email_error").fadeIn(500);
+        }else{
+          $("#email_error").hide();
+        }
+        
+        if(error ==false){
+          $.ajax({
+              type:"POST",
+              url:"<?php echo $this->config->base_url(); ?>"+"houses/saveSub",
+              data: "email=" + email + "&enquirytype=" + enquirytype + "&minprice=" + minprice + "&maxprice=" + maxprice + "&geo1=" + geo1 + "&geo2=" + geo2 + "&geo3=" + geo3 + "&minbed=" + minbed + "&maxbed=" + maxbed + "&proptype=" + proptype,
+              success: function(data) {
+                  $("#formSubcribe").modal('hide'); 
+                  $('#infosubmit').html(data);
+                  $("#thankyoupage").modal('show');
+              }
+          });
+        }
+        
+      });
+       
+  });
+</script>
+<!-- Thanks -->
+<div class="modal fade" id="thankyoupage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="infosubmit"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
