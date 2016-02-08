@@ -442,6 +442,24 @@ class Housesm extends CI_Model {
 			 'maxbed' => $field['maxbed'],
 			 'timestamp' => gmdate("Y-m-d\TH:i:s\Z")
 			);
+
 			$this->db->insert('alert', $data);
        }
+
+       function saveListing($field){
+
+       		$data = array( 
+	       		'email' => $field['email'], 		
+				'listingprice'	=> $field['listingPrice'],
+				'listingtype' => $field['listingType'],	
+				'postCode' => $field['postCode'], 		
+				'listingid' => $field['listingId'],		
+				'latitude' => $field['lat'], 			
+				'longitude' => $field['lng']
+			);				
+
+       		$this->db->insert('listing', $data);
+       		// var_dump($this->db->last_query()) or die();
+       }
+
 }
