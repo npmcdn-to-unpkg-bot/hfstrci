@@ -101,22 +101,27 @@
   <script async type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/script.js.gz"></script>
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
-  
-  <script type="text/javascript">
+<script type="text/javascript">
   jQuery(document).ready(function(){
+
       $("#email_error").hide();
+
+
       $('button#submit').click(function(){
-        var email = $('#email').val();
+
+        var email       = $('#email').val();
         var enquirytype = $('button#savesearch').attr('data-type');
-        var minprice = $('input[name=price1]').val();
-        var maxprice = $('input[name=price2]').val();
-        var geo1 = $('button#savesearch').attr('data-geo1');
-        var geo2 = $('button#savesearch').attr('data-geo2');
-        var geo3 = $('input[name=search]').val();
-        var minbed = $('select[name=bedroom1] option:selected').val();
-        var maxbed = $('select[name=bedroom2] option:selected').val();
-        var proptype = $("input[type='checkbox']:checked").map(function() {return this.value;}).get().join(',');
+        var minprice    = $('input[name=price1]').val();
+        var maxprice    = $('input[name=price2]').val();
+        var geo1        = $('button#savesearch').attr('data-geo1');
+        var geo2        = $('button#savesearch').attr('data-geo2');
+        var geo3        = $('input[name=search]').val();
+        var minbed      = $('select[name=bedroom1] option:selected').val();
+        var maxbed      = $('select[name=bedroom2] option:selected').val();
+        var proptype    = $("input[type='checkbox']:checked").map(function() {return this.value;}).get().join(',');
+
         var error = false;
+
         if(email.length == 0 || email.indexOf("@") == "-1" || email.indexOf(".") == "-1"){
           var error = true;
           $("#email_error").fadeIn(500);
@@ -133,14 +138,68 @@
                   $("#formSubcribe").modal('hide'); 
                   $('#infosubmit').html(data);
                   $("#thankyoupage").modal('show');
+                  setInterval(function(){
+                      $("#thankyoupage").modal('hide');
+                    }, 3000);
               }
           });
         }
-        
       });
+
+    /* Save Listing Ajax*/
+    $(".featured").click(function(){
+      $("#email_error_listing").hide();
+      $('#formListing').modal('show');
+
+      var listingPrice  = $(this).data('price');
+      var listingType   = $(this).data('type');
+      var postCode      = $(this).data('postcode');
+      var listingId     = $(this).data('listingid');
+      var lat           = $(this).data('lat');
+      var lng           = $(this).data('lng');
+      
+      submitList(listingPrice, listingType, postCode, listingId, lat, lng);     
+    });
+
+    function submitList(listingPrice, listingType, postCode, listingId, lat, lng){
+      $('button#submitListing').click(function(){
+          var emailListing  = $('#emailListing').val();
+
+          var error = false;
+          if(emailListing.length == 0 || emailListing.indexOf("@") == "-1" || emailListing.indexOf(".") == "-1"){
+            var error = true;
+            $("#email_error_listing").fadeIn(500);
+          }else{
+            $("#email_error_listing").hide();
+          }
+
+          if(error == false){
+            $.ajax({
+                type:"POST",
+                url:"<?php echo $this->config->base_url(); ?>"+"houses/saveListing",
+                data: "email=" + emailListing + "&listingPrice=" + listingPrice + "&listingType=" + listingType + "&postCode=" + postCode + "&listingId=" + listingId + "&lat=" + lat + "&lng=" + lng,
+                success: function(data) {
+                    $("#formListing").modal('hide'); 
+                    $('#infosubmit').html(data);
+                    $("#thankyoupage").modal('show');
+                    setInterval(function(){
+                      $("#thankyoupage").modal('hide');
+                    }, 3000);
+                }
+            });
+          }
+      });  
+    }
+    
+
+      
+
+    
+
        
   });
 </script>
+
 <!-- Thanks -->
 <div class="modal fade" id="thankyoupage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
