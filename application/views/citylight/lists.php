@@ -1,4 +1,4 @@
-    <!-- START NOO WRAPPER -->
+<!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
 		  <!-- START MAINBODY -->
 		  <div class="container noo-mainbody">
@@ -131,29 +131,31 @@
                               <div class="gsubmit">
                                	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
-                               
-                                <!-- hendar -->
+
+                              <!-- hendar -->
                                 &nbsp;
                                 <div class="gsubmit">
-                                  <button type="button" class="btn btn-success" id="savesearch"
+                                  <button type="button" class="btn btn-save" id="savesearch"
                                           data-toggle="modal" data-target="#formSubcribe" 
                                           data-type="<?php echo $type; ?>"
                                           data-geo1="<?php echo isset($bread[0]['name'])?$bread[0]['name']:''; ?>" 
                                           data-geo2="<?php echo isset($bread[1]['name'])?$bread[1]['name']:''; ?>"
                                   >Save Search</button>
                                 </div>  
-                                <!-- Modal Form -->
+
+                                <!-- Modal Form Subscribe -->
                                 <div class="modal fade" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
-                                  <div class="modal-dialog" role="document">
+                                  <div class="modal-dialog modal-sm" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="exampleModalLabel">Sign in or register to save home</h4>
+                                        <h4 class="modal-title" id="registerModalLabel">Sign in or register to save home</h4>
                                       </div>
                                       <div class="modal-body">
                                         <div id="email_error" class="alert alert-danger">
                                           Invalid Email
                                         </div>
+
                                         <form class="contact">
                                           <div class="form-group">
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
@@ -168,9 +170,37 @@
                                     </div>
                                   </div>
                                 </div> 
+
+                                <!-- Modal Form Listing -->
+                                <div class="modal fade" id="formListing" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2">
+                                  <div class="modal-dialog modal-sm" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="listingModalLabel">Sign in or register to save home</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div id="email_error_listing" class="alert alert-danger">
+                                          Invalid Email
+                                        </div>
+
+                                        <form class="contact">
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="emailListing" name="emailListing" placeholder="Email">
+                                          </div>
+                                        </form>
+                                        
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" id="submitListing" class="btn btn-success">Submit</button>
+                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
                                 <!-- Modal Form -->   
                               <!-- hendar -->  
-                                
                             </div>
 
                           </div>
@@ -413,11 +443,19 @@ foreach($results as $k){
             $title .= $proptype.' '.$saletype.' in '.$strings;
             
                    ?>
-
+                   <!-- Hendar -->
                   <article class="hentry">
                       <div class="property-featured">
-                        <?php //<span class="featured"><i class="fa fa-star"></i></span>
-                        ?>
+                        <span class="featured" data-toggle="modal" data-target="#formlisting"
+                                data-type="<?php echo $proptype; ?>"
+                                data-postcode="<?php echo $postcode; ?>" 
+                                data-listingid="<?php echo $key; ?>" 
+                                data-lat="<?php echo $lat; ?>" 
+                                data-lng="<?php echo $lng; ?>" 
+                                data-price="<?php echo $price; ?>" >
+                          <i class="fa fa-heart"></i>
+                        </button>
+                        </span>
                         <a class="content-thumb" rel="nofollow" target="_blank"  href="<?php echo $href; ?>">
                         	<?php if($counti > 8){ ?>
                           <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
@@ -525,3 +563,40 @@ foreach($results as $k){
       <!-- END MAINBODY -->
     </div>
     <!-- END NOO WRAPPER -->
+
+<!-- hendar -->
+<style>
+.properties .hentry .property-featured .featured {
+    background: none repeat scroll 0 0 #fff;
+    color: #f47606;
+    font-size: 24px;
+    width: 0px;
+    height: 0px;
+    left: 60%;
+    line-height: 100px;
+    position: absolute;
+    text-align: right;
+    top: -13%;
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg) !important;
+    -o-transform: rotate(0deg) !important;
+    -ms-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+    z-index: 2 !important;
+    cursor: pointer;
+}
+
+.properties .hentry .property-featured .featured i {
+    position: absolute !important;
+    left: 54px !important;
+    top: 35px !important;
+}
+
+.btn-save {
+  background: #337ab7 !important;
+}
+
+.noo-sidebar .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn {
+    font-size: 19px !important;
+}
+</style>
