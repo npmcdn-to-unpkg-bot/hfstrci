@@ -1,4 +1,4 @@
-<!-- START NOO WRAPPER -->
+    <!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
 		  <!-- START MAINBODY -->
 		  <div class="container noo-mainbody">
@@ -145,7 +145,7 @@
 
                                 <!-- Modal Form Subscribe -->
                                 <div class="modal fade" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
-                                  <div class="modal-dialog modal-sm" role="document">
+                                  <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -173,7 +173,7 @@
 
                                 <!-- Modal Form Listing -->
                                 <div class="modal fade" id="formListing" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2">
-                                  <div class="modal-dialog modal-sm" role="document">
+                                  <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -567,16 +567,18 @@ foreach($results as $k){
 <!-- hendar -->
 <style>
 .properties .hentry .property-featured .featured {
-    background: none repeat scroll 0 0 #fff;
+    #background: none repeat scroll 0 0 #fff;
+    #background:linear-gradient(left, #000, #000) no-repeat 50px 50px;
+    #background-image: linear-gradient(left, transparent 300px,rgba(39,39,39,.5) 300px, rgba(39,39,39,.5) 100%);
     color: #f47606;
     font-size: 24px;
-    width: 0px;
-    height: 0px;
-    left: 60%;
+    width: 0%;
+    height: 0%;
+    left: 66%;
     line-height: 100px;
     position: absolute;
     text-align: right;
-    top: -13%;
+    top: -35px;
     -webkit-transform: rotate(0deg) !important;
     -moz-transform: rotate(0deg) !important;
     -o-transform: rotate(0deg) !important;
@@ -584,6 +586,15 @@ foreach($results as $k){
     transform: rotate(0deg) !important;
     z-index: 2 !important;
     cursor: pointer;
+}
+
+.fa-heart {
+    background: #FFFFFF;
+    border-radius: 0%;
+    height: 24px;
+    width: 25px;
+    display: block;
+    opacity:0.65;
 }
 
 .properties .hentry .property-featured .featured i {
