@@ -92,7 +92,9 @@
 
   <!-- JQUERY PLUGIN -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
+  
+  <!-- <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script> -->
 <!--  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script> -->
   <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
 <!--  <script type="text/javascript" async  src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/lock.min.js.gz"></script> -->
@@ -102,7 +104,8 @@
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
 <script type="text/javascript">
-  jQuery(document).ready(function(){
+  $(document).ready(function(){
+      $ = jQuery.noConflict();
 
       $("#email_error").hide();
 
@@ -148,6 +151,8 @@
 
     /* Save Listing Ajax*/
     $(".featured").click(function(){
+      $ = jQuery.noConflict();
+
       $("#email_error_listing").hide();
       $('#formListing').modal('show');
 
@@ -190,13 +195,7 @@
           }
       });  
     }
-    
-
-      
-
-    
-
-       
+     
   });
 </script>
 
