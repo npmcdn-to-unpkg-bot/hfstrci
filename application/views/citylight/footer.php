@@ -154,7 +154,7 @@
       $ = jQuery.noConflict();
 
       $("#email_error_listing").hide();
-      $('#formListing').modal('show');
+      // $('#formListing').modal('show');
 
       var listingPrice  = $(this).data('price');
       var listingType   = $(this).data('type');
