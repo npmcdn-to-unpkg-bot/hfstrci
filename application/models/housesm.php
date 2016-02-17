@@ -427,4 +427,39 @@ class Housesm extends CI_Model {
 			$query = $this->db->get('footerlinks');
 			return $query->result();
        }
+       function saveAlert($field){
+       	
+	       	$data = array(
+			 'email' => $field['email'],
+			 'minprice' => $field['minprice'],
+			 'maxprice' => $field['maxprice'],
+			 'proptype' => $field['proptype'],
+			 'enquirytype' => $field['enquirytype'],
+			 'geo1' => $field['geo1'],
+			 'geo2' => $field['geo2'],
+			 'geo3' => $field['geo3'],
+			 'minbed' => $field['minbed'],
+			 'maxbed' => $field['maxbed'],
+			 'timestamp' => gmdate("Y-m-d\TH:i:s\Z")
+			);
+
+			$this->db->insert('alert', $data);
+       }
+
+       function saveListing($field){
+
+       		$data = array( 
+	       		'email' => $field['email'], 		
+				'listingprice'	=> $field['listingPrice'],
+				'listingtype' => $field['listingType'],	
+				'postCode' => $field['postCode'], 		
+				'listingid' => $field['listingId'],		
+				'latitude' => $field['lat'], 			
+				'longitude' => $field['lng']
+			);				
+
+       		$this->db->insert('listing', $data);
+       		// var_dump($this->db->last_query()) or die();
+       }
+
 }

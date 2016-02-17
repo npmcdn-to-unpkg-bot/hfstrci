@@ -131,6 +131,45 @@
                               <div class="gsubmit">
                                	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
+
+                              <!-- hendar -->
+                                &nbsp;
+                                <div class="gsubmit">
+                                  <button type="button" class="btn btn-save" id="savesearch"
+                                          data-toggle="modal" data-target="#formSubcribe" 
+                                          data-type="<?php echo $type; ?>"
+                                          data-geo1="<?php echo isset($bread[0]['name'])?$bread[0]['name']:''; ?>" 
+                                          data-geo2="<?php echo isset($bread[1]['name'])?$bread[1]['name']:''; ?>"
+                                  >Save Search</button>
+                                </div>  
+
+                                <!-- Modal Form Subscribe -->
+                                <div class="modal" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="registerModalLabel">Sign in or register to save home</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div id="email_error" class="alert alert-danger">
+                                          Invalid Email
+                                        </div>
+
+                                        <form class="contact">
+                                          <div class="form-group">
+                                            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                          </div>
+                                        </form>
+                                        
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" id="submit" class="btn btn-success">Submit</button>
+                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div> 
                             </div>
 
                           </div>
@@ -373,11 +412,18 @@ foreach($results as $k){
             $title .= $proptype.' '.$saletype.' in '.$strings;
             
                    ?>
-
+                   <!-- Hendar -->
                   <article class="hentry">
                       <div class="property-featured">
-                        <?php //<span class="featured"><i class="fa fa-star"></i></span>
-                        ?>
+                        <span class="featured" data-toggle="modal" data-target="#formListing"
+                                data-type="<?php echo $proptype; ?>"
+                                data-postcode="<?php echo $postcode; ?>" 
+                                data-listingid="<?php echo $key; ?>" 
+                                data-lat="<?php echo $lat; ?>" 
+                                data-lng="<?php echo $lng; ?>" 
+                                data-price="<?php echo $price; ?>" >
+                          <i class="fa fa-heart"></i>
+                        </span>
                         <a class="content-thumb" rel="nofollow" target="_blank"  href="<?php echo $href; ?>">
                         	<?php if($counti > 8){ ?>
                           <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
@@ -485,3 +531,84 @@ foreach($results as $k){
       <!-- END MAINBODY -->
     </div>
     <!-- END NOO WRAPPER -->
+
+    <!-- Modal Form Listing -->
+    <div class="modal" id="formListing" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="listingModalLabel">Sign in or register to save home</h4>
+          </div>
+          <div class="modal-body">
+            <div id="email_error_listing" class="alert alert-danger">
+              Invalid Email
+            </div>
+
+            <form class="contact">
+              <div class="form-group">
+                <input type="text" class="form-control" id="emailListing" name="emailListing" placeholder="Email">
+              </div>
+            </form>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="submitListing" class="btn btn-success">Submit</button>
+            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form -->   
+  <!-- hendar -->  
+
+<!-- hendar -->
+<style>
+.properties .hentry .property-featured .featured {
+    #background: none repeat scroll 0 0 #fff;
+    #background:linear-gradient(left, #000, #000) no-repeat 50px 50px;
+    #background-image: linear-gradient(left, transparent 300px,rgba(39,39,39,.5) 300px, rgba(39,39,39,.5) 100%);
+    color: #f47606;
+    font-size: 24px;
+    width: 0%;
+    height: 0%;
+    left: 66%;
+    line-height: 100px;
+    position: absolute;
+    text-align: right;
+    top: -35px;
+    -webkit-transform: rotate(0deg) !important;
+    -moz-transform: rotate(0deg) !important;
+    -o-transform: rotate(0deg) !important;
+    -ms-transform: rotate(0deg) !important;
+    transform: rotate(0deg) !important;
+    z-index: 2 !important;
+    cursor: pointer;
+}
+
+.fa-heart {
+    background: #FFFFFF;
+    border-radius: 0%;
+    height: 24px;
+    width: 25px;
+    display: block;
+    opacity:0.65;
+}
+
+.properties .hentry .property-featured .featured i {
+    position: absolute !important;
+    right: 100% !important;
+    top: 34px !important; 
+    left: 30px !important;
+    /* width: 11%; */
+}
+
+.btn-save {
+  background: #337ab7 !important;
+}
+
+.noo-sidebar .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn {
+    font-size: 19px !important;
+}
+</style>
