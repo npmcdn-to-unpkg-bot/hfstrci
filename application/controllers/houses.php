@@ -156,7 +156,7 @@ class Houses extends CI_Controller {
 		}else{
 		/*	$checkListing = $this->Housesm->checkListing($field);	
 			if(empty($checkListing)){*/
-			//	$this->Housesm->saveListing($field);
+			$this->Housesm->saveListing($field);
 
 		/*	}*/
 
