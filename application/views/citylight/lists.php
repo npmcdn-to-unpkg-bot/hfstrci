@@ -144,7 +144,7 @@
                                 </div>  
 
                                 <!-- Modal Form Subscribe -->
-                                <div class="modal fade" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
+                                <div class="modal" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -170,37 +170,6 @@
                                     </div>
                                   </div>
                                 </div> 
-
-                                <!-- Modal Form Listing -->
-                                <div class="modal fade" id="formListing" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="listingModalLabel">Sign in or register to save home</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                        <div id="email_error_listing" class="alert alert-danger">
-                                          Invalid Email
-                                        </div>
-
-                                        <form class="contact">
-                                          <div class="form-group">
-                                            <input type="text" class="form-control" id="emailListing" name="emailListing" placeholder="Email">
-                                          </div>
-                                        </form>
-                                        
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" id="submitListing" class="btn btn-success">Submit</button>
-                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                <!-- Modal Form -->   
-                              <!-- hendar -->  
                             </div>
 
                           </div>
@@ -446,7 +415,7 @@ foreach($results as $k){
                    <!-- Hendar -->
                   <article class="hentry">
                       <div class="property-featured">
-                        <span class="featured" data-toggle="modal" data-target="#formlisting"
+                        <span class="featured" data-toggle="modal" data-target="#formListing"
                                 data-type="<?php echo $proptype; ?>"
                                 data-postcode="<?php echo $postcode; ?>" 
                                 data-listingid="<?php echo $key; ?>" 
@@ -454,7 +423,6 @@ foreach($results as $k){
                                 data-lng="<?php echo $lng; ?>" 
                                 data-price="<?php echo $price; ?>" >
                           <i class="fa fa-heart"></i>
-                        </button>
                         </span>
                         <a class="content-thumb" rel="nofollow" target="_blank"  href="<?php echo $href; ?>">
                         	<?php if($counti > 8){ ?>
@@ -564,6 +532,37 @@ foreach($results as $k){
     </div>
     <!-- END NOO WRAPPER -->
 
+    <!-- Modal Form Listing -->
+    <div class="modal" id="formListing" tabindex="-1" role="dialog" aria-labelledby="ModalLabel2">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="listingModalLabel">Sign in or register to save home</h4>
+          </div>
+          <div class="modal-body">
+            <div id="email_error_listing" class="alert alert-danger">
+              Invalid Email
+            </div>
+
+            <form class="contact">
+              <div class="form-group">
+                <input type="text" class="form-control" id="emailListing" name="emailListing" placeholder="Email">
+              </div>
+            </form>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="submitListing" class="btn btn-success">Submit</button>
+            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Form -->   
+  <!-- hendar -->  
+
 <!-- hendar -->
 <style>
 .properties .hentry .property-featured .featured {
@@ -599,8 +598,10 @@ foreach($results as $k){
 
 .properties .hentry .property-featured .featured i {
     position: absolute !important;
-    left: 54px !important;
-    top: 35px !important;
+    right: 100% !important;
+    top: 34px !important; 
+    left: 30px !important;
+    /* width: 11%; */
 }
 
 .btn-save {
