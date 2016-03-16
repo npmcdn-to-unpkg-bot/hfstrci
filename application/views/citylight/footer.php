@@ -135,7 +135,7 @@
         if(error ==false){
           $.ajax({
               type:"POST",
-              url:"<?php echo $this->config->base_url(); ?>"+"houses/saveSub",
+              url:window.location.origin+"/houses/saveSub",
               crossDomain: true,
               data: "email=" + email + "&enquirytype=" + enquirytype + "&minprice=" + minprice + "&maxprice=" + maxprice + "&geo1=" + geo1 + "&geo2=" + geo2 + "&geo3=" + geo3 + "&minbed=" + minbed + "&maxbed=" + maxbed + "&proptype=" + proptype,
               success: function(data) {
@@ -182,7 +182,7 @@
           if(error == false){
             $.ajax({
                 type:"POST",
-                url:"<?php echo $this->config->base_url(); ?>"+"houses/saveListing",
+                url:window.location.origin+"/houses/saveListing",
                 crossDomain: true,
                 data: "email=" + emailListing + "&listingPrice=" + listingPrice + "&listingType=" + listingType + "&postCode=" + postCode + "&listingId=" + listingId + "&lat=" + lat + "&lng=" + lng,
                 success: function(data) {
