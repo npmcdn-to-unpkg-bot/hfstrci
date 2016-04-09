@@ -573,11 +573,11 @@ foreach($results as $k){
     font-size: 24px;
     width: 0%;
     height: 0%;
-    left: 66%;
+    left: -25px;
     line-height: 100px;
     position: absolute;
     text-align: right;
-    top: -35px;
+    top: -30px;
     -webkit-transform: rotate(0deg) !important;
     -moz-transform: rotate(0deg) !important;
     -o-transform: rotate(0deg) !important;
@@ -595,6 +595,7 @@ foreach($results as $k){
     display: block;
     opacity:0.65;
 }
+
 
 .properties .hentry .property-featured .featured i {
     position: absolute !important;
