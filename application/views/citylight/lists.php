@@ -31,7 +31,7 @@
                           <div class="gsearch-field">
                        
                             <div class="form-group gtype">                           
-                              <input type="text" class="form-control" name="search" value="<?php echo $searchvalue; ?>" placeholder="Search for address, town or area"/>
+                              <input type="text" class="form-control" name="search" id="search" value="<?php echo $searchvalue; ?>" placeholder="Search for address, town or area"/>
                             </div>              
 
                             <div class="form-group glocation" style="width:49%;float:left;">
@@ -39,7 +39,7 @@
                             </div>
 
                              <div class="form-group glocation"  style="width:49%;float:right;">
-                               <input type="text" class="form-control" name="price2" value="<?php if(isset($filters["price2"])) echo $filters["price2"]; ?>" placeholder="Max. Price" />
+                               <input type="text" class="form-control" id="max_price" name="price2" value="<?php if(isset($filters["price2"])) echo $filters["price2"]; ?>" placeholder="Max. Price" />
                             </div>
 
                              <div class="form-group glocation"  style="width:49%;float:left;">
@@ -562,6 +562,14 @@ foreach($results as $k){
 
     <!-- Modal Form -->   
   <!-- hendar -->  
+
+ <script type="text/javascript">
+      $("#search-form").submit(function(){
+          localStorage.setItem("search",$(this).find("#search").val());
+          localStorage.setItem("max_price",$(this).find("#max_price").val());
+
+      });
+  </script>
 
 <!-- hendar -->
 <style>

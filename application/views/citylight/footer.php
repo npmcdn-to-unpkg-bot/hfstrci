@@ -89,11 +89,6 @@
     <!-- END FOOTER -->
   </div>
   <!-- END SITE -->
-
-  <!-- JQUERY PLUGIN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-  
   <!-- <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script> -->
 <!--  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script> -->
   <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
@@ -197,6 +192,8 @@
           }
       });  
     }
+
+    
      
   });
 </script>
@@ -218,5 +215,30 @@
   </div>
 </div>
 
+<!-- Modal Unbounce-->
+    <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog dialog_wrapper" role="document">
+        <div class="modal-content iframe_wrapper">
+          <iframe name='unbounce_frame' id='unbounce_frame' onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe>
+        </div>
+      </div>
+    </div>
+
+<script>
+        /*
+        * Author : HocN
+        * fill data to iframe
+        */
+        function filldata(){
+            var search = localStorage.getItem("search");
+            var max_price = localStorage.getItem("max_price");
+            var salerent = localStorage.getItem("salerent");
+            console.log("search : "+search+", max price:"+ max_price+", salerent : "+salerent);
+            window.frames["unbounce_frame"].document.getElementById("keyword").value = search;
+            window.frames["unbounce_frame"].document.getElementById("pricerange").value = search;
+            window.frames["unbounce_frame"].document.getElementById("salerent").value = salerent;
+        }
+
+</script>
 </body>
 </html>

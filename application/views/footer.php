@@ -20,19 +20,29 @@
     <div><a href="<?php echo $this->config->base_url(); ?>termsandconditions" style="color:#333;text-decoration:none;padding:5px;">Terms of Use & Privacy Policy </a></div>
 </footer>
 
-<!-- Modal -->
+<!-- Modal Unbounce -->
 <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog dialog_wrapper" role="document">
     <div class="modal-content iframe_wrapper">
-      <iframe name='unbounce_frame' id='unbounce_frame' onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe>
+      <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe>
     </div>
   </div>
 </div>
 
 <script>
 
+        /*
+        * Author : HocN
+        * fill data to iframe
+        */
         function filldata(){
-            //window.frames["unbounce_frame"].document.getElementById("salerent").value = "hello";
+            var search = localStorage.getItem("search");
+            var max_price = localStorage.getItem("max_price");
+            var salerent = localStorage.getItem("salerent");
+            console.log("search : "+search+", max price:"+ max_price+", salerent : "+salerent);
+            window.frames["unbounce_frame"].document.getElementById("keyword").value = search;
+            window.frames["unbounce_frame"].document.getElementById("pricerange").value = search;
+            window.frames["unbounce_frame"].document.getElementById("salerent").value = salerent;
         }
 
 </script>

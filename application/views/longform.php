@@ -19,3 +19,15 @@
     <form name="searchrentHouses" style="display:none;" action="<?php echo $this->config->base_url();?>houses/to-rent/index.html" method="get" id="rent" class="search">
         <input type="hidden" name="search" form="rent" id="rentsearch" />
     </form>
+
+    <script type="text/javascript">
+        $("#torent").click(function(){
+            localStorage.setItem("search",$(this).find("#search1").val());
+            localStorage.setItem("salerent","rent");
+        });
+
+        $("#forsale").click(function(){
+            localStorage.setItem("search",$(this).find("#search1").val());
+            localStorage.setItem("salerent","sale");
+        });
+    </script>
