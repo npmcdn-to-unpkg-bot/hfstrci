@@ -19,5 +19,22 @@
     </div>
     <div><a href="<?php echo $this->config->base_url(); ?>termsandconditions" style="color:#333;text-decoration:none;padding:5px;">Terms of Use & Privacy Policy </a></div>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog dialog_wrapper" role="document">
+    <div class="modal-content iframe_wrapper">
+      <iframe name='unbounce_frame' id='unbounce_frame' onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+
+        function filldata(){
+            //window.frames["unbounce_frame"].document.getElementById("salerent").value = "hello";
+        }
+
+</script>
 </body>
 </html>
