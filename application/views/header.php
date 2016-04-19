@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url(); ?>css/bootstrap.min.css">
 <title><?php echo $title; ?></title>
 <link rel="canonical" href="<?php echo $this->config->base_url(); ?>" />
-<meta name=viewport content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
 <?php if(isset($meta)){echo $meta;} ?>
 <?php echo $js; //tt ?>
 <script>

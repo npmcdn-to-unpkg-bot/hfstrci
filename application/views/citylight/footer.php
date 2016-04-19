@@ -215,28 +215,59 @@
   </div>
 </div>
 
-<!-- Modal Unbounce-->
-    <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog dialog_wrapper" role="document">
-        <div class="modal-content iframe_wrapper">
-          <iframe name='unbounce_frame' id='unbounce_frame' onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe>
+<!-- Modal Unbounce -->
+<div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog dialog_wrapper" role="document">
+    <div class="modal-content iframe_wrapper">
+      <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
+      <div class="wrapper_unbounce">
+        <div class="form_receive">
+            <form action="/fsg?pageId=a818b4a7-3a3f-49e9-a24f-bfc6cb5d8451&variant=a" method="POST">
+                <h2 class="title_receive">Learn about new properties as soon as they are listed</h2>
+                <h6 class="des_receive">Receive information about new properties that match your budget and location.</h6>
+                <div class="form_input">
+                    <div class="row_receive">
+                        <label class=" label_title for_your_name">Your Name *</label>
+                        <input id="your_name" name="your_name" class="input text form_elem_your_name input_text" type="text">
+                    </div>
+                    <div class="row_receive">
+                        <label class="label_title for_your_email">Your Email *</label>
+                        <input id="your_email" name="your_email" class="input text form_elem_your_email input_text" type="text">
+                    </div>
+
+                    <div class="row_receive">
+                        <label class="label_title for_your_email">Phone Number *</label>
+                        <input id="phone_number" name="phone_number" class="input text form_elem_phone_number input_text" type="text">
+                    </div>
+                    <div class="row_receive">
+                       <button class="btn_receive">RECEIVE PROPERTIES</buton>
+                    </div>
+                    <h6 class="agree_term">By clicking this button you agree to our terms of use.</h6>
+                </div>
+                    <input id="salerent" class="hidden" type="hidden" value="" name="salerent">
+                    <input id="pricerange" class="hidden" type="hidden" value="" name="pricerange">
+                    <input id="keyword" class="hidden" type="hidden" value="" name="keyword">
+            </form>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
 <script>
+
         /*
         * Author : HocN
         * fill data to iframe
         */
+        filldata();
         function filldata(){
             var search = localStorage.getItem("search");
             var max_price = localStorage.getItem("max_price");
             var salerent = localStorage.getItem("salerent");
-            console.log("search : "+search+", max price:"+ max_price+", salerent : "+salerent);
-            window.frames["unbounce_frame"].document.getElementById("keyword").value = search;
-            window.frames["unbounce_frame"].document.getElementById("pricerange").value = search;
-            window.frames["unbounce_frame"].document.getElementById("salerent").value = salerent;
+            $("#salerent").val(salerent);
+            $("#pricerange").val(max_price);
+            $("#keyword").val(search);
         }
 
 </script>
