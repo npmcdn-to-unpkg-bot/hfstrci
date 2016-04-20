@@ -137,6 +137,7 @@
                   $("#formSubcribe").modal('hide'); 
                   $('#infosubmit').html(data);
                   $("#thankyoupage").modal('show');
+                  
                   setInterval(function(){
                       $("#thankyoupage").modal('hide');
                     }, 3000);

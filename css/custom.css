@@ -11,12 +11,12 @@
 }
 
 .modal-backdrop.in {
-    height: 100%;
-    width: 100%;
+    /*min-height: 100%;
+    width: 100%;*/
 }
 
 .wrapper_unbounce {
-	background: url("../images/bg-popup.jpg") no-repeat bottom center fixed; 
+	background: url("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/property-alerts/1volt25-lockwood-hero.jpg") no-repeat bottom center fixed; 
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -99,7 +99,9 @@
     width: 80%;
 }
 
-
+input[type="checkbox"]:checked:before {
+    top: 0px!important;
+}
 @media only screen and (max-width: 980px) {
     .form_receive {
         width: 60%;
