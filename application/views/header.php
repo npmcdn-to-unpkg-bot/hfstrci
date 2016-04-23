@@ -31,10 +31,10 @@
                 var d = new Date();
                 var n = d.getTime(); 
                 var isShow = sessionStorage .getItem("show_popup"); 
-                //if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
+                if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
                     $('#unbounce').modal("show");  // show popup
                     sessionStorage .setItem("show_popup", n); // set value to tick for show popup
-                //}            
+                }            
             });
 
 
