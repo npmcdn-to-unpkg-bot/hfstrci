@@ -22,12 +22,12 @@
 
     <script type="text/javascript">
         $("#torent").click(function(){
-            localStorage.setItem("search",$(this).find("#search1").val());
+            localStorage.setItem("search",$("#search1").val());
             localStorage.setItem("salerent","rent");
         });
 
         $("#forsale").click(function(){
-            localStorage.setItem("search",$(this).find("#search1").val());
+            localStorage.setItem("search",$("#search1").val());
             localStorage.setItem("salerent","sale");
         });
     </script>
