@@ -19,10 +19,14 @@
                       <?php
                       
                       	echo $this->config->base_url()."houses/";
-                      	if($saletype == "For Sale")
-                      		echo "for-sale";
-                      	elseif($saletype == "To Rent")
-                      		echo "to-rent";
+                      	if($saletype == "For Sale") {
+                          echo "for-sale";
+                          $type_search = "sale";
+                        }                      		
+                      	elseif($saletype == "To Rent") {
+                          echo "to-rent";
+                          $type_search = "rent";
+                        }                      		
                       	echo "/index.html";
                       
                        ?>
@@ -564,11 +568,16 @@ foreach($results as $k){
   <!-- hendar -->  
 
  <script type="text/javascript">
-      $("#search-form").submit(function(){
-          localStorage.setItem("search",$(this).find("#search").val());
-          localStorage.setItem("max_price",$(this).find("#max_price").val());
+      $(document).ready(function() {
+          $("#search-form").submit(function(){
+              localStorage.setItem("search",$(this).find("#search").val());
+              localStorage.setItem("max_price",$(this).find("#max_price").val());
 
+          });
+          localStorage.setItem("search","<?php echo $searchvalue ?>");
+          localStorage.setItem("salerent","<?php echo $type_search ?>");
       });
+      
   </script>
 
 <!-- hendar -->
