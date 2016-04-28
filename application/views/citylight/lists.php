@@ -179,6 +179,26 @@
                   </div>
               
                 <!-- END FIND PROPERTY -->
+                <div id="contentad156278"></div>
+		<script type="text/javascript">
+		    (function(d) {
+		        var params =
+		        {
+		            id: "ceb803c4-5110-4605-8eed-258ff6c95049",
+		            d:  "aG91c2VzZm9yc2FsZXRvcmVudC5jby51aw==",
+		            wid: "156278",
+		            cb: (new Date()).getTime()
+		        };
+		
+		        var qs=[];
+		        for(var key in params) qs.push(key+'='+encodeURIComponent(params[key]));
+		        var s = d.createElement('script');s.type='text/javascript';s.async=true;
+		        var p = 'https:' == document.location.protocol ? 'https' : 'http';
+		        s.src = p + "://api.content.ad/Scripts/widget2.aspx?" + qs.join('&');
+		        d.getElementById("contentad156278").appendChild(s);
+		    })(document);
+		</script>
+                
                 <?php if($lat && $lng){ 
 	                echo '<div class="block-sidebar">
 	                  <h3 class="title-block-sidebar">Map</h3>
