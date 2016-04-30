@@ -48,14 +48,20 @@
         jQuery(document).ready(function() {
         
             // Event move outside
-          $('html').mouseleave(function() {
-                var d = new Date();
-                var n = d.getTime(); 
-                var isShow = sessionStorage.getItem("show_popup"); 
-                if (!isShow || ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
-                    $('#unbounce').modal("show");  // show popup
-                    sessionStorage.setItem("show_popup", n); // set value to tick for show popup
-                }            
+          $('html').mouseleave(function(e) { 
+                var top = e.pageY;
+                var right = document.body.clientWidth - e.pageX;
+                var bottom = document.body.clientHeight - e.pageY;
+                var left = e.pageX;
+                if(top < 10 || right < 20 || bottom < 10 || left < 10){
+                    var d = new Date();
+                    var n = d.getTime(); 
+                    var isShow = sessionStorage .getItem("show_popup"); 
+                    if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
+                        $('#unbounce').modal("show");  // show popup
+                        sessionStorage .setItem("show_popup", n); // set value to tick for show popup
+                    }
+                }         
             });
 
         }); 
