@@ -89,11 +89,6 @@
     <!-- END FOOTER -->
   </div>
   <!-- END SITE -->
-
-  <!-- JQUERY PLUGIN -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==" crossorigin="anonymous"></script>
-  
   <!-- <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script> -->
 <!--  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script> -->
   <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
@@ -142,6 +137,7 @@
                   $("#formSubcribe").modal('hide'); 
                   $('#infosubmit').html(data);
                   $("#thankyoupage").modal('show');
+                  
                   setInterval(function(){
                       $("#thankyoupage").modal('hide');
                     }, 3000);
@@ -197,6 +193,8 @@
           }
       });  
     }
+
+    
      
   });
 </script>
@@ -218,5 +216,41 @@
   </div>
 </div>
 
+<!-- Modal Unbounce -->
+<div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog dialog_wrapper" role="document">
+    <div class="modal-content iframe_wrapper">
+      <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
+      <div class="wrapper_unbounce">
+        <div class="form_receive">
+            <h1 class="title_receive">Before you go... </h1>
+            <h5 class="des_receive">Would you like to receive information about new properties that match your budget and location?</h5>
+            <div class="form_input"> 
+                <div class="row_receive">
+                   <button class="btn_receive">YES, PLEASE!</buton>
+                   <button class="btn_reject">NO, THANKS!</buton>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    jQuery(document).ready(function() {
+        $(".btn_receive").click(function(){
+            var search = localStorage.getItem("search") != "undefined" ?localStorage.getItem("search"):"";
+            var max_price = localStorage.getItem("max_price");
+            var salerent = localStorage.getItem("salerent");
+             window.location.assign("http://unbouncepages.com/property-alerts?keyword="+search+"&salerent="+salerent+"&pricerange="+max_price+"");
+            
+        });
+
+        $(".btn_reject").click(function(){
+            $('#unbounce').modal("hide"); 
+        });
+    });
+</script>
 </body>
 </html>

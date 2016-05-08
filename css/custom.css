@@ -1,0 +1,139 @@
+.iframe_wrapper {
+	
+}
+.iframe_wrapper iframe {
+	width: 100%;
+	height:100%;
+}
+.dialog_wrapper {
+	width: 90%!important;
+}
+
+.modal-backdrop.in {
+    /*min-height: 100%;
+    width: 100%;*/
+}
+
+.wrapper_unbounce {
+    background: url("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/property-alerts/1volt25-lockwood-hero.jpg") no-repeat top center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    padding: 20px;
+}
+.form_receive {
+    background: rgba(22, 77, 10, 0.75) none repeat scroll 0 0;
+    margin: 0 auto;
+    width: 98%;
+    min-height: 300px;
+}
+
+.title_receive {
+	color: white;
+    padding: 30px 50px 10px;
+    margin: 0!important;
+}
+
+.des_receive {
+	color: white;
+    padding: 5px 50px;
+    font-size: 14pt;
+}
+
+
+.row_receive{
+    margin: 5px auto;
+    text-align: center;
+}
+
+.btn_receive {
+	background: rgba(255, 102, 0, 1) none no-repeat scroll 0 0;
+    border-color: #333333;
+    border-radius: 0;
+    border-style: solid;
+    color: #fff;
+    display: block;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: normal;
+    height: 50px;
+    margin: 30px 10px 10px;
+    padding: 0 50px;
+    display: inline-block;
+    border: none;
+ 
+}
+
+
+.btn_reject {
+    background: grey none no-repeat scroll 0 0;
+    border-color: #333333;
+    border-radius: 0;
+    border-style: solid;
+    color: #fff;
+    display: block;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: normal;
+    height: 50px;
+    margin: 30px 10px 10px;
+    padding: 0 30px;
+    display: inline-block;
+    border: none;
+ 
+}
+
+input[type="checkbox"]:checked:before {
+    top: 0px!important;
+}
+@media only screen and (max-width: 980px) {
+    .form_receive {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form_receive {
+        width: 70%;
+    }
+
+    footer .box {
+        padding-left: 0!important;
+    }
+}
+
+
+@media only screen and (max-width: 360px) {
+    .form_receive {
+        width: 95%;
+    }
+
+    .title_receive {
+        font-size: 15pt;
+        padding: 20px 20px 5px;
+    }
+
+    .des_receive {
+        font-size: 11pt;
+        padding: 5px 20px;
+    }
+
+    .label_title {
+        padding: 7px 15px;
+    }
+    .input_text {
+        width: 90%;
+    }
+
+    .btn_receive {
+        padding: 0 11%
+    }
+    /* css fix responsive in top page */
+    .search fieldset input[type="search"] {
+        margin: 15px auto!important;
+        display: block!important;
+    }
+    
+}

@@ -113,6 +113,7 @@ class Houses extends CI_Controller {
 			$data["links"] = $this->Housesm->footerlinks();
 			$this->load->view('footer',$data);
 		}else{
+			$searchvalue = str_replace(".html","",$searchvalue);
 			$this->makesearch($cleanurl, $searchvalue, $type);
 		}
 
