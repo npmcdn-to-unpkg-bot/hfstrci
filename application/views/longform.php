@@ -1,7 +1,7 @@
 <header>
         <h1><a href="<?php echo $this->config->base_url(); ?>" title="HOUSES for SALE & to RENT"><img src="<?php echo $this->config->base_url(); ?>images/houses-for-sale-to-rent.png" alt="HOUSES for SALE & to RENT" title="HOUSES for SALE & to RENT"/></a></h1>
     </header>
-    
+    <center>
 <script type='text/javascript'>
 <!--//<![CDATA[
    document.MAX_ct0 ='';
@@ -20,7 +20,7 @@
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    
    document.write ("'></scr"+"ipt>");
-//]]>--></script>
+//]]>--></script></center>
 
 
     <?php if(isset($message))
