@@ -31,7 +31,7 @@
 ! function($) {
   $(document).ready(function() {
   	
-  	$("img").unveil();
+  	$("img").unveil(600);
   
   	$("#showfilter").click(function(){
 	    $("#find-property").toggle();
