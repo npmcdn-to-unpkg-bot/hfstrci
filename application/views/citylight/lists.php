@@ -188,7 +188,7 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" id="submit" class="btn btn-success">Submit</button>
-                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a> 
                                       </div>
                                     </div>
                                   </div>
