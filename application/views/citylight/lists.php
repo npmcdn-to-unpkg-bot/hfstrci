@@ -1,4 +1,4 @@
-
+<center>
 <script type='text/javascript'>
 <!--//<![CDATA[
    document.MAX_ct0 ='';
@@ -17,7 +17,7 @@
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
    
    document.write ("'></scr"+"ipt>");
-//]]>--></script>  <!-- START NOO WRAPPER -->
+//]]>--></script> </center> <!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
 		  <!-- START MAINBODY -->
 		  <div class="container noo-mainbody">
@@ -598,7 +598,7 @@ foreach($results as $k){
           </div>
           <div class="modal-footer">
             <button type="button" id="submitListing" class="btn btn-success">Submit</button>
-            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>term of use</a> 
+            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a> 
           </div>
         </div>
       </div>
