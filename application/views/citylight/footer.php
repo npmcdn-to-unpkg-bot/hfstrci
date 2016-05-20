@@ -91,9 +91,9 @@
   <!-- END SITE -->
   <!-- <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/bootstrap.min.js.gz"></script> -->
 <!--  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/jquery.parallax-1.1.3.js.gz"></script> -->
-  <script type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/SmoothScroll.js.gz"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
 <!--  <script type="text/javascript" async  src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/lock.min.js.gz"></script> -->
-  <script async type="text/javascript" src="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/js/unveil.js.gz"></script>
+  <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
   <script type="text/javascript" src="http://housesforsaletorent.co.uk/js/script-full.js"></script>
 
