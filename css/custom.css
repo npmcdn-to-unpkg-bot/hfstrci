@@ -67,27 +67,28 @@
 }
 
 
-.btn_reject {
+ .btn_reject {
     background: grey none no-repeat scroll 0 0;
-    border-color: #333333;
-    border-radius: 0;
-    border-style: solid;
-    color: #fff;
-    display: block;
-    font-family: Lato;
-    font-size: 20px;
-    font-weight: normal;
-    height: 50px;
-    margin: 30px 10px 10px;
-    padding: 0 30px;
-    display: inline-block;
     border: none;
- 
-}
+    background: none;
+    color: gray;
+    font-size: 17px;
+  
+ }
 
 input[type="checkbox"]:checked:before {
     top: 0px!important;
 }
+
+.bedroom1, .bedroom2, .range {
+    height: 34px!important;
+    padding: 0!important;
+    color: rgba(85, 85, 85, 0.67)!important;
+    font-size: 14px!important;
+    text-indent: 5px;
+    width: 100%;
+}
+
 @media only screen and (max-width: 980px) {
     .form_receive {
         width: 60%;

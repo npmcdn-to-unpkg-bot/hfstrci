@@ -53,7 +53,7 @@
             <div class="form_input"> 
                 <div class="row_receive">
                    <button class="btn_receive">YES, PLEASE!</buton>
-                   <button class="btn_reject">NO, THANKS!</buton>
+                     <button class="btn_reject">Skip</button>
                 </div>
             </div>
         </div>
