@@ -222,8 +222,8 @@
       <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
       <div class="wrapper_unbounce">
         <div class="form_receive">
-            <h1 class="title_receive">Before you go... </h1>
-            <h5 class="des_receive">Would you like to receive information about new properties that match your budget and location?</h5>
+            <h1 class="title_receive">Receive properties as soon as they come to market! </h1>
+            <h5 class="des_receive">Receive information about new properties for sale or to rent that match your budget and location as soon as these become available so you can get there first.</h5>
             <div class="form_input"> 
                 <div class="row_receive">
                    <button class="btn_receive">YES, PLEASE!</buton>
