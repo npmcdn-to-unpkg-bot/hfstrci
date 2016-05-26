@@ -151,7 +151,7 @@
                             
                             <div class="gsearch-action">
                               <div class="gsubmit">
-                               	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
+                               	<button class="btn btn-deault" id="search_my_pro" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
 
                               <!-- hendar -->
@@ -611,6 +611,11 @@ foreach($results as $k){
           $("#search-form").submit(function(){
               localStorage.setItem("search",$(this).find("#search").val());
               localStorage.setItem("max_price",$(this).find("#max_price").val());
+
+          });
+
+          $("#orderby").change(function(){
+               $("#search_my_pro").click();
 
           });
           localStorage.setItem("search","<?php echo $searchvalue ?>");
