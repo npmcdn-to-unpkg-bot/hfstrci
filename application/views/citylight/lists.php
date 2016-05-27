@@ -607,17 +607,7 @@ foreach($results as $k){
   <!-- hendar -->  
 
  <script type="text/javascript">
-      $(document).ready(function() {
-          $("#search-form").submit(function(){
-              localStorage.setItem("search",$(this).find("#search").val());
-              localStorage.setItem("max_price",$(this).find("#max_price").val());
-
-          });
-
-          $("#orderby").change(function(){
-               $("#search_my_pro").click();
-
-          });
+      $(document).ready(function() {        
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
       });

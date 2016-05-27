@@ -30,6 +30,16 @@
 
 ! function($) {
   $(document).ready(function() {
+
+    /* js list page */
+    $("#search-form").submit(function(){
+        localStorage.setItem("search",$(this).find("#search").val());
+        localStorage.setItem("max_price",$(this).find("#max_price").val());
+    });
+
+    $("#orderby").change(function(){
+         $("#search_my_pro").click();
+    });
   	
   	$("img").unveil(600);
   
