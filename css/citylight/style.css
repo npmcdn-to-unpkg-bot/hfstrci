@@ -517,7 +517,7 @@ ul.social-top > li a i {
 /* === 3.2. NAVBAR HEADER ===*/
 .navbar-header {
 	margin-right: 0 !important;
-	margin-left: 0 !important;
+	margin-left: 15px !important;
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {

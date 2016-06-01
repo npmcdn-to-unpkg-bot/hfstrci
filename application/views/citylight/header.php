@@ -13,22 +13,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- START HEADER -->
     <header class="noo-header">
       <!-- START TOP HEADER -->
-      <div class="top-header">
+    <?php /*  <div class="top-header">
         <div class="container">
-          <div class="top-header-inner">
+        <div class="top-header-inner">
             <ul class="social-top">
               <li><a href="https://www.facebook.com/housesforsaletorent" title="Facebook Houses for Sale & to Rent" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <?php /*<li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>*/ ?>
+              <?php /*<li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>*/ ?><?php /*
             </ul>
 
             <div class="top-header-content">
               <div class="emailto content-item">
-                <?php /*<a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>*/ ?>
+                <?php /*<a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>*/ ?><?php /*
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </div> */ ?>
       <!-- END TOP HEADER -->
 
       <!-- START MAIN NAVIGATION WRAP -->
@@ -54,33 +54,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <nav class="collapse navbar-collapse" id="main-collapse" role="navigation">
             <ul class="nav navbar-nav">
               <li class="dropdown">
-                <a href="index.html">Home&nbsp;<span class="caret"></span></a>               
+                <a href="index.html">Home&nbsp;<span class="caret"></span></a>
               </li>
               <li class="dropdown active">
                 <a href="#">Houses&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Houses for Sale">For Sale</a>                            
+                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Houses for Sale">For Sale</a>
                   </li>
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Houses to Rent">To Rent</a>                  
-                                
-                  </li>                 
+                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Houses to Rent">To Rent</a>
+
+                  </li>
                 </ul>
-              </li>   
+              </li>
               <li class="dropdown active">
                 <a href="#">Flats&nbsp;<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Flats for Sale">For Sale</a>                            
+                    <a href="<?php echo $this->config->base_url(); ?>houses/for-sale/index.html" title="Flats for Sale">For Sale</a>
                   </li>
                   <li class="dropdown-submenu">
-                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Flats to Rent">To Rent</a>                  
-                                
-                  </li>                 
+                    <a href="<?php echo $this->config->base_url(); ?>houses/to-rent/index.html" title="Flats to Rent">To Rent</a>
+
+                  </li>
                 </ul>
-              </li>          
-              
+              </li>
+
             </ul>
           </nav>
         </div>
