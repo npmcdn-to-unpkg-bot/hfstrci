@@ -610,7 +610,6 @@ foreach($results as $k){
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
       });
-
   </script>
 
 <!-- hendar -->
@@ -638,20 +637,20 @@ foreach($results as $k){
 }
 
 .fa-heart {
-    background: #FFFFFF;
+  /*background: #FFFFFF; */
+    font-size:30px;
     border-radius: 0%;
     height: 24px;
     width: 25px;
     display: block;
-    opacity:0.65;
+    opacity:0.85;
 }
-
 
 .properties .hentry .property-featured .featured i {
     position: absolute !important;
     right: 100% !important;
-    top: 34px !important;
-    left: 30px !important;
+    top: 40px !important;
+    left: 38px !important;
     /* width: 11%; */
 }
 
