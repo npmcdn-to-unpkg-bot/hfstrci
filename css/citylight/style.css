@@ -944,7 +944,7 @@ ul.social-top > li a i {
 	line-height: 1.5;
 	font-weight: 900;
 	color: #fff;
-	margin: 0 0 30px;
+	margin: 0 0 25px;
 }
 
 @media screen and (max-width: 991px) {
@@ -959,7 +959,7 @@ ul.social-top > li a i {
 .footer .footer-nav {
 	position: relative;
 	background: #79b18d;
-	padding: 7% 0 3%;
+	padding: 35px 0 30px;
 }
 
 .footer .footer-nav:before {
@@ -1080,7 +1080,7 @@ ul.social-top > li a i {
 .footer .copyright {
 	position: relative;
 	color: #aeaeae;
-	padding: 35px 0;
+	padding: 15px 0 0;
 }
 
 @media screen and (max-width: 479px) {
@@ -3899,11 +3899,12 @@ ul.wysihtml5-toolbar a:hover {
 }
 
 .title-block-sidebar {
-	color: #6c6c6c;
-	font-size: 24px;
+	color: #333;
+	font-size: 20px;
 	font-weight: 300;
 	line-height: 1.5;
-	margin: 0 0 30px;
+	margin: 0 0 0px;
+	padding: 0px 18px 15px;
 }
 
 .noo-sidebar .block-sidebar + .block-sidebar {
@@ -3912,7 +3913,7 @@ ul.wysihtml5-toolbar a:hover {
 
 .noo-sidebar ul {
 	list-style: none;
-	padding-left: 15px;
+	padding-left: 20px;
 	margin-bottom: 0;
 }
 
@@ -3925,7 +3926,6 @@ ul.wysihtml5-toolbar a:hover {
 }
 
 .block-sidebar ul li:first-child {
-  padding-top: 0;
 }
 
 .block-sidebar ul li:last-child {

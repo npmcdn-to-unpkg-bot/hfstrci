@@ -224,8 +224,7 @@
 
                 <?php if($lat && $lng){
 	                echo '<div class="block-sidebar">
-	                  <h3 class="title-block-sidebar">Map</h3>
-	                  <div id="map" style="width:100%;height:250px;background:gray;"></div>
+	                  <div id="map" style="margin-top:15px;width:100%;height:250px;background:gray;"></div>
 	                  <span>'.$formatted_address.'</span>
 	                  <script type="text/javascript">var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
 	                </div>';
@@ -366,7 +365,7 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 
 									</div>
 	                <!-- END PROPERTIES HEADER -->
-			<div><p><span style="display:inline-block"><span style="padding-left:5px"><?php echo $formatted_address; ?></span><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p></div>
+			<div><p><span style="display:inline-block"><span style="padding-right:5px"><?php echo $formatted_address; ?></span><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p></div>
                   <!-- START PROPERTIES CONTENT -->
                   <div class="properties-content">
 
