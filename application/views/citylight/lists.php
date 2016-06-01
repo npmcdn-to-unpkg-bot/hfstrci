@@ -31,7 +31,7 @@
                 <div class="mobile-show"><a href="#" id="showfilter" style="text-align:center;"><h3 class="title-block-sidebar"><strong>+</strong> Show Filters</h3></a></div>
 
                 <div class="block-sidebar find-property" id="find-property">
-                  <h3 class="title-block-sidebar">Find a Property</h3>
+                  <h3 class="title-block-sidebar" style="padding-left:0px;">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
                       <form class="gsearchform" method="get" role="search" action="
