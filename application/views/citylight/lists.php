@@ -15,7 +15,7 @@
        document.write ("&amp;ct0=" + escape(document.MAX_ct0));
    }
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   
+
    document.write ("'></scr"+"ipt>");
 //]]>--></script> </center> <!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
@@ -29,33 +29,33 @@
               <div class="noo-sidebar-inner">
                 <!-- START FIND PROPERTY -->
                 <div class="mobile-show"><a href="#" id="showfilter" style="text-align:center;"><h3 class="title-block-sidebar"><strong>+</strong> Show Filters</h3></a></div>
-                
+
                 <div class="block-sidebar find-property" id="find-property">
                   <h3 class="title-block-sidebar">Find a Property</h3>
                   <div class="gsearch">
                     <div class="gsearch-wrap">
                       <form class="gsearchform" method="get" role="search" action="
                       <?php
-                      
+
                       	echo $this->config->base_url()."houses/";
                       	if($saletype == "For Sale") {
                           echo "for-sale";
                           $type_search = "sale";
-                        }                      		
+                        }
                       	elseif($saletype == "To Rent") {
                           echo "to-rent";
                           $type_search = "rent";
-                        }                      		
+                        }
                       	echo "/index.html";
-                      
+
                        ?>
                       " id="search-form">
                         <div class="gsearch-content">
                           <div class="gsearch-field">
-                       
-                            <div class="form-group gtype">                           
+
+                            <div class="form-group gtype">
                               <input type="text" class="form-control" name="search" id="search" value="<?php echo $searchvalue; ?>" placeholder="Search for address, town or area"/>
-                            </div>              
+                            </div>
 
                             <div class="form-group glocation" style="width:49%;float:left;">
                                  <input type="text" class="form-control" name="price1" value="<?php if(isset($filters["price1"])) echo $filters["price1"]; ?>"  placeholder="Min. Price" />
@@ -78,10 +78,10 @@
                                 </select>
                               </div>
                              </div>
-                           
 
-                             <div class="form-group glocation"  style="width:49%;float:right;">                               
-                                <div class="label-select1">                                
+
+                             <div class="form-group glocation"  style="width:49%;float:right;">
+                                <div class="label-select1">
                                 <select class="form-control1 bedroom2 " name="bedroom2">
                                   <option value="0"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 0) echo " selected"; ?>>Studio</option>
                                   <option value="1"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 1) echo " selected"; ?>>1</option>
@@ -93,7 +93,7 @@
                               </div>
                             </div>
                             <div class="clear"></div>
-                            
+
                             <div class="form-group glocation">
                               <div class="label-select1">
 
@@ -112,7 +112,7 @@
                                   <option value="30"<?php if(isset($filters["range"]) && $filters["range"] === 30) echo " selected"; ?>>Within 30 miles</option>
                                   <option value="40"<?php if(isset($filters["range"]) && $filters["range"] === 40) echo " selected"; ?>>Within 40 miles</option>
                                 </select>
-                                
+
                               </div>
                             </div>
 
@@ -137,7 +137,7 @@
                       						</ul>
                       					</li>
                       					<li><input type="checkbox" name="property-type[]" value="House share" <?php if(isset($filters['propertytype']) && in_array("House share",$filters['propertytype'])) echo "checked"; ?>/>House/Flat share</li>
-                      					
+
                       					<li><input type="checkbox" name="property-type[]" value="Commercial" <?php if(isset($filters['propertytype']) && in_array("Commercial",$filters['propertytype'])) echo "checked"; ?>/>Commercial <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Commercial"]))echo $proptypeinfo["Commercial"]["popularity"]; else echo "0"; ?> Commercial]</span></li>
                       					<li><input type="checkbox" name="property-type[]" value="Barn conversion" <?php if(isset($filters['propertytype']) && in_array("Barn conversion",$filters['propertytype'])) echo "checked"; ?>/>Barn conversion <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Barn conversion"]))echo $proptypeinfo["Barn conversion"]["popularity"]; else echo "0"; ?> Barn conversion]</span></li>
                       					<li><input type="checkbox" name="property-type[]" value="Bungalow" <?php if(isset($filters['propertytype']) && in_array("Bungalow",$filters['propertytype'])) echo "checked"; ?>/>Bungalow <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Bungalow"]))echo $proptypeinfo["Bungalow"]["popularity"]; else echo "0"; ?> Bungalow]</span></li>
@@ -145,10 +145,10 @@
                       					<li><input type="checkbox" name="property-type[]" value="Plot of Land" <?php if(isset($filters['propertytype']) && in_array("Plot of Land",$filters['propertytype'])) echo "checked"; ?>/>Land <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Plot of Land"]))echo $proptypeinfo["Plot of Land"]["popularity"]; else echo "0"; ?> Plots of Land]</span></li>
                       					<li><input type="checkbox" name="property-type[]" value="New build" <?php if(isset($filters['propertytype']) && in_array("New build",$filters['propertytype'])) echo "checked"; ?>/>New build <span style="font-size:10px;">[<?php if(isset($proptypeinfo["New build"]))echo $proptypeinfo["New build"]["popularity"]; else echo "0"; ?> New build]</span></li>
                       					<li><input type="checkbox" name="property-type[]" value="Retirement property" <?php if(isset($filters['propertytype']) && in_array("Retirement property",$filters['propertytype'])) echo "checked"; ?>/>Retirement property <span style="font-size:10px;">[<?php if(isset($proptypeinfo["Retirement properties"]))echo $proptypeinfo["Retirement property"]["popularity"]; else echo "0"; ?> Retirement property]</span></li>
-                      				</ul>                               
+                      				</ul>
                             </div>
-                          </div>      
-                            
+                          </div>
+
                             <div class="gsearch-action">
                               <div class="gsubmit">
                                	<button class="btn btn-deault" id="search_my_pro" type="submit" value="Search Property" name="action">Search my Property</button>
@@ -158,12 +158,12 @@
                                 &nbsp;
                                 <div class="gsubmit">
                                   <button type="button" class="btn btn-save" id="savesearch"
-                                          data-toggle="modal" data-target="#formSubcribe" 
-                                          data-type="<?php echo $type; ?>"
-                                          data-geo1="<?php echo isset($bread[0]['name'])?$bread[0]['name']:''; ?>" 
+                                          data-toggle="modal" data-target="#formSubcribe"
+                                          data-type="<?php echo isset($bread[0]['type'])?$bread[0]['type']:''; ?>"
+                                          data-geo1="<?php echo isset($bread[0]['name'])?$bread[0]['name']:''; ?>"
                                           data-geo2="<?php echo isset($bread[1]['name'])?$bread[1]['name']:''; ?>"
                                   >Save Search</button>
-                                </div>  
+                                </div>
 
                                 <!-- Modal Form Subscribe -->
                                 <div class="modal" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
@@ -183,15 +183,15 @@
                                             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                           </div>
                                         </form>
-                                        
+
                                       </div>
                                       <div class="modal-footer">
                                         <button type="button" id="submit" class="btn btn-success">Submit</button>
-                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a> 
+                                        I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a>
                                       </div>
                                     </div>
                                   </div>
-                                </div> 
+                                </div>
                             </div>
 
                           </div>
@@ -199,7 +199,7 @@
                       </form>
                     </div>
                   </div>
-              
+
                 <!-- END FIND PROPERTY -->
                <script type='text/javascript'>
 <!--//<![CDATA[
@@ -217,53 +217,53 @@
        document.write ("&amp;ct0=" + escape(document.MAX_ct0));
    }
    if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-   
+
    document.write ("'></scr"+"ipt>");
 //]]>--></script>
 
-                
-                <?php if($lat && $lng){ 
+
+                <?php if($lat && $lng){
 	                echo '<div class="block-sidebar">
 	                  <h3 class="title-block-sidebar">Map</h3>
 	                  <div id="map" style="width:100%;height:250px;background:gray;"></div>
 	                  <span>'.$formatted_address.'</span>
 	                  <script type="text/javascript">var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
 	                </div>';
-	               }              
+	               }
                 ?>
-                
+
                 <div class="block-sidebar">
 	                  <h3 class="title-block-sidebar">Related Search</h3>
 	                  <ul>
-	                  	<li><a href="<?php echo $related["housesale"]; ?>" title="Houses for sale in <?php echo $searchvalue; ?>">Houses for Sale in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Flat for sale in <?php echo $searchvalue; ?>">Flat for Sale in <?php echo $searchvalue; ?></a></li>                  	
-	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Houses to rent in <?php echo $searchvalue; ?>">Houses to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["housesale"]; ?>" title="Houses for sale in <?php echo $searchvalue; ?>">Houses for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Flat for sale in <?php echo $searchvalue; ?>">Flat for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["flatsale"]; ?>" title="Houses to rent in <?php echo $searchvalue; ?>">Houses to rent in <?php echo $searchvalue; ?></a></li>
 	                  	<li><a href="<?php echo $related["flatrent"]; ?>" title="Flat to rent in <?php echo $searchvalue; ?>">Flat to rent in <?php echo $searchvalue; ?></a></li>
 	                  	<li><hr /></li>
-	                  	<li><a href="<?php echo $related["0bedsale"]; ?>" title="Studio for sale in <?php echo $searchvalue; ?>">Studio for Sale in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["1bedsale"]; ?>" title="1 bedroom for sale in <?php echo $searchvalue; ?>">1 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["2bedsale"]; ?>" title="2 bedroom for sale in <?php echo $searchvalue; ?>">2 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["3bedsale"]; ?>" title="3 bedroom for sale in <?php echo $searchvalue; ?>">3 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["4bedsale"]; ?>" title="4 bedroom for sale in <?php echo $searchvalue; ?>">4 bedroom for Sale in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["0bedsale"]; ?>" title="Studio for sale in <?php echo $searchvalue; ?>">Studio for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["1bedsale"]; ?>" title="1 bedroom for sale in <?php echo $searchvalue; ?>">1 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["2bedsale"]; ?>" title="2 bedroom for sale in <?php echo $searchvalue; ?>">2 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["3bedsale"]; ?>" title="3 bedroom for sale in <?php echo $searchvalue; ?>">3 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["4bedsale"]; ?>" title="4 bedroom for sale in <?php echo $searchvalue; ?>">4 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
 	                  	<li><a href="<?php echo $related["5bedsale"]; ?>" title="5+ bedroom for sale in <?php echo $searchvalue; ?>">5+ bedroom for Sale in <?php echo $searchvalue; ?></a></li>
 	                  	<li><hr/></li>
-	                  	<li><a href="<?php echo $related["0bedrent"]; ?>" title="Studio to rent in <?php echo $searchvalue; ?>">Studio to rent in <?php echo $searchvalue; ?></a></li>	 
-	                  	<li><a href="<?php echo $related["1bedrent"]; ?>" title="1 bedroom to rent in <?php echo $searchvalue; ?>">1 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["2bedrent"]; ?>" title="2 bedroom to rent in <?php echo $searchvalue; ?>">2 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["3bedrent"]; ?>" title="3 bedroom to rent in <?php echo $searchvalue; ?>">3 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
-	                  	<li><a href="<?php echo $related["4bedrent"]; ?>" title="4 bedroom to rent in <?php echo $searchvalue; ?>">4 bedroom to rent in <?php echo $searchvalue; ?></a></li>	                  	
+	                  	<li><a href="<?php echo $related["0bedrent"]; ?>" title="Studio to rent in <?php echo $searchvalue; ?>">Studio to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["1bedrent"]; ?>" title="1 bedroom to rent in <?php echo $searchvalue; ?>">1 bedroom to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["2bedrent"]; ?>" title="2 bedroom to rent in <?php echo $searchvalue; ?>">2 bedroom to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["3bedrent"]; ?>" title="3 bedroom to rent in <?php echo $searchvalue; ?>">3 bedroom to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["4bedrent"]; ?>" title="4 bedroom to rent in <?php echo $searchvalue; ?>">4 bedroom to rent in <?php echo $searchvalue; ?></a></li>
 	                  	<li><a href="<?php echo $related["5bedrent"]; ?>" title="5+ bedroom to rent in <?php echo $searchvalue; ?>">5+ bedroom to rent in <?php echo $searchvalue; ?></a></li>
 	                  </ul>
 	        </div>
-	        
+
 	        <div class="block-sidebar">
 	                  <h3 class="title-block-sidebar">Useful property information about <?php echo $searchvalue; ?></h3>
-	                 
-	                 
+
+
 	                  <p style="text-align: justify;">
 	                  Your search returned <?php if($rows == 500) echo "500+"; else echo $rows; ?> homes <?php echo strtolower($saletype); ?> in <?php echo $searchvalue; ?>.
 	                  The average asking price for a <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?> in <?php echo $searchvalue; ?> is £<?php echo number_format($relatedproptype[0]["avgprice"],2); ?>.</p>
-			
+
 			<?php if(isset($relatedproptype[0])){ ?>
 			<p style="text-align: justify;">The most common property type available <?php echo strtolower ($saletype); ?> in <?php echo $searchvalue; ?> are <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?><?php if(isset($relatedproptype[1])){ ?> and <?php echo round($relatedproptype[1]["avgbed"])." bedroom "; echo $relatedproptype[1]["proptype"]; ?><?php } ?><br />
 To help you refine your search in <?php echo $searchvalue; ?> please feel free to try the following popular links:</p>
@@ -271,24 +271,24 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 			<?php } ?>
 			<ul>
 			<?php
-			
+
 			for($i = 0;$i < count($relatedproptype);$i++){
 			$tit = "";
 			if($relatedproptype[$i]["avgbed"] != 0)
 				$tit .= $relatedproptype[$i]["avgbed"].' bedroom ';
 			$tit .= $relatedproptype[$i]["proptype"].' '.strtolower($saletype).' in '.$searchvalue.'';
 			echo '<li><a href="'.$relatedproptype[$i]["link"].'" title="'.$tit.'">'.$tit.'</a></li>';
-			
+
 			} ?>
-			
-			
+
+
 			</ul>
 	        </div>
-                
-                
-                
+
+
+
 <?php /*
-                <!-- START RECENT PROPERTY 
+                <!-- START RECENT PROPERTY
                 <div class="block-sidebar recent-property">
                   <h3 class="title-block-sidebar">Recent Property</h3>
                   <div class="featured-property">
@@ -306,8 +306,8 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
                   </div>
                 </div>
                 END RECENT PROPERTY -->
-                
-   */ ?>            
+
+   */ ?>
               </div>
             </div>
             <!-- END SIDEBAR -->
@@ -316,35 +316,35 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 				  	<!-- START MAIN CONTENT -->
 				  	<div class="noo-content col-xs-12 col-md-9">
 				  		<?php if(isset($bread)){
-				  				
+
 				  				echo '<div class="bread">';
 				  				$first = true;
-				  				
+
 				  				echo '<a href="'.$breadbase.'" title="Houses '.$bread[0]["type"].'"> Houses '.$bread[0]["type"].'</a>';
 				  					foreach($bread as $brea){
 				  						if($brea["active"] === true){
-				  						
+
 				  						echo ' > <a href="'.$brea["link"].'" title="Houses '.$brea["type"].' in '.$brea["name"].'"> '.$brea["name"].'</a>';
 				  						}else{
 				  						echo ' > '.$brea["name"];
 				  						}
-				  					
+
 				  					}
-				  						
+
 				  				echo '</div><div style="clear:both"></div>';
 				  				}
 				  				?>
-				  				
+
 							<div class="recent-properties">
 								<div class="properties grid">
-	                
+
 	                <!-- START PROPERTIES HEADER -->
 				  				<div class="properties-header">
-				  				
-				  				
-				  				
+
+
+
 										<h1 class="page-title">Properties <?php echo $saletype; ?> in <?php echo $searchvalue; if(isset($postcode)) echo " $postcode";?></h1>
-										
+
 
 										<div class="properties-toolbar">
                       <form class="properties-ordering">
@@ -357,13 +357,13 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
                               <option value="pricelow" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "pricelow") echo " selected"; ?>>Lowest Price</option>
                               <option value="pricehigh" <?php if(isset($filters["sortby"]) && $filters["sortby"] === "pricehigh") echo " selected"; ?>>Highest Price</option>
                             </select>
-                           
+
                           </div>
                         </div>
                       </form>
-										</div>									
-									
-									
+										</div>
+
+
 									</div>
 	                <!-- END PROPERTIES HEADER -->
 			<div><p><span style="display:inline-block"><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p><p><span><?php echo $formatted_address; ?></span></p></div>
@@ -373,7 +373,7 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 
 
 
-<?php    
+<?php
 $counti = 0;
 foreach($results as $k){
    $counti++;
@@ -386,14 +386,14 @@ foreach($results as $k){
             }
             $addss = array_unique(explode(",",$address));
             //print_r($addss);
-            $count = count($addss); 
+            $count = count($addss);
             $strings = '';
-            for ($i=0; $i<$count ; $i++) { 
-             
+            for ($i=0; $i<$count ; $i++) {
+
               if($i == $count-1){
                 if(isset($addss[$i])){
                 $addss[$i] = substr($addss[$i], 0, -3);
-               
+
                 $strings .= ' '.$addss[$i] ;
                  }
 
@@ -422,11 +422,11 @@ foreach($results as $k){
             $your_string_without_tags = strip_tags($description);
             $charscount = substr($your_string_without_tags, 0, 250);
             $img = $k->photo_feed;
-            
-            
+
+
             $add = "";
             /*$rangeimg = array(1,1440);
-           
+
             if($proptype == "Flat" or $proptype == "Appartament" or $proptype == "studio"){
             	$add = "f";
             	$rangeimg = array(1,28);
@@ -437,33 +437,33 @@ foreach($results as $k){
 	            if(@getimagesize($img))
 	            break;
 	   }*/
-            
-     
+
+
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
             $desc = $proptype.' in '.$strings.' '.$searchvalue;
-            
-            
+
+
             if($bed > 1)
             	$title = $bed.' Bedroom ';
             elseif($bed == 1)
             	$title = $bed.' Bedrooms ';
             else
             	$title = "Studio ";
-            	
+
             $title .= $proptype.' '.$saletype.' in '.$strings;
-            
+
                    ?>
                    <!-- Hendar -->
                   <article class="hentry">
                       <div class="property-featured">
                         <span class="featured" data-toggle="modal" data-target="#formListing"
                                 data-type="<?php echo $proptype; ?>"
-                                data-postcode="<?php echo $postcode; ?>" 
-                                data-listingid="<?php echo $key; ?>" 
-                                data-lat="<?php echo $lat; ?>" 
-                                data-lng="<?php echo $lng; ?>" 
+                                data-postcode="<?php echo $postcode; ?>"
+                                data-listingid="<?php echo $key; ?>"
+                                data-lat="<?php echo $lat; ?>"
+                                data-lng="<?php echo $lng; ?>"
                                 data-price="<?php echo $price; ?>" >
                           <i class="fa fa-heart"></i>
                         </span>
@@ -474,7 +474,7 @@ foreach($results as $k){
                        	  <img src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
                        		<?php } ?>
                         </a>
-                        <?php //<span class="property-label">Hot</span>  
+                        <?php //<span class="property-label">Hot</span>
                         ?>
                         <span class="property-category"><a href="<?php echo $href; ?>" rel="nofollow" target="_blank"><?php echo $proptype; ?></a></span>
                       </div>
@@ -483,13 +483,13 @@ foreach($results as $k){
                           <a href="<?php echo $href; ?>" title="<?php echo $title; ?>" rel="nofollow" target="_blank"><?php echo $title; ?></a>
                         </h2>
                         <div class="property-excerpt">
-                          <p><strong><?php echo $desc; ?></strong><br><?php echo $charscount; ?></p>                          
+                          <p><strong><?php echo $desc; ?></strong><br><?php echo $charscount; ?></p>
                         </div>
                         <div class="property-summary">
                           <div class="property-detail">
                             <p>
                             	<span><Strong>
-	                            	<?php 
+	                            	<?php
 	                            	if($bed > 1)
 						 echo $bed.' Bedroom ';
 					elseif($bed == 1)
@@ -497,9 +497,9 @@ foreach($results as $k){
 					 else
 						  echo "Studio "; ?>
 				</strong></span>
-                            	
+
                             </p>
-                            
+
                             <!--<div class="size">
                               <span>0 sqft</span>
                             </div>
@@ -509,7 +509,7 @@ foreach($results as $k){
                             <div class="bedrooms">
                               <span><?php echo $bed; ?></span>
                             </div> -->
-                            
+
                           </div>
                           <div class="property-info">
                             <div class="property-price">
@@ -521,19 +521,19 @@ foreach($results as $k){
                               <a href="<?php echo $href; ?>" rel="nofollow" target="_blank">More Details</a>
                             </div>
                           </div>
-                         
+
                           <!-- <div class="property-info property-fullwidth-info">
 	                            <div class="property-price">
 	                              <span><span class="amount">£ <?php echo $price; ?></span> </span>
 	                            </div>
-                            
-                            
-	                            
+
+
+
 	                            <div class="size"><span>0 sqft</span></div>
 	                            <div class="bathrooms"><span>0</span></div>
-	                            <div class="bedrooms"><span><?php echo $bed; ?></span></div> 
+	                            <div class="bedrooms"><span><?php echo $bed; ?></span></div>
                           </div>-->
-                          
+
                         </div>
                       </div>
                       <div class="property-action property-fullwidth-action">
@@ -550,24 +550,24 @@ foreach($results as $k){
                     <nav class="pagination-nav">
                       <ul class="pagination list-center">
                         <?php foreach($pagination["links"] as $pag){
-                        
-                          if($pag["link"] == false)                    
+
+                          if($pag["link"] == false)
                             echo '<li><span class="page-numbers current">'.$pag["name"].'</span></li>';
-                          else  
+                          else
                             echo '<li><a class="page-numbers" href="'.$pag["link"].'" title="'.$pag["title"].'">'.$pag["name"].'</a></li>';
-                        
+
                         } ?>
                       </ul>
                     </nav>
                     <!-- END PAGINATION NAVIGATION -->
                   </div>
                   <!-- END PROPERTIES CONTENT -->
-                </div>              
-              </div>                              
-            </div>        
+                </div>
+              </div>
+            </div>
             <!-- END MAIN CONTENT -->
 
-          
+
           </div>
         </div>
       </div>
@@ -593,25 +593,25 @@ foreach($results as $k){
                 <input type="text" class="form-control" id="emailListing" name="emailListing" placeholder="Email">
               </div>
             </form>
-            
+
           </div>
           <div class="modal-footer">
             <button type="button" id="submitListing" class="btn btn-success">Submit</button>
-            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a> 
+            I accept the <a target="_blank" href='<?php echo $this->config->base_url(); ?>/termsandconditions'>terms of use</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal Form -->   
-  <!-- hendar -->  
+    <!-- Modal Form -->
+  <!-- hendar -->
 
  <script type="text/javascript">
-      $(document).ready(function() {        
+      $(document).ready(function() {
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
       });
-      
+
   </script>
 
 <!-- hendar -->
@@ -651,7 +651,7 @@ foreach($results as $k){
 .properties .hentry .property-featured .featured i {
     position: absolute !important;
     right: 100% !important;
-    top: 34px !important; 
+    top: 34px !important;
     left: 30px !important;
     /* width: 11%; */
 }
