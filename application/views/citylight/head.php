@@ -32,12 +32,10 @@
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/bootstrap-theme.min.css">
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/font-awesome.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>/css/citylight/style.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/style.css">
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/shortcode.css">
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/citilights-shortcode.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/citilights-shortcode.css">
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/color/color1.css">
-
-
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url(); ?>css/custom.css">
 

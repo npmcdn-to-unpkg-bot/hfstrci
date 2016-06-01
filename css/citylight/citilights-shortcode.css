@@ -258,9 +258,9 @@
 	font-size: 16px;
 	font-weight: bold;
 	margin: 0;
-	padding: 10px 8px;
+	padding: 5px 8px;
 	line-height:23px;
-	background: #f9f9f9;
+	/* background: #f9f9f9; */
 	max-height:62px;
 	overflow:hidden;
 }
@@ -268,7 +268,8 @@
 .properties .hentry .property-excerpt {
 	display: block;
 	font-size:12px;
-	padding:10px 8px;
+	padding: 0px 8px 5px;
+	min-height: 125px;
 }
 .properties .hentry .property-excerpt p {
 	max-height:121px;
@@ -286,8 +287,8 @@
 .properties .hentry .property-detail p span{
 	width: 50%;
 	float: left;
-	padding: 3px;
-	text-align: center;
+	padding: 3px 8px;
+	text-align: left;
 	font-size: 12px;
 }
 
@@ -335,7 +336,7 @@
 }
 
 .properties .hentry .property-info > div {
-	padding: 0 14px;
+	padding: 0 8px;
 	display: table-cell;
 	vertical-align: middle;
 	width: 50%;
@@ -344,7 +345,7 @@
 }
 
 .properties .hentry .property-info .property-price {
-	text-align: left;
+	/* text-align: left; */
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -555,7 +556,7 @@
 		width: 36%;
 	}
 }
-	
+
 @media screen and (min-width: 992px) {
 	.page-fullwidth .properties.list .property-featured {
 		width: 37%;
@@ -905,7 +906,7 @@
 		width: 100%;
 	}
 }
-	
+
 .recent-properties .recent-properties-content .property-row .hentry .property-summary .property-info {
 	border-top: 1px solid #fff;
 	background: #ececec;
@@ -2158,7 +2159,7 @@
 		padding-left: 0;
 	}
 }
-	
+
 .noo-map .gsearch .gsearch-title i {
 	color: #fff;
 	display: inline-block;
