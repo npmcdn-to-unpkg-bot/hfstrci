@@ -460,7 +460,7 @@ foreach($results as $k){
                       <div class="property-featured">
                         <span class="featured" data-toggle="modal" data-target="#formListing"
                                 data-type="<?php echo $proptype; ?>"
-                                data-postcode="<?php echo $postcode; ?>"
+                                data-postcode="<?php echo (isset($postcode)?$postcode:""); ?>"
                                 data-listingid="<?php echo $key; ?>"
                                 data-lat="<?php echo $lat; ?>"
                                 data-lng="<?php echo $lng; ?>"
