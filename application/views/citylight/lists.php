@@ -66,8 +66,8 @@
                             </div>
 
                              <div class="form-group glocation"  style="width:49%;float:left;">
-                              <div class="label-select">
-                                <select class="form-control" name="bedroom1">
+                              <div class="label-select1">
+                                <select class="form-control1 bedroom1 " name="bedroom1" >
                                   <option value="">Min Bedroom</option>
                                   <option value="0"<?php if(isset($filters["bedroom1"]) && $filters["bedroom1"] === 0) echo " selected"; ?>>Studio</option>
                                   <option value="1"<?php if(isset($filters["bedroom1"]) && $filters["bedroom1"] === 1) echo " selected"; ?>>1</option>
@@ -80,10 +80,9 @@
                              </div>
                            
 
-                             <div class="form-group glocation"  style="width:49%;float:right;">
-                               <div class="label-select">                                
-                                <select class="form-control" name="bedroom2">
-                                  <option value="">Max Bedroom</option>
+                             <div class="form-group glocation"  style="width:49%;float:right;">                               
+                                <div class="label-select1">                                
+                                <select class="form-control1 bedroom2 " name="bedroom2">
                                   <option value="0"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 0) echo " selected"; ?>>Studio</option>
                                   <option value="1"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 1) echo " selected"; ?>>1</option>
                                   <option value="2"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 2) echo " selected"; ?>>2</option>
@@ -96,9 +95,9 @@
                             <div class="clear"></div>
                             
                             <div class="form-group glocation">
-                              <div class="label-select">
+                              <div class="label-select1">
 
-                                <select class="form-control" name="range">
+                                <select class="form-control1 range " name="range">
                                   <option value="">Range</option>
                                   <option value="1/4"<?php if(isset($filters["range"]) && $filters["range"] === 0.25) echo " selected"; ?>>Within 1/4 mile</option>
                                   <option value="3/4"<?php if(isset($filters["range"]) && $filters["range"] === 0.75) echo " selected"; ?>>Within 3/4 mile</option>
@@ -152,7 +151,7 @@
                             
                             <div class="gsearch-action">
                               <div class="gsubmit">
-                               	<button class="btn btn-deault" type="submit" value="Search Property" name="action">Search my Property</button>
+                               	<button class="btn btn-deault" id="search_my_pro" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
 
                               <!-- hendar -->
@@ -608,12 +607,7 @@ foreach($results as $k){
   <!-- hendar -->  
 
  <script type="text/javascript">
-      $(document).ready(function() {
-          $("#search-form").submit(function(){
-              localStorage.setItem("search",$(this).find("#search").val());
-              localStorage.setItem("max_price",$(this).find("#max_price").val());
-
-          });
+      $(document).ready(function() {        
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
       });

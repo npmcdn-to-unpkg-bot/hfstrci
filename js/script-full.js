@@ -30,8 +30,18 @@
 
 ! function($) {
   $(document).ready(function() {
+
+    /* js list page */
+    $("#search-form").submit(function(){
+        localStorage.setItem("search",$(this).find("#search").val());
+        localStorage.setItem("max_price",$(this).find("#max_price").val());
+    });
+
+    $("#orderby").change(function(){
+         $("#search_my_pro").click();
+    });
   	
-  	$("img").unveil(600);
+  	$("img").unveil(800);
   
   	$("#showfilter").click(function(){
 	    $("#find-property").toggle();
@@ -167,7 +177,7 @@
     /* --------------------------------------------------------------------- */
     /* 2. STICK MENU (ADD CLASS FOR MAINMENU WHEN SCROLLER)
     /* --------------------------------------------------------------------- */ 
-    (function() {
+   /* (function() {
 
       var mainnav = $('.noo-header');
       var elmHeight = $('.top-header').outerHeight(true);
@@ -512,7 +522,7 @@
     /* --------------------------------------------------------------------- */
     /* 12. CALENDAR
     /* --------------------------------------------------------------------- */
-    (function() {
+  /*  (function() {
       if($('.datepicker').length){
         $('.datepicker').datepicker({
           format: 'mm/dd/yyyy',
@@ -541,7 +551,7 @@
     /* --------------------------------------------------------------------- */
     /* 14. JPLAYER AUDIO 1 (ARTICLE - BLOG PAGE)
     /* --------------------------------------------------------------------- */
-    (function() {
+  /*  (function() {
       if($('#jplayer-audio-1').length){
         $("#jplayer-audio-1").jPlayer({
           ready: function () {
@@ -556,14 +566,14 @@
           supplied: "m4a, oga"
         });
       }
-    })();
+    })();*/
 
 
     
     /* --------------------------------------------------------------------- */
     /* 15. JPLAYER VIDEO 1 (HORIZONTAL TAB - SHORTCODES PAGE)
     /* --------------------------------------------------------------------- */
-    (function() {
+ /*   (function() {
       if($('#jplayer-video-1').length){
         $('#jplayer-video-1').jPlayer({
           ready: function() {
@@ -580,14 +590,14 @@
           supplied: 'm4v,'
         });
       }
-    })();
+    })();*/
     
 
     
     /* --------------------------------------------------------------------- */
     /* 16. ACCORDION - SHORTCODE
     /* --------------------------------------------------------------------- */
-    (function() {
+ /*   (function() {
       if($('#noo-accordion-1').length){
         $('#noo-accordion-1 .panel-title a').attr('data-parent', '#noo-accordion-1');
         $('#noo-accordion-1 .noo-accordion-tab:eq(0)').addClass('in');
@@ -599,7 +609,7 @@
         });
         $('#noo-accordion-1 .in').prev('.panel-heading').addClass('active');
       }
-    })();
+    })();*/
 
 
     
@@ -647,7 +657,7 @@
     /* --------------------------------------------------------------------- */
     /* 20. COUNTER - SHORTCODES
     /* --------------------------------------------------------------------- */
-    (function() {
+    /*(function() {
       if($('.noo-counter').length){
         $('.noo-counter').appear( function() {
           $this = jQuery(this);
@@ -662,7 +672,7 @@
         });
       }
     })();
-
+*/
     
 
     /* --------------------------------------------------------------------- */

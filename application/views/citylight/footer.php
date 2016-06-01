@@ -92,7 +92,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-  <script type="text/javascript" src="http://housesforsaletorent.co.uk/js/script-full.js"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
 
  
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
@@ -222,12 +222,12 @@
       <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
       <div class="wrapper_unbounce">
         <div class="form_receive">
-            <h1 class="title_receive">Before you go... </h1>
-            <h5 class="des_receive">Would you like to receive information about new properties that match your budget and location?</h5>
+            <h1 class="title_receive">Receive properties as soon as they come to market! </h1>
+            <h5 class="des_receive">Receive information about new properties for sale or to rent that match your budget and location as soon as these become available so you can get there first.</h5>
             <div class="form_input"> 
                 <div class="row_receive">
                    <button class="btn_receive">YES, PLEASE!</buton>
-                   <button class="btn_reject">NO, THANKS!</buton>
+                   <button class="btn_reject">Skip</buton>
                 </div>
             </div>
         </div>
