@@ -40,6 +40,7 @@ a,
 .noo-pricing-table .noo-pricing-column .pricing-content .pricing-header .pricing-value .noo-price,
 .noo-pricing-table.ascending .noo-pricing-column.featured .pricing-content .pricing-footer .btn {
 	color: #75b08a;
+	/* opacity: 0.7; */
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-action a:hover,
@@ -61,10 +62,10 @@ a,
 .agents .hentry .agent-wrap .agent-desc .agent-action a:hover,
 .cta_buy_theme .text-block a:hover,
 .btn-secondary:hover,
-.my-properties .hentry .property-info .property-action a:hover, 
-.my-properties .hentry .property-info .property-action a:focus, 
-.properties .hentry .property-info .property-action a:active, 
-.properties .hentry .property-info .property-action a.active, 
+.my-properties .hentry .property-info .property-action a:hover,
+.my-properties .hentry .property-info .property-action a:focus,
+.properties .hentry .property-info .property-action a:active,
+.properties .hentry .property-info .property-action a.active,
 .open>.dropdown-toggle.properties .hentry .property-info .property-action a,
 .noo-logreg .btn:hover,
 .properties .hentry .property-info .property-action a:hover,
@@ -81,8 +82,8 @@ ul.wysihtml5-toolbar a:hover,
 .tabs-left > .nav-tabs > li.active > a:focus,
 .noo-progress-bar .progress-bar-primary,
 .btn-default:hover,r
-.btn-default:focus, 
-.btn-default:active, 
+.btn-default:focus,
+.btn-default:active,
 .btn-default.active,
 .noo-pricing-table.ascending .noo-pricing-column.featured .pricing-content .pricing-value,
 .social-list a:hover,
@@ -99,7 +100,7 @@ ul.wysihtml5-toolbar a:hover,
 
 .navbar-header .navbar-toggle .icon-bar,
 .property ul.property-share > li > a:hover,
-.hentry.format-quote > .content-wrap, 
+.hentry.format-quote > .content-wrap,
 .hentry.format-link > .content-wrap,
 .pagination .page-numbers.current,
 .pagination a.page-numbers:hover,
@@ -110,7 +111,7 @@ ul.wysihtml5-toolbar a:hover,
 .noo-agent .agent-properties .btn:focus,
 .noo-sidebar .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn:hover,
 .noo-sidebar .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn:focus,
-.recent-properties .caroufredsel-next, 
+.recent-properties .caroufredsel-next,
 .recent-properties .caroufredsel-prev,
 .testimonial #carousel-testimonial .carousel-indicators li.active,
 .recent-agents .caroufredsel-next,
@@ -120,7 +121,7 @@ ul.wysihtml5-toolbar a:hover,
 .noo-map .gmap-infobox .info-close,
 .noo-map .gmap-infobox .info-more .info-action,
 .noo-map .gsearch .gsearch-title i,
-.form-submit input[type="submit"]:hover, 
+.form-submit input[type="submit"]:hover,
 .form-submit input[type="submit"]:focus,
 .noo-submit input,
 .tagcloud a:hover,
@@ -156,16 +157,16 @@ ul.wysihtml5-toolbar a:hover,
 }
 
 .contact-desc .submit:hover, .contact-desc-1 .submit:hover,
-.form-submit input[type="submit"]:hover, 
+.form-submit input[type="submit"]:hover,
 .form-submit input[type="submit"]:focus,
 .noo-submit input,
 .tagcloud a:hover,
 .noo-vc-accordion.panel-group .panel-heading:hover,
 .noo-vc-accordion.panel-group .panel-heading.active,
 .btn-primary,
-.btn-default:hover, 
-.btn-default:focus, 
-.btn-default:active, 
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
 .btn-default.active,
 .form-control:focus,
 .moxie-shim input:hover + .btn,
@@ -203,7 +204,7 @@ ul.wysihtml5-toolbar a:hover {
 .properties .hentry .property-info .property-action a,
 .recent-properties .recent-properties-content .property-row .hentry .property-summary .property-info .property-action,
 .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn {
-	background: #f0e797;
+	background: #337AB7;
 }
 
 .noo-slider .caroufredsel_wrapper .sliders .slide-item.noo-property-slide .slide-caption .slide-caption-action a,
@@ -250,7 +251,7 @@ ul.wysihtml5-toolbar a:hover {
 	}
 }
 
-a:hover, 
+a:hover,
 a:focus,
 ul.social-top > li a:hover i,
 .top-header-content .content-item a:hover,
@@ -263,10 +264,10 @@ ul.social-top > li a:hover i,
 .recent-properties .recent-properties-content .property-row .hentry:hover .property-title a,
 .recent-properties .recent-properties-content .property-row .hentry .property-category a:hover,
 .properties .hentry .property-featured .property-category a:hover,
-.properties-header .properties-toolbar a.selected, 
+.properties-header .properties-toolbar a.selected,
 .properties-header .properties-toolbar a:hover,
-.user-sidebar-menu .user-menu-links a:hover, 
-.user-sidebar-menu .user-menu-links a:focus, 
+.user-sidebar-menu .user-menu-links a:hover,
+.user-sidebar-menu .user-menu-links a:focus,
 .user-sidebar-menu .user-menu-links a.active {
 	color: #4f8a64;
 }
@@ -290,14 +291,14 @@ ul.social-top > li a:hover i,
 
 .btn-secondary,
 .properties .hentry .property-info .property-action a {
-	color: #C1B547;
+	color: #FFFFFF;
 }
 
 .recent-properties.recent-properties-featured .property-featured .property-category {
 	background: rgba(117, 176, 138, 0.5);
 }
 
-.search-box .gsearch, 
+.search-box .gsearch,
 .footer .footer-nav:before {
 	background: rgba(117, 176, 138, 0.95);
 }
@@ -310,7 +311,3 @@ ul.social-top > li a:hover i,
 .noo-map .gsearch .gsearch-title {
 	background: rgba(117, 176, 138, 0.7);
 }
-
-
-
-

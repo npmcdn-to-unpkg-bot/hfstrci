@@ -31,7 +31,7 @@
 .properties-header {
 	display: table;
 	width: 100%;
-	margin-bottom: 30px;
+	/* margin-bottom: 30px; */
 }
 
 .properties-header .page-title {

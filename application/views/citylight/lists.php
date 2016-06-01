@@ -366,7 +366,7 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 
 									</div>
 	                <!-- END PROPERTIES HEADER -->
-			<div><p><span style="display:inline-block"><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p><p><span><?php echo $formatted_address; ?></span></p></div>
+			<div><p><span style="display:inline-block"><span style="padding-left:5px"><?php echo $formatted_address; ?></span><?php if($rows == 500) echo "500+"; else echo $rows; ?> properties found in <?php echo $searchvalue; ?><?php if(isset($prices)) echo " from <strong>£". number_format($prices["0"]->minp,2)."</strong> to <strong>£".number_format($prices["0"]->maxp,2) ."</strong> with an average price of <strong>£".number_format($prices["0"]->avgp,2)."</strong>";  ?></span></p></div>
                   <!-- START PROPERTIES CONTENT -->
                   <div class="properties-content">
 
