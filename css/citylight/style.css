@@ -1,4 +1,3 @@
-
 @media screen and (max-width: 991px) {
 
 .block-sidebar {display: none;}
@@ -74,7 +73,7 @@
 /* 1. GLOBAL STYLING
 /* --------------------------------------------------------------------- */
 body {
-	font-family: "Verdana", "Open Sans", sans-serif;
+	font-family: "Verdana", "Open Sans","Lato" sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
 	font-style: normal;
@@ -120,7 +119,7 @@ a {
 	transition: all 0.4s ease;
 }
 
-a:hover, 
+a:hover,
 a:focus {
 	text-decoration: none;
 }
@@ -224,7 +223,7 @@ iframe {
 }
 
 .moreproperties {
-	
+
     /* width: 300px !important; */
     /* height: 25px; */
     padding: 0px 70px;
@@ -413,7 +412,7 @@ ul.social-top > li a i {
 		line-height: normal !important;
 	}
 }
-	
+
 .noo-header.affix .main-navigation ul.navbar-nav > li > a {
 	line-height: 60px;
 }
@@ -717,7 +716,7 @@ ul.social-top > li a i {
 		padding: 0 15px;
 	}
 }
-	
+
 .main-navigation ul.navbar-nav {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -1224,7 +1223,7 @@ ul.social-top > li a i {
 	color: #B8B8B8;
 }
 
-.dark-style h1, .dark-style h2, .dark-style h3, .dark-style h4, .dark-style h5, .dark-style h6, 
+.dark-style h1, .dark-style h2, .dark-style h3, .dark-style h4, .dark-style h5, .dark-style h6,
 .dark-style h1 a, .dark-style h2 a, .dark-style h3 a, .dark-style h4 a, .dark-style h5 a, .dark-style h6 a,
 .dark-style .property .property-title {
 	color: #CACACA;
@@ -1419,7 +1418,7 @@ ul.social-top > li a i {
 /* --------------------------------------------------------------------- */
 .noo-mainbody {
 	position: relative;
-	padding-top: 40px;
+	padding-top: 20px;
 	padding-bottom: 40px;
 }
 
@@ -1688,7 +1687,7 @@ ul.social-top > li a i {
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.property .property-feature-title, 
+.property .property-feature-title,
 .property .property-map-title {
 	font-weight: 300;
 	margin-top: 0;
@@ -1699,7 +1698,7 @@ ul.social-top > li a i {
 	text-transform: capitalize;
 }
 
-.property .property-feature-content .has, 
+.property .property-feature-content .has,
 .property .property-feature-content .no-has {
 	padding: 3px 0;
 	font-size: 14px;
@@ -1708,7 +1707,7 @@ ul.social-top > li a i {
 }
 
 @media screen and (max-width: 767px) {
-	.property .property-feature-content .has, 
+	.property .property-feature-content .has,
 	.property .property-feature-content .no-has {
 		width: 49%;
 	}
@@ -1918,8 +1917,8 @@ ul.social-top > li a i {
 	overflow: hidden;
 }
 
-.hentry p:last-child, 
-.hentry ul:last-child, 
+.hentry p:last-child,
+.hentry ul:last-child,
 .hentry ol:last-child {
 	margin-bottom: 0;
 }
@@ -1967,7 +1966,7 @@ ul.social-top > li a i {
 	overflow: hidden;
 }
 
-.noo-video-container .video-inner video, 
+.noo-video-container .video-inner video,
 .noo-video-container .video-inner iframe {
 	position: absolute;
 	top: 0;
@@ -1979,7 +1978,7 @@ ul.social-top > li a i {
 
 
 /* === 11.3. BLOG - QUOTE FORMAT & LINK FORMAT === */
-.hentry.format-quote > .content-wrap, 
+.hentry.format-quote > .content-wrap,
 .hentry.format-link > .content-wrap {
 	padding: 20px;
 	-webkit-box-shadow: 2px 2px 0px #eaeaea;
@@ -2010,7 +2009,7 @@ ul.social-top > li a i {
 	margin-bottom: 5px;
 }
 
-.hentry.format-quote > .content-wrap:hover a, 
+.hentry.format-quote > .content-wrap:hover a,
 .hentry.format-link > .content-wrap:hover a {
 	color: #bdb254;
 }
@@ -2430,7 +2429,7 @@ content: "\f04b";
 .content-footer #author-bio .author-avatar img {
 	width: 100%;
 }
- 
+
 .content-footer #author-bio .author-avatar:after {
   content: '';
   position: absolute;
@@ -2665,16 +2664,16 @@ li.comment {
   float: left;
 }
 
-.comment-form-author, 
-.comment-form-email, 
-.comment-form-url, 
-.comment-form-rating, 
+.comment-form-author,
+.comment-form-email,
+.comment-form-url,
+.comment-form-rating,
 .comment-form-comment {
   margin: 0;
 }
 
-.comment-form-author input, 
-.comment-form-email input, 
+.comment-form-author input,
+.comment-form-email input,
 .comment-form-url input {
   margin-bottom: 20px;
   font-size: 16px;
@@ -2737,7 +2736,7 @@ li.comment {
   font-weight: bold;
 }
 
-.form-submit input[type="submit"]:hover, 
+.form-submit input[type="submit"]:hover,
 .form-submit input[type="submit"]:focus {
   color: #ffffff;
 }
@@ -3393,7 +3392,7 @@ label {
   .my-properties .hentry .property-info > div.property-price {
 		padding: 0 30px;
   }
-  
+
   .my-properties.list .property-detail > div {
 		width: 33.33%;
 		display: table-cell;
@@ -3546,7 +3545,7 @@ ul.wysihtml5-toolbar a:hover {
   font-size: 14px;
 }
 
-.modal .modal-dialog .modal-footer .btn { 
+.modal .modal-dialog .modal-footer .btn {
 	font-size: 16px;
 	text-shadow: none;
 	border: 0 none;
@@ -3639,7 +3638,7 @@ ul.wysihtml5-toolbar a:hover {
 		padding-bottom: 50px;
 	}
 }
-	
+
 .contact-desc .form-control-wrap, .contact-desc-1 .form-control-wrap {
   display: block !important;
   width: 100% !important;
@@ -4294,4 +4293,3 @@ input[type="checkbox"]:checked:before {
   top: 6px;
   font-size: 12px;
 }
-
