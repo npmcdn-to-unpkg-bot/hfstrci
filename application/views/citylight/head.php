@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/style.css">
   <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/shortcode.css">
   <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/citilights-shortcode.css">
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/color/color1.css">
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/color/color1.css">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url(); ?>css/custom.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
