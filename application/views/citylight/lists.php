@@ -83,6 +83,7 @@
                              <div class="form-group glocation"  style="width:49%;float:right;">
                                 <div class="label-select1">
                                 <select class="form-control1 bedroom2 " name="bedroom2">
+                                  <option value="">Max Bedroom</option>
                                   <option value="0"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 0) echo " selected"; ?>>Studio</option>
                                   <option value="1"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 1) echo " selected"; ?>>1</option>
                                   <option value="2"<?php if(isset($filters["bedroom2"]) && $filters["bedroom2"] === 2) echo " selected"; ?>>2</option>
