@@ -136,6 +136,127 @@ input[type="checkbox"]:checked:before {
     .search fieldset input[type="search"] {
         margin: 15px auto!important;
         display: block!important;
+        margin-bottom: 0!important;
+        font-size: 15px!important;
+    }
+
+    .properties-ordering {
+        margin-left: 0px!important; 
+    }
+    .banner_ads_left .adsbygoogle {
+        margin-left: -15px!important;
     }
     
+}
+
+/* css mobile bar */
+.mobile_bar {
+    background-color: #357bb5;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    height: 66px;
+    padding: 10px 20px;
+    display: none;
+
+}
+
+.content_bar {
+    width: 80%;
+    float: left;
+}
+
+.mobile_bar img {
+    width: 50px;
+    margin-top: -3px;
+    float: right;
+}
+
+.close_btn {
+    background: url("../images/close_btn.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 64px;
+    height: 20px;
+    width: 20px;
+    right: 0;
+}
+
+
+@media only screen and (min-width: 450px) {
+    .mobile_bar {
+        line-height: 40px;
+    }
+
+
+}
+
+/* css new home layout */
+.search {
+     background: url("../images/banner_home.jpg") repeat scroll 0 0 / cover!important ;
+    border: none!important;
+    min-height: 250px!important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.input_search {
+    background: white!important;
+    border-radius:0!important;
+    padding: 0!important;
+    margin: 0 10px 0 0!important;
+    text-indent: 20px; 
+    width: 400px!important;
+}
+
+.for_sale {
+    background: #39be8c none repeat scroll 0 0 !important;
+    border:  none !important;
+    margin-right: 10px !important;
+}
+
+.for_rent {
+    background: #337ab7 none repeat scroll 0 0 !important;
+    border:  none !important;
+    border-radius: 0!important;
+}
+
+.search fieldset {
+    background: rgba(84, 83, 83, 0.63)!important;
+    padding: 25px 20px!important;
+    text-align: center!important;
+}
+
+.head_text {
+    color:white!important;
+}
+
+footer .socialmedia {
+    line-height:0;
+}
+
+
+
+@media only screen and (max-width: 740px) {
+    .head_text  {
+        font-size:14px!important;
+    }
+
+    .for_sale , .for_rent { 
+        width: 33%!important;
+    }
+    .for_sale { 
+        margin-left:-5px!important; 
+    }
+
+}
+
+
+@media only screen and (max-width: 450px) {
+    .input_search {
+        width: 90%!important;
+    }
 }

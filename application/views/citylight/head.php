@@ -45,8 +45,22 @@
 
   <script>
 
+        function detectmob() { 
+          
+         if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)
+         ){
+            return true;
+          }
+         else {
+            return false;
+          }
+        }
+
         jQuery(document).ready(function() {
 
+        if (!detectmob()) {
             // Event move outside
           $('html').mouseleave(function(e) {
                 var top = e.pageY;
@@ -63,8 +77,17 @@
                     }
                 }
             });
+          } else {
+            var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
+                var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
+                var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";
+                //if (search != "" || max_price != "" || salerent != "") {
+                    $(".mobile_bar").show();
+                //}
+        }
 
         });
+        
 </script>
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
