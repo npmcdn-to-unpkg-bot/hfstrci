@@ -159,6 +159,7 @@ input[type="checkbox"]:checked:before {
     height: 66px;
     padding: 10px 20px;
     display: none;
+    z-index: 99;
 
 }
 
@@ -238,7 +239,9 @@ footer .socialmedia {
     line-height:0;
 }
 
-
+.search fieldset input[type="search"], .search fieldset input[type="search"]:hover , .search fieldset input[type="search"]:focus {
+    box-shadow:none!important;
+}
 
 @media only screen and (max-width: 740px) {
     .head_text  {

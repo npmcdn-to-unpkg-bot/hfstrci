@@ -255,6 +255,10 @@
             redirectToUnbounce();
         });
 
+        $(".content_bar").click(function(){
+            redirectToUnbounce();
+        });
+
          $(".close_btn").click(function(){
             $('.mobile_bar').hide(); 
         });
