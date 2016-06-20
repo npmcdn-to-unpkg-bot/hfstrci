@@ -2,7 +2,7 @@
 
 class Houses extends CI_Controller {
 
-	public $propertiesperpage = 52;
+	public $propertiesperpage = 30;
 
 	function __construct() {
 		parent::__construct();
