@@ -59,10 +59,10 @@ class Housesm extends CI_Model {
 	}
 	$query1 = $this->db->query("
                 SELECT id_feed, SQRT(
-                POW(69.1 * (latitude_feed - ".$lat."), 2) +
-                POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
+                POW(69.1 * (latitude_feed - ".round($lat,3)."), 2) +
+                POW(69.1 * (".round($lng,3)." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
                 FROM feed $where AND 
-                longitude_feed between (".$lng." - ".(float)$range."/69.1) and (".$lng." + ".(float)$range."/69.1) and latitude_feed between (".$lat." - ".(float)$range."/69.1) and (".$lat." + ".(float)$range."/69.1)
+                longitude_feed between (".round($lng,3)." - ".(float)$range."/69.1) and (".round($lng,3)." + ".(float)$range."/69.1) and latitude_feed between (".round($lat,3)." - ".(float)$range."/69.1) and (".round($lat,3)." + ".(float)$range."/69.1)
                 HAVING distance < ".(float)$range." ORDER BY distance");
 		
 	//$rowcount = $query1->num_rows();
@@ -197,8 +197,8 @@ class Housesm extends CI_Model {
     	    	}  		
     		$query = $this->db->query("
 				SELECT id_feed, latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed, SQRT(
-			    POW(69.1 * (latitude_feed - ".$lat."), 2) +
-			    POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
+			    POW(69.1 * (latitude_feed - ".round($lat,3)."), 2) +
+			    POW(69.1 * (".round($lng,3)." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
 				FROM feed $where HAVING distance < ".(float)$range." ORDER BY ".$sort." LIMIT ".$startnum.", ".$resultnumber);
 			
     		return $query->result();
@@ -241,13 +241,13 @@ class Housesm extends CI_Model {
     		$query = $this->db->query("
 				SELECT MAX(price_feed) as maxp, MIN(price_feed) as minp, AVG(price_feed) as avgp FROM (
 				SELECT price_feed
-				FROM feed $where and price_feed > 0 and SQRT(POW(69.1 * (latitude_feed - ".$lat."), 2) + POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) < ".(float)$range.") as tt");
+				FROM feed $where and price_feed > 0 and SQRT(POW(69.1 * (latitude_feed - ".round($lat,3)."), 2) + POW(69.1 * (".round($lng,3)." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) < ".(float)$range.") as tt");
 				
 		$where = "WHERE listing_type_feed = '".$saletype."'";
 		$query2 = $this->db->query("
 				SELECT property_type_feed, COUNT(property_type_feed) AS popularity, AVG(price_feed) as avgp, AVG(num_bedrooms_feed) as avgb FROM (
 				SELECT price_feed, property_type_feed, num_bedrooms_feed
-				FROM feed $where and price_feed > 0 and SQRT(POW(69.1 * (latitude_feed - ".$lat."), 2) + POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) < ".(float)$range.") as tt GROUP BY property_type_feed ORDER by popularity DESC");
+				FROM feed $where and price_feed > 0 and SQRT(POW(69.1 * (latitude_feed - ".round($lat,3)."), 2) + POW(69.1 * (".round($lng,3)." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) < ".(float)$range.") as tt GROUP BY property_type_feed ORDER by popularity DESC");
 				
 		
 				
@@ -293,8 +293,8 @@ class Housesm extends CI_Model {
     	    		
     		$query = $this->db->query("
 				SELECT key_feed, SQRT(
-			    POW(69.1 * (latitude_feed - ".$lat."), 2) +
-			    POW(69.1 * (".$lng." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
+			    POW(69.1 * (latitude_feed - ".round($lat,3)."), 2) +
+			    POW(69.1 * (".round($lng,3)." - longitude_feed ) * COS(latitude_feed / 57.3), 2)) AS distance
 				FROM feed $where HAVING distance < ".(float)$range." LIMIT 500");
 			
     		return $query->num_rows();
