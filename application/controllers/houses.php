@@ -10,7 +10,7 @@ class Houses extends CI_Controller {
 		//$this->output->enable_profiler(TRUE);
 		$this->lang->load("titles","english");
 		$this->load->model('Housesm');
-		$this->output->enable_profiler(TRUE);
+		
 	}
 
 	public function for_error(){
