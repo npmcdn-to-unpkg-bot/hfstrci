@@ -196,10 +196,10 @@ input[type="checkbox"]:checked:before {
 
 /* css new home layout */
 .search {
-     background: url("../images/banner_home.jpg") repeat scroll 0 0 / cover!important ;
+     background: url("../images/banner.png") repeat scroll right 0 / cover!important ;
     border: none!important;
     min-height: 250px!important;
-    display: flex;
+    /*display: flex;*/
     flex-direction: column;
     justify-content: center;
 
@@ -226,13 +226,14 @@ input[type="checkbox"]:checked:before {
 }
 
 .search fieldset {
-    background: rgba(84, 83, 83, 0.63)!important;
+    /*background: rgba(84, 83, 83, 0.63)!important;*/
     padding: 25px 20px!important;
     text-align: center!important;
 }
 
 .head_text {
     color:white!important;
+    margin-bottom: 70px !important;
 }
 
 footer .socialmedia {
@@ -245,7 +246,8 @@ footer .socialmedia {
 
 @media only screen and (max-width: 740px) {
     .head_text  {
-        font-size:14px!important;
+        margin-bottom: 45px!important;
+        font-size:20px!important;
     }
 
     .for_sale , .for_rent { 
@@ -255,6 +257,10 @@ footer .socialmedia {
         margin-left:-5px!important; 
     }
 
+    .search {
+        background: url("../images/mobile.png") repeat scroll right 0 / cover!important ;
+     } 
+
 }
 
 
@@ -262,4 +268,17 @@ footer .socialmedia {
     .input_search {
         width: 90%!important;
     }
+}
+
+.banner_get_free {
+     margin: 20px auto;
+     display: inline-block; 
+}
+
+.banner_get_free  a{
+    float: left;
+}
+
+.banner_ads_left {
+    text-align: center;
 }
