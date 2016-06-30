@@ -196,7 +196,8 @@ input[type="checkbox"]:checked:before {
 
 /* css new home layout */
 .search {
-     background: url("../images/banner.png") repeat scroll right 0 / cover!important ;
+     background: url("../images/banner.png") no-repeat !important ;
+     background-size: 100% 100%!important;
     border: none!important;
     min-height: 250px!important;
     /*display: flex;*/
@@ -258,7 +259,7 @@ footer .socialmedia {
     }
 
     .search {
-        background: url("../images/mobile.png") repeat scroll right 0 / cover!important ;
+        background: url("../images/mobile.png") no-repeat scroll center  / cover!important ;
      } 
 
 }
