@@ -1,12 +1,12 @@
 .iframe_wrapper {
-	
+    
 }
 .iframe_wrapper iframe {
-	width: 100%;
-	height:100%;
+    width: 100%;
+    height:100%;
 }
 .dialog_wrapper {
-	width: 90%!important;
+    width: 90%!important;
 }
 
 .modal-backdrop.in {
@@ -31,14 +31,14 @@
 }
 
 .title_receive {
-	color: white;
+    color: white;
     padding: 30px 50px 10px;
     margin: 0!important;
     font-size: 35px;
 }
 
 .des_receive {
-	color: white;
+    color: white;
     padding: 5px 50px;
     font-size: 14pt;
 }
@@ -50,7 +50,7 @@
 }
 
 .btn_receive {
-	background: rgba(255, 102, 0, 1) none no-repeat scroll 0 0;
+    background: rgba(255, 102, 0, 1) none no-repeat scroll 0 0;
     border-color: #333333;
     border-radius: 0;
     border-style: solid;
@@ -195,15 +195,10 @@ input[type="checkbox"]:checked:before {
 }
 
 /* css new home layout */
-@media only screen and (min-width: 1600px) {
-    .search {
-        min-height: 350px!important;
-    }
 
-}
 
 .search {
-     background: url("../images/banner1920.png") no-repeat !important ;
+     background: url("../images/banner1920.png") no-repeat center right!important ;
      background-size: 100% 100%!important;
     border: none!important;
     min-height: 250px!important;
@@ -212,6 +207,7 @@ input[type="checkbox"]:checked:before {
     justify-content: center;
 
 }
+
 .input_search {
     background: white!important;
     border-radius:0!important;
@@ -250,6 +246,21 @@ footer .socialmedia {
 
 .search fieldset input[type="search"], .search fieldset input[type="search"]:hover , .search fieldset input[type="search"]:focus {
     box-shadow:none!important;
+}
+
+@media only screen and (min-width: 1600px) {
+    .search {
+        min-height: 350px!important;
+        background-size: 100% 100%!important;
+    }
+
+}
+
+@media only screen and (max-width: 890px) {
+    .search {
+        background-size: auto 100%!important;
+    }
+
 }
 
 @media only screen and (max-width: 740px) {
