@@ -198,6 +198,11 @@
   });
 </script>
 
+<div class="mobile_bar">
+    <div class="content_bar">Learn about properties as soon  as they  come to market</div>
+    <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
+    <div class="close_btn"></div>
+</div>
 <!-- Thanks -->
 <div class="modal fade" id="thankyoupage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -239,16 +244,31 @@
 <script>
     jQuery(document).ready(function() {
         $(".btn_receive").click(function(){
-            var search = localStorage.getItem("search") != "undefined" ?localStorage.getItem("search"):"";
-            var max_price = localStorage.getItem("max_price");
-            var salerent = localStorage.getItem("salerent");
-             window.location.assign("http://unbouncepages.com/property-alerts?keyword="+search+"&salerent="+salerent+"&pricerange="+max_price+"");
-            
+            redirectToUnbounce();
         });
 
         $(".btn_reject").click(function(){
             $('#unbounce').modal("hide"); 
         });
+
+        $(".unbounce_redirect").click(function(){
+            redirectToUnbounce();
+        });
+
+        $(".content_bar").click(function(){
+            redirectToUnbounce();
+        });
+
+         $(".close_btn").click(function(){
+            $('.mobile_bar').hide(); 
+        });
+
+         function redirectToUnbounce(){
+              var search = localStorage.getItem("search") != "undefined" ?localStorage.getItem("search"):"";
+              var max_price = localStorage.getItem("max_price");
+              var salerent = localStorage.getItem("salerent");
+              window.location.assign("http://unbouncepages.com/property-alerts?keyword="+search+"&salerent="+salerent+"&pricerange="+max_price+"");
+         }
     });
 </script>
 </body>

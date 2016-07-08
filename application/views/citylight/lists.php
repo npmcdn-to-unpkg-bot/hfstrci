@@ -136,6 +136,7 @@
                                	<button class="btn btn-deault" id="search_my_pro" type="submit" value="Search Property" name="action">Search my Property</button>
                                 </div>
 
+
                               <!-- hendar -->
                                 &nbsp;
                                 <div class="gsubmit">
@@ -146,7 +147,11 @@
                                           data-geo2="<?php echo isset($bread[1]['name'])?$bread[1]['name']:''; ?>"
                                   >Save Search</button>
                                 </div>
-
+                              <div class="banner_get_free">
+                                <a href="http://www.internet-mortgage-services.co.uk/houses-for-sale-or-to-rent" target="_blank">
+                                  <img src="<?php echo $this->config->base_url(); ?>/images/get_free.png" />
+                                </a>
+                              </div>
                                 <!-- Modal Form Subscribe -->
                                 <div class="modal" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
                                   <div class="modal-dialog" role="document">
@@ -183,6 +188,53 @@
                   </div>
 
                 <!-- END FIND PROPERTY -->
+
+              <?php /* <div class="banner_ads_left">
+                 <script type='text/javascript'>
+                  if (!detectmob()) {
+                  <!--//<![CDATA[
+                     document.MAX_ct0 ='';
+                     var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
+                     var m3_r = Math.floor(Math.random()*99999999999);
+                     document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+                     document.write ("zoneid=412356");document.write("&amp;nodis=1");
+                     document.write ('&amp;cb=' + m3_r);
+                     if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+                     document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+                     document.write ("&amp;loc=" + escape(window.location).substring(0,1600));
+                     if (document.context) document.write ("&context=" + escape(document.context));
+                     if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+                         document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+                     }
+                     if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+
+                     document.write ("'></scr"+"ipt>");
+                  //]]>-->
+                    } else {
+                      <!--//<![CDATA[
+                     document.MAX_ct0 ='';
+                     var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
+                     var m3_r = Math.floor(Math.random()*99999999999);
+                     document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+                     document.write ("zoneid=434917");document.write("&amp;nodis=1");
+                     document.write ('&amp;cb=' + m3_r);
+                     if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+                     document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+                     document.write ("&amp;loc=" + escape(window.location).substring(0,1600));
+                     if (document.context) document.write ("&context=" + escape(document.context));
+                     if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+                         document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+                     }
+                     if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+
+                     document.write ("'></scr"+"ipt>");
+                  //]]>-->
+                    }</script>
+
+               </div> */?>
+
+
+
                 <?php if($lat && $lng){
 	                echo '<div class="block-sidebar">
 	                  <div id="map" style="margin-top:15px;width:100%;height:250px;background:gray;"></div>
@@ -202,17 +254,17 @@
 	                  	<li><hr /></li>
 	                  	<li><a href="<?php echo $related["0bedsale"]; ?>" title="Studio for sale in <?php echo $searchvalue; ?>">Studio for Sale in <?php echo $searchvalue; ?></a></li>
 	                  	<li><a href="<?php echo $related["1bedsale"]; ?>" title="1 bedroom for sale in <?php echo $searchvalue; ?>">1 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["2bedsale"]; ?>" title="2 bedroom for sale in <?php echo $searchvalue; ?>">2 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["3bedsale"]; ?>" title="3 bedroom for sale in <?php echo $searchvalue; ?>">3 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["4bedsale"]; ?>" title="4 bedroom for sale in <?php echo $searchvalue; ?>">4 bedroom for Sale in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["5bedsale"]; ?>" title="5+ bedroom for sale in <?php echo $searchvalue; ?>">5+ bedroom for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["2bedsale"]; ?>" title="2 bedrooms for sale in <?php echo $searchvalue; ?>">2 bedrooms for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["3bedsale"]; ?>" title="3 bedrooms for sale in <?php echo $searchvalue; ?>">3 bedrooms for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["4bedsale"]; ?>" title="4 bedrooms for sale in <?php echo $searchvalue; ?>">4 bedrooms for Sale in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["5bedsale"]; ?>" title="5+ bedrooms for sale in <?php echo $searchvalue; ?>">5+ bedrooms for Sale in <?php echo $searchvalue; ?></a></li>
 	                  	<li><hr/></li>
 	                  	<li><a href="<?php echo $related["0bedrent"]; ?>" title="Studio to rent in <?php echo $searchvalue; ?>">Studio to rent in <?php echo $searchvalue; ?></a></li>
 	                  	<li><a href="<?php echo $related["1bedrent"]; ?>" title="1 bedroom to rent in <?php echo $searchvalue; ?>">1 bedroom to rent in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["2bedrent"]; ?>" title="2 bedroom to rent in <?php echo $searchvalue; ?>">2 bedroom to rent in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["3bedrent"]; ?>" title="3 bedroom to rent in <?php echo $searchvalue; ?>">3 bedroom to rent in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["4bedrent"]; ?>" title="4 bedroom to rent in <?php echo $searchvalue; ?>">4 bedroom to rent in <?php echo $searchvalue; ?></a></li>
-	                  	<li><a href="<?php echo $related["5bedrent"]; ?>" title="5+ bedroom to rent in <?php echo $searchvalue; ?>">5+ bedroom to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["2bedrent"]; ?>" title="2 bedrooms to rent in <?php echo $searchvalue; ?>">2 bedrooms to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["3bedrent"]; ?>" title="3 bedrooms to rent in <?php echo $searchvalue; ?>">3 bedrooms to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["4bedrent"]; ?>" title="4 bedrooms to rent in <?php echo $searchvalue; ?>">4 bedrooms to rent in <?php echo $searchvalue; ?></a></li>
+	                  	<li><a href="<?php echo $related["5bedrent"]; ?>" title="5+ bedrooms to rent in <?php echo $searchvalue; ?>">5+ bedrooms to rent in <?php echo $searchvalue; ?></a></li>
 	                  </ul>
 	        </div>
 
@@ -222,10 +274,15 @@
 
 	                  <p style="text-align: justify;">
 	                  Your search returned <?php if($rows == 500) echo "500+"; else echo $rows; ?> homes <?php echo strtolower($saletype); ?> in <?php echo $searchvalue; ?>.
-	                  The average asking price for a <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?> in <?php echo $searchvalue; ?> is £<?php echo number_format($relatedproptype[0]["avgprice"],2); ?>.</p>
+                    <?php
+                        $bed_text = (round($relatedproptype[0]["avgbed"]) > 1 ? "bedrooms": "bedroom");
+                        $bed_text1 = (round($relatedproptype[1]["avgbed"]) > 1 ? "bedrooms": "bedroom");
+                     ?>
+	                  The average asking price for a <?php echo round($relatedproptype[0]["avgbed"])." ".$bed_text." ".$relatedproptype[0]["proptype"]; ?> in <?php echo $searchvalue; ?> is £<?php echo number_format($relatedproptype[0]["avgprice"],2); ?>.</p>
 
 			<?php if(isset($relatedproptype[0])){ ?>
-			<p style="text-align: justify;">The most common property type available <?php echo strtolower ($saletype); ?> in <?php echo $searchvalue; ?> are <?php echo round($relatedproptype[0]["avgbed"])." bedroom ".$relatedproptype[0]["proptype"]; ?><?php if(isset($relatedproptype[1])){ ?> and <?php echo round($relatedproptype[1]["avgbed"])." bedroom "; echo $relatedproptype[1]["proptype"]; ?><?php } ?><br />
+			<p style="text-align: justify;">The most common property type available <?php echo strtolower ($saletype); ?> in <?php echo $searchvalue; ?> are <?php echo round($relatedproptype[0]["avgbed"])." ".$bed_text." ".$relatedproptype[0]["proptype"]; ?>
+      <?php if(isset($relatedproptype[1])){ ?> and <?php echo round($relatedproptype[1]["avgbed"])." ".$bed_text1." "; echo $relatedproptype[1]["proptype"]; ?><?php } ?><br />
 To help you refine your search in <?php echo $searchvalue; ?> please feel free to try the following popular links:</p>
 
 			<?php } ?>
@@ -233,9 +290,10 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 			<?php
 
 			for($i = 0;$i < count($relatedproptype);$i++){
+        $bed_text_i = (round($relatedproptype[$i]["avgbed"]) > 1 ? "bedrooms": "bedroom");
 			$tit = "";
 			if($relatedproptype[$i]["avgbed"] != 0)
-				$tit .= $relatedproptype[$i]["avgbed"].' bedroom ';
+				$tit .= $relatedproptype[$i]["avgbed"].' '.$bed_text_i.' ';
 			$tit .= $relatedproptype[$i]["proptype"].' '.strtolower($saletype).' in '.$searchvalue.'';
 			echo '<li><a href="'.$relatedproptype[$i]["link"].'" title="'.$tit.'">'.$tit.'</a></li>';
 
@@ -451,11 +509,11 @@ foreach($results as $k){
                             	<span><Strong>
 	                            	<?php
 	                            	if($bed > 1)
-						 echo $bed.' Bedroom ';
-					elseif($bed == 1)
-						  echo $bed.' Bedrooms';
-					 else
-						  echo "Studio "; ?>
+                      						 echo $bed.' Bedrooms';
+                      					elseif($bed == 1)
+                      						  echo $bed.' Bedroom';
+                      					 else
+                      						  echo "Studio "; ?>
 				</strong></span>
 
                             </p>
