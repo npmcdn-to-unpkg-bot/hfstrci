@@ -16,8 +16,8 @@
 <?php if(isset($meta)){echo $meta;} ?>
 <?php echo $js; //tt ?>
 <script>
-        function detectmob() { 
-          
+        function detectmob() {
+
          if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
          || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)
          || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)
@@ -32,7 +32,7 @@
             $("form input[type=submit]").click(function() {
                 $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
                 $(this).attr("clicked", "true");
-            }); 
+            });
         });
 
         jQuery(document).ready(function() {
@@ -41,20 +41,20 @@
              });
             // Event move outside
             if (!detectmob()) {
-                $('html').mouseleave(function(e) { 
+                $('html').mouseleave(function(e) {
                     var top = e.pageY;
                     var right = document.body.clientWidth - e.pageX;
                     var bottom = document.body.clientHeight - e.pageY;
                     var left = e.pageX;
                     if(top < 10 || right < 20 || bottom < 10 || left < 10){
                         var d = new Date();
-                        var n = d.getTime(); 
-                        var isShow = sessionStorage .getItem("show_popup"); 
+                        var n = d.getTime();
+                        var isShow = sessionStorage .getItem("show_popup");
                         if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
                             $('#unbounce').modal("show");  // show popup
                             sessionStorage .setItem("show_popup", n); // set value to tick for show popup
                         }
-                    }         
+                    }
                 });
             } else {
                 var search = localStorage.getItem("search") != "undefined" ? (localStorage.getItem("search") != null ? localStorage.getItem("search"): "" ) : "";
@@ -65,13 +65,13 @@
                 } else {
                     $(".mobile_bar").show();
                 }
-               
+
             }
-            
 
-        }); 
 
-        
+        });
+
+
 
 </script>
 
@@ -84,5 +84,3 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-MMH24R');</script>
 <!-- End Google Tag Manager -->
-
-
