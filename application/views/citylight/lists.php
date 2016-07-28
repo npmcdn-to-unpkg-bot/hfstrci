@@ -239,6 +239,10 @@
 	                echo '<div class="block-sidebar">
 	                  <div id="map" style="margin-top:15px;width:100%;height:250px;background:gray;"></div>
 	                  <span>'.$formatted_address.'</span>
+										<div itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
+								        <meta itemprop="latitude" content="'.$lat.'">
+								        <meta itemprop="longitude" content="'.$lng.'">
+								    </div>
 	                  <script type="text/javascript">var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
 	                </div>';
 	               }
@@ -475,7 +479,7 @@ foreach($results as $k){
                    ?>
                    <!-- Hendar -->
                   <article class="hentry">
-                      <div class="property-featured">
+                      <div class="property-featured" itemscope="" itemtype="http://schema.org/Residence">
                         <span class="featured" data-toggle="modal" data-target="#formListing"
                                 data-type="<?php echo $proptype; ?>"
                                 data-postcode="<?php echo (isset($postcode)?$postcode:""); ?>"
@@ -485,6 +489,10 @@ foreach($results as $k){
                                 data-price="<?php echo $price; ?>" >
                           <i class="fa fa-heart"></i>
                         </span>
+												<div itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
+										        <meta itemprop="latitude" content="<?php echo $k->latitude_feed; ?>">
+										        <meta itemprop="longitude" content="<?php echo $k->longitude_feed; ?>">
+										    </div>
                         <a class="content-thumb" rel="nofollow" target="_blank"  href="<?php echo $href; ?>">
                         	<?php if($counti > 8){ ?>
                           <img src="<?php echo $this->config->base_url(); ?>images/loading.gif" data-src="<?php echo $img; ?>" alt="<?php echo $desc; ?>">
@@ -497,11 +505,13 @@ foreach($results as $k){
                         <span class="property-category"><a href="<?php echo $href; ?>" rel="nofollow" target="_blank"><?php echo $proptype; ?></a></span>
                       </div>
                       <div class="property-wrap">
-                        <h2 class="property-title">
+                        <h2 class="property-title" itemprop="name">
                           <a href="<?php echo $href; ?>" title="<?php echo $title; ?>" rel="nofollow" target="_blank"><?php echo $title; ?></a>
                         </h2>
-                        <div class="property-excerpt">
-                          <p><strong><?php echo $desc; ?></strong><br><?php echo $charscount; ?></p>
+                        <div class="property-excerpt" >
+
+                          <p><span><strong itemprop="address"><?php echo $desc; ?></strong></span><br><span itemprop="description"><?php echo $charscount; ?></span></p>
+
                         </div>
                         <div class="property-summary">
                           <div class="property-detail">
@@ -530,9 +540,9 @@ foreach($results as $k){
 
                           </div>
                           <div class="property-info">
-                            <div class="property-price">
+                            <div class="property-price" itemprop="offers" itemscope itemtype="http://schema.org/AggregateOffer">
                               <span>
-                                <span class="amount">£ <?php echo $price; ?></span>
+                                <span class="amount" itemprop="price" content="<?php echo str_replace(',', '', $price); ?>">£ <?php echo $price; ?></span>
                               </span>
                             </div>
                             <div class="property-action">
