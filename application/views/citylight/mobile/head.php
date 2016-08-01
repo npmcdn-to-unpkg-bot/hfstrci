@@ -28,16 +28,7 @@
   }*/
   ?>
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/font-awesome.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/style.css">
-  <link rel="stylesheet" href="http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/css/citylight/shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/citilights-shortcode.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/color/color1.css">
-  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/citylight/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo $this->config->base_url(); ?>css/custom.css">
+  <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/hfstrcibkt/style.min.css.gz">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -45,8 +36,8 @@
 
   <script>
 
-        function detectmob() { 
-          
+        function detectmob() {
+
          if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
          || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)
          || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)
@@ -87,7 +78,7 @@
         }
 
         });
-        
+
 </script>
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
