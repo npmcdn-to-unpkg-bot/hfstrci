@@ -459,6 +459,8 @@ foreach($results as $k){
 	            if(@getimagesize($img))
 	            break;
 	   }*/
+
+
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
