@@ -27,40 +27,9 @@
   	}
   }*/
   ?>
-  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/hfstrcibkt/style.min.css.gz">
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
-  <script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
-
-  <script>
-
-        
-
-        jQuery(document).ready(function() {
-
-            // Event move outside
-          $('html').mouseleave(function(e) {
-                var top = e.pageY;
-                var right = document.body.clientWidth - e.pageX;
-                var bottom = document.body.clientHeight - e.pageY;
-                var left = e.pageX;
-                if(top < 10 || right < 20 || bottom < 10 || left < 10){
-                    var d = new Date();
-                    var n = d.getTime();
-                    var isShow = sessionStorage .getItem("show_popup");
-                    if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
-                        $('#unbounce').modal("show");  // show popup
-                        sessionStorage .setItem("show_popup", n); // set value to tick for show popup
-                    }
-                }
-            });         
-
-        });
-
-</script>
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>

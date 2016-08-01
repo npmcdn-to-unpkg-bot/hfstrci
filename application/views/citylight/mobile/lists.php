@@ -237,8 +237,9 @@
 
                 <?php if($lat && $lng){
 	                echo '<div class="block-sidebar">
-	                  <div id="map" style="margin-top:15px;width:100%;height:250px;background:gray;"></div>
-	                  <span>'.$formatted_address.'</span>
+
+	                ';  //<div id="map" style="margin-top:15px;width:100%;height:250px;background:gray;"></div>
+	                  echo '<span>'.$formatted_address.'</span>
 										<div itemprop="geo" itemscope="" itemtype="http://schema.org/GeoCoordinates">
 								        <meta itemprop="latitude" content="'.$lat.'">
 								        <meta itemprop="longitude" content="'.$lng.'">
@@ -633,61 +634,3 @@ foreach($results as $k){
 
     <!-- Modal Form -->
   <!-- hendar -->
-
- <script type="text/javascript">
-      $(document).ready(function() {
-          localStorage.setItem("search","<?php echo $searchvalue ?>");
-          localStorage.setItem("salerent","<?php echo $type_search ?>");
-      });
-  </script>
-
-<!-- hendar -->
-<style>
-.properties .hentry .property-featured .featured {
-    #background: none repeat scroll 0 0 #fff;
-    #background:linear-gradient(left, #000, #000) no-repeat 50px 50px;
-    #background-image: linear-gradient(left, transparent 300px,rgba(39,39,39,.5) 300px, rgba(39,39,39,.5) 100%);
-    color: #f47606;
-    font-size: 24px;
-    width: 0%;
-    height: 0%;
-    left: -25px;
-    line-height: 100px;
-    position: absolute;
-    text-align: right;
-    top: -30px;
-    -webkit-transform: rotate(0deg) !important;
-    -moz-transform: rotate(0deg) !important;
-    -o-transform: rotate(0deg) !important;
-    -ms-transform: rotate(0deg) !important;
-    transform: rotate(0deg) !important;
-    z-index: 2 !important;
-    cursor: pointer;
-}
-
-.fa-heart {
-  /*background: #FFFFFF; */
-    font-size:30px;
-    border-radius: 0%;
-    height: 24px;
-    width: 25px;
-    display: block;
-    opacity:0.85;
-}
-
-.properties .hentry .property-featured .featured i {
-    position: absolute !important;
-    right: 100% !important;
-    top: 40px !important;
-    left: 38px !important;
-    /* width: 11%; */
-}
-
-.btn-save {
-  background: #337ab7 !important;
-}
-
-.noo-sidebar .gsearch .gsearch-wrap .gsearch-content .gsearch-action .gsubmit .btn {
-    font-size: 19px !important;
-}
-</style>

@@ -16,45 +16,45 @@
             </div>
             <!-- END ABOUT US -->
             <div class="col-xs-12 col-sm-12 col-md-9 footer-nav-col">
-<?php       
+<?php
       $cl = ceil(count($links)/6);
       $i = 0;
-      
+
       echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
   echo '    <div class="ft-useful-links">';
   echo '      <h4 class="ft-col-title">Useful links</h4>';
   echo '      <nav class="useful-links-menu" role="navigation">';
   echo '        <ul>';
-              
+
       foreach($links as $link){
-      
-        if($i % $cl == 0 && $i > 0  ){   
-                  
+
+        if($i % $cl == 0 && $i > 0  ){
+
             echo '        </ul>';
         echo '      </nav>';
         echo '    </div>';
-        echo '  </div>';       
+        echo '  </div>';
               echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
               echo '    <div class="ft-useful-links">';
               //echo '      <h4 class="ft-col-title">Useful links</h4>';
               echo '      <nav class="useful-links-menu" role="navigation">';
               echo '        <ul>';
-            
-            }                   
+
+            }
           echo ' <li class="menu-item"><a href="'.$link->link.'">'.$link->title.'</a></li>';
-                                
-    $i++;           
+
+    $i++;
            }
-           
+
         echo '        </ul>';
   echo '      </nav>';
   echo '    </div>';
   echo '  </div>';
-           
+
 ?>
- 
+
           </div>
-                     
+
           </div>
         </div>
       </div>
@@ -75,9 +75,9 @@
                 <a href="<?php echo $this->config->base_url(); ?>"><img src="<?php echo $this->config->base_url(); ?>/images/houses-for-sale-to-rent.png" alt="Houses for Sale & to Rent"></a>
               </div>
             </div>
-          </div>          
+          </div>
         </div>
-       
+
         <!-- START BACK TO TOP -->
         <div id="back-to-top" class="back-to-top">
           <i class="fa fa-angle-up"></i>
@@ -89,7 +89,7 @@
     <!-- END FOOTER -->
   </div>
   <!-- END SITE -->
- 
+
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
 
@@ -124,7 +124,7 @@
         <div class="form_receive">
             <h1 class="title_receive">Receive properties as soon as they come to market! </h1>
             <h5 class="des_receive">Receive information about new properties for sale or to rent that match your budget and location as soon as these become available so you can get there first.</h5>
-            <div class="form_input"> 
+            <div class="form_input">
                 <div class="row_receive">
                    <button class="btn_receive">YES, PLEASE!</buton>
                    <button class="btn_reject">Skip</buton>
@@ -135,8 +135,25 @@
     </div>
   </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
+<?php //<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script> ?>
+<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
+<script>
+$(document).ready(function() {
+    localStorage.setItem("search","<?php echo $searchvalue ?>");
+    localStorage.setItem("salerent","<?php echo $type_search ?>");
+});
+jQuery(document).ready(function() {
+        var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
+        var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
+        var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";
+        $(".mobile_bar").show();
 
-<script> 
+});
 $(document).ready(function(){
       $ = jQuery.noConflict();
 
@@ -164,7 +181,7 @@ $(document).ready(function(){
         }else{
           $("#email_error").hide();
         }
-        
+
         if(error ==false){
           $.ajax({
               type:"POST",
@@ -172,10 +189,10 @@ $(document).ready(function(){
               crossDomain: true,
               data: "email=" + email + "&enquirytype=" + enquirytype + "&minprice=" + minprice + "&maxprice=" + maxprice + "&geo1=" + geo1 + "&geo2=" + geo2 + "&geo3=" + geo3 + "&minbed=" + minbed + "&maxbed=" + maxbed + "&proptype=" + proptype,
               success: function(data) {
-                  $("#formSubcribe").modal('hide'); 
+                  $("#formSubcribe").modal('hide');
                   $('#infosubmit').html(data);
                   $("#thankyoupage").modal('show');
-                  
+
                   setInterval(function(){
                       $("#thankyoupage").modal('hide');
                     }, 3000);
@@ -197,8 +214,8 @@ $(document).ready(function(){
       var listingId     = $(this).data('listingid');
       var lat           = $(this).data('lat');
       var lng           = $(this).data('lng');
-      
-      submitList(listingPrice, listingType, postCode, listingId, lat, lng);     
+
+      submitList(listingPrice, listingType, postCode, listingId, lat, lng);
     });
 
     function submitList(listingPrice, listingType, postCode, listingId, lat, lng){
@@ -220,7 +237,7 @@ $(document).ready(function(){
                 crossDomain: true,
                 data: "email=" + emailListing + "&listingPrice=" + listingPrice + "&listingType=" + listingType + "&postCode=" + postCode + "&listingId=" + listingId + "&lat=" + lat + "&lng=" + lng,
                 success: function(data) {
-                    $("#formListing").modal('hide'); 
+                    $("#formListing").modal('hide');
                     $('#infosubmit').html(data);
                     $("#thankyoupage").modal('show');
                     setInterval(function(){
@@ -229,11 +246,11 @@ $(document).ready(function(){
                 }
             });
           }
-      });  
+      });
     }
 
-    
-     
+
+
   });
     jQuery(document).ready(function() {
         $(".btn_receive").click(function(){
@@ -241,7 +258,7 @@ $(document).ready(function(){
         });
 
         $(".btn_reject").click(function(){
-            $('#unbounce').modal("hide"); 
+            $('#unbounce').modal("hide");
         });
 
         $(".unbounce_redirect").click(function(){
@@ -253,7 +270,7 @@ $(document).ready(function(){
         });
 
          $(".close_btn").click(function(){
-            $('.mobile_bar').hide(); 
+            $('.mobile_bar').hide();
         });
 
          function redirectToUnbounce(){
@@ -264,9 +281,6 @@ $(document).ready(function(){
          }
     });
 </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
+
 </body>
 </html>

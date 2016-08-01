@@ -135,8 +135,34 @@
     </div>
   </div>
 </div>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+  <script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
 <script> 
+jQuery(document).ready(function() {
+
+            // Event move outside
+          $('html').mouseleave(function(e) {
+                var top = e.pageY;
+                var right = document.body.clientWidth - e.pageX;
+                var bottom = document.body.clientHeight - e.pageY;
+                var left = e.pageX;
+                if(top < 10 || right < 20 || bottom < 10 || left < 10){
+                    var d = new Date();
+                    var n = d.getTime();
+                    var isShow = sessionStorage .getItem("show_popup");
+                    if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
+                        $('#unbounce').modal("show");  // show popup
+                        sessionStorage .setItem("show_popup", n); // set value to tick for show popup
+                    }
+                }
+            });         
+
+        });
 $(document).ready(function(){
       $ = jQuery.noConflict();
 
@@ -264,9 +290,6 @@ $(document).ready(function(){
          }
     });
 </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
+
 </body>
 </html>
