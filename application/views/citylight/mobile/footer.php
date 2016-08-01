@@ -16,40 +16,40 @@
             </div>
             <!-- END ABOUT US -->
             <div class="col-xs-12 col-sm-12 col-md-9 footer-nav-col">
-<?php     	
-     	$cl = ceil(count($links)/6);
-     	$i = 0;
-     	
-     	echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
-	echo '    <div class="ft-useful-links">';
-	echo '      <h4 class="ft-col-title">Useful links</h4>';
-	echo '      <nav class="useful-links-menu" role="navigation">';
-	echo '        <ul>';
-		          
-     	foreach($links as $link){
-     	
-     		if($i % $cl == 0 && $i > 0  ){   
-     		     		  
-	     		  echo '        </ul>';
-			  echo '      </nav>';
-			  echo '    </div>';
-			  echo '  </div>';       
-		          echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
-		          echo '    <div class="ft-useful-links">';
-		          //echo '      <h4 class="ft-col-title">Useful links</h4>';
-		          echo '      <nav class="useful-links-menu" role="navigation">';
-		          echo '        <ul>';
-          	
-          	}                   
+<?php       
+      $cl = ceil(count($links)/6);
+      $i = 0;
+      
+      echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
+  echo '    <div class="ft-useful-links">';
+  echo '      <h4 class="ft-col-title">Useful links</h4>';
+  echo '      <nav class="useful-links-menu" role="navigation">';
+  echo '        <ul>';
+              
+      foreach($links as $link){
+      
+        if($i % $cl == 0 && $i > 0  ){   
+                  
+            echo '        </ul>';
+        echo '      </nav>';
+        echo '    </div>';
+        echo '  </div>';       
+              echo ' <div class="col-xs-12 col-sm-6 col-md-2 footer-nav-col">';
+              echo '    <div class="ft-useful-links">';
+              //echo '      <h4 class="ft-col-title">Useful links</h4>';
+              echo '      <nav class="useful-links-menu" role="navigation">';
+              echo '        <ul>';
+            
+            }                   
           echo ' <li class="menu-item"><a href="'.$link->link.'">'.$link->title.'</a></li>';
-                              	
-		$i++;           
+                                
+    $i++;           
            }
            
         echo '        </ul>';
-	echo '      </nav>';
-	echo '    </div>';
-	echo '  </div>';
+  echo '      </nav>';
+  echo '    </div>';
+  echo '  </div>';
            
 ?>
  
@@ -89,16 +89,55 @@
     <!-- END FOOTER -->
   </div>
   <!-- END SITE -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
-
  
  <!-- <script src="//my.hellobar.com/6049964f0fdcb99f5f1918dc0ebaecdebb0dae92.js" type="text/javascript" charset="utf-8" async="async"></script>
   -->
-<script type="text/javascript">
-  $(document).ready(function(){
+
+<div class="mobile_bar">
+    <div class="content_bar">Learn about properties as soon  as they  come to market</div>
+    <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
+    <div class="close_btn"></div>
+</div>
+<!-- Thanks -->
+<div class="modal fade" id="thankyoupage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div id="infosubmit"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Unbounce -->
+<div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog dialog_wrapper" role="document">
+    <div class="modal-content iframe_wrapper">
+      <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
+      <div class="wrapper_unbounce">
+        <div class="form_receive">
+            <h1 class="title_receive">Receive properties as soon as they come to market! </h1>
+            <h5 class="des_receive">Receive information about new properties for sale or to rent that match your budget and location as soon as these become available so you can get there first.</h5>
+            <div class="form_input"> 
+                <div class="row_receive">
+                   <button class="btn_receive">YES, PLEASE!</buton>
+                   <button class="btn_reject">Skip</buton>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script> 
+$(document).ready(function(){
       $ = jQuery.noConflict();
 
       $("#email_error").hide();
@@ -196,52 +235,6 @@
     
      
   });
-</script>
-
-<div class="mobile_bar">
-    <div class="content_bar">Learn about properties as soon  as they  come to market</div>
-    <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
-    <div class="close_btn"></div>
-</div>
-<!-- Thanks -->
-<div class="modal fade" id="thankyoupage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-      <div class="modal-body">
-        <div id="infosubmit"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Unbounce -->
-<div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog dialog_wrapper" role="document">
-    <div class="modal-content iframe_wrapper">
-      <!-- <iframe name='unbounce_frame' id='unbounce_frame'  onload="filldata()" src="http://unbouncepages.com/property-alerts/"></iframe> -->
-      <div class="wrapper_unbounce">
-        <div class="form_receive">
-            <h1 class="title_receive">Receive properties as soon as they come to market! </h1>
-            <h5 class="des_receive">Receive information about new properties for sale or to rent that match your budget and location as soon as these become available so you can get there first.</h5>
-            <div class="form_input"> 
-                <div class="row_receive">
-                   <button class="btn_receive">YES, PLEASE!</buton>
-                   <button class="btn_reject">Skip</buton>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
     jQuery(document).ready(function() {
         $(".btn_receive").click(function(){
             redirectToUnbounce();
@@ -271,5 +264,9 @@
          }
     });
 </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
 </body>
 </html>

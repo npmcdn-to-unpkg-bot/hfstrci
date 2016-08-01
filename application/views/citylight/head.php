@@ -28,8 +28,8 @@
   }*/
   ?>
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
-
   <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/hfstrcibkt/style.min.css.gz">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
@@ -37,22 +37,10 @@
 
   <script>
 
-        function detectmob() {
-
-         if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i)
-         || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i)
-         || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)
-         ){
-            return true;
-          }
-         else {
-            return false;
-          }
-        }
+        
 
         jQuery(document).ready(function() {
 
-        if (!detectmob()) {
             // Event move outside
           $('html').mouseleave(function(e) {
                 var top = e.pageY;
@@ -68,15 +56,7 @@
                         sessionStorage .setItem("show_popup", n); // set value to tick for show popup
                     }
                 }
-            });
-          } else {
-            var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
-                var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
-                var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";
-                //if (search != "" || max_price != "" || salerent != "") {
-                    $(".mobile_bar").show();
-                //}
-        }
+            });         
 
         });
 
