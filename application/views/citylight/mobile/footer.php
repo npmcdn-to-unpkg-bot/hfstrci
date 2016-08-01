@@ -148,6 +148,7 @@ $(document).ready(function() {
     localStorage.setItem("salerent","<?php echo $type_search ?>");
 });
 jQuery(document).ready(function() {
+  
         var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
         var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
         var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";

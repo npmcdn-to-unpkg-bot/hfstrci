@@ -143,6 +143,10 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
   <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
 <script> 
+$(document).ready(function() {
+          localStorage.setItem("search","<?php echo $searchvalue ?>");
+          localStorage.setItem("salerent","<?php echo $type_search ?>");
+      });
 jQuery(document).ready(function() {
 
             // Event move outside
