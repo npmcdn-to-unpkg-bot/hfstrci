@@ -10,6 +10,18 @@
         }    ?>
         </p>
 </div>
+<center>
+<script type='text/javascript'>
+ <!--//<![CDATA[
+   if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
+      var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+      var abkw = window.abkw || '';
+      var plc208807 = window.plc208807 || 0;
+      document.write('<'+'div id="placement_208807_'+plc208807+'"></'+'div>');
+      AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+//]]>-->
+
+</script></center>
 
     <div class="box">
         <span class="socialmedia">find us on:</span>
@@ -78,5 +90,7 @@
          }
     });
 </script>
+
+<!--Start Cookie Script--> <script type="text/javascript" charset="UTF-8" src="http://chs03.cookie-script.com/s/102b9910812d65af6ded2834b5128bd8.js"></script> <!--End Cookie Script-->
 </body>
 </html>
