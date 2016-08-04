@@ -1,0 +1,303 @@
+.iframe_wrapper {
+    
+}
+.iframe_wrapper iframe {
+    width: 100%;
+    height:100%;
+}
+.dialog_wrapper {
+    width: 90%!important;
+}
+
+.modal-backdrop.in {
+    /*min-height: 100%;
+    width: 100%;*/
+}
+
+.wrapper_unbounce {
+    background: url("http://d9hhrg4mnvzow.cloudfront.net/unbouncepages.com/property-alerts/1volt25-lockwood-hero.jpg") no-repeat top center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100%;
+    padding: 20px;
+}
+.form_receive {
+    background: rgba(22, 77, 10, 0.75) none repeat scroll 0 0;
+    margin: 0 auto;
+    width: 98%;
+    min-height: 300px;
+}
+
+.title_receive {
+    color: white;
+    padding: 30px 50px 10px;
+    margin: 0!important;
+    font-size: 35px;
+}
+
+.des_receive {
+    color: white;
+    padding: 5px 50px;
+    font-size: 14pt;
+}
+
+
+.row_receive{
+    margin: 5px auto;
+    text-align: center;
+}
+
+.btn_receive {
+    background: rgba(255, 102, 0, 1) none no-repeat scroll 0 0;
+    border-color: #333333;
+    border-radius: 0;
+    border-style: solid;
+    color: #fff;
+    display: block;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: normal;
+    height: 50px;
+    margin: 30px 10px 10px;
+    padding: 0 50px;
+    display: inline-block;
+    border: none;
+ 
+}
+
+
+ .btn_reject {
+    background: grey none no-repeat scroll 0 0;
+    border: none;
+    background: none;
+    color: gray;
+    font-size: 17px;
+  
+ }
+
+input[type="checkbox"]:checked:before {
+    top: 0px!important;
+}
+
+.bedroom1, .bedroom2, .range {
+    height: 34px!important;
+    padding: 0!important;
+    color: rgba(85, 85, 85, 0.67)!important;
+    font-size: 14px!important;
+    text-indent: 5px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 980px) {
+    .form_receive {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form_receive {
+        width: 70%;
+    }
+
+    footer .box {
+        padding-left: 0!important;
+    }
+}
+
+
+@media only screen and (max-width: 360px) {
+    .form_receive {
+        width: 95%;
+    }
+
+    .title_receive {
+        font-size: 15pt;
+        padding: 20px 20px 5px;
+    }
+
+    .des_receive {
+        font-size: 11pt;
+        padding: 5px 20px;
+    }
+
+    .label_title {
+        padding: 7px 15px;
+    }
+    .input_text {
+        width: 90%;
+    }
+
+    .btn_receive {
+        padding: 0 11%
+    }
+    /* css fix responsive in top page */
+    .search fieldset input[type="search"] {
+        margin: 15px auto!important;
+        display: block!important;
+        margin-bottom: 0!important;
+        font-size: 15px!important;
+    }
+
+    .properties-ordering {
+        margin-left: 0px!important; 
+    }
+    .banner_ads_left .adsbygoogle {
+        margin-left: -15px!important;
+    }
+    
+}
+
+/* css mobile bar */
+.mobile_bar {
+    background-color: #357bb5;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: white;
+    height: 66px;
+    padding: 10px 20px;
+    display: none;
+    z-index: 99;
+
+}
+
+.content_bar {
+    width: 80%;
+    float: left;
+}
+
+.mobile_bar img {
+    width: 50px;
+    margin-top: -3px;
+    float: right;
+}
+
+.close_btn {
+    background: url("../images/close_btn.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 64px;
+    height: 20px;
+    width: 20px;
+    right: 0;
+}
+
+
+@media only screen and (min-width: 450px) {
+    .mobile_bar {
+        line-height: 40px;
+    }
+
+
+}
+
+/* css new home layout */
+
+
+.search {
+     background: url("../images/banner1920.png") no-repeat center right!important ;
+     background-size: 100% 100%!important;
+    border: none!important;
+    min-height: 250px!important;
+    /*display: flex;*/
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.input_search {
+    background: white!important;
+    border-radius:0!important;
+    padding: 0!important;
+    margin: 0 10px 0 0!important;
+    text-indent: 20px; 
+    width: 400px!important;
+}
+
+.for_sale {
+    background: #39be8c none repeat scroll 0 0 !important;
+    border:  none !important;
+    margin-right: 10px !important;
+}
+
+.for_rent {
+    background: #337ab7 none repeat scroll 0 0 !important;
+    border:  none !important;
+    border-radius: 0!important;
+}
+
+.search fieldset {
+    /*background: rgba(84, 83, 83, 0.63)!important;*/
+    padding: 25px 20px!important;
+    text-align: center!important;
+}
+
+.head_text {
+    color:white!important;
+    margin-bottom: 70px !important;
+}
+
+footer .socialmedia {
+    line-height:0;
+}
+
+.search fieldset input[type="search"], .search fieldset input[type="search"]:hover , .search fieldset input[type="search"]:focus {
+    box-shadow:none!important;
+}
+
+@media only screen and (min-width: 1600px) {
+    .search {
+        min-height: 350px!important;
+        background-size: 100% 100%!important;
+    }
+
+}
+
+@media only screen and (max-width: 890px) {
+    .search {
+        background-size: auto 100%!important;
+    }
+
+}
+
+@media only screen and (max-width: 740px) {
+    .head_text  {
+        margin-bottom: 45px!important;
+        font-size:20px!important;
+    }
+
+    .for_sale , .for_rent { 
+        width: 33%!important;
+    }
+    .for_sale { 
+        margin-left:-5px!important; 
+    }
+
+    .search {
+        background: url("../images/mobile.png") no-repeat scroll center  / cover!important ;
+     } 
+
+}
+
+
+@media only screen and (max-width: 450px) {
+    .input_search {
+        width: 90%!important;
+    }
+}
+
+.banner_get_free {
+     margin: 20px auto;
+     display: inline-block; 
+}
+
+.banner_get_free  a{
+    float: left;
+}
+
+.banner_ads_left {
+    text-align: center;
+}
