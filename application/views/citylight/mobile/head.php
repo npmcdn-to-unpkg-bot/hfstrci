@@ -28,7 +28,7 @@
   }*/
   ?>
   <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic,400italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://s3-eu-west-1.amazonaws.com/hfstrcibkt/style.min.css.gz">
+  <link rel="stylesheet" href="<?php echo $this->config->base_url(); ?>css/style.min.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
 
   <!--[if lt IE 9]>

@@ -1,3 +1,16 @@
+<center>
+<script type='text/javascript'>
+ <!--//<![CDATA[
+   if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
+      var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+      var abkw = window.abkw || '';
+      var plc208807 = window.plc208807 || 0;
+      document.write('<'+'div id="placement_208807_'+plc208807+'"></'+'div>');
+      AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+//]]>-->
+</script>
+</center>
+
  <!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
 		  <!-- START MAINBODY -->
@@ -189,49 +202,19 @@
 
                 <!-- END FIND PROPERTY -->
 
-              <?php /* <div class="banner_ads_left">
-                 <script type='text/javascript'>
-                  if (!detectmob()) {
-                  <!--//<![CDATA[
-                     document.MAX_ct0 ='';
-                     var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
-                     var m3_r = Math.floor(Math.random()*99999999999);
-                     document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-                     document.write ("zoneid=412356");document.write("&amp;nodis=1");
-                     document.write ('&amp;cb=' + m3_r);
-                     if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-                     document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-                     document.write ("&amp;loc=" + escape(window.location).substring(0,1600));
-                     if (document.context) document.write ("&context=" + escape(document.context));
-                     if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
-                         document.write ("&amp;ct0=" + escape(document.MAX_ct0));
-                     }
-                     if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+                      <div class="banner_ads_left">
+                            <script type='text/javascript'>
+                             <!--//<![CDATA[
+                               if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
+                                  var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+                                  var abkw = window.abkw || '';
+                                  var plc208807 = window.plc208807 || 0;
+                                  document.write('<'+'div id="placement_208807_'+plc208807+'"></'+'div>');
+                                  AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+                            //]]>-->
+                            </script>
+                      </div>
 
-                     document.write ("'></scr"+"ipt>");
-                  //]]>-->
-                    } else {
-                      <!--//<![CDATA[
-                     document.MAX_ct0 ='';
-                     var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
-                     var m3_r = Math.floor(Math.random()*99999999999);
-                     document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-                     document.write ("zoneid=434917");document.write("&amp;nodis=1");
-                     document.write ('&amp;cb=' + m3_r);
-                     if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-                     document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
-                     document.write ("&amp;loc=" + escape(window.location).substring(0,1600));
-                     if (document.context) document.write ("&context=" + escape(document.context));
-                     if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
-                         document.write ("&amp;ct0=" + escape(document.MAX_ct0));
-                     }
-                     if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-
-                     document.write ("'></scr"+"ipt>");
-                  //]]>-->
-                    }</script>
-
-               </div> */?>
 
 
 
@@ -310,27 +293,6 @@ To help you refine your search in <?php echo $searchvalue; ?> please feel free t
 
 
 
-<?php /*
-                <!-- START RECENT PROPERTY
-                <div class="block-sidebar recent-property">
-                  <h3 class="title-block-sidebar">Recent Property</h3>
-                  <div class="featured-property">
-                    <ul>
-                      <li>
-                        <div class="featured-image">
-                          <a href="property-details.html"><img src="images/property/property1.jpg" alt=""></a>
-                        </div>
-                        <div class="featured-decs">
-                          <span class="featured-status"><a href="#">For Sale</a></span>
-                          <h4 class="featured-title"><a href="property-details.html" title="Visalia, NJ 93277">Visalia, NJ 93277</a></h4>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                END RECENT PROPERTY -->
-
-   */ ?>
               </div>
             </div>
             <!-- END SIDEBAR -->

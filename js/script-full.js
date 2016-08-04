@@ -28,7 +28,7 @@
 
 
 
-! function($) {
+/*! function($) {*/
   $(document).ready(function() {
 
     /* js list page */
@@ -241,7 +241,7 @@
     /* --------------------------------------------------------------------- */
     /* 5. SLIDER 1 - HOMEPAGE
     /* --------------------------------------------------------------------- */
-    (function() {
+   /* (function() {
       if($('#noo-slider-1 .sliders').length){
         $('#noo-slider-1 .sliders').carouFredSel({
           infinite: true,
@@ -281,14 +281,14 @@
           }
         });
       }
-    })();
+    })();*/
       
 
 
     /* --------------------------------------------------------------------- */
     /* 6. SLIDER 2 - SHORTCODES - FADE ANIMATION WITH INDICATOR
     /* --------------------------------------------------------------------- */
-    (function() {
+    /*(function() {
       if($('#noo-slider-2 .sliders').length){
         $('#noo-slider-2 .sliders').carouFredSel({
           infinite: true,
@@ -320,14 +320,14 @@
           }
         });
       }
-    })();
+    })();*/
       
 
     
     /* --------------------------------------------------------------------- */
     /* 7. SLIDER 3 - SHORTCODES - AUTO SLIDE ANIMATION
     /* --------------------------------------------------------------------- */
-    (function() {
+    /*(function() {
       if($('#noo-slider-3 .sliders').length){
         $('#noo-slider-3 .sliders').carouFredSel({
           infinite: true,
@@ -356,14 +356,14 @@
           }
         });
       }
-    })();
+    })();*/
       
 
 
     /* --------------------------------------------------------------------- */
     /* 8. SLIDER 4 - SHORTCODES - RANDOM SLIDER WITH TIMER 
     /* --------------------------------------------------------------------- */
-    (function() {
+   /* (function() {
       if($('#noo-slider-4 .sliders').length){
         $('#noo-slider-4 .sliders').carouFredSel({
           infinite: true,
@@ -399,14 +399,14 @@
           }
         });
       }
-    })();
+    })();*/
       
 
     
     /* --------------------------------------------------------------------- */
     /* 9. SLIDER 5 - SHORTCODES - TEXT SLIDE WITH NAVIGATION ARROW
     /* --------------------------------------------------------------------- */
-    (function() {
+   /* (function() {
       if($('#noo-slider-5 .sliders').length){
         $('#noo-slider-5 .sliders').carouFredSel({
           infinite: true,
@@ -443,14 +443,14 @@
           }
         });
       }
-    })();
+    })();*/
       
 
     
     /* --------------------------------------------------------------------- */
     /* 10. NOUISLIDER 1 (JQUERY SLIDER RANGE) - PRICE SLIDER RANGE
     /* --------------------------------------------------------------------- */
-    (function() {
+    /*(function() {
       if($('.gprice-slider-range').length){
         $(".gprice-slider-range").noUiSlider({
           start: [200, 11000000],
@@ -479,14 +479,15 @@
           );
         });
       }
-    })();
+    })();*/
 
 
 
     /* --------------------------------------------------------------------- */
     /* 11. NOUISLIDER 2 (JQUERY SLIDER RANGE) - AREA SLIDER RANGE
     /* --------------------------------------------------------------------- */
-    (function() {
+   
+   /* (function() {
       if($('.garea-slider-range').length){
         $(".garea-slider-range").noUiSlider({
           start: [200, 11000000],
@@ -515,7 +516,7 @@
           );
         });
       }
-    })();
+    })();*/
 
 
     
@@ -536,7 +537,7 @@
     /* --------------------------------------------------------------------- */
     /* 13. JQUERY APPEAR
     /* --------------------------------------------------------------------- */
-    (function() {
+    /*(function() {
       if($('.animatedParent').length){
         $('.animatedParent').appear(function() {
           var ele = $(this).find('.animated');
@@ -544,9 +545,7 @@
           ele.addClass('go');
         });
       }
-    })();
-
-
+    })();*/
     
     /* --------------------------------------------------------------------- */
     /* 14. JPLAYER AUDIO 1 (ARTICLE - BLOG PAGE)
@@ -616,7 +615,7 @@
     /* --------------------------------------------------------------------- */
     /* 17. TOGGLE  - SHORTCODES
     /* --------------------------------------------------------------------- */
-    (function() {
+  /*  (function() {
       if($('#noo-accordion-2').length){
         $('#noo-accordion-2 .panel-title a').attr('data-parent', '#noo-accordion-2');
         $('#noo-accordion-2 .noo-accordion-tab:eq(0)').addClass('in');
@@ -628,7 +627,7 @@
         });
         $('#noo-accordion-2 .in').prev('.panel-heading').addClass('active');
       }
-    })();
+    })();*/
 
 
 
@@ -678,7 +677,7 @@
     /* --------------------------------------------------------------------- */
     /* 21. EDITOR WYSIHTML5
     /* --------------------------------------------------------------------- */
-    (function() {
+   /* (function() {
       if($('.s-prop-desc textarea').length){
         $('.s-prop-desc textarea').wysihtml5({
           "font-styles": false,
@@ -691,14 +690,14 @@
           "color": false
         });
       }
-    })();
+    })();*/
 
 
 
     /* --------------------------------------------------------------------- */
     /* 22. CHANGE YOUR PACKAGE (SUBMIT PROPRETY PAGE)
     /* --------------------------------------------------------------------- */
-    (function() {
+   /* (function() {
       if($('.checkbox-label').length){
         $('.checkbox-label').on( "click", function(){
           if($('#recurring_payment').is(':checked')){
@@ -710,7 +709,7 @@
           }
         });
       }
-    })();
+    })();*/
 
 
     
@@ -728,7 +727,7 @@
     })();
 
   });
-}(jQuery);
+/*}(jQuery);*/
 
       
 

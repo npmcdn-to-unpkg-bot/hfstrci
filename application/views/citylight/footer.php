@@ -135,19 +135,26 @@
     </div>
   </div>
 </div>
+<?php /*
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>
+  <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>*/ ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
+<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script> 
 <script> 
-$(document).ready(function() {
+
+jQuery(document).ready(function() {
+    
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
-      });
-jQuery(document).ready(function() {
+
 
             // Event move outside
           $('html').mouseleave(function(e) {
@@ -166,13 +173,12 @@ jQuery(document).ready(function() {
                 }
             });         
 
-        });
-$(document).ready(function(){
+       
+
+
       $ = jQuery.noConflict();
 
       $("#email_error").hide();
-
-
       $('button#submit').click(function(){
 
         var email       = $('#email').val();
@@ -264,8 +270,7 @@ $(document).ready(function(){
 
     
      
-  });
-    jQuery(document).ready(function() {
+  
         $(".btn_receive").click(function(){
             redirectToUnbounce();
         });
@@ -294,6 +299,6 @@ $(document).ready(function(){
          }
     });
 </script>
-
+<!--Start Cookie Script--> <script type="text/javascript" charset="UTF-8" src="http://chs03.cookie-script.com/s/102b9910812d65af6ded2834b5128bd8.js"></script> <!--End Cookie Script-->
 </body>
 </html>

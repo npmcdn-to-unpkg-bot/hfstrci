@@ -11,6 +11,18 @@
         </p>
 </div>
 
+<center>
+<script type='text/javascript'>
+<!--//<![CDATA[
+   if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
+  var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+  var abkw = window.abkw || '';
+  var plc206596 = window.plc206596 || 0;
+  document.write('<'+'div id="placement_206596_'+plc206596+'"></'+'div>');
+  AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 206596, [728,90], 'placement_206596_'+opt.place, opt); }, opt: { place: plc206596++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+//]]>-->
+</script></center>
+
     <div class="box">
         <span class="socialmedia">find us on:</span>
         <a href="#" title="Houses for sale to rent on Facebook.">
@@ -53,23 +65,18 @@
             redirectToUnbounce()
 
         });
-
         $(".btn_reject").click(function(){
             $('#unbounce').modal("hide");
         });
-
-
         $(".unbounce_redirect").click(function(){
             redirectToUnbounce();
         });
-
         $(".content_bar").click(function(){
             redirectToUnbounce();
         });
          $(".close_btn").click(function(){
             $('.mobile_bar').hide();
         });
-
          function redirectToUnbounce(){
               var search = localStorage.getItem("search") != "undefined" ?localStorage.getItem("search"):"";
               var max_price = localStorage.getItem("max_price");
