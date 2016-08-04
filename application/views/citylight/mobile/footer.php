@@ -285,7 +285,5 @@ jQuery(document).ready(function() {
               window.location.assign("http://unbouncepages.com/property-alerts?keyword="+search+"&salerent="+salerent+"&pricerange="+max_price+"");
          }
     });
-</script>
-<!--Start Cookie Script--> <script type="text/javascript" charset="UTF-8" src="http://chs03.cookie-script.com/s/102b9910812d65af6ded2834b5128bd8.js"></script> <!--End Cookie Script-->
-</body>
+</script></body>
 </html>

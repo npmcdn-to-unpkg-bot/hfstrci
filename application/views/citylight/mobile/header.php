@@ -13,6 +13,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- START HEADER -->
     <header class="noo-header">
       <!-- START TOP HEADER -->
+
+      <div class="top-header">
+        <div class="container">
+          This website uses cookies to improve user experience. By using our website you consent the use of cookies.
+        </div>
+      </div>
+
     <?php /*  <div class="top-header">
         <div class="container">
         <div class="top-header-inner">

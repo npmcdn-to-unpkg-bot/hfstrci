@@ -13,22 +13,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- START HEADER -->
     <header class="noo-header">
       <!-- START TOP HEADER -->
-    <?php /*  <div class="top-header">
+    <div class="top-header">
         <div class="container">
-        <div class="top-header-inner">
+          This website uses cookies to improve user experience. By using our website you consent the use of cookies.
+      <?php  /* <div class="top-header-inner">
             <ul class="social-top">
               <li><a href="https://www.facebook.com/housesforsaletorent" title="Facebook Houses for Sale & to Rent" target="_blank"><i class="fa fa-facebook"></i></a></li>
-              <?php /*<li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>*/ ?><?php /*
+             <li><a href="#" title="Twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
             </ul>
 
             <div class="top-header-content">
               <div class="emailto content-item">
-                <?php /*<a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>*/ ?><?php /*
+                <a href="mailto:info@housesforsaletorent.co.uk"><i class="fa fa-envelope-o"></i>&nbsp;Email:info@housesforsaletorent.co.uk</a>
               </div>
             </div>
-          </div>
+          </div> */?>
         </div>
-      </div> */ ?>
+      </div>
       <!-- END TOP HEADER -->
 
       <!-- START MAIN NAVIGATION WRAP -->
