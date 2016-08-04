@@ -144,17 +144,15 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
   <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script>*/ ?>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30"></script>
-<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script> 
+<script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script async defer src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30" ></script>
+<script async defer type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script> 
 <script> 
-
 jQuery(document).ready(function() {
     
           localStorage.setItem("search","<?php echo $searchvalue ?>");
           localStorage.setItem("salerent","<?php echo $type_search ?>");
-
 
             // Event move outside
           $('html').mouseleave(function(e) {
