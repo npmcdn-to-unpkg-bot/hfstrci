@@ -14,8 +14,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header class="noo-header">
       <!-- START TOP HEADER -->
     <div class="top-header">
-        <div class="container">
-          This website uses cookies to improve user experience. By using our website you consent the use of cookies.
+        <div class="container" style="font-size: 10px;text-align: center;">
+          Houses for Sale & to Rent uses cookies to improve user experience. By using our website you consent the use of cookies.
+        </div>
+      </div>
+
       <?php  /* <div class="top-header-inner">
             <ul class="social-top">
               <li><a href="https://www.facebook.com/housesforsaletorent" title="Facebook Houses for Sale & to Rent" target="_blank"><i class="fa fa-facebook"></i></a></li>

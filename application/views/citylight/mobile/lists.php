@@ -1,4 +1,4 @@
-<center>
+<?php /* -BANNER- <center>
 <script type='text/javascript'>
  <!--//<![CDATA[
    if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
@@ -9,7 +9,7 @@
       AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
 //]]>-->
 </script>
-</center>
+</center>*/ ?>
 
  <!-- START NOO WRAPPER -->
 		<div class="noo-wrapper">
@@ -202,7 +202,7 @@
 
                 <!-- END FIND PROPERTY -->
 
-                      <div class="banner_ads_left">
+                  <?php /* -BANNER-   <div class="banner_ads_left">
                             <script type='text/javascript'>
                              <!--//<![CDATA[
                                if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
@@ -213,7 +213,7 @@
                                   AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
                             //]]>-->
                             </script>
-                      </div>
+                      </div> */ ?>
 
 
 

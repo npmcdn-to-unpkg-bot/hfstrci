@@ -10,6 +10,7 @@
         }    ?>
         </p>
 </div>
+<?php /*
 <center>
 <script type='text/javascript'>
  <!--//<![CDATA[
@@ -20,7 +21,9 @@
       document.write('<'+'div id="placement_208807_'+plc208807+'"></'+'div>');
       AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 208807, [320,100], 'placement_208807_'+opt.place, opt); }, opt: { place: plc208807++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
 //]]>-->
-</script></center>
+</script></center> */
+ ?>
+
     <div class="box">
         <span class="socialmedia">find us on:</span>
         <a href="#" title="Houses for sale to rent on Facebook.">
@@ -35,7 +38,7 @@
     <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
     <div class="close_btn"></div>
 </div>
-<?php 
+<?php
 /*
 <!-- Modal Unbounce -->
 <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -78,7 +81,7 @@
                 $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
                 $(this).attr("clicked", "true");
       });
-     
+
       $( "#rent" ).submit(function( event ) {
                 $('#rentsearch').val($('#search1').val());
       });
