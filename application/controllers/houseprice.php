@@ -5,18 +5,28 @@ class Houseprice extends CI_Controller {
 
 	function __construct() {
 		parent::__construct();
+		header( 'Cache-Control: max-age=604800' );
 		$this->lang->load("titles","english");
 		$this->load->model('Housesm');
 		$this->load->library('../controllers/houses');
+		$this->load->library('user_agent');
 	}
 
 	public function uk(){
 		$plus = array('css'=>'stylelist2','title'=>$this->lang->line("uk-title"),'js'=>'');
 		$data["links"] = $this->Housesm->footerlinks();
-		$this->load->view('header',$plus);
-		$this->load->view('shortform');
-		$this->load->view('uk');
-		$this->load->view('footer',$data);
+		if(!$this->agent->is_mobile()) {
+		 $this->load->view('header',$plus);
+		 $this->load->view('shortform');
+		 $this->load->view('uk');
+		 $this->load->view('footer',$data);
+		}else{
+			$this->load->view('mobile/header',$plus);
+			$this->load->view('mobile/shortform');
+			$this->load->view('mobile/uk');
+			$this->load->view('mobile/footer',$data);
+		}
+
 	}
 	public function price(){
 		$viewtogetname = "";
@@ -169,9 +179,18 @@ class Houseprice extends CI_Controller {
 		$this->Housesm->savecanonical($_SERVER['REQUEST_URI'],$data["canonical"]);
 
 
-		$this->load->view('citylight/head',$plus);
-		$this->load->view('citylight/header');
-		$this->load->view('citylight/country' ,$data);
+
+		if(!$this->agent->is_mobile()) {
+			$this->load->view('citylight/head',$plus);
+			$this->load->view('citylight/header');
+			$this->load->view('citylight/country' ,$data);
+		}else{
+
+			$this->load->view('citylight/mobile/head',$plus);
+			$this->load->view('citylight/mobile/header');
+			$this->load->view('citylight/mobile/country' ,$data);
+		}
+
 		$this->getFooter();
 
 	}
@@ -331,7 +350,13 @@ class Houseprice extends CI_Controller {
         function getFooter(){
 		$data = array();
 		$data["links"] = $this->Housesm->footerlinks();
+		if(!$this->agent->is_mobile()) {
 		$this->load->view('citylight/footer',$data);
+		}else{
+
+		$this->load->view('citylight/mobile/footer',$data);
+		}
+
 	}
 
 

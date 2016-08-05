@@ -63,7 +63,7 @@
  ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
+<script src="<?php echo $this->config->base_url()."js/extrahome.min.js" ?>"></script>
 <script>
     jQuery(document).ready(function() {
 
@@ -91,11 +91,11 @@
       var search = localStorage.getItem("search") != "undefined" ? (localStorage.getItem("search") != null ? localStorage.getItem("search"): "" ) : "";
       var max_price = localStorage.getItem("max_price") != "undefined" ? (localStorage.getItem("max_price") != null ? localStorage.getItem("max_price"): "" ) : "";
       var salerent = localStorage.getItem("salerent") != "undefined" ? (localStorage.getItem("salerent") != null ? localStorage.getItem("salerent"): "" ) : "";
-      if (search == "" || max_price == "" || salerent == "") {
+    /*  if (search == "" || max_price == "" || salerent == "") {
           $(".mobile_bar").hide();
-      } else {
+      } else {*/
                     $(".mobile_bar").show();
-      }
+    //  }
 
       $(".btn_receive").click(function(){
             redirectToUnbounce()
