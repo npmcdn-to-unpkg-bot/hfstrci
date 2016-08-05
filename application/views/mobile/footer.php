@@ -35,7 +35,8 @@
     <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
     <div class="close_btn"></div>
 </div>
-
+<?php 
+/*
 <!-- Modal Unbounce -->
 <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog dialog_wrapper" role="document">
@@ -55,37 +56,71 @@
       </div>
     </div>
   </div>
-</div>
+</div>*/
+ ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
 <script>
     jQuery(document).ready(function() {
-        $(".btn_receive").click(function(){
+
+      $("#torent").click(function(){
+            localStorage.setItem("search",$("#search1").val());
+            localStorage.setItem("salerent","rent");
+        });
+
+      $("#forsale").click(function(){
+            localStorage.setItem("search",$("#search1").val());
+            localStorage.setItem("salerent","sale");
+      });
+
+      $("form input[type=submit]").click(function() {
+                $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+                $(this).attr("clicked", "true");
+      });
+     
+      $( "#rent" ).submit(function( event ) {
+                $('#rentsearch').val($('#search1').val());
+      });
+
+      // Event move outside
+
+      var search = localStorage.getItem("search") != "undefined" ? (localStorage.getItem("search") != null ? localStorage.getItem("search"): "" ) : "";
+      var max_price = localStorage.getItem("max_price") != "undefined" ? (localStorage.getItem("max_price") != null ? localStorage.getItem("max_price"): "" ) : "";
+      var salerent = localStorage.getItem("salerent") != "undefined" ? (localStorage.getItem("salerent") != null ? localStorage.getItem("salerent"): "" ) : "";
+      if (search == "" || max_price == "" || salerent == "") {
+          $(".mobile_bar").hide();
+      } else {
+                    $(".mobile_bar").show();
+      }
+
+      $(".btn_receive").click(function(){
             redirectToUnbounce()
+      });
 
-        });
-
-        $(".btn_reject").click(function(){
+      $(".btn_reject").click(function(){
             $('#unbounce').modal("hide");
-        });
+      });
 
 
-        $(".unbounce_redirect").click(function(){
+      $(".unbounce_redirect").click(function(){
             redirectToUnbounce();
-        });
+      });
 
-        $(".content_bar").click(function(){
+      $(".content_bar").click(function(){
             redirectToUnbounce();
-        });
-         $(".close_btn").click(function(){
+      });
+
+      $(".close_btn").click(function(){
             $('.mobile_bar').hide();
-        });
+      });
 
-         function redirectToUnbounce(){
+      function redirectToUnbounce(){
               var search = localStorage.getItem("search") != "undefined" ?localStorage.getItem("search"):"";
               var max_price = localStorage.getItem("max_price");
               var salerent = localStorage.getItem("salerent");
               window.location.assign("http://unbouncepages.com/property-alerts?keyword="+search+"&salerent="+salerent+"&pricerange="+max_price+"");
-         }
+      }
     });
 </script>
 </body>

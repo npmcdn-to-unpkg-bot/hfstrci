@@ -32,11 +32,13 @@
     <div ><a href="<?php echo $this->config->base_url(); ?>termsandconditions" style="color:#333;text-decoration:none;padding:5px;">Terms of Use & Privacy Policy </a></div>
 </footer>
 
+<?php /*
 <div class="mobile_bar">
     <div class="content_bar">Learn about properties as soon  as they  come to market</div>
     <img src="<?php echo $this->config->base_url(); ?>images/bar_mobile_ic.jpg" class="unbounce_redirect">
     <div class="close_btn"></div>
 </div>
+*/ ?>
 
 <!-- Modal Unbounce -->
 <div class="modal fade" id="unbounce" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -58,9 +60,48 @@
     </div>
   </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
 <script>
     jQuery(document).ready(function() {
+
+          $("#torent").click(function(){
+              localStorage.setItem("search",$("#search1").val());
+              localStorage.setItem("salerent","rent");
+          });
+
+          $("#forsale").click(function(){
+              localStorage.setItem("search",$("#search1").val());
+              localStorage.setItem("salerent","sale");
+          });
+          
+          $("form input[type=submit]").click(function() {
+                $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+                $(this).attr("clicked", "true");
+            });
+
+            $( "#rent" ).submit(function( event ) {
+                $('#rentsearch').val($('#search1').val());
+             });
+            // Event move outside
+          
+                $('html').mouseleave(function(e) {
+                    var top = e.pageY;
+                    var right = document.body.clientWidth - e.pageX;
+                    var bottom = document.body.clientHeight - e.pageY;
+                    var left = e.pageX;
+                    if(top < 10 || right < 20 || bottom < 10 || left < 10){
+                        var d = new Date();
+                        var n = d.getTime();
+                        var isShow = sessionStorage .getItem("show_popup");
+                        if (!isShow && ((n - isShow) > 1800000) ) { // check exist storage or expires storage (30 mins)
+                            $('#unbounce').modal("show");  // show popup
+                            sessionStorage .setItem("show_popup", n); // set value to tick for show popup
+                        }
+                    }
+                });    
+
+
         $(".btn_receive").click(function(){
             redirectToUnbounce()
 

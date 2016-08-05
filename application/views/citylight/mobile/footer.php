@@ -161,7 +161,7 @@ jQuery(document).ready(function() {
         $(".mobile_bar").show();
 
 
-      $ = jQuery.noConflict();
+     /* $ = jQuery.noConflict();*/
 
       $("#email_error").hide();
 
@@ -209,7 +209,7 @@ jQuery(document).ready(function() {
 
     /* Save Listing Ajax*/
     $(".featured").click(function(){
-      $ = jQuery.noConflict();
+     /* $ = jQuery.noConflict();*/
 
       $("#email_error_listing").hide();
       // $('#formListing').modal('show');
@@ -254,9 +254,6 @@ jQuery(document).ready(function() {
           }
       });
     }
-
-
-
  
         $(".btn_receive").click(function(){
             redirectToUnbounce();

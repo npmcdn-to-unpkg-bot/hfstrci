@@ -171,7 +171,7 @@ jQuery(document).ready(function() {
                 }
             });         
 
-      $ = jQuery.noConflict();
+    /*  $ = jQuery.noConflict();*/
 
       $("#email_error").hide();
       $('button#submit').click(function(){
@@ -217,8 +217,7 @@ jQuery(document).ready(function() {
 
     /* Save Listing Ajax*/
     $(".featured").click(function(){
-      $ = jQuery.noConflict();
-
+      
       $("#email_error_listing").hide();
       // $('#formListing').modal('show');
 
@@ -261,11 +260,7 @@ jQuery(document).ready(function() {
             });
           }
       });  
-    }
-
-    
-     
-  
+    } 
         $(".btn_receive").click(function(){
             redirectToUnbounce();
         });
