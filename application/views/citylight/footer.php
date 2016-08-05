@@ -149,6 +149,14 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhqHhs7yOY46r2H-71JhTA8dGorPqIu30" ></script>
 <script async defer type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script>
 <script>
+        // Asynchronously load non-critical css
+        function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }
+        // load css file async
+        loadCSS('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css');
+         
+</script>
+
+<script>
 $(document).ready(function(){
     $ = jQuery.noConflict();
 
