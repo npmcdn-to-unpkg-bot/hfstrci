@@ -145,8 +145,7 @@
 <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script> */ ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script async defer src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
-<script async defer type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script>
+<script async defer src="<?php echo $this->config->base_url()."js/extras.js" ?>"></script>
 <script>
         // Asynchronously load non-critical css
         function loadCSS(e, t, n) { "use strict"; var i = window.document.createElement("link"); var o = t || window.document.getElementsByTagName("script")[0]; i.rel = "stylesheet"; i.href = e; i.media = "only x"; o.parentNode.insertBefore(i, o); setTimeout(function () { i.media = n || "all" }) }
