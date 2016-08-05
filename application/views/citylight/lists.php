@@ -210,7 +210,7 @@
                           //]]>-->
                      </script>
                </div>
-           
+
 
 
                 <?php if($lat && $lng){
@@ -221,7 +221,9 @@
 								        <meta itemprop="latitude" content="'.$lat.'">
 								        <meta itemprop="longitude" content="'.$lng.'">
 								    </div>
-	                  <script type="text/javascript">var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
+	                  <script type="text/javascript">
+                    localStorage.setItem("search","'.$searchvalue.'");
+                    localStorage.setItem("salerent","'.$type_search.'");var lat = '.$lat.'; var lng = '.$lng.';var srange = '.$filters["range"].';var loctitle = "'.$searchvalue.'";</script>
 	                </div>';
 	               }
                 ?>
@@ -588,5 +590,3 @@ foreach($results as $k){
     </div>
 
     <!-- Modal Form -->
-
-

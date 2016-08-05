@@ -145,116 +145,112 @@
 <script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.js"></script> */ ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
-<script type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script> 
+<script async defer src="<?php echo $this->config->base_url()."js/extras.min.js" ?>"></script>
+<script async defer type="text/javascript" src="<?php echo $this->config->base_url(); ?>/js/script-full.min.js"></script>
 <script>
-jQuery(document).ready(function() {
+$(document).ready(function(){
+    $ = jQuery.noConflict();
 
-        localStorage.setItem("search","<?php echo $searchvalue ?>");
-        localStorage.setItem("salerent","<?php echo $type_search ?>");
+    $("#email_error").hide();
+    $('button#submit').click(function(){
 
+      var email       = $('#email').val();
+      var enquirytype = $('button#savesearch').attr('data-type');
+      var minprice    = $('input[name=price1]').val();
+      var maxprice    = $('input[name=price2]').val();
+      var geo1        = $('button#savesearch').attr('data-geo1');
+      var geo2        = $('button#savesearch').attr('data-geo2');
+      var geo3        = $('input[name=search]').val();
+      var minbed      = $('select[name=bedroom1] option:selected').val();
+      var maxbed      = $('select[name=bedroom2] option:selected').val();
+      var proptype    = $("input[type='checkbox']:checked").map(function() {return this.value;}).get().join(',');
 
-  
-        var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
-        var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
-        var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";
-        $(".mobile_bar").show();
+      var error = false;
 
+      if(email.length == 0 || email.indexOf("@") == "-1" || email.indexOf(".") == "-1"){
+        var error = true;
+        $("#email_error").fadeIn(500);
+      }else{
+        $("#email_error").hide();
+      }
 
-     /* $ = jQuery.noConflict();*/
+      if(error ==false){
+        $.ajax({
+            type:"POST",
+            url:window.location.origin+"/houses/saveSub",
+            crossDomain: true,
+            data: "email=" + email + "&enquirytype=" + enquirytype + "&minprice=" + minprice + "&maxprice=" + maxprice + "&geo1=" + geo1 + "&geo2=" + geo2 + "&geo3=" + geo3 + "&minbed=" + minbed + "&maxbed=" + maxbed + "&proptype=" + proptype,
+            success: function(data) {
+                $("#formSubcribe").modal('hide');
+                $('#infosubmit').html(data);
+                $("#thankyoupage").modal('show');
 
-      $("#email_error").hide();
+                setInterval(function(){
+                    $("#thankyoupage").modal('hide');
+                  }, 3000);
+            }
+        });
+      }
+    });
 
+  /* Save Listing Ajax*/
+  $(".featured").click(function(){
+    $ = jQuery.noConflict();
 
-      $('button#submit').click(function(){
+    $("#email_error_listing").hide();
+    // $('#formListing').modal('show');
 
-        var email       = $('#email').val();
-        var enquirytype = $('button#savesearch').attr('data-type');
-        var minprice    = $('input[name=price1]').val();
-        var maxprice    = $('input[name=price2]').val();
-        var geo1        = $('button#savesearch').attr('data-geo1');
-        var geo2        = $('button#savesearch').attr('data-geo2');
-        var geo3        = $('input[name=search]').val();
-        var minbed      = $('select[name=bedroom1] option:selected').val();
-        var maxbed      = $('select[name=bedroom2] option:selected').val();
-        var proptype    = $("input[type='checkbox']:checked").map(function() {return this.value;}).get().join(',');
+    var listingPrice  = $(this).data('price');
+    var listingType   = $(this).data('type');
+    var postCode      = $(this).data('postcode');
+    var listingId     = $(this).data('listingid');
+    var lat           = $(this).data('lat');
+    var lng           = $(this).data('lng');
+
+    submitList(listingPrice, listingType, postCode, listingId, lat, lng);
+  });
+
+  function submitList(listingPrice, listingType, postCode, listingId, lat, lng){
+    $('button#submitListing').click(function(){
+        var emailListing  = $('#emailListing').val();
 
         var error = false;
-
-        if(email.length == 0 || email.indexOf("@") == "-1" || email.indexOf(".") == "-1"){
+        if(emailListing.length == 0 || emailListing.indexOf("@") == "-1" || emailListing.indexOf(".") == "-1"){
           var error = true;
-          $("#email_error").fadeIn(500);
+          $("#email_error_listing").fadeIn(500);
         }else{
-          $("#email_error").hide();
+          $("#email_error_listing").hide();
         }
 
-        if(error ==false){
+        if(error == false){
           $.ajax({
               type:"POST",
-              url:window.location.origin+"/houses/saveSub",
+              url:window.location.origin+"/houses/saveListing",
               crossDomain: true,
-              data: "email=" + email + "&enquirytype=" + enquirytype + "&minprice=" + minprice + "&maxprice=" + maxprice + "&geo1=" + geo1 + "&geo2=" + geo2 + "&geo3=" + geo3 + "&minbed=" + minbed + "&maxbed=" + maxbed + "&proptype=" + proptype,
+              data: "email=" + emailListing + "&listingPrice=" + listingPrice + "&listingType=" + listingType + "&postCode=" + postCode + "&listingId=" + listingId + "&lat=" + lat + "&lng=" + lng,
               success: function(data) {
-                  $("#formSubcribe").modal('hide');
+                  $("#formListing").modal('hide');
                   $('#infosubmit').html(data);
                   $("#thankyoupage").modal('show');
-
                   setInterval(function(){
-                      $("#thankyoupage").modal('hide');
-                    }, 3000);
+                    $("#thankyoupage").modal('hide');
+                  }, 3000);
               }
           });
         }
-      });
-
-    /* Save Listing Ajax*/
-    $(".featured").click(function(){
-     /* $ = jQuery.noConflict();*/
-
-      $("#email_error_listing").hide();
-      // $('#formListing').modal('show');
-
-      var listingPrice  = $(this).data('price');
-      var listingType   = $(this).data('type');
-      var postCode      = $(this).data('postcode');
-      var listingId     = $(this).data('listingid');
-      var lat           = $(this).data('lat');
-      var lng           = $(this).data('lng');
-
-      submitList(listingPrice, listingType, postCode, listingId, lat, lng);
     });
+  }
 
-    function submitList(listingPrice, listingType, postCode, listingId, lat, lng){
-      $('button#submitListing').click(function(){
-          var emailListing  = $('#emailListing').val();
 
-          var error = false;
-          if(emailListing.length == 0 || emailListing.indexOf("@") == "-1" || emailListing.indexOf(".") == "-1"){
-            var error = true;
-            $("#email_error_listing").fadeIn(500);
-          }else{
-            $("#email_error_listing").hide();
-          }
 
-          if(error == false){
-            $.ajax({
-                type:"POST",
-                url:window.location.origin+"/houses/saveListing",
-                crossDomain: true,
-                data: "email=" + emailListing + "&listingPrice=" + listingPrice + "&listingType=" + listingType + "&postCode=" + postCode + "&listingId=" + listingId + "&lat=" + lat + "&lng=" + lng,
-                success: function(data) {
-                    $("#formListing").modal('hide');
-                    $('#infosubmit').html(data);
-                    $("#thankyoupage").modal('show');
-                    setInterval(function(){
-                      $("#thankyoupage").modal('hide');
-                    }, 3000);
-                }
-            });
-          }
-      });
-    }
- 
+});
+jQuery(document).ready(function() {
+
+      var search = localStorage.getItem("search") != "undefined" ? localStorage.getItem("search") : "";
+      var max_price = localStorage.getItem("max_price") != "undefined" ? localStorage.getItem("max_price") : "";
+      var salerent = localStorage.getItem("salerent") != "undefined" ? localStorage.getItem("salerent") : "";
+      $(".mobile_bar").show();
+
         $(".btn_receive").click(function(){
             redirectToUnbounce();
         });
