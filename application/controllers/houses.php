@@ -598,16 +598,16 @@ class Houses extends CI_Controller {
 
 	function verifyPropertyTypes($param){
 		$final = array();
-		$types = Array('Flat','Penthouse','Studio', 'House','Detached house', 'Semi Detached', 'Maisonette', 'Terraced house', 'Town house', 'Cottage', 'House share', 'Flat Share', 'Commercial','Barn conversion', 'Bungalow', 'Mill', 'Plot of Land', 'New build', 'Retirement property' );
+		//$types = Array('Flat','Penthouse','Studio', 'House','Detached house', 'Semi Detached', 'Maisonette', 'Terraced house', 'Town house', 'Cottage', 'House share', 'Flat Share', 'Commercial','Barn conversion', 'Bungalow', 'Mill', 'Plot of Land', 'New build', 'Retirement property' );
 
 		foreach($param as $pa){
-			if(in_array($pa, $types)){
+			/*if(in_array($pa, $types)){*/
 				$final[] = $pa;
 				if($pa == "Flat")
 					$final[] = "Apartament";
 				if($pa == "House share")
 					$final[] = "Flat Share";
-			}
+			/*}*/
 		}
 		return $final;
 	}

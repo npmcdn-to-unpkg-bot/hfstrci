@@ -48,9 +48,9 @@ class Housesm extends CI_Model {
 			$flist = true;
 			foreach($filters["propertytype"] as $ptype){
 				if($flist === true)
-					$proplist .= '"'.$ptype.'"';
+					$proplist .= '"'.$this->db->escape($ptype).'"';
 				else
-					$proplist .= ', "'.$ptype.'"';
+					$proplist .= ', "'.$this->db->escape($ptype).'"';
 				$flist=false;
 
 			}
@@ -92,7 +92,7 @@ class Housesm extends CI_Model {
 		$rowcount = $queryforrows->num_rows();
 	else
 		$rowcount = 0;
-	
+
 	$query3 = $this->db->query("
 				SELECT id_feed, latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed
 				FROM feed WHERE id_feed IN($rows) $wherefilters ".$srt." LIMIT ".$startnum.", ".$resultnumber);
