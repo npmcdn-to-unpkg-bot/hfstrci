@@ -88,11 +88,11 @@ class Housesm extends CI_Model {
 	$queryforrows = $this->db->query("
 				SELECT id_feed
 				FROM feed WHERE id_feed IN($rows) $wherefilters");
-	print_R($queryforrows);
-	exit;
-
-	$rowcount = $queryforrows->num_rows();
-
+	if($queryforrows)
+		$rowcount = $queryforrows->num_rows();
+	else
+		$rowcount = 0;
+	
 	$query3 = $this->db->query("
 				SELECT id_feed, latitude_feed, longitude_feed, full_address_feed,key_feed,property_type_feed,display_address_feed,full_description_feed,photo_feed,num_bedrooms_feed,price_feed
 				FROM feed WHERE id_feed IN($rows) $wherefilters ".$srt." LIMIT ".$startnum.", ".$resultnumber);
