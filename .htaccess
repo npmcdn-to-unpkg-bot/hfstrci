@@ -1,8 +1,13 @@
 
 RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.housesforsaletorent\.com$
+RewriteRule ^/(.*)$ http://housesforsaletorent.com/$1 [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L]
+
 
 <IfModule mod_php5.c>
     php_value session.cookie_lifetime 1200
