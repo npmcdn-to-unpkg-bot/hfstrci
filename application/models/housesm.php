@@ -89,6 +89,7 @@ class Housesm extends CI_Model {
 				SELECT id_feed
 				FROM feed WHERE id_feed IN($rows) $wherefilters");
 	print_R($queryforrows);
+	exit;
 
 	$rowcount = $queryforrows->num_rows();
 
