@@ -7,9 +7,10 @@ class Houseprice extends CI_Controller {
 		parent::__construct();
 		header( 'Cache-Control: max-age=604800' );
 		$this->lang->load("titles","english");
+		$this->load->library('user_agent');
 		$this->load->model('Housesm');
 		$this->load->library('../controllers/houses');
-		$this->load->library('user_agent');
+		
 	}
 
 	public function uk(){
