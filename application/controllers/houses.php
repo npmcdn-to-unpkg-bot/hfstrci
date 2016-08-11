@@ -600,7 +600,7 @@ class Houses extends CI_Controller {
 
 	function verifyPropertyTypes($param){
 		$final = array();
-		$types = Array('Commercial','Cottage','Detached house','Flat','House','House Share','New build','Penthouse','Plot of Land','Semi Detached','Studio','Terraced house');
+		$types = Array('Commercial','Cottage','Detached house','Flat','Apartament','House','House Share','New build','Penthouse','Plot of Land','Semi Detached','Studio','Terraced house');
 
 		foreach($param as $pa){
 			if(in_array($pa, $types)){
