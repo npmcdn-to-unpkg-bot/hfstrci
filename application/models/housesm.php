@@ -48,9 +48,9 @@ class Housesm extends CI_Model {
 			$flist = true;
 			foreach($filters["propertytype"] as $ptype){
 				if($flist === true)
-					$proplist .= '"'.$this->db->escape($ptype).'"';
+					$proplist .= '"'.$ptype.'"';
 				else
-					$proplist .= ', "'.$this->db->escape($ptype).'"';
+					$proplist .= ', "'.$ptype.'"';		
 				$flist=false;
 
 			}

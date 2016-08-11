@@ -436,9 +436,11 @@ class Houses extends CI_Controller {
 		}else
 			$filters["range"] = (int)1;
 
-		if($this->input->get('property-type'))
+		if($this->input->get('property-type')){
 			$filters["propertytype"] = $this->verifyPropertyTypes($this->input->get('property-type'));
-
+			if(!$filters["propertytype"])
+				unset($filters["propertytype"]);
+		}
 		if((int)$this->input->get('orderby') >= 0 && $this->input->get('orderby') != "")
 			$filters["sortby"] = $this->input->get('orderby');
 
@@ -598,18 +600,21 @@ class Houses extends CI_Controller {
 
 	function verifyPropertyTypes($param){
 		$final = array();
-		//$types = Array('Flat','Penthouse','Studio', 'House','Detached house', 'Semi Detached', 'Maisonette', 'Terraced house', 'Town house', 'Cottage', 'House share', 'Flat Share', 'Commercial','Barn conversion', 'Bungalow', 'Mill', 'Plot of Land', 'New build', 'Retirement property' );
+		$types = Array('Commercial','Cottage','Detached house','Flat','House','House Share','New build','Penthouse','Plot of Land','Semi Detached','Studio','Terraced house');
 
 		foreach($param as $pa){
-			/*if(in_array($pa, $types)){*/
+			if(in_array($pa, $types)){
 				$final[] = $pa;
 				if($pa == "Flat")
 					$final[] = "Apartament";
 				if($pa == "House share")
 					$final[] = "Flat Share";
-			/*}*/
+			}
 		}
-		return $final;
+		if(count($final) > 0)
+			return $final;
+		else
+			return false;
 	}
 	function doiturl($i) {
 
