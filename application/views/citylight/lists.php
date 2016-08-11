@@ -361,6 +361,8 @@ foreach($results as $k){
    $counti++;
             $key = $k->id_feed;
             $proptype = $k->property_type_feed;
+            $proptypedisplay = $k->property_type_display_feed;
+            
             if(! $proptype){$proptype = "";}
             $address = $k->display_address_feed;
             if(substr($address, 0, 4) == "chpk"){
@@ -418,7 +420,7 @@ foreach($results as $k){
 	            $img = "http://hfstrcibkt.s3-website-eu-west-1.amazonaws.com/images/{$add}{$rand}.jpg";
 	            if(@getimagesize($img))
 	            break;
-	   }*/
+	          }*/
             $bed = $k->num_bedrooms_feed;
             $price = number_format($k->price_feed);
             $href = $this->config->base_url()."houses/redirect/$key.html";
@@ -460,7 +462,7 @@ foreach($results as $k){
                         </a>
                         <?php //<span class="property-label">Hot</span>
                         ?>
-                        <span class="property-category"><a href="<?php echo $href; ?>" rel="nofollow" target="_blank"><?php echo $proptype; ?></a></span>
+                        <span class="property-category"><a href="<?php echo $href; ?>" rel="nofollow" target="_blank"><?php echo $proptypedisplay; ?></a></span>
                       </div>
                       <div class="property-wrap">
                         <h2 class="property-title" itemprop="name">
