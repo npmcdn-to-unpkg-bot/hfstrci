@@ -1,4 +1,4 @@
-<?php /* -BANNER- <center>
+ <center>
 <script type='text/javascript'>
 <!--//<![CDATA[
    if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}
@@ -7,7 +7,7 @@
   var plc206597 = window.plc206597 || 0;
   document.write('<'+'div id="placement_206597_'+plc206597+'"></'+'div>');
   AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 206597, [728,90], 'placement_206597_'+opt.place, opt); }, opt: { place: plc206597++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
-</script> </center> <!-- START NOO WRAPPER -->*/ ?>
+</script> </center> <!-- START NOO WRAPPER -->
 
 		<div class="noo-wrapper">
 		  <!-- START MAINBODY -->
@@ -158,9 +158,17 @@
                                   >Save Search</button>
                                 </div>
                               <div class="banner_get_free">
-                                <a href="http://www.internet-mortgage-services.co.uk/houses-for-sale-or-to-rent" target="_blank">
+                               <?php /* <a href="http://www.internet-mortgage-services.co.uk/houses-for-sale-or-to-rent" target="_blank">
                                   <img src="<?php echo $this->config->base_url(); ?>/images/get_free.png" />
-                                </a>
+                                </a>*/ ?>
+                                <script type="text/javascript">if (!window.AdButler){(function(){var s = document.createElement("script"); s.async = true; s.type = "text/javascript";s.src = 'http://ab168091.adbutler-tachyon.com/app.js';var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(s, n);}());}</script>
+<script type="text/javascript">
+var AdButler = AdButler || {}; AdButler.ads = AdButler.ads || [];
+var abkw = window.abkw || '';
+var plc210301 = window.plc210301 || 0;
+document.write('<'+'div id="placement_210301_'+plc210301+'"></'+'div>');
+AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 210301, [254,75], 'placement_210301_'+opt.place, opt); }, opt: { place: plc210301++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
+</script>
                               </div>
                                 <!-- Modal Form Subscribe -->
                                 <div class="modal" id="formSubcribe" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
