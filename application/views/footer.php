@@ -10,7 +10,7 @@
         }    ?>
         </p>
 </div>
-<?php /* -BANNER-
+
 <center>
 <script type='text/javascript'>
 <!--//<![CDATA[
@@ -21,7 +21,7 @@
   document.write('<'+'div id="placement_206596_'+plc206596+'"></'+'div>');
   AdButler.ads.push({handler: function(opt){ AdButler.register(168091, 206596, [728,90], 'placement_206596_'+opt.place, opt); }, opt: { place: plc206596++, keywords: abkw, domain: 'ab168091.adbutler-tachyon.com', click:'CLICK_MACRO_PLACEHOLDER' }});
 //]]>-->
-</script></center> */ ?>
+</script></center>
 
     <div class="box">
         <span class="socialmedia">find us on:</span>
