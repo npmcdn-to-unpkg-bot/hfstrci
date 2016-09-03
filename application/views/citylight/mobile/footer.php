@@ -137,7 +137,7 @@
 </div>
 <?php /*
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="https://unpkg.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <script src="<?php echo $this->config->base_url()."js/bootstrap.min.js" ?>"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/1.7.2/jquery.smooth-scroll.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/unveil/1.3.0/jquery.unveil.js"></script>
